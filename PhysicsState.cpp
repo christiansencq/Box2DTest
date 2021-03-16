@@ -1,21 +1,20 @@
 #include "PhysicsState.h"
 #include "Constants.h"
 
-PhysicsState::PhysicsState(SDL_Renderer* renderer) : mnoptrrenderer(renderer)
+PhysicsState::PhysicsState(SDL_Renderer* renderer) : mnoptrrenderer(renderer) :
+timeStep(1/60.0f), velocityIterations(2), positionIterations(6)
 {
-    gravity.Set(0.0f, -10.0f);
-    mWorld = new b2World(gravity);
+    gravity = b2Vec2(0.0f, -10.0f);
+    world = new b2World(gravity);
 
-    mGroundBody = createStaticBody(*mWorld);
-    mMovingBody = createDynamicBody(*mWorld);
+    mGroundBody = new PhysicsEntity(100.0f, 20.0f, 0.0f, -10.0f, gameWorld, false);
+    mMovingBody = new PhysicsEntity(1.0f, 1.0f, 0.0f, 4.0f, gameWorld, true);
 }
 
 PhysicsState::~PhysicsState()
 {
 
-    mWorld->DestroyBody(mGroundBody);
-    mWorld->DestroyBody(mMovingBody);
-    delete mWorld;
+    delete gameWorld;
 }
 
 b2Body* PhysicsState::createStaticBody(b2World& world)
@@ -61,7 +60,7 @@ void PhysicsState::handleEvents()
 
 void PhysicsState::update()
 {
-    mWorld->Step(timeStep, velocityIterations, positionIterations);
+    world->Step(timeStep, velocityIterations, positionIterations);
     //std::cout << "Step: " << timeStep << std::endl;
 
     b2Vec2 position = mMovingBody->GetPosition();

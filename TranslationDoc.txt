@@ -1,0 +1,14 @@
+
+From this:
+https://github.com/borysn/SFML-Box2D-Simple-Level
+
+Transfer the player to the dynamic object.
+Transfer from wall/ceiling/floor to the border.
+Turn the aBody into its own file? maybe not needed now.
+
+PhysicsState is analogous to Level
+
+BoxWorld is the manager for the Physics?
+StatBody and DynBody can be essentially removed? 
+ - Replace StatBody with aBody.
+ - DynBody would be the player.

@@ -4,12 +4,15 @@
 
 #include "State.h"
 #include "App.h"
-#include "DynBody.h"
-#include "StatBody.h"
+#include "BoxWorld.h"
+#include "PhysicsEntity.h"
+//Analogous to the Levels.
+//https://github.com/borysn/SFML-Box2D-Simple-Level/blob/master/Level.cpp
 
 class PhysicsState : public State
 {
 public:
+    //PhysicsState(b2World* aWorld, SDL_Renderer* renderer)
     PhysicsState(SDL_Renderer* renderer);
     ~PhysicsState();
 
@@ -23,11 +26,14 @@ public:
 
 private:
     SDL_Renderer* mnoptrrenderer;
+    
+    b2World* world;
+    
+    //aBody borderPlatforms[4];
+    PhysicsEntity* mGroundBody;
+    PhysicsEntity* mMovingBody;
 
-    b2Vec2 gravity;
-
-    b2World* mWorld;
-
-    b2Body* mGroundBody;
-    b2Body* mMovingBody;
+    float timeStep;
+    int velocityIterations;
+    int positionIterations;
 };
