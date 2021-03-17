@@ -1,7 +1,11 @@
 Merge the BoxWorld and the Physicsstate - no need for them to be separate
  at this point.  World only has the gravity and the b2World.
 
+Separate Out PhysicsComponent from Entity.  
 
+Try to make a Bounce or Adding a Force
+
+Then work on a visual display, or a binary input that allows a force to be exerted.
 
 
 

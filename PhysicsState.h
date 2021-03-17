@@ -1,10 +1,12 @@
 #pragma once
 
 #include <memory>
+#include <vector>
 
 #include "State.h"
 #include "App.h"
 #include "PhysicsEntity.h"
+
 //Analogous to the Levels.
 //https://github.com/borysn/SFML-Box2D-Simple-Level/blob/master/Level.cpp
 
@@ -26,7 +28,7 @@ private:
     
     b2World* world;
     
-    //aBody borderPlatforms[4];
+    std::vector<PhysicsEntity> dynamicEntities;
     PhysicsEntity* mGroundBody;
     PhysicsEntity* mMovingBody;
 

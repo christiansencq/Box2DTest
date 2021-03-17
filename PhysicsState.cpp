@@ -32,16 +32,17 @@ void PhysicsState::handleEvents()
 void PhysicsState::update()
 {
     world->Step(timeStep, velocityIterations, positionIterations);
-    //std::cout << "Step: " << timeStep << std::endl;
-
-    //printf("X, Y, Angle: %4.2f  %4.2f %4.2f\n", position.x, position.y, angle);
+    
+    std::cout << "X " << mMovingBody->GetPhysBody()->GetPosition().x << "\n";
+    std::cout << "Y " << mMovingBody->GetPhysBody()->GetPosition().y << "\n";
 }
 
 void PhysicsState::render(SDL_Renderer* renderer)
 {
     SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
     SDL_RenderClear(renderer);
-    mMovingBody->Render(renderer);
+    
+
     //Rendering
     SDL_RenderPresent(renderer);
 }
