@@ -26,4 +26,4 @@ private:
 
     b2World* world;
     b2Vec2 gravity;
-};_w
+};

@@ -1,4 +1,11 @@
+Merge the BoxWorld and the Physicsstate - no need for them to be separate
+ at this point.  World only has the gravity and the b2World.
 
+
+
+
+
+/////
 From this:
 https://github.com/borysn/SFML-Box2D-Simple-Level
 

@@ -1,7 +1,8 @@
 #include "PhysicsEntity.h"
+#include <iostream>
 
-PhysicsEntity::PhysicsEntity(float w, float h, float x, float y, World* world, bool dynamic)
- : mWidth(w), mHeight(h), physWorld(world->getb2World()), isDynamic(dynamic)
+PhysicsEntity::PhysicsEntity(float w, float h, float x, float y, b2World* world, bool dynamic)
+ : mWidth(w), mHeight(h), physWorld(world), isDynamic(dynamic)
  {
      b2BodyDef bodyDef;
      if (dynamic)
@@ -10,7 +11,8 @@ PhysicsEntity::PhysicsEntity(float w, float h, float x, float y, World* world, b
      }
      bodyDef.position.Set(x, y);
 
-     b2Body* mPhysBody = physWorld->CreateBody(&bodyDef);
+     mPhysBody = physWorld->CreateBody(&bodyDef);
+     
      b2PolygonShape myShape;
      myShape.SetAsBox(w/2.0, h/2.0);
 
@@ -26,7 +28,8 @@ PhysicsEntity::PhysicsEntity(float w, float h, float x, float y, World* world, b
      {
          mPhysBody->CreateFixture(&myShape, 0.0f);
      }
-     
+     std::cout << "X " << mPhysBody->GetPosition().x << "\n";
+     std::cout << "Y " << mPhysBody->GetPosition().y << "\n";
      mRectangle.w = w;
      mRectangle.h = h;
      mRectangle.x = x;
@@ -35,7 +38,7 @@ PhysicsEntity::PhysicsEntity(float w, float h, float x, float y, World* world, b
 
  PhysicsEntity::~PhysicsEntity()
  {
-    
+    physWorld->DestroyBody(mPhysBody);
  }
 
  void PhysicsEntity::Update()
@@ -45,11 +48,10 @@ PhysicsEntity::PhysicsEntity(float w, float h, float x, float y, World* world, b
 
  void PhysicsEntity::Render(SDL_Renderer* renderer)
  {
-     b2Vec2 position = mPhysBody->GetPosition();
-     float angle = mPhysBody->GetAngle();
-
-     mRectangle.x = position.x;
-     mRectangle.y = position.y;
+     std::cout << "X " << mPhysBody->GetPosition().x << "\n";
+     std::cout << "Y " << mPhysBody->GetPosition().y << "\n";
+     //float angle = mPhysBody->GetAngle();
+     //printf("Pos", position.x, " ", position.y, "\n");
 
      SDL_SetRenderDrawColor(renderer, 250, 0, 200, 255);
      SDL_RenderFillRect(renderer, &mRectangle);

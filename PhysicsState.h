@@ -4,7 +4,6 @@
 
 #include "State.h"
 #include "App.h"
-#include "BoxWorld.h"
 #include "PhysicsEntity.h"
 //Analogous to the Levels.
 //https://github.com/borysn/SFML-Box2D-Simple-Level/blob/master/Level.cpp
@@ -21,8 +20,6 @@ public:
     void update() override;
     void render(SDL_Renderer* renderer) override;
 
-    b2Body* createStaticBody(b2World& world);
-    b2Body* createDynamicBody(b2World& world);
 
 private:
     SDL_Renderer* mnoptrrenderer;

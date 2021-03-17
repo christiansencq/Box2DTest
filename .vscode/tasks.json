@@ -10,7 +10,7 @@
 				"-Wall",
 				"-pedantic",
 				"-Wextra",
-				"${workspaceFolder}/**.cpp",
+				"${workspaceFolder}/*.cpp",
 				"-o",
 				"${fileDirname}/${fileBasenameNoExtension}",
 				"-lBox2D",
