@@ -66,9 +66,9 @@ void App::Run()
             assert(topState && "There is no scene!");
             if (topState)
             {
-                topState->handleEvents();
-                topState->update();
-                topState->render(renderer);
+                topState->HandleEvents();
+                topState->Update();
+                topState->Render(renderer);
             }
         }
     }

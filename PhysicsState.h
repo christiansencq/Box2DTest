@@ -5,7 +5,9 @@
 
 #include "State.h"
 #include "App.h"
-#include "PhysicsEntity.h"
+#include "Entity.h"
+#include "EntityManager.h"
+#include "PhysicsComponent.h"
 
 //Analogous to the Levels.
 //https://github.com/borysn/SFML-Box2D-Simple-Level/blob/master/Level.cpp
@@ -18,19 +20,18 @@ public:
     ~PhysicsState();
 
     void init() override {}
-    void handleEvents() override;
-    void update() override;
-    void render(SDL_Renderer* renderer) override;
-
+    void HandleEvents() override;
+    void Update() override;
+    void Render(SDL_Renderer* renderer) override;
 
 private:
     SDL_Renderer* mnoptrrenderer;
-    
     b2World* world;
-    
-    std::vector<PhysicsEntity> dynamicEntities;
-    PhysicsEntity* mGroundBody;
-    PhysicsEntity* mMovingBody;
+    EntityManager* manager;
+
+    //std::vector<PhysicsEntity> dynamicEntities;
+    Entity* movingObject;
+    Entity* staticObject;
 
     float timeStep;
     int velocityIterations;
