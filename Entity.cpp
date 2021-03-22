@@ -10,7 +10,7 @@ Entity::Entity(EntityManager& manager, std::string name) : manager(manager), nam
     this->isActive = true;
 }
 
-void Entity::Update()
+void Entity::Update(b2World* world)
 {
     for (auto& component : components)
     {

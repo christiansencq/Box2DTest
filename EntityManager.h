@@ -26,4 +26,5 @@ public:
 private:
     std::vector<Entity*> entities;
     SDL_Renderer* renderer;
+    b2World* physWorld;
 };

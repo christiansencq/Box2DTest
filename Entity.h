@@ -16,7 +16,7 @@ public:
     Entity(EntityManager& manager);
     Entity(EntityManager& manager, std::string name);
     
-    void Update();
+    void Update(b2World* world);
     void Render(SDL_Renderer* renderer);
     void Destroy();
 
@@ -61,5 +61,6 @@ private:
     std::map<const std::type_info*, Component*> componentTypeMap;
     std::string name;
 
+    b2World* physWorld;
     SDL_Renderer* renderer;
 };
