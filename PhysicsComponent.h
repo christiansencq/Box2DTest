@@ -15,7 +15,7 @@ public:
     PhysicsComponent(float w, float h, float x, float y, b2World* world, bool dynamic = false);
     ~PhysicsComponent();
     void Initialize() override;
-    void Update(b2World* world) override;
+    void Update() override;
     void Render(SDL_Renderer* renderer) override;
     void printType() const override;
 

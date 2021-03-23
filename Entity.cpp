@@ -10,7 +10,7 @@ Entity::Entity(EntityManager& manager, std::string name) : manager(manager), nam
     this->isActive = true;
 }
 
-void Entity::Update(b2World* world)
+void Entity::Update()
 {
     for (auto& component : components)
     {
@@ -18,10 +18,11 @@ void Entity::Update(b2World* world)
     }
 
     //Check if I HAVE a physics component, but then update pos from it
-    xPos = GetComponent<PhysicsComponent>()->GetPhysBody()->GetPosition().x;
-    yPos = GetComponent<PhysicsComponent>()->GetPhysBody()->GetPosition().y;
-    std::cout << "XPos: " << xPos << std::endl;
-    std::cout << "YPos: " << yPos << std::endl;
+    
+    //xPos = GetComponent<PhysicsComponent>()->GetPhysBody()->GetPosition().x;
+    //yPos = GetComponent<PhysicsComponent>()->GetPhysBody()->GetPosition().y;
+    //std::cout << "Entity XPos: " << xPos << std::endl;
+    //std::cout << "Entity YPos: " << yPos << std::endl;
 }
 
 void Entity::Render(SDL_Renderer* renderer)

@@ -15,7 +15,7 @@ void EntityManager::Update()
     {
         entity->Update();
     }
-    ListAllEntities();
+    //ListAllEntities();
     DestroyInactiveEntities();
 }
 
@@ -50,5 +50,16 @@ void EntityManager::ListAllEntities() const
     for (auto& entity : entities)
     {
         std::cout << entity->GetName() << std::endl;
+    }
+}
+
+Entity* EntityManager::GetEntityByName(std::string name)
+{
+    for (auto& entity : entities)
+    {
+        if (entity->GetName() == name)
+        {
+            return entity;
+        }
     }
 }

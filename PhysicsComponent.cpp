@@ -40,12 +40,13 @@ void PhysicsComponent::Initialize()
 
 }
 
-void PhysicsComponent::Update(b2World* world)
+void PhysicsComponent::Update()
 {
+    //physWorld = world;
     //DO I NEED TO STEP THE WORLD IN HERE?  WOuld have to have the same parameters as all interacting worlds, seems clumsy.
     //Or pass in the Stepped- World from where this is called?
-    std::cout << "physComp X " << physBody->GetPosition().x << "\n";
-    std::cout << "physComp Y " << physBody->GetPosition().y << "\n";
+    //std::cout << "physComp X " << physBody->GetPosition().x << "\n";
+    //std::cout << "physComp Y " << physBody->GetPosition().y << "\n";
 }
 
 void PhysicsComponent::Render(SDL_Renderer* renderer)

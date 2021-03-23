@@ -1,6 +1,7 @@
 #pragma once
 
 #include "SDL2/SDL.h"
+#include "Box2D/Box2D.h"
 
 #include "Entity.h"
 
@@ -14,7 +15,6 @@ public:
     virtual ~Component() {}
     virtual void Initialize() {}
     virtual void Update() {}
-    virtual void Update(b2World* world) {}
     virtual void Render(SDL_Renderer* renderer) {}
     virtual void printType() const {}
 };
