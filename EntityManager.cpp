@@ -15,7 +15,7 @@ void EntityManager::Update()
     {
         entity->Update();
     }
-    //ListAllEntities();
+    //ListAllEntities();entity
     DestroyInactiveEntities();
 }
 
@@ -27,11 +27,43 @@ void EntityManager::Render(SDL_Renderer* renderer)
     }
 }
 
+void EntityManager::HandleKeyPress(SDL_Keycode key)
+{
+    for (auto& entity : entities)
+    {
+        entity->HandleKeyPress(key);
+    }
+}
+
+void EntityManager::HandleKeyRelease(SDL_Keycode key)
+{
+    for (auto& entity : entities)
+    {
+        entity->HandleKeyRelease(key);
+    }
+}
+
+void EntityManager::HandleInput(SDL_Event &event)
+{
+    for (auto& entity : entities)
+    {
+        entity->HandleEvents(event);
+    }
+}
+
 Entity& EntityManager::AddEntity(std::string entityName)
 {
     Entity* entity = new Entity(*this, entityName); //Create a new Generic Entity with entityName. Store a pointer to it in entity.
     entities.emplace_back(entity); //Add that pointer to the entities list.
     return *entity; //Return the actual object?
+
+/*
+//Implementation for use of std::unique_ptr
+    Entity* entity = new Entity(*this, entityName); //Create a new Generic Entity with entityName. Store a pointer to it in entity.
+    std::unique_ptr<Entity> entPtr{entity};
+    entities.emplace_back(std::move(entPtr); //Add that pointer to the entities list.
+    return *entity; //Return the actual object?
+*/
 }
 
 void EntityManager::DestroyInactiveEntities()
@@ -62,4 +94,5 @@ Entity* EntityManager::GetEntityByName(std::string name)
             return entity;
         }
     }
+    return nullptr;
 }

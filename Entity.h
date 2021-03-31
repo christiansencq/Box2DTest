@@ -4,11 +4,10 @@
 #include <vector>
 #include <map>
 
-#include "Component.h"
 #include "PhysicsComponent.h"
+//#include "EntityManager.h"
 
 class EntityManager;
-class Component;
 
 class Entity
 {
@@ -16,6 +15,9 @@ public:
     Entity(EntityManager& manager);
     Entity(EntityManager& manager, std::string name);
     
+    void HandleEvents(SDL_Event &event);
+    void HandleKeyPress(SDL_Keycode key);
+    void HandleKeyRelease(SDL_Keycode key);
     void Update();
     void Render(SDL_Renderer* renderer);
     void Destroy();

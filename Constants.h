@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Box2D/Box2D.h"
+
 //Constants
 
 //Phys constants - moved to World
@@ -21,3 +23,5 @@ struct Size2D
 {
     float width, height;
 };
+
+//b2Vec2 zeroVec = {0,0};

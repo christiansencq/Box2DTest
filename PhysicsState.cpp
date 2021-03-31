@@ -1,11 +1,9 @@
 #include "PhysicsState.h"
-#include "Constants.h"
-
 
 PhysicsState::PhysicsState(SDL_Renderer* renderer)
  : mnoptrrenderer(renderer), timeStep(1/30.0f), velocityIterations(2), positionIterations(6)
 {
-    b2Vec2 gravity = b2Vec2(0.0f, -10.0f);
+    b2Vec2 gravity = b2Vec2(0.0f, -5.0f);
     world = new b2World(gravity);
     
     manager = new EntityManager();
@@ -14,10 +12,10 @@ PhysicsState::PhysicsState(SDL_Renderer* renderer)
     //Need a Copy Constructor for Entity?
 
     Entity& movingObject{manager->AddEntity(std::string("Mover"))};
-    movingObject.AddComponent<PhysicsComponent>(1.0f, 1.0f, 0.0f, -10.0f, world, true);
+    movingObject.AddComponent<PhysicsComponent>(1.0f, 1.0f, 0.0f, 15.0f, world, true);
 
     Entity& staticObject{manager->AddEntity(std::string("Floor"))};
-    staticObject.AddComponent<PhysicsComponent>(50.0f, 10.0f, 0.0f, 10.0f, world, false);
+    staticObject.AddComponent<PhysicsComponent>(50.0f, 10.0f, 0.0f, 0.0f, world, false);
 }
 
 PhysicsState::~PhysicsState()
@@ -36,6 +34,30 @@ void PhysicsState::HandleEvents()
     {
         case SDL_QUIT:
             App::Singleton().QuitApp();
+            break;
+        
+        case SDL_KEYDOWN:
+        {
+            switch (event.key.keysym.sym)
+            {
+                case SDLK_ESCAPE:
+                    App::Singleton().QuitApp();
+                    break;
+                default:
+                    manager->HandleKeyPress(event.key.keysym.sym);
+                    break;
+            }
+            break;
+        }
+
+        case SDL_KEYUP:
+        {
+            manager->HandleKeyRelease(event.key.keysym.sym);
+            break;
+        }
+
+        default:
+            manager->HandleInput(event);
     }
 }
 
@@ -44,7 +66,7 @@ void PhysicsState::Update()
     world->Step(timeStep, velocityIterations, positionIterations); 
     manager->Update();
 
-    std::cout << "X OF MOVING BODY " << manager->GetEntityByName(std::string("Mover"))->GetComponent<PhysicsComponent>()->GetPhysBody()->GetPosition().x << std::endl;
+    //std::cout << "X OF MOVING BODY " << manager->GetEntityByName(std::string("Mover"))->GetComponent<PhysicsComponent>()->GetPhysBody()->GetPosition().x << std::endl;
     std::cout << "Y OF MOVING BODY " << manager->GetEntityByName(std::string("Mover"))->GetComponent<PhysicsComponent>()->GetPhysBody()->GetPosition().y << std::endl;
 }
 

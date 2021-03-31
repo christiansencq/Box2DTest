@@ -18,8 +18,8 @@ PhysicsComponent::PhysicsComponent(float w, float h, float x, float y, b2World* 
     {
         b2FixtureDef fixtureDef;
         fixtureDef.shape = &myShape;
-        fixtureDef.density = 1.0f;
-        fixtureDef.friction = 0.3f;
+        fixtureDef.density = 0.1f;
+        fixtureDef.friction = 0.1f;
         physBody->CreateFixture(&fixtureDef);
     }
     else
@@ -39,6 +39,41 @@ void PhysicsComponent::Initialize()
 {
 
 }
+
+void PhysicsComponent::HandleKeyPress(SDL_Keycode key)
+{
+    switch (key)
+    {
+        case SDLK_UP:
+        {
+            std::cout << "key up" << std::endl;
+            b2Vec2 upVec {0.0f, 100.0f};
+            physBody->ApplyForceToCenter(upVec, false);
+            physBody->ApplyForceToCenter(upVec, false);
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+void PhysicsComponent::HandleKeyRelease(SDL_Keycode key)
+{
+    switch (key)
+    {
+        case SDLK_UP:
+        {
+            std::cout << "key up" << std::endl;
+            b2Vec2 upVec {0.0f, 100.0f};
+            physBody->ApplyForceToCenter(upVec, false);
+            physBody->ApplyForceToCenter(upVec, false);
+            break;
+        }
+        default:
+            break;
+    }
+}
+
 
 void PhysicsComponent::Update()
 {

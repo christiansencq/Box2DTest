@@ -4,13 +4,14 @@
 #include "SDL2/SDL_image.h"
 #include "SDL2/SDL_ttf.h"
 #include "PhysicsState.h"
-// #include "DynBody.h"
-// #include "StatBody.h"
+//#include "State.h"
 
 #include <cassert>
 #include <iostream>
 #include <vector>
 #include <memory>
+
+class State;
 
 class App 
 {

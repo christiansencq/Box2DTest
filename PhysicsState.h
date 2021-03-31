@@ -3,11 +3,11 @@
 #include <memory>
 #include <vector>
 
-#include "State.h"
 #include "App.h"
+#include "Constants.h"
+#include "State.h"
 #include "Entity.h"
 #include "EntityManager.h"
-#include "PhysicsComponent.h"
 
 //Analogous to the Levels.
 //https://github.com/borysn/SFML-Box2D-Simple-Level/blob/master/Level.cpp

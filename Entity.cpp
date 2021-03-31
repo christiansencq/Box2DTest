@@ -10,19 +10,37 @@ Entity::Entity(EntityManager& manager, std::string name) : manager(manager), nam
     this->isActive = true;
 }
 
+void Entity::HandleKeyPress(SDL_Keycode key)
+{
+    for (auto& component: components)
+    {
+        component->HandleKeyPress(key);
+    }
+}
+
+void Entity::HandleKeyRelease(SDL_Keycode key)
+{
+    for (auto& component: components)
+    {
+        component->HandleKeyRelease(key);
+    }
+}
+
+
+void Entity::HandleEvents(SDL_Event &event)
+{
+    for (auto& component : components)
+    {
+        component->HandleEvents(event);
+    }
+}
+
 void Entity::Update()
 {
     for (auto& component : components)
     {
         component->Update();
     }
-
-    //Check if I HAVE a physics component, but then update pos from it
-    
-    //xPos = GetComponent<PhysicsComponent>()->GetPhysBody()->GetPosition().x;
-    //yPos = GetComponent<PhysicsComponent>()->GetPhysBody()->GetPosition().y;
-    //std::cout << "Entity XPos: " << xPos << std::endl;
-    //std::cout << "Entity YPos: " << yPos << std::endl;
 }
 
 void Entity::Render(SDL_Renderer* renderer)
