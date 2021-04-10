@@ -1,17 +1,19 @@
-#pragma once
+#ifndef APP_H
+#define APP_H
 
 #include "SDL2/SDL.h"
 #include "SDL2/SDL_image.h"
 #include "SDL2/SDL_ttf.h"
 #include "PhysicsState.h"
-//#include "State.h"
+#include "State.h"
 
 #include <cassert>
 #include <iostream>
 #include <vector>
 #include <memory>
 
-class State;
+//class State;
+
 
 class App 
 {
@@ -38,3 +40,5 @@ private:
     SDL_Window* window;
     std::vector<std::unique_ptr<State>> mStateStack;
 };
+
+#endif

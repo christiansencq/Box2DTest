@@ -1,10 +1,12 @@
-#pragma once
+#ifndef COMPONENT_H
+#define COMPONENT_H
 
 #include "SDL2/SDL.h"
 #include "Box2D/Box2D.h"
 
 //#include "Entity.h"
 class Entity;
+
 
 class Component
 {
@@ -21,3 +23,5 @@ public:
 
     Entity* owner;
 };
+
+#endif

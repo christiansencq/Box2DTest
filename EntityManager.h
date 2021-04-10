@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ENTITY_MANAGER_H
+#define ENTITY_MANAGER_H
 
 #include <vector>
 #include <memory>
@@ -22,7 +23,8 @@ public:
 
     //Entity Management and Access.
     Entity& AddEntity(std::string entityName);
-    
+    Entity& AddEntity(std::string entityName, b2Vec2 initPixelPos, b2Vec2 initPixelSize);
+
     bool HasEntities() const { return entities.size() > 0; }
     std::vector<Entity*> GetEntities() const { return entities; }
     unsigned int GetEntityCount() { return entities.size(); }
@@ -41,3 +43,4 @@ private:
     b2World* physWorld;
 //    std::shared_ptr<b2World> physWorld;
 };
+#endif

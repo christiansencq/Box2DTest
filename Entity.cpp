@@ -1,13 +1,22 @@
  #include "Entity.h"
  
- Entity::Entity(EntityManager& manager) : manager(manager)
- {
-     this->isActive = true;
- }
-
-Entity::Entity(EntityManager& manager, std::string name) : manager(manager), name(name)
+ Entity::Entity(EntityManager& manager) 
+    : manager(manager), isActive(true)
 {
-    this->isActive = true;
+
+}
+
+Entity::Entity(EntityManager& manager, std::string name)
+    : manager(manager), name(name), isActive(true)
+{
+
+}
+
+Entity::Entity(EntityManager& manager, std::string name, b2Vec2 initPxPos, b2Vec2 initPxSize)
+    : manager(manager), name(name), mPixelPos(initPxPos), mPixelSize(initPxSize),
+    isActive(true)
+{
+
 }
 
 void Entity::HandleKeyPress(SDL_Keycode key)
@@ -64,4 +73,20 @@ void Entity::ListAllComponents()
         component->printType();
         i++;
     }
+}
+
+void Entity::ConvertPixelPosToPhysPos() 
+{ 
+    //Because the doubles have to be narrowed (which isn't possible in an initializer)
+
+    float newX = mPixelPos.x * 0.1f;
+    float newY = mPixelPos.y * 0.1f;
+    mPhysPos = {newX, newY};
+}
+
+void Entity::ConvertPixelSizeToPhysSize()
+{
+    float newW = mPixelSize.x * 0.1f;
+    float newH = mPixelSize.y * 0.1f;
+    mPhysSize = {newW, newH};
 }

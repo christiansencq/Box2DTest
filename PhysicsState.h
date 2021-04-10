@@ -1,4 +1,5 @@
-#pragma once
+#ifndef PHYSICS_STATE_H
+#define PHYSICS_STATE_H
 
 #include <memory>
 #include <vector>
@@ -6,8 +7,14 @@
 #include "App.h"
 #include "Constants.h"
 #include "State.h"
-#include "Entity.h"
+//#include "Entity.h"
 #include "EntityManager.h"
+
+//#include "PhysicsComponent.h"
+
+class PhysicsComponent;
+
+//Change physicsComponent to Forward Declaration.
 
 //Analogous to the Levels.
 //https://github.com/borysn/SFML-Box2D-Simple-Level/blob/master/Level.cpp
@@ -37,3 +44,5 @@ private:
     int velocityIterations;
     int positionIterations;
 };
+
+#endif
