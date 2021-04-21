@@ -6,6 +6,7 @@
 #include "SDL2/SDL_ttf.h"
 #include "PhysicsState.h"
 #include "State.h"
+#include "Constants.h"
 
 #include <cassert>
 #include <iostream>
@@ -37,6 +38,7 @@ public:
 private:
     bool isRunning = false;
     SDL_Renderer* renderer;
+    SDL_Surface* surface;
     SDL_Window* window;
     std::vector<std::unique_ptr<State>> mStateStack;
 };

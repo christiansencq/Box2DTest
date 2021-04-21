@@ -1,18 +1,25 @@
-#pragma once
+#ifndef KEY_INPUT_COMPONENT_H
+#define KEY_INPUT_COMPONENT_H
 
-#include "Component.h"
+#include "PhysicsComponent.h"
 
 
-class KeyInputComponent : Component
+class KeyInputComponent : public Component
 {
 public:
-    virtual void Initialize() override {}
-    virtual void HandleEvents(SDL_Event &event) override;
-    virtual void HandleKeyPress(SDL_Keycode key) override;
-    virtual void Update() override {}
-    virtual void Render(SDL_Renderer* renderer) override {}
-    virtual void printType() const override {}
+    void Initialize() override;
+    void HandleEvents(SDL_Event &event) override;
+    void HandleKeyPress(SDL_Keycode key) override;
+    void HandleKeyRelease(SDL_Keycode key) override;
+    void Update() override {}
+    void Render(SDL_Renderer* renderer) override {}
+    void printType() const override {}
+
+    Entity* owner;
 
 private:
+    PhysicsComponent* physicsBody;
 
 };
+
+#endif

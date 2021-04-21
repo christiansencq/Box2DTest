@@ -10,22 +10,19 @@
 // const int velocityIterations = 6;
 // const int positionIterations = 2;
 
-const unsigned int SCREEN_WIDTH = 900;
-const unsigned int SCREEN_HEIGHT = 600;
-const unsigned int FPS = 60;
-const unsigned int FRAME_TARGET_TIME = 1000 / FPS;
+constexpr unsigned int SCREEN_WIDTH = 1200;
+constexpr unsigned int SCREEN_HEIGHT = 800;
+constexpr unsigned int FPS = 60;
+constexpr unsigned int FRAME_TARGET_TIME = 1000 / FPS;
 
-//Could just use the b2Vec2D
-//These are utility Structures, to make parameters for X,Y & W,H simpler.
-struct Coords
-{
-    float x, y;
-};
+constexpr float EPSILON = 0.0001f;
 
-struct Size2D
-{
-    float w, h;
-};
+constexpr float M2P = 20;
+constexpr float P2M = 1/M2P;
+
+constexpr float TURNSPEED = 0.01;
+
+const b2Vec2 ZEROVEC {0, 0};
 
 const SDL_Color WHITE = {0xFF, 0xFF, 0xFF, 0xFF};
 const SDL_Color RED = {0xFF, 0, 0, 0xFF};
@@ -34,6 +31,12 @@ const SDL_Color BLUE = {0, 0, 0xFF, 0xFF};
 const SDL_Color PURPLE = {0xDD, 0x11, 0xDD, 0xFF};
 const SDL_Color BLACK = {0, 0, 0, 0xFF};
 
+enum class TurnDir
+{
+    NONE,
+    RIGHT,
+    LEFT
+};
 
 
 //b2Vec2 zeroVec = {0,0};

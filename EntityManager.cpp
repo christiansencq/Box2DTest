@@ -51,11 +51,11 @@ void EntityManager::HandleInput(SDL_Event &event)
     }
 }
 
-Entity& EntityManager::AddEntity(std::string entityName)
+Entity* EntityManager::AddEntity(std::string entityName)
 {
     Entity* entity = new Entity(*this, entityName); //Create a new Generic Entity with entityName. Store a pointer to it in entity.
     entities.emplace_back(entity); //Add that pointer to the entities list.
-    return *entity; //Return the actual object?
+    return entity; //Return the actual object?
 
 /*
 //Implementation for use of std::unique_ptr
@@ -66,11 +66,11 @@ Entity& EntityManager::AddEntity(std::string entityName)
 */
 }
 
-Entity& EntityManager::AddEntity(std::string entityName, b2Vec2 initPixelPos, b2Vec2 initPixelSize)
+Entity* EntityManager::AddEntity(std::string entityName, b2Vec2 initPixelPos, b2Vec2 initPixelSize)
 {
     Entity* entity = new Entity(*this, entityName, initPixelPos, initPixelSize); //Create a new Generic Entity with entityName. Store a pointer to it in entity.
     entities.emplace_back(entity); //Add that pointer to the entities list.
-    return *entity; //Return the actual object?
+    return entity; //Return the actual object?
 
 }
 

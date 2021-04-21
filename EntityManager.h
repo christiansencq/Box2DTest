@@ -22,8 +22,12 @@ public:
     void HandleKeyRelease(SDL_Keycode key);
 
     //Entity Management and Access.
-    Entity& AddEntity(std::string entityName);
-    Entity& AddEntity(std::string entityName, b2Vec2 initPixelPos, b2Vec2 initPixelSize);
+    // Entity& AddEntity(std::string entityName);
+    // Entity& AddEntity(std::string entityName, b2Vec2 initPixelPos, b2Vec2 initPixelSize);
+    Entity* AddEntity(std::string entityName);
+    Entity* AddEntity(std::string entityName, b2Vec2 initPixelPos, b2Vec2 initPixelSize);
+
+
 
     bool HasEntities() const { return entities.size() > 0; }
     std::vector<Entity*> GetEntities() const { return entities; }

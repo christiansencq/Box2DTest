@@ -2,6 +2,11 @@
     "files.associations": {
         "*.tcc": "cpp",
         "vector": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "cmath": "cpp"
+    },
+    "files.watcherExclude":{
+        "**/.git/objects/**": true,
+        "**/Old/**": true
     }
 }

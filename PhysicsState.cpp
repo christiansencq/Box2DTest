@@ -1,57 +1,42 @@
 #include "PhysicsState.h"
 
-PhysicsState::PhysicsState(SDL_Renderer* renderer)
- : mnoptrrenderer(renderer), timeStep(1/30.0f), velocityIterations(2), positionIterations(6)
-{
-    b2Vec2 gravity = b2Vec2(0.0f, -0.05f);
+PhysicsState::PhysicsState(SDL_Renderer* renderer, SDL_Surface* surface)
+ : mnoptrrenderer(renderer), mnoptrsurface(surface), timeStep(1/30.0f), velocityIterations(2), positionIterations(6), ticksLastFrame(0)
+ {
+    b2Vec2 gravity = b2Vec2(0.0f, 0.0f);
     world = new b2World(gravity);
-    
     manager = new EntityManager();
 
     //Need a Copy Constructor for Entity?
-    Entity& movingObject{manager->AddEntity(std::string("Mover"))};
+    Entity* movingObj1{manager->AddEntity(std::string("Mover"))};
+//    Entity* movingObj2{manager->AddEntity(std::string("Mover2"))};
 
-    /*
-    Set the ScreenPos and dimensions (2d) for movingObject
+    //Set the ScreenPos and dimensions (2d) for movingObject.
+    movingObj1->SetPixelPos(b2Vec2{350, 570});
+    movingObj1->SetPixelSize(b2Vec2{70, 50});
 
-    If we consider the screen size is 1280 x 720, and if we want to 
-    keep physics coords under 5k, then we need to scale up
-    pixelX = 100, pixelY = 200 ---- physX = 10, physY = 20 
+    //Shouldn't be any reason that PhysicsComoponent or SDLRect component NEED an initial position or size.  Should be able to pull these from Entity.xc2w
+    movingObj1->AddComponent<PhysicsComponent>(350, 570, 70, 50, world, true);
+    movingObj1->AddComponent<SDLRectComponent>(renderer, 70, 50);
+    movingObj1->AddComponent<KeyInputComponent>();
 
-    Could use scaling factor of 0.1
-    In which case a pixel coordinate of 350, 500
-    would yield phys position of 35.0, 50.0
+    Entity* staticObj1{manager->AddEntity(std::string("Ceiling"))};
+    Entity* staticObj2{manager->AddEntity(std::string("Floor"))};
 
-    Objects should move approximately(on average) 1 physics unit per frame, ideally.
-    The minimum should be 0.1 units and max is 10 units.    
-    */
+    staticObj1->SetPixelPos(b2Vec2{100, 5});
+    staticObj1->SetPixelSize(b2Vec2{SCREEN_WIDTH, 10});
+    staticObj1->AddComponent<PhysicsComponent>(0, 5, SCREEN_WIDTH, 10, world, false);
+    staticObj1->AddComponent<SDLRectComponent>(renderer, SCREEN_WIDTH, 10);
 
-    movingObject.SetPixelPos(b2Vec2{350, 500});
-    movingObject.SetPixelSize(b2Vec2{20, 20});
-    movingObject.ConvertPixelPosToPhysPos();
-    movingObject.ConvertPixelSizeToPhysSize();
-    //Calculate the Position and Size coordinates converted to the PhysicsScale.
-
-    movingObject.AddComponent<PhysicsComponent>(movingObject.GetPhysW(), movingObject.GetPhysH(), 
-                                                movingObject.GetPhysX(), movingObject.GetPhysY(), 
-                                                world, true);
-    movingObject.AddComponent<SDLRectComponent>(movingObject.GetPixelX(), movingObject.GetPixelY(),
-                                                movingObject.GetPixelWidth(), movingObject.GetPixelHeight());
-
-    Entity& staticObject{manager->AddEntity(std::string("Floor"))};
-    staticObject.SetPixelPos(b2Vec2{100, 0});
-    staticObject.SetPixelSize(b2Vec2{800, 10});
-    staticObject.ConvertPixelPosToPhysPos();
-    staticObject.ConvertPixelSizeToPhysSize();
-    staticObject.AddComponent<PhysicsComponent>(staticObject.GetPhysW(), staticObject.GetPhysH(), 
-                                                staticObject.GetPhysX(), staticObject.GetPhysY(), 
-                                                world, false);
-    staticObject.AddComponent<SDLRectComponent>(staticObject.GetPixelX(), staticObject.GetPixelY(), 
-                                                staticObject.GetPixelWidth(), staticObject.GetPixelHeight());
+    staticObj2->SetPixelPos(b2Vec2{100, SCREEN_HEIGHT - 15});
+    staticObj2->SetPixelSize(b2Vec2{SCREEN_WIDTH, 10});
+    staticObj2->AddComponent<PhysicsComponent>(0, SCREEN_HEIGHT - 15, SCREEN_WIDTH, 10, world, false);
+    staticObj2->AddComponent<SDLRectComponent>(renderer, SCREEN_WIDTH, 10);
 }
 
 PhysicsState::~PhysicsState()
 {
+
     delete world;
     delete manager;
 }
@@ -75,7 +60,16 @@ void PhysicsState::HandleEvents()
                 case SDLK_ESCAPE:
                     App::Singleton().QuitApp();
                     break;
+                case SDLK_SPACE:
+                    std::cout << "" << "\n";
+                    break;
+
                 default:
+                    /* 
+                    Actually, don't need to call EVERY input component.  
+                    Have Entity Manager store a pointer to the 'active ball' & just call the input component of that object.
+                    */
+
                     manager->HandleKeyPress(event.key.keysym.sym);
                     break;
             }
@@ -95,17 +89,23 @@ void PhysicsState::HandleEvents()
 
 void PhysicsState::Update()
 {
+    int timeToWait = FRAME_TARGET_TIME - (SDL_GetTicks() - ticksLastFrame);
+    if (timeToWait > 0 && timeToWait <= FRAME_TARGET_TIME) 
+    {
+        SDL_Delay(timeToWait);
+    }
+
+    float deltaTime = (SDL_GetTicks() - ticksLastFrame) / 1000.0f;
+    deltaTime = (deltaTime > 0.05f) ? 0.05f : deltaTime;
+    ticksLastFrame = SDL_GetTicks();
+
     world->Step(timeStep, velocityIterations, positionIterations); 
     manager->Update();
-
-    //std::cout << "X OF MOVING BODY " << manager->GetEntityByName(std::string("Mover"))->GetComponent<PhysicsComponent>()->GetPhysBody()->GetPosition().x << std::endl;
-    std::cout << "PhysY OF MOVING BODY " << manager->GetEntityByName(std::string("Mover"))->GetComponent<PhysicsComponent>()->GetPhysBody()->GetPosition().y << std::endl;
-    std::cout << "ScreenY OF MOVING BODY " << manager->GetEntityByName(std::string("Mover"))->GetPixelY() << std::endl;
 }
 
 void PhysicsState::Render(SDL_Renderer* renderer)
 {
-    SDL_SetRenderDrawColor(renderer, 0x22, 0x99, 0xFF, 0xFF);
+    SDL_SetRenderDrawColor(renderer, 0x44, 0x99, 0xFF, 0xFF);
     SDL_RenderClear(renderer);
     
     if (!manager->HasEntities())
@@ -113,9 +113,12 @@ void PhysicsState::Render(SDL_Renderer* renderer)
         std::cout << "There are no entities!";
         return;
     }
-
+    else
+    {
+    //Add to renderer:
     manager->Render(renderer);
-
+    }
+    
     //Rendering
     SDL_RenderPresent(renderer);
 }

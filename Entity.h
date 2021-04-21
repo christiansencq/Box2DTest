@@ -12,6 +12,7 @@
 
 #include "PhysicsComponent.h"
 #include "SDLRectComponent.h"
+#include "KeyInputComponent.h"
 
 class EntityManager;
 
@@ -64,18 +65,15 @@ public:
     void SetPixelPos(b2Vec2 newScreenPos) { mPixelPos = newScreenPos; }
     void SetPixelSize(b2Vec2 newSize) { mPixelSize = newSize; }
 
-    float GetPixelX() { return mPixelPos.x; }
-    float GetPixelY() { return mPixelPos.y; }
-    float GetPixelWidth() { return mPixelSize.x; }
-    float GetPixelHeight() { return mPixelSize.y; }
+    b2Vec2 GetPhysSize() { return b2Vec2{ mPixelSize.x * P2M, mPixelSize.y * P2M  }; }
+    b2Vec2 GetPhysPos() { return b2Vec2{ mPixelPos.x * P2M, mPixelPos.y * P2M }; }
+    b2Vec2 GetPixelSize() { return mPixelSize; }
+    b2Vec2 GetPixelPos() { return mPixelPos; }
 
     void ConvertPixelPosToPhysPos();
     void ConvertPixelSizeToPhysSize();
 
-    float GetPhysX() { return mPhysPos.x; }
-    float GetPhysY() { return mPhysPos.y; }
-    float GetPhysW() { return mPhysSize.x; }
-    float GetPhysH() { return mPhysSize.y; }
+    SDL_Renderer* GetRenderer() {return renderer;}
 
 private:
 
@@ -83,7 +81,6 @@ private:
     std::vector<Component*> components;
     std::map<const std::type_info*, Component*> componentTypeMap;
     std::string name;
-
 
     b2Vec2 mPixelPos;
     b2Vec2 mPixelSize;
@@ -93,7 +90,6 @@ private:
     //draw from GetComponent<PhysicsComponent>(mPhysBody.position.x, mPhysBody.position.y)
     b2Vec2 mPhysPos;    
     b2Vec2 mPhysSize;
-
 
     SDL_Renderer* renderer;
 };

@@ -47,7 +47,7 @@ bool App::init(const char* title, int width, int height, bool fullscreen)
         isRunning = false;
     }
     
-    std::unique_ptr<PhysicsState> physState = std::make_unique<PhysicsState>(renderer);
+    std::unique_ptr<PhysicsState> physState = std::make_unique<PhysicsState>(renderer, surface);
     PushState(std::move(physState));
 
     return isRunning;
@@ -66,6 +66,14 @@ void App::Run()
             assert(topState && "There is no scene!");
             if (topState)
             {
+                /*
+                while (!SDL_TICKS_PASSED(SDL_GetTicks(), ticksLastFrame + FRAME_TARGET_TIME));
+                //Convert to seconds.
+                float deltaTime = (SDL_GetTicks() - ticksLastFrame) / 1000.0f;
+                deltaTime = (deltaTime > 0.05f) ? 0.05f : deltaTime;
+                ticksLastFrame = SDL_GetTicks();
+
+                */
                 topState->HandleEvents();
                 topState->Update();
                 topState->Render(renderer);
