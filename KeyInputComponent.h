@@ -37,8 +37,7 @@ public:
     {
         T* newCommand(new T(std::forward<TArgs>(args)...)); //Would pass 'this' into the constructor, then wouldn't need the next lines.
         newCommand->owningComponent = this;
-        //newCommand->owner = this->owner; 
-        //commands.push_back(newCommand);
+        commands.push_back(newCommand);
         commandTypeMap[&typeid(*newCommand)] = newCommand;
         //ActionMap
 

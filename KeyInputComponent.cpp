@@ -8,19 +8,17 @@ KeyInputComponent::KeyInputComponent(std::array<SDL_Keycode, 4> action_keys)
 
 KeyInputComponent::~KeyInputComponent()
 {
-    delete ActionMap[Actions::FORWARD];
-    delete ActionMap[Actions::LEFT];
-    delete ActionMap[Actions::RIGHT];
+    //Need to go through and delete all of the Commands.
+    for (auto cmd : commands)
+    {
+        delete cmd;
+    }
+
 }
 
 void KeyInputComponent::Initialize()
 {
     physicsComp = owner->GetComponent<PhysicsComponent>();
-    //Get COMMANDS instead, the commands will access the components they need.
-
-    ActionMap[Actions::FORWARD] = new ForwardThrustCommand();
-    ActionMap[Actions::LEFT] = new LeftTurnCommand();
-    ActionMap[Actions::RIGHT] = new RightTurnCommand();
 }
 
 void KeyInputComponent::HandleEvents(SDL_Event &event) 
@@ -48,6 +46,8 @@ void KeyInputComponent::HandleKeyPress(SDL_Keycode key)
     //     default:
     //         break;
     // }
+
+    //Might be able to move back to switch statement if I use const SDL_Keycode?
 
     if (key == actionKeys[0])
     {

@@ -1,6 +1,7 @@
 #ifndef COMMANDS_H
 #define COMMANDS_H
 
+#include "Constants.h"
 #include "Command.h"
 //#include "KeyInputComponent.h"
 

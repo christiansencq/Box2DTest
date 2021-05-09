@@ -11,7 +11,7 @@ ForwardThrustCommand::ForwardThrustCommand()
 
 void ForwardThrustCommand::Initialize()
 { 
-    std::cout << "FwdThrust OwningComponent exists? " << owningComponent << "\n";
+    owningComponent->ActionMap[Actions::FORWARD] = this;
 }
 
 void ForwardThrustCommand::executePress()
@@ -33,7 +33,7 @@ LeftTurnCommand::LeftTurnCommand()
 
 void LeftTurnCommand::Initialize()
 { 
-    std::cout << "LftTurn OwningComponent exists? " << owningComponent << "\n";
+    owningComponent->ActionMap[Actions::LEFT] = this;
 }
 
 void LeftTurnCommand::executePress() 
@@ -55,7 +55,7 @@ RightTurnCommand::RightTurnCommand()
 
 void RightTurnCommand::Initialize()
 { 
-    std::cout << "RightTurn OwningComponent exists? " << owningComponent << "\n";
+    owningComponent->ActionMap[Actions::RIGHT] = this;
 }
 
 void RightTurnCommand::executePress() 
