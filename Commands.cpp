@@ -16,6 +16,7 @@ void ForwardThrustCommand::Initialize()
 
 void ForwardThrustCommand::executePress()
 {
+    owningComponent->physicsComp->SetThrustDirection(ThrustDir::FORWARD);    
     owningComponent->physicsComp->SetThrusting(true);
 }
 
@@ -24,6 +25,26 @@ void ForwardThrustCommand::executeRelease()
     owningComponent->physicsComp->SetThrusting(false);
 }
 
+
+BackwardThrustCommand::BackwardThrustCommand()
+{
+    
+}
+
+void BackwardThrustCommand::Initialize()
+{
+    owningComponent->ActionMap[Actions::BACKWARD] = this;
+}
+
+void BackwardThrustCommand::executePress()
+{
+    owningComponent->physicsComp->SetThrustDirection(ThrustDir::BACKWARD);    
+    owningComponent->physicsComp->SetThrusting(true);
+}
+void BackwardThrustCommand::executeRelease()
+{
+    owningComponent->physicsComp->SetThrusting(false);
+}
 
 
 LeftTurnCommand::LeftTurnCommand()

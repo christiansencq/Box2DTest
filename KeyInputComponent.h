@@ -7,19 +7,15 @@
 
 #include "PhysicsComponent.h"
 #include "Component.h"
-#include "Command.h"
 #include "Commands.h"
 #include "Constants.h"
 
 
-//class Command;
-
 class KeyInputComponent : public Component
 {
 public:
-    //KeyInputComponent() {}
+
     KeyInputComponent(std::array<SDL_Keycode, 4> action_keys);
-    //KeyInputComponent(std::array<SDL_Keycode, 4> action_keys, std::array<Command*, 4> action_commands);
     virtual ~KeyInputComponent();
 
 
@@ -51,30 +47,20 @@ public:
         return static_cast<T*>(commandTypeMap[&typeid(T)]);
     }
 
-
-    void ForwardPress();
-    void ForwardRelease();
-    
-    void BackwardPress();
-    void BackwardRelease();
-
-    void LeftPress();
-    void LeftRelease();
-
-    void RightPress();
-    void RightRelease();
-
-
     Entity* owner;
     PhysicsComponent* physicsComp;
 
     std::array<SDL_Keycode, 4> actionKeys;
+    //std::array<SDL_Keycode, 4> actionKeys;
+    
+    //const std::array<const SDL_Keycode, 4> c_actionKeys;
 
     std::vector<Command*> commands;
     std::map<const std::type_info*, Command*> commandTypeMap;
 
     std::map<Actions, Command*> ActionMap;
-
+//case SDLK_UP:
+        
 private:
 
 

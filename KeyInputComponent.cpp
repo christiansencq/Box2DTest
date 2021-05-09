@@ -2,8 +2,8 @@
 
 
 KeyInputComponent::KeyInputComponent(std::array<SDL_Keycode, 4> action_keys)
+ : actionKeys(action_keys)
 {
-    actionKeys = action_keys;
 }
 
 KeyInputComponent::~KeyInputComponent()
@@ -28,26 +28,7 @@ void KeyInputComponent::HandleEvents(SDL_Event &event)
 
 void KeyInputComponent::HandleKeyPress(SDL_Keycode key)
 {
-    // switch (key)
-    // {
-    //     case actionKeys[0]:
-    //     //case SDLK_UP:
-    //         ForwardPress();
-    //         break;
-    //     case SDLK_LEFT://May want to integrate these, make it so if one is pressed after the other, it takes over control, 
-    //                    //but if both are held then one released, the other takes control.
-    //         LeftPress();
-    //         break;
-    //     case SDLK_RIGHT:
-    //         RightPress();
-    //         break;
-    //     case SDLK_DOWN:
-    //         break;
-    //     default:
-    //         break;
-    // }
-
-    //Might be able to move back to switch statement if I use const SDL_Keycode?
+    //Can't use a switch statement, since the values in actionKeys aren't constexprs.
 
     if (key == actionKeys[0])
     {
@@ -55,7 +36,7 @@ void KeyInputComponent::HandleKeyPress(SDL_Keycode key)
     }
     else if (key == actionKeys[1])
     {
-        //DownPress();
+        ActionMap[Actions::BACKWARD]->executePress();
     }
     else if (key == actionKeys[2])
     {
@@ -69,23 +50,6 @@ void KeyInputComponent::HandleKeyPress(SDL_Keycode key)
 
 void KeyInputComponent::HandleKeyRelease(SDL_Keycode key)
 {
-    // switch (key)
-    // {
-    //     case SDLK_UP:
-    //         ForwardRelease();
-    //         break;
-    //     case SDLK_LEFT:
-    //         LeftRelease();
-    //         break;
-    //     case SDLK_RIGHT:
-    //         RightRelease();
-    //         break;
-    //     case SDLK_DOWN:
-    //         break;
-    //     default:
-    //         break;
-    // }
-
     if (key == actionKeys[0])
     {
         ActionMap[Actions::FORWARD]->executeRelease();
@@ -102,45 +66,4 @@ void KeyInputComponent::HandleKeyRelease(SDL_Keycode key)
     {
         ActionMap[Actions::RIGHT]->executeRelease();
     }
-}
-
-//Commands
-void KeyInputComponent::ForwardPress()
-{
-    physicsComp->SetThrusting(true);
-}
-
-void KeyInputComponent::ForwardRelease()
-{
-    physicsComp->SetThrusting(false);
-}
-
-void KeyInputComponent::BackwardPress()
-{
-
-}
-
-void KeyInputComponent::BackwardRelease()
-{
-
-}
-
-void KeyInputComponent::LeftPress()
-{
-    physicsComp->SetTurning(TurnDir::LEFT);
-}
-
-void KeyInputComponent::LeftRelease()
-{
-    physicsComp->SetTurning(TurnDir::NONE);
-}
-
-void KeyInputComponent::RightPress() 
-{
-    physicsComp->SetTurning(TurnDir::RIGHT);
-}
-
-void KeyInputComponent::RightRelease() 
-{
-    physicsComp->SetTurning(TurnDir::NONE);
 }

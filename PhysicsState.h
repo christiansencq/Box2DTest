@@ -30,6 +30,8 @@ public:
     void InitWorld();
     void AddPlayer(Player* player) { players.push_back(player); }
 
+    void AddPlayerBall(std::string name, b2Vec2 position, float radius, std::array<SDL_Keycode, 4> action_keys);
+
     SDL_Renderer* mnoptrrenderer;
     SDL_Surface* mnoptrsurface;
     b2World* world;
@@ -41,19 +43,10 @@ public:
 
 private:
 
-    //std::vector<PhysicsEntity> dynamicEntities;
-
-    //These aren't actually holding the pointer to the Entities created.
     Entity* movingObj1 = nullptr;
-
-
     Entity* movingObj2 = nullptr;
-
-
     Entity* movingObj3 = nullptr;
-
-
-    Entity* movingObj0 = nullptr;
+    Entity* puckObj = nullptr;
     Entity* staticObj1 = nullptr;
     Entity* staticObj2 = nullptr;
     Entity* staticObj3 = nullptr;

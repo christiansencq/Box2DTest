@@ -10,6 +10,8 @@
 #include "Component.h"
 #include "Entity.h"
 
+
+
 class PhysicsComponent : public Component
 {
 public:
@@ -36,19 +38,22 @@ public:
     bool IsDynamic() const {return isDynamic;}
 
     void SetThrusting(bool thrusting) { isThrusting = thrusting; }
+    void SetThrustingVec(b2Vec2 thrust_vector);
+    void SetThrustDirection(ThrustDir dir);
     void SetTurning(TurnDir turning);    
 
     Entity* owner;
 
-
 private:
-//    Entity* owner;
 
     int PixelX, PixelY;
     int PixelW, PixelH;
     int mRadius;
 
+    float baseThrust;
+
     bool isThrusting;
+    b2Vec2 thrustingVec;
     TurnDir turn;
 
     float density;
@@ -56,12 +61,11 @@ private:
     float angle;
 
     //This one is not owned.
-    b2World* physWorld;
+    b2World* physWorld;//Needed for body creation only.  Could be passed in until CreateBody is called.
 
     //These are owned.
     b2Body* physBody;
     b2Fixture* physFixture;
-    //b2PolygonShape* shape;
 
     bool isDynamic;
     const std::string type = "PhysicsComponent";

@@ -15,10 +15,10 @@ PhysicsState::PhysicsState(SDL_Renderer* renderer, SDL_Surface* surface)
     movingObj1->AddComponent<SDLCircleComponent>(renderer);
     movingObj1->AddComponent<KeyInputComponent>(P1ActionKeys);
     
-    mO1InputComp = movingObj1->GetComponent<KeyInputComponent>();
-    mO1InputComp->AddCommand<ForwardThrustCommand>();
-    mO1InputComp->AddCommand<LeftTurnCommand>();
-    mO1InputComp->AddCommand<RightTurnCommand>();
+    movingObj1->GetComponent<KeyInputComponent>()->AddCommand<ForwardThrustCommand>();
+    movingObj1->GetComponent<KeyInputComponent>()->AddCommand<BackwardThrustCommand>();
+    movingObj1->GetComponent<KeyInputComponent>()->AddCommand<LeftTurnCommand>();
+    movingObj1->GetComponent<KeyInputComponent>()->AddCommand<RightTurnCommand>();
 
     movingObj2 = manager->AddEntity(std::string("P1Mover2"), b2Vec2{350, 480}, 50.0f);
     movingObj2->AddComponent<PhysicsComponent>(world, true, ShapeType::CIRCLE);
@@ -27,6 +27,7 @@ PhysicsState::PhysicsState(SDL_Renderer* renderer, SDL_Surface* surface)
 
 //    mO2InputComp = movingObj2->GetComponent<KeyInputComponent>();
     movingObj2->GetComponent<KeyInputComponent>()->AddCommand<ForwardThrustCommand>();
+    movingObj2->GetComponent<KeyInputComponent>()->AddCommand<BackwardThrustCommand>();
     movingObj2->GetComponent<KeyInputComponent>()->AddCommand<LeftTurnCommand>();
     movingObj2->GetComponent<KeyInputComponent>()->AddCommand<RightTurnCommand>();
 
@@ -35,18 +36,18 @@ PhysicsState::PhysicsState(SDL_Renderer* renderer, SDL_Surface* surface)
     movingObj3->AddComponent<SDLCircleComponent>(renderer);
     movingObj3->AddComponent<KeyInputComponent>(P1ActionKeys);
 
-    mO3InputComp = movingObj3->GetComponent<KeyInputComponent>();
-    mO3InputComp->AddCommand<ForwardThrustCommand>();
-    mO3InputComp->AddCommand<LeftTurnCommand>();
-    mO3InputComp->AddCommand<RightTurnCommand>();
+    movingObj3->GetComponent<KeyInputComponent>()->AddCommand<ForwardThrustCommand>();
+    movingObj3->GetComponent<KeyInputComponent>()->AddCommand<BackwardThrustCommand>();
+    movingObj3->GetComponent<KeyInputComponent>()->AddCommand<LeftTurnCommand>();
+    movingObj3->GetComponent<KeyInputComponent>()->AddCommand<RightTurnCommand>();
 
     std::vector<Entity*> p1balls {movingObj1, movingObj2, movingObj3};
     P1 = new Player(1, p1balls, P1SwapKeys);
     manager->AddPlayer(P1);
 
-    movingObj0 = manager->AddEntity(std::string("Puck"), b2Vec2{600, 150}, 25.0f);
-    movingObj0->AddComponent<PhysicsComponent>(world, true, ShapeType::CIRCLE);
-    movingObj0->AddComponent<SDLCircleComponent>(renderer, GREEN);
+    puckObj = manager->AddEntity(std::string("Puck"), b2Vec2{600, 150}, 25.0f);
+    puckObj->AddComponent<PhysicsComponent>(world, true, ShapeType::CIRCLE);
+    puckObj->AddComponent<SDLCircleComponent>(renderer, GREEN);
 
     staticObj1 = manager->AddEntity(std::string("Ceiling"), b2Vec2{SCREEN_WIDTH/2, 50}, b2Vec2{SCREEN_WIDTH-70, 10});
     staticObj2 = manager->AddEntity(std::string("Floor"), b2Vec2{SCREEN_WIDTH/2, SCREEN_HEIGHT - 60}, b2Vec2{SCREEN_WIDTH-70, 10});

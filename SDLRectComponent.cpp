@@ -23,13 +23,14 @@ void SDLRectComponent::Initialize()
 
 void SDLRectComponent::Update() 
 {
-  //Dont believe these are used for rect, but they are for circle.
-  // mPixelX = mPhysBody->GetPosition().x * M2P;
-  // mPixelY = mPhysBody->GetPosition().y * M2P;
 
   //Check if not static?
-  mPixelX = owner->GetPixelPos().x;
-  mPixelY = owner->GetPixelPos().y;
+  if (IsDynamic)
+  {
+    mPixelX = owner->GetPixelPos().x;
+    mPixelY = owner->GetPixelPos().y;
+  }
+
 }
 
 void SDLRectComponent::Render(SDL_Renderer* renderer) 

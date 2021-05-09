@@ -92,10 +92,8 @@ void PhysicsComponent::Update()
 {
     if (isThrusting && isDynamic)
     {
-        std::cout << "IsThrusting" << "\n";
-        //Get the Unit vector of my Object's angle.  
-        b2Vec2 currentVec { 2*cos(physBody->GetAngle()), 2*sin(physBody->GetAngle())};   
-        physBody->ApplyForceToCenter(currentVec, true);
+        //Get the Unit vector of my Object's angle. 
+        physBody->ApplyForceToCenter(thrustingVec, true);
     }
 
     if (turn == TurnDir::LEFT)
@@ -117,9 +115,30 @@ void PhysicsComponent::SetTurning(TurnDir turning)
 {
     /*  Currently there is an issue with the rotating velocity.
         May want to 'SetFixedRotation' for the duration of a Turn.  */
+
 //    if (turning != TurnDir::NONE)
 //         physBody->SetFixedRotation(true);
 //    else
 //         physBody->SetFixedRotation(false);
     turn = turning; 
 } 
+
+void PhysicsComponent::SetThrustDirection(ThrustDir dir)
+{
+    switch (dir)
+    {
+        case ThrustDir::FORWARD:
+            thrustingVec = { 2*cos(physBody->GetAngle()), 2*sin(physBody->GetAngle())};
+            //std::cout << "Fwd " << thrustingVec.x << ", " << thrustingVec.y << "\n";
+            break;
+        case ThrustDir::BACKWARD:
+            thrustingVec = { -2*cos(physBody->GetAngle()), -2*sin(physBody->GetAngle())};
+            //std::cout << "Bwd " << thrustingVec.x << ", " << thrustingVec.y << "\n";
+            break;            
+        case ThrustDir::NONE:
+            thrustingVec = { 0, 0};
+            isThrusting = false;
+            break;            
+    }
+
+}
