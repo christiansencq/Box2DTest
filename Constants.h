@@ -38,7 +38,26 @@ enum class TurnDir
     LEFT
 };
 
+enum class ThrustDir
+{
+    NONE,
+    FORWARD,
+    BACKWARD
+};
 
-//b2Vec2 zeroVec = {0,0};
+//Not sure if needed
+enum class ShapeType
+{
+    RECT,
+    CIRCLE
+};
+
+enum class Actions
+{
+    FORWARD,
+    BACKWARD,
+    LEFT,
+    RIGHT
+};
 
 #endif

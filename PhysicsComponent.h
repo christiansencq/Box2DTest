@@ -7,7 +7,6 @@
 #include "SDL2/SDL.h"
 #include "Box2D/Box2D.h"
 
-#include "Constants.h"
 #include "Component.h"
 #include "Entity.h"
 
@@ -16,22 +15,28 @@ class PhysicsComponent : public Component
 public:
     // PhysicsComponent(float x, float y, float w, float h, b2World* world, bool dynamic = false);
     // PhysicsComponent(b2Vec2 physPos, b2Vec2 physSize, b2World* world, bool dynamic = false);
-    PhysicsComponent(int pixelX, int pixelY, int pixelW, int pixelH, b2World* world, bool dynamic);
-    PhysicsComponent(int pixelX, int pixelY, int pixelR, b2World* world, bool dynamic);
+    //PhysicsComponent(int pixelX, int pixelY, int pixelW, int pixelH, b2World* world, bool dynamic);
+    PhysicsComponent(b2World* world, bool dynamic);
+    PhysicsComponent(b2World* world, bool dynamic, ShapeType shape);
+    PhysicsComponent(b2World* world, bool dynamic, std::string name, ShapeType shape);
     ~PhysicsComponent();
-    void Initialize();
+    void Initialize(); //Handle the body, shape, fixture creation.
+    void CreateBody();
+    void MakeCircleShape();
+    void MakeRectShape();
+    void GenerateFixture(b2Shape* shape);
     void HandleEvents(SDL_Event &event) {}
-    void HandleKeyPress(const SDL_Keycode key);
-    void HandleKeyRelease(const SDL_Keycode key);
+    void HandleKeyPress(const SDL_Keycode key) {}
+    void HandleKeyRelease(const SDL_Keycode key) {}
     void Update();
-    void Render(SDL_Renderer* renderer);
+    void Render(SDL_Renderer* renderer) {}
     void printType() const;
 
     b2Body* GetPhysBody() { return physBody; }
-    bool IsDynamic() {return isDynamic;}
+    bool IsDynamic() const {return isDynamic;}
 
     void SetThrusting(bool thrusting) { isThrusting = thrusting; }
-    void SetTurning(TurnDir turning) { turn = turning; }    
+    void SetTurning(TurnDir turning);    
 
     Entity* owner;
 
@@ -41,20 +46,14 @@ private:
 
     int PixelX, PixelY;
     int PixelW, PixelH;
-    int PixelR;
+    int mRadius;
 
     bool isThrusting;
     TurnDir turn;
 
-    float mPhysX; //Used for initialization.
-    float mPhysY;
-    float mWidth; //Used in initialization.
-    float mHeight;
-
     float density;
     float friction;
     float angle;
-
 
     //This one is not owned.
     b2World* physWorld;
@@ -64,12 +63,10 @@ private:
     b2Fixture* physFixture;
     //b2PolygonShape* shape;
 
-    //SDLRectComponent* rectComp; //Set to owner->GetComponent<SDLRectComponent>();
-
     bool isDynamic;
     const std::string type = "PhysicsComponent";
-    std::string shapeType; //Either circle or rect.
-
+    //std::string shapeType; //Either circle or rect.  Should make this an ENUM
+    ShapeType shapeType;
 };
 
 #endif

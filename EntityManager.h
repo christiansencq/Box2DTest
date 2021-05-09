@@ -7,6 +7,9 @@
 #include "Entity.h"
 //class Entity;
 
+#include "Player.h"
+class Player;
+
 class EntityManager 
 {
 public:
@@ -17,7 +20,7 @@ public:
     //Methods that call analogous Entity methods.
     void Update();
     void Render(SDL_Renderer* renderer);
-    void HandleInput(SDL_Event &event);
+    void HandleInput(SDL_Event &event) {}
     void HandleKeyPress(SDL_Keycode key);
     void HandleKeyRelease(SDL_Keycode key);
 
@@ -26,8 +29,7 @@ public:
     // Entity& AddEntity(std::string entityName, b2Vec2 initPixelPos, b2Vec2 initPixelSize);
     Entity* AddEntity(std::string entityName);
     Entity* AddEntity(std::string entityName, b2Vec2 initPixelPos, b2Vec2 initPixelSize);
-
-
+    Entity* AddEntity(std::string entityName, b2Vec2 initPixelPos, float initPixelRadius);
 
     bool HasEntities() const { return entities.size() > 0; }
     std::vector<Entity*> GetEntities() const { return entities; }
@@ -37,14 +39,17 @@ public:
 
     void DestroyInactiveEntities();
 
+    void AddPlayer(Player* player) {players.push_back(player);}
+
 private:
     SDL_Renderer* renderer; //A shared pointer.
 
     std::vector<Entity*> entities;
-    
+    std::vector<Player*> players;
+
     std::map<const std::string, Entity*> entityNameMap;
 
     b2World* physWorld;
-//    std::shared_ptr<b2World> physWorld;
+
 };
 #endif

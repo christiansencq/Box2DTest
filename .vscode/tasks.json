@@ -12,6 +12,7 @@
 				"-Wextra",
 				"-Wno-unused-parameter",
 				"${workspaceFolder}/**.cpp",
+				"${workspaceFolder/Components/**.cpp",
 				"-o",
 				"${fileDirname}/${fileBasenameNoExtension}",
 				"-lBox2D",

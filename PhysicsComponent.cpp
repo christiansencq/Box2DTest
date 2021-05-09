@@ -1,73 +1,22 @@
 #include "PhysicsComponent.h"
 
-PhysicsComponent::PhysicsComponent(int pixelX, int pixelY, int pixelW, int pixelH,  
-                                   b2World* world, bool dynamic)
- : PixelX(pixelX), PixelY(pixelY), PixelW(pixelW), PixelH(pixelH), 
-   isThrusting(false), turn(TurnDir::NONE), physWorld(world), isDynamic(dynamic)
+//Take out name from the constructor.
+PhysicsComponent::PhysicsComponent(b2World* world, bool dynamic)
+ : isThrusting(false), turn(TurnDir::NONE), physWorld(world), isDynamic(dynamic), shapeType(ShapeType::RECT)
 {
-    shapeType = "rect";
-    b2BodyDef bodyDef;
-    bodyDef.position.Set(PixelX*P2M, PixelY*P2M);
-    if (isDynamic)
-    {
-        bodyDef.type = b2_dynamicBody;
-    }
-    physBody = world->CreateBody(&bodyDef);
-    b2PolygonShape shape;
-    shape.SetAsBox(P2M * PixelW / 2.0, P2M * PixelH / 2.0);
-
-    b2FixtureDef fixtureDef;
-    if (isDynamic)
-    {
-        density = 0.1f;
-        friction = 0.1f;
-    }
-    else
-    {
-        density = 0.0f;
-        //friction = 0.0f;
-    }
-
-    fixtureDef.shape = &shape;
-    fixtureDef.density = density;
-    fixtureDef.friction = friction;
-
-    physFixture = physBody->CreateFixture(&fixtureDef);
+    
 }
 
-PhysicsComponent::PhysicsComponent(int pixelX, int pixelY, int pixelR, b2World* world, bool dynamic)
- : PixelX(pixelX), PixelY(pixelY), PixelR(pixelR), 
-   isThrusting(false), physWorld(world), isDynamic(dynamic)
+PhysicsComponent::PhysicsComponent(b2World* world, bool dynamic, ShapeType shape)
+ : isThrusting(false), turn(TurnDir::NONE), physWorld(world), isDynamic(dynamic), shapeType(shape)
 {
-    shapeType = "circle";
-    b2BodyDef bodyDef;
-    bodyDef.position.Set(PixelX*P2M, PixelY*P2M);
-    if (isDynamic)
-    {
-        bodyDef.type = b2_dynamicBody;
-    }
-    physBody = world->CreateBody(&bodyDef);
+    
+}
 
-    b2CircleShape shape;
-    shape.m_radius = 10.0f;
-
-    b2FixtureDef fixtureDef;
-    if (isDynamic)
-    {
-        density = 0.1f;
-        friction = 0.1f;
-    }
-    else
-    {
-        density = 0.0f;
-        //friction = 0.0f;
-    }
-
-    fixtureDef.shape = &shape;
-    fixtureDef.density = density;
-    fixtureDef.friction = friction;
-
-    physFixture = physBody->CreateFixture(&fixtureDef);
+PhysicsComponent::PhysicsComponent(b2World* world, bool dynamic, std::string name, ShapeType shape)
+ : isThrusting(false), turn(TurnDir::NONE), physWorld(world), isDynamic(dynamic), shapeType(shape)
+{
+    
 }
 
 PhysicsComponent::~PhysicsComponent()
@@ -77,51 +26,100 @@ PhysicsComponent::~PhysicsComponent()
 
 void PhysicsComponent::Initialize()
 {
-
+    PixelW = owner->GetPixelSize().x;
+    PixelH = owner->GetPixelSize().y;
+    mRadius = owner->GetPixelSize().x;
+    PixelX = owner->GetPixelPos().x;
+    PixelY = owner->GetPixelPos().y;
+    //CREATE BODY.
+    CreateBody();
+    //CREATE SHAPE & FIXTURE
+    switch (shapeType)
+    {
+        case ShapeType::RECT:
+            MakeRectShape();
+            break;
+        case ShapeType::CIRCLE:
+            MakeCircleShape();
+            break; 
+        default:
+            break;
+    }
 }
 
-void PhysicsComponent::HandleKeyPress(const SDL_Keycode key)
-{
-
+void PhysicsComponent::CreateBody()
+{ 
+    b2BodyDef bodyDef;
+    bodyDef.position.Set(PixelX*P2M, PixelY*P2M);
+    if (isDynamic)
+    {
+        bodyDef.type = b2_dynamicBody;
+    }
+    physBody = physWorld->CreateBody(&bodyDef);
 }
 
-void PhysicsComponent::HandleKeyRelease(const SDL_Keycode key)
+void PhysicsComponent::MakeCircleShape()
 {
+    b2CircleShape shape;
+    //The Shape Coordinates are related to the Body.  0.0 will be centered around the body.
+    shape.m_p.Set(0.0f, 0.0f);
+//    shape.m_p.Set(PixelX*P2M, PixelY*P2M);
+    shape.m_radius = mRadius/2 * P2M;
+    GenerateFixture(&shape);
+}
 
+void PhysicsComponent::MakeRectShape()
+{
+    b2PolygonShape shape;
+    shape.SetAsBox(P2M * PixelW / 2.0, P2M * PixelH / 2.0);
+    GenerateFixture(&shape);
+}
+
+//Change to AddFixtureToShape
+void PhysicsComponent::GenerateFixture(b2Shape* shape)
+{
+    b2FixtureDef fixtureDef;
+    fixtureDef.shape = shape;
+    fixtureDef.density = 0.2f;
+    fixtureDef.friction = 0.1f;
+    //fixtureDef.restitution = 0.1f;
+    // fixtureDef.filter.categoryBits = kFilterCategorySolidObject;
+    // fixtureDef.filter.maskBits = 0xffff;
+    physBody->CreateFixture(&fixtureDef);
 }
 
 void PhysicsComponent::Update()
 {
-    //std::cout << "Is it thrusting? " << isThrusting << "\n";
     if (isThrusting && isDynamic)
     {
-        std::cout << "Thrusting" << std::endl;
-//        b2Vec2 upVec {0.0f, -4.5f};
+        std::cout << "IsThrusting" << "\n";
         //Get the Unit vector of my Object's angle.  
-        b2Vec2 currentVec { cos(physBody->GetAngle()), 2 * sin(physBody->GetAngle())};
-        
+        b2Vec2 currentVec { 2*cos(physBody->GetAngle()), 2*sin(physBody->GetAngle())};   
         physBody->ApplyForceToCenter(currentVec, true);
     }
 
     if (turn == TurnDir::LEFT)
     {
-        // physBody->ApplyTorque(1, true);
         physBody->SetTransform(physBody->GetPosition(), physBody->GetAngle() - TURNSPEED);
     }
     else if (turn == TurnDir::RIGHT)
     {
-        // physBody->ApplyTorque(-1, true);
         physBody->SetTransform(physBody->GetPosition(), physBody->GetAngle() + TURNSPEED);        
     }
-
-}
-
-void PhysicsComponent::Render(SDL_Renderer* renderer)
-{
-    
 }
 
 void PhysicsComponent::printType() const
 {
     std::cout << "Component: " << type << std::endl;   
 }
+
+void PhysicsComponent::SetTurning(TurnDir turning) 
+{
+    /*  Currently there is an issue with the rotating velocity.
+        May want to 'SetFixedRotation' for the duration of a Turn.  */
+//    if (turning != TurnDir::NONE)
+//         physBody->SetFixedRotation(true);
+//    else
+//         physBody->SetFixedRotation(false);
+    turn = turning; 
+} 

@@ -10,8 +10,11 @@
 #include "SDL2/SDL.h"
 #include "Box2D/Box2D.h"
 
+#include "Constants.h"
+
 #include "PhysicsComponent.h"
 #include "SDLRectComponent.h"
+#include "SDLCircleComponent.h"
 #include "KeyInputComponent.h"
 
 class EntityManager;
@@ -22,6 +25,7 @@ public:
     Entity(EntityManager& manager);
     Entity(EntityManager& manager, std::string name);
     Entity(EntityManager& manager, std::string name, b2Vec2 initPixelPos, b2Vec2 initPixelSize);
+    Entity(EntityManager& manager, std::string name, b2Vec2 initPixelPos, float initPixelSize);
     void HandleEvents(SDL_Event &event);
     void HandleKeyPress(SDL_Keycode key);
     void HandleKeyRelease(SDL_Keycode key);
@@ -32,6 +36,7 @@ public:
     template <typename T, typename... TArgs>
     T& AddComponent(TArgs&&... args)
     {
+        //Call would look like : EntityName->AddComponent<ComponentType>(Arguments)
         T* newComponent(new T(std::forward<TArgs>(args)...));
         newComponent->owner = this;
         components.emplace_back(newComponent);
@@ -64,11 +69,15 @@ public:
 
     void SetPixelPos(b2Vec2 newScreenPos) { mPixelPos = newScreenPos; }
     void SetPixelSize(b2Vec2 newSize) { mPixelSize = newSize; }
+    void SetPixelSize(float newRadius) { mPixelRad = newRadius;
+                                         mPixelSize = b2Vec2 {mPixelRad, mPixelRad}; }
 
     b2Vec2 GetPhysSize() { return b2Vec2{ mPixelSize.x * P2M, mPixelSize.y * P2M  }; }
     b2Vec2 GetPhysPos() { return b2Vec2{ mPixelPos.x * P2M, mPixelPos.y * P2M }; }
     b2Vec2 GetPixelSize() { return mPixelSize; }
     b2Vec2 GetPixelPos() { return mPixelPos; }
+    int GetRadius() {return mPixelRad; }
+    float GetAngle() { return mAngle; }
 
     void ConvertPixelPosToPhysPos();
     void ConvertPixelSizeToPhysSize();
@@ -84,7 +93,10 @@ private:
 
     b2Vec2 mPixelPos;
     b2Vec2 mPixelSize;
-    
+    float mPixelRad;
+    float mAngle;
+
+
     bool isActive;
 
     //draw from GetComponent<PhysicsComponent>(mPhysBody.position.x, mPhysBody.position.y)

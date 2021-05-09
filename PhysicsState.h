@@ -5,9 +5,9 @@
 #include <vector>
 
 #include "App.h"
-#include "Constants.h"
 #include "State.h"
 #include "EntityManager.h"
+#include "Player.h"
 
 class PhysicsComponent;
 
@@ -22,26 +22,45 @@ public:
     ~PhysicsState();
 
     void init() override {}
+
     void HandleEvents() override;
     void Update() override;
     void Render(SDL_Renderer* renderer) override;
+    
+    void InitWorld();
+    void AddPlayer(Player* player) { players.push_back(player); }
 
-    // void DrawAllPolys();
-    // void DrawRect(b2Vec2* points, b2Vec2 center, float angle);
-    // void DrawLine(SDL_Surface* dest, int x0, int y0, int x1, int y1);
-    // void RotateAndTranslate(b2Vec2& vector, const b2Vec2& center, float angle);
     SDL_Renderer* mnoptrrenderer;
     SDL_Surface* mnoptrsurface;
     b2World* world;
     EntityManager* manager;
 
+    KeyInputComponent* mO1InputComp;
+    KeyInputComponent* mO2InputComp;
+    KeyInputComponent* mO3InputComp;
+
 private:
 
     //std::vector<PhysicsEntity> dynamicEntities;
+
+    //These aren't actually holding the pointer to the Entities created.
     Entity* movingObj1 = nullptr;
+
+
     Entity* movingObj2 = nullptr;
+
+
+    Entity* movingObj3 = nullptr;
+
+
+    Entity* movingObj0 = nullptr;
     Entity* staticObj1 = nullptr;
     Entity* staticObj2 = nullptr;
+    Entity* staticObj3 = nullptr;
+    Entity* staticObj4 = nullptr;
+
+    Player* P1;
+    std::vector<Player*> players;
 
     float timeStep;
     int velocityIterations;

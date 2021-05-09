@@ -29,27 +29,20 @@ void EntityManager::Render(SDL_Renderer* renderer)
 
 void EntityManager::HandleKeyPress(SDL_Keycode key)
 {
-    for (auto& entity : entities)
+    for (auto& player : players)
     {
-        entity->HandleKeyPress(key);
+        player->HandleKeyPress(key);
     }
 }
 
 void EntityManager::HandleKeyRelease(SDL_Keycode key)
 {
-    for (auto& entity : entities)
+    for (auto& player : players)
     {
-        entity->HandleKeyRelease(key);
+        player->HandleKeyRelease(key);
     }
 }
 
-void EntityManager::HandleInput(SDL_Event &event)
-{
-    for (auto& entity : entities)
-    {
-        entity->HandleEvents(event);
-    }
-}
 
 Entity* EntityManager::AddEntity(std::string entityName)
 {
@@ -71,7 +64,13 @@ Entity* EntityManager::AddEntity(std::string entityName, b2Vec2 initPixelPos, b2
     Entity* entity = new Entity(*this, entityName, initPixelPos, initPixelSize); //Create a new Generic Entity with entityName. Store a pointer to it in entity.
     entities.emplace_back(entity); //Add that pointer to the entities list.
     return entity; //Return the actual object?
+}
 
+Entity* EntityManager::AddEntity(std::string entityName, b2Vec2 initPixelPos, float initPixelRadius)
+{
+    Entity* entity = new Entity(*this, entityName, initPixelPos, initPixelRadius); //Create a new Generic Entity with entityName. Store a pointer to it in entity.
+    entities.emplace_back(entity); //Add that pointer to the entities list.
+    return entity; //Return the actual object?
 }
 
 void EntityManager::DestroyInactiveEntities()
