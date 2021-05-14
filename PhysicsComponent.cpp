@@ -13,6 +13,12 @@ PhysicsComponent::PhysicsComponent(b2World* world, bool dynamic, ShapeType shape
     
 }
 
+PhysicsComponent::PhysicsComponent(b2World* world, bool dynamic, ShapeType shape, b2BodyType body_type)
+ : isThrusting(false), turn(TurnDir::NONE), physWorld(world), isDynamic(dynamic), shapeType(shape), bodyType(body_type)
+{
+    
+}
+
 PhysicsComponent::PhysicsComponent(b2World* world, bool dynamic, std::string name, ShapeType shape)
  : isThrusting(false), turn(TurnDir::NONE), physWorld(world), isDynamic(dynamic), shapeType(shape)
 {
@@ -51,10 +57,7 @@ void PhysicsComponent::CreateBody()
 { 
     b2BodyDef bodyDef;
     bodyDef.position.Set(PixelX*P2M, PixelY*P2M);
-    if (isDynamic)
-    {
-        bodyDef.type = b2_dynamicBody;
-    }
+    bodyDef.type = bodyType;
     physBody = physWorld->CreateBody(&bodyDef);
 }
 
@@ -90,7 +93,7 @@ void PhysicsComponent::GenerateFixture(b2Shape* shape)
 
 void PhysicsComponent::Update()
 {
-    if (isThrusting && isDynamic)
+    if (isThrusting && (bodyType == b2_dynamicBody) )
     {
         //Get the Unit vector of my Object's angle. 
         physBody->ApplyForceToCenter(thrustingVec, true);

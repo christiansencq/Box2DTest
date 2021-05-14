@@ -39,12 +39,14 @@ public:
 
     void DestroyInactiveEntities();
 
-    void AddPlayer(Player* player) {players.push_back(player);}
+    void AddPlayer(Player* player);
 
 private:
     SDL_Renderer* renderer; //A shared pointer.
 
+    //std::vector<std::shared_ptr<Entity>> entities;
     std::vector<Entity*> entities;
+
     std::vector<Player*> players;
 
     std::map<const std::string, Entity*> entityNameMap;

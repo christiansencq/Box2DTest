@@ -47,7 +47,7 @@ bool App::init(const char* title, int width, int height, bool fullscreen)
         isRunning = false;
     }
     
-    std::unique_ptr<PhysicsState> physState = std::make_unique<PhysicsState>(renderer, surface);
+    std::unique_ptr<GameMatchState> physState = std::make_unique<GameMatchState>(renderer);
     PushState(std::move(physState));
 
     return isRunning;
@@ -58,7 +58,6 @@ void App::Run()
     if (window)
     {
         isRunning = true;
-
         while (isRunning)
         {
             State* topState = App::TopState();
@@ -71,8 +70,7 @@ void App::Run()
                 //Convert to seconds.
                 float deltaTime = (SDL_GetTicks() - ticksLastFrame) / 1000.0f;
                 deltaTime = (deltaTime > 0.05f) ? 0.05f : deltaTime;
-                ticksLastFrame = SDL_GetTicks();
-
+                ticksLastFrame = SDL_GetTicks(); 
                 */
                 topState->HandleEvents();
                 topState->Update();

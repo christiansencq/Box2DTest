@@ -4,7 +4,7 @@
 #include "SDL2/SDL.h"
 #include "SDL2/SDL_image.h"
 #include "SDL2/SDL_ttf.h"
-#include "PhysicsState.h"
+#include "GameMatchState.h"
 #include "State.h"
 //#include "Constants.h"
 
@@ -33,13 +33,14 @@ public:
 
     inline void QuitApp() { isRunning = false; };
     inline bool running() { return isRunning; };
-    //SDL_Renderer* GetRenderer() { return renderer; }
 
 private:
     bool isRunning = false;
+    
     SDL_Renderer* renderer;
     SDL_Surface* surface;
     SDL_Window* window;
+    
     std::vector<std::unique_ptr<State>> mStateStack;
 };
 

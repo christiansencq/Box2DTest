@@ -29,6 +29,8 @@ public:
     virtual void Render(SDL_Renderer* renderer) {}
     virtual void printType() const {}
 
+    virtual Entity* GetOwner() { return owner; }
+
     Entity* owner;
 };
 

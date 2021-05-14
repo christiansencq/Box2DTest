@@ -24,8 +24,8 @@ class Entity
 public:
     Entity(EntityManager& manager);
     Entity(EntityManager& manager, std::string name);
-    Entity(EntityManager& manager, std::string name, b2Vec2 initPixelPos, b2Vec2 initPixelSize);
-    Entity(EntityManager& manager, std::string name, b2Vec2 initPixelPos, float initPixelSize);
+    Entity(EntityManager& manager, std::string name, b2Vec2 init_pixel_pos, b2Vec2 init_pixel_size);
+    Entity(EntityManager& manager, std::string name, b2Vec2 init_pixel_pos, float init_pixel_size);
     void HandleEvents(SDL_Event &event);
     void HandleKeyPress(SDL_Keycode key);
     void HandleKeyRelease(SDL_Keycode key);
@@ -79,8 +79,8 @@ public:
     int GetRadius() {return mPixelRad; }
     float GetAngle() { return mAngle; }
 
-    void ConvertPixelPosToPhysPos();
-    void ConvertPixelSizeToPhysSize();
+    // void ConvertPixelPosToPhysPos();
+    // void ConvertPixelSizeToPhysSize();
 
     SDL_Renderer* GetRenderer() {return renderer;}
 
@@ -88,6 +88,7 @@ private:
 
     EntityManager& manager;
     std::vector<Component*> components;
+//    std::vector<std::unique_ptr<Component>> components;
     std::map<const std::type_info*, Component*> componentTypeMap;
     std::string name;
 
@@ -96,12 +97,7 @@ private:
     float mPixelRad;
     float mAngle;
 
-
     bool isActive;
-
-    //draw from GetComponent<PhysicsComponent>(mPhysBody.position.x, mPhysBody.position.y)
-    b2Vec2 mPhysPos;    
-    b2Vec2 mPhysSize;
 
     SDL_Renderer* renderer;
 };

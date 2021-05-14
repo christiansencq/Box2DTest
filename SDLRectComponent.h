@@ -30,6 +30,7 @@ public:
     void DisplayAngleIndicator();
     void RotateAndTranslate(b2Vec2& vector, const b2Vec2& center, float angle);
 
+    Entity* GetOwner() { return owner; }
     Entity* owner;
     b2Body* mPhysBody;
 

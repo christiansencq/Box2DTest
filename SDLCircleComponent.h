@@ -28,6 +28,8 @@ public:
 
     float GetPixelX() {return mPixelX; }
     float GetPixelY() {return mPixelY; }
+
+    Entity* GetOwner() { return owner; }
     Entity* owner;
 
 

@@ -12,18 +12,18 @@ Entity::Entity(EntityManager& manager, std::string name)
     //SetPixelSize(initPxSize);
 }
 
-Entity::Entity(EntityManager& manager, std::string name, b2Vec2 initPxPos, b2Vec2 initPxSize)
-    : manager(manager), name(name), mPixelPos(initPxPos), mPixelSize(initPxSize), isActive(true)
+Entity::Entity(EntityManager& manager, std::string name, b2Vec2 init_pixel_pos, b2Vec2 init_pixel_size)
+    : manager(manager), name(name), mPixelPos(init_pixel_pos), mPixelSize(init_pixel_size), isActive(true)
 {
-    SetPixelSize(initPxSize);
+    SetPixelSize(init_pixel_size);
 }
 
-Entity::Entity(EntityManager& manager, std::string name, b2Vec2 initPxPos, float initPxSize)
-    : manager(manager), name(name), mPixelPos(initPxPos), mPixelRad(initPxSize), isActive(true)
+Entity::Entity(EntityManager& manager, std::string name, b2Vec2 init_pixel_pos, float init_pixel_size)
+    : manager(manager), name(name), mPixelPos(init_pixel_pos), mPixelRad(init_pixel_size), isActive(true)
 {
-    SetPixelSize(initPxSize*2.0f);
-    ConvertPixelPosToPhysPos();
-    ConvertPixelSizeToPhysSize();
+    SetPixelSize(init_pixel_size*2.0f);
+    // ConvertPixelPosToPhysPos();
+    // ConvertPixelSizeToPhysSize();
 }
 
 void Entity::HandleKeyPress(SDL_Keycode key)
@@ -90,17 +90,17 @@ void Entity::ListAllComponents()
     }
 }
 
-void Entity::ConvertPixelPosToPhysPos() 
-{ 
-    //Because the doubles have to be narrowed (which isn't possible in an initializer)
-    float newX = mPixelPos.x * P2M;
-    float newY = mPixelPos.y * P2M;
-    mPhysPos = {newX, newY};
-}
+// void Entity::ConvertPixelPosToPhysPos() 
+// { 
+//     //Because the doubles have to be narrowed (which isn't possible in an initializer)
+//     float newX = mPixelPos.x * P2M;
+//     float newY = mPixelPos.y * P2M;
+//     mPhysPos = {newX, newY};
+// }
 
-void Entity::ConvertPixelSizeToPhysSize()
-{
-    float newW = mPixelSize.x * P2M;
-    float newH = mPixelSize.y * P2M;
-    mPhysSize = {newW, newH};
-}
+// void Entity::ConvertPixelSizeToPhysSize()
+// {
+//     float newW = mPixelSize.x * P2M;
+//     float newH = mPixelSize.y * P2M;
+//     mPhysSize = {newW, newH};
+// }

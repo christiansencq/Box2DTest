@@ -47,6 +47,8 @@ public:
         return static_cast<T*>(commandTypeMap[&typeid(T)]);
     }
 
+    Entity* GetOwner() { return owner; }
+
     Entity* owner;
     PhysicsComponent* physicsComp;
 

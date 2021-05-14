@@ -15,12 +15,11 @@
 class PhysicsComponent : public Component
 {
 public:
-    // PhysicsComponent(float x, float y, float w, float h, b2World* world, bool dynamic = false);
-    // PhysicsComponent(b2Vec2 physPos, b2Vec2 physSize, b2World* world, bool dynamic = false);
-    //PhysicsComponent(int pixelX, int pixelY, int pixelW, int pixelH, b2World* world, bool dynamic);
     PhysicsComponent(b2World* world, bool dynamic);
     PhysicsComponent(b2World* world, bool dynamic, ShapeType shape);
+    PhysicsComponent(b2World* world, bool dynamic, ShapeType shape, b2BodyType body_type);
     PhysicsComponent(b2World* world, bool dynamic, std::string name, ShapeType shape);
+    PhysicsComponent(b2World* world, bool dynamic, std::string name, ShapeType shape, b2BodyType body_type);
     ~PhysicsComponent();
     void Initialize(); //Handle the body, shape, fixture creation.
     void CreateBody();
@@ -36,12 +35,14 @@ public:
 
     b2Body* GetPhysBody() { return physBody; }
     bool IsDynamic() const {return isDynamic;}
+    b2BodyType GetBodyType() { return physBody->GetType(); }
 
     void SetThrusting(bool thrusting) { isThrusting = thrusting; }
     void SetThrustingVec(b2Vec2 thrust_vector);
     void SetThrustDirection(ThrustDir dir);
     void SetTurning(TurnDir turning);    
 
+    Entity* GetOwner() { return owner; }
     Entity* owner;
 
 private:
@@ -71,6 +72,7 @@ private:
     const std::string type = "PhysicsComponent";
     //std::string shapeType; //Either circle or rect.  Should make this an ENUM
     ShapeType shapeType;
+    b2BodyType bodyType;
 };
 
 #endif
