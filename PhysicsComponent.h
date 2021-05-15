@@ -26,11 +26,8 @@ public:
     void MakeCircleShape();
     void MakeRectShape();
     void GenerateFixture(b2Shape* shape);
-    void HandleEvents(SDL_Event &event) {}
-    void HandleKeyPress(const SDL_Keycode key) {}
-    void HandleKeyRelease(const SDL_Keycode key) {}
-    void Update();
-    void Render(SDL_Renderer* renderer) {}
+    virtual void Update();
+    //virtual void Render(SDL_Renderer* renderer) {}
     void printType() const;
 
     b2Body* GetPhysBody() { return physBody; }
@@ -40,6 +37,7 @@ public:
     void SetThrusting(bool thrusting) { isThrusting = thrusting; }
     void SetThrustingVec(b2Vec2 thrust_vector);
     void SetThrustDirection(ThrustDir dir);
+    void SetFixedTurning(TurnDir turning, bool fixed);  
     void SetTurning(TurnDir turning);    
 
     Entity* GetOwner() { return owner; }

@@ -25,33 +25,23 @@ public:
     void HandleKeyRelease(SDL_Keycode key);
 
     //Entity Management and Access.
-    // Entity& AddEntity(std::string entityName);
-    // Entity& AddEntity(std::string entityName, b2Vec2 initPixelPos, b2Vec2 initPixelSize);
-    Entity* AddEntity(std::string entityName);
-    Entity* AddEntity(std::string entityName, b2Vec2 initPixelPos, b2Vec2 initPixelSize);
-    Entity* AddEntity(std::string entityName, b2Vec2 initPixelPos, float initPixelRadius);
+    Entity* AddEntity();
+    Entity* AddEntity(b2Vec2 initPixelPos, b2Vec2 initPixelSize);
+    Entity* AddEntity(b2Vec2 initPixelPos, float initPixelRadius);
 
     bool HasEntities() const { return entities.size() > 0; }
     std::vector<Entity*> GetEntities() const { return entities; }
-    unsigned int GetEntityCount() { return entities.size(); }
-    Entity* GetEntityByName(std::string entityName);
-    void ListAllEntities() const;
+    unsigned int GetEntityCount() const { return entities.size(); }
 
     void DestroyInactiveEntities();
-
     void AddPlayer(Player* player);
 
 private:
     SDL_Renderer* renderer; //A shared pointer.
-
     //std::vector<std::shared_ptr<Entity>> entities;
     std::vector<Entity*> entities;
-
     std::vector<Player*> players;
-
     std::map<const std::string, Entity*> entityNameMap;
-
     b2World* physWorld;
-
 };
 #endif

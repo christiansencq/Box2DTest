@@ -13,7 +13,10 @@
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [ 
-                ],
+                {
+                    "name": "LSAN_OPTIONS", "value": "verbosity=1 : log_threads=1"
+                }
+            ],
             "externalConsole": true,
             "MIMode": "gdb",
             "miDebuggerPath": "/usr/bin/gdb",

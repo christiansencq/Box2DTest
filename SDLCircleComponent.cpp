@@ -32,7 +32,6 @@ void SDLCircleComponent::Render(SDL_Renderer* renderer)
 
 void SDLCircleComponent::DrawCircle()
 {
-
    int32_t x = (mDiameter/2 - 1);
    int32_t y = 0;
    int32_t tx = 1;

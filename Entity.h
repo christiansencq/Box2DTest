@@ -16,6 +16,7 @@
 #include "SDLRectComponent.h"
 #include "SDLCircleComponent.h"
 #include "KeyInputComponent.h"
+#include "SelectableComponent.h"
 
 class EntityManager;
 
@@ -23,9 +24,9 @@ class Entity
 {
 public:
     Entity(EntityManager& manager);
-    Entity(EntityManager& manager, std::string name);
-    Entity(EntityManager& manager, std::string name, b2Vec2 init_pixel_pos, b2Vec2 init_pixel_size);
-    Entity(EntityManager& manager, std::string name, b2Vec2 init_pixel_pos, float init_pixel_size);
+    //Entity(EntityManager& manager, std::string name);
+    Entity(EntityManager& manager, b2Vec2 init_pixel_pos, b2Vec2 init_pixel_size);
+    Entity(EntityManager& manager, b2Vec2 init_pixel_pos, float init_pixel_size);
     void HandleEvents(SDL_Event &event);
     void HandleKeyPress(SDL_Keycode key);
     void HandleKeyRelease(SDL_Keycode key);
@@ -65,11 +66,9 @@ public:
         return isActive;//Not sure what purpose this serves.
     }
 
-    std::string GetName() const{ return name; }
-
-    void SetPixelPos(b2Vec2 newScreenPos) { mPixelPos = newScreenPos; }
-    void SetPixelSize(b2Vec2 newSize) { mPixelSize = newSize; }
-    void SetPixelSize(float newRadius) { mPixelRad = newRadius;
+    void SetPixelPos(const b2Vec2 newScreenPos) { mPixelPos = newScreenPos; }
+    void SetPixelSize(const b2Vec2 newSize) { mPixelSize = newSize; }
+    void SetPixelSize(const float newRadius) { mPixelRad = newRadius;
                                          mPixelSize = b2Vec2 {mPixelRad, mPixelRad}; }
 
     b2Vec2 GetPhysSize() { return b2Vec2{ mPixelSize.x * P2M, mPixelSize.y * P2M  }; }
@@ -90,7 +89,7 @@ private:
     std::vector<Component*> components;
 //    std::vector<std::unique_ptr<Component>> components;
     std::map<const std::type_info*, Component*> componentTypeMap;
-    std::string name;
+
 
     b2Vec2 mPixelPos;
     b2Vec2 mPixelSize;

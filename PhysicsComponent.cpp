@@ -114,6 +114,12 @@ void PhysicsComponent::printType() const
     std::cout << "Component: " << type << std::endl;   
 }
 
+void PhysicsComponent::SetFixedTurning(TurnDir turning, bool fixed)
+{
+    physBody->SetFixedRotation(fixed);
+    turn = turning; 
+}
+
 void PhysicsComponent::SetTurning(TurnDir turning) 
 {
     /*  Currently there is an issue with the rotating velocity.

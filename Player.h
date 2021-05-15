@@ -13,6 +13,7 @@ Is pNum/PlayerNo necessary?
 #include "SDL2/SDL.h"
 
 #include "Entity.h"
+#include "SelectableComponent.h"
 
 //#include "Commands.h"
 #include <vector>
@@ -50,9 +51,11 @@ public:
     void SwapActiveBall(int new_ball);
 
     std::array<SDL_Keycode, 4> GetActionKeys() { return ActionKeys;}
-    //Selector& GetSelector() { return *selector; }
+
     void RenderSelector(SDL_Renderer* renderer);
     void UpdateSelector();
+
+    void InitializeActiveBall() {activeBall = teamsBalls[0]; }
 
 private:
 
@@ -62,8 +65,8 @@ private:
     const std::array<SDL_Keycode, 3> SwapKeys;
     const std::array<SDL_Keycode, 4> ActionKeys;
 
-//    std::unique_ptr<Selector> selector;
-    Selector* selector;
+    std::unique_ptr<Selector> selector;
+    //Selector* selector;
 };
 
 #endif

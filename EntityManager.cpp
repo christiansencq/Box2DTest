@@ -54,9 +54,9 @@ void EntityManager::HandleKeyRelease(SDL_Keycode key)
 }
 
 
-Entity* EntityManager::AddEntity(std::string entityName)
+Entity* EntityManager::AddEntity()
 {
-    Entity* entity = new Entity(*this, entityName); //Create a new Generic Entity with entityName. Store a pointer to it in entity.
+    Entity* entity = new Entity(*this); //Create a new Generic Entity with entityName. Store a pointer to it in entity.
     entities.emplace_back(entity); //Add that pointer to the entities list.
     return entity; //Return the actual object?
 
@@ -66,16 +66,16 @@ Entity* EntityManager::AddEntity(std::string entityName)
 
 }
 
-Entity* EntityManager::AddEntity(std::string entityName, b2Vec2 initPixelPos, b2Vec2 initPixelSize)
+Entity* EntityManager::AddEntity(b2Vec2 initPixelPos, b2Vec2 initPixelSize)
 {
-    Entity* entity = new Entity(*this, entityName, initPixelPos, initPixelSize); //Create a new Generic Entity with entityName. Store a pointer to it in entity.
+    Entity* entity = new Entity(*this, initPixelPos, initPixelSize); //Create a new Generic Entity with entityName. Store a pointer to it in entity.
     entities.emplace_back(entity); //Add that pointer to the entities list.
     return entity; //Return the actual object?
 }
 
-Entity* EntityManager::AddEntity(std::string entityName, b2Vec2 initPixelPos, float initPixelRadius)
+Entity* EntityManager::AddEntity(b2Vec2 initPixelPos, float initPixelRadius)
 {
-    Entity* entity = new Entity(*this, entityName, initPixelPos, initPixelRadius); //Create a new Generic Entity with entityName. Store a pointer to it in entity.
+    Entity* entity = new Entity(*this, initPixelPos, initPixelRadius); //Create a new Generic Entity with entityName. Store a pointer to it in entity.
     entities.emplace_back(entity); //Add that pointer to the entities list.
     return entity; //Return the actual object?
 }
@@ -98,22 +98,18 @@ void EntityManager::AddPlayer(Player* player)
     players.push_back(player);
 }
 
-void EntityManager::ListAllEntities() const
-{
-    for (auto& entity : entities)
-    {
-        std::cout << entity->GetName() << std::endl;
-    }
-}
+// void EntityManager::ListAllEntities() const
+// {
+//     for (auto& entity : entities)
+//     {
 
-Entity* EntityManager::GetEntityByName(std::string name)
-{
-    for (auto& entity : entities)
-    {
-        if (entity->GetName() == name)
-        {
-            return entity;
-        }
-    }
-    return nullptr;
-}
+//     }
+// }
+
+// Entity* EntityManager::GetEntityByName(std::string name)
+// {
+//     for (auto& entity : entities)
+//     {
+//     }
+//     return nullptr;
+// }

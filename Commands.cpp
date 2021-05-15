@@ -67,6 +67,33 @@ void LeftTurnCommand::executeRelease()
     owningComponent->physicsComp->SetTurning(TurnDir::NONE);
 }
 
+/*
+
+void LeftFixedTurnCommand::LeftFixedTurnCommand()
+{
+    
+}
+
+void LeftFixedTurnCommand::Initialize()
+{
+
+}
+
+void LeftFixedTurnCommand::executePress()
+{
+
+}
+
+void LeftFixedTurnCommand::executeRelease()
+{
+
+}
+
+
+*/
+
+
+
 
 
 RightTurnCommand::RightTurnCommand()
