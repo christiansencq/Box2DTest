@@ -94,22 +94,5 @@ void EntityManager::DestroyInactiveEntities()
 void EntityManager::AddPlayer(Player* player) 
 {
     player->SwapActiveBall(0);
-    player->AddSelector();
     players.push_back(player);
 }
-
-// void EntityManager::ListAllEntities() const
-// {
-//     for (auto& entity : entities)
-//     {
-
-//     }
-// }
-
-// Entity* EntityManager::GetEntityByName(std::string name)
-// {
-//     for (auto& entity : entities)
-//     {
-//     }
-//     return nullptr;
-// }

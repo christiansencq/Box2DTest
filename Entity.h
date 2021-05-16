@@ -17,16 +17,21 @@
 #include "SDLCircleComponent.h"
 #include "KeyInputComponent.h"
 #include "SelectableComponent.h"
+#include "TextComponent.h"
 
 class EntityManager;
 
 class Entity
 {
 public:
+    // Entity(EntityManager& manager);//Because these are references, they MUST be initialized.
+    // Entity(EntityManager& manager, b2Vec2 init_pixel_pos, b2Vec2 init_pixel_size);
+    // Entity(EntityManager& manager, b2Vec2 init_pixel_pos, float init_pixel_size);
+
     Entity(EntityManager& manager);
-    //Entity(EntityManager& manager, std::string name);
     Entity(EntityManager& manager, b2Vec2 init_pixel_pos, b2Vec2 init_pixel_size);
     Entity(EntityManager& manager, b2Vec2 init_pixel_pos, float init_pixel_size);
+
     void HandleEvents(SDL_Event &event);
     void HandleKeyPress(SDL_Keycode key);
     void HandleKeyRelease(SDL_Keycode key);
@@ -77,6 +82,7 @@ public:
     b2Vec2 GetPixelPos() { return mPixelPos; }
     int GetRadius() {return mPixelRad; }
     float GetAngle() { return mAngle; }
+    
 
     // void ConvertPixelPosToPhysPos();
     // void ConvertPixelSizeToPhysSize();
@@ -86,6 +92,7 @@ public:
 private:
 
     EntityManager& manager;
+
     std::vector<Component*> components;
 //    std::vector<std::unique_ptr<Component>> components;
     std::map<const std::type_info*, Component*> componentTypeMap;

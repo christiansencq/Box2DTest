@@ -25,15 +25,7 @@ class Command;
 class Player
 {
 public:
-    //Player(std::vector<Entity*> ents);
-    //Player(std::vector<Entity*> ents, std::array<SDL_Keycode, 3> swap_keys);
-
     Player(std::array<SDL_Keycode, 3> swap_keys, std::array<SDL_Keycode, 4> action_keys);
-
-    //Player(std::vector<Entity*> ents, std::array<SDL_Keycode, 3> swap_keys, std::array<SDL_Keycode, 4> action_keys);
-    
-    //Player(Entity* ent1, Entity* ent2, Entity* ent3);
-    //Player(Entity* ent1, Entity* ent2, Entity* ent3, std::array<SDL_Keycode, 3> swap_keys);
 
     ~Player();
 
@@ -42,12 +34,10 @@ public:
 
     void AddEntity(Entity* newEnt) { teamsBalls.push_back(newEnt); }
     void AddBallToTeam(Entity* newEnt) { teamsBalls.push_back(newEnt); }
-    //void AddTeam(std::vector<Entity*> ents);
 
     Entity* GetActive() { return activeBall; }
     std::vector<Entity*> GetBalls() { return teamsBalls; }
 
-    void AddSelector();
     void SwapActiveBall(int new_ball);
 
     std::array<SDL_Keycode, 4> GetActionKeys() { return ActionKeys;}
@@ -64,9 +54,6 @@ private:
     
     const std::array<SDL_Keycode, 3> SwapKeys;
     const std::array<SDL_Keycode, 4> ActionKeys;
-
-    std::unique_ptr<Selector> selector;
-    //Selector* selector;
 };
 
 #endif

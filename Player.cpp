@@ -1,14 +1,11 @@
 #include "Player.h"
-#include "Selector.h"
 
 
 
 Player::Player(std::array<SDL_Keycode, 3> swap_keys, std::array<SDL_Keycode, 4> action_keys)
 : SwapKeys (swap_keys), ActionKeys (action_keys)
 {
-    //Delay this until after the std::vector<Entity*> is fully populated.
-    //selector = std::make_unique<Selector>(this);
-//    selector = new Selector(this);
+
 }
 
 Player::~Player()
@@ -39,18 +36,6 @@ void Player::HandleKeyPress(SDL_Keycode key)
 void Player::HandleKeyRelease(SDL_Keycode key)
 {
     activeBall->HandleKeyRelease(key);     
-}
-
-// void Player::AddTeam(std::vector<Entity*> ents)
-// { for (auto entity: ents)
-//          teamsBalls.push_back(entity);
-//     activeBall = teamsBalls[0];
-//     selector = std::make_unique<Selector>(this); }
-
-void Player::AddSelector()
-{
-
-    //selector = new Selector(this);
 }
 
 void Player::SwapActiveBall(int new_ball) 

@@ -1,16 +1,12 @@
  #include "Entity.h"
  
- Entity::Entity(EntityManager& manager) 
+
+
+Entity::Entity(EntityManager& manager) 
     : manager(manager)
 {
 
 }
-
-// Entity::Entity(EntityManager& manager, std::string name)
-//     : Entity(manager, name, b2Vec2{0, 0}, b2Vec2{0, 0})
-// {
-//     //SetPixelSize(initPxSize);
-// }
 
 Entity::Entity(EntityManager& manager, b2Vec2 init_pixel_pos, b2Vec2 init_pixel_size)
     : manager(manager), mPixelPos(init_pixel_pos), mPixelSize(init_pixel_size), isActive(true)
@@ -24,6 +20,7 @@ Entity::Entity(EntityManager& manager, b2Vec2 init_pixel_pos, float init_pixel_s
     SetPixelSize(init_pixel_size*2.0f);
 
 }
+
 
 void Entity::HandleKeyPress(SDL_Keycode key)
 {
@@ -53,9 +50,14 @@ void Entity::HandleEvents(SDL_Event &event)
 void Entity::Update()
 {
     //Update my tracking of Position & Angle.
-    mPixelPos.x = GetComponent<PhysicsComponent>()->GetPhysBody()->GetPosition().x * M2P;
-    mPixelPos.y = GetComponent<PhysicsComponent>()->GetPhysBody()->GetPosition().y * M2P;
-    mAngle = GetComponent<PhysicsComponent>()->GetPhysBody()->GetAngle();
+    //TODO : Have each Entity able to have a 'Position' component which is responsible for updating its position (either Physics, static, etc)
+    if (HasComponent<PhysicsComponent>())
+    {
+        mPixelPos.x = GetComponent<PhysicsComponent>()->GetPhysBody()->GetPosition().x * M2P;
+        mPixelPos.y = GetComponent<PhysicsComponent>()->GetPhysBody()->GetPosition().y * M2P;
+        mAngle = GetComponent<PhysicsComponent>()->GetPhysBody()->GetAngle();
+    }
+
 
     for (auto& component : components)
     {
