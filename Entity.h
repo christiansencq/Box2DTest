@@ -1,111 +1,98 @@
-//#pragma once
-
 #ifndef ENTITY_H
 #define ENTITY_H
 
+#include <map>
 #include <string>
 #include <vector>
-#include <map>
 
-#include "SDL2/SDL.h"
 #include "Box2D/Box2D.h"
+#include "SDL2/SDL.h"
 
-#include "Constants.h"
+#include "Const/Constants.h"
 
-#include "PhysicsComponent.h"
-#include "SDLRectComponent.h"
-#include "SDLCircleComponent.h"
-#include "KeyInputComponent.h"
-#include "SelectableComponent.h"
-#include "TextComponent.h"
+#include "Components/KeyInputComponent.h"
+#include "Components/PhysicsComponent.h"
+#include "Components/SDLCircleComponent.h"
+#include "Components/SDLRectComponent.h"
+#include "Components/SelectableComponent.h"
+#include "Components/TextComponent.h"
 
 class EntityManager;
 
-class Entity
-{
+class Entity {
 public:
-    // Entity(EntityManager& manager);//Because these are references, they MUST be initialized.
-    // Entity(EntityManager& manager, b2Vec2 init_pixel_pos, b2Vec2 init_pixel_size);
-    // Entity(EntityManager& manager, b2Vec2 init_pixel_pos, float init_pixel_size);
+  Entity(EntityManager &manager);
+  Entity(EntityManager &manager, b2Vec2 init_pixel_pos, b2Vec2 init_pixel_size);
+  Entity(EntityManager &manager, b2Vec2 init_pixel_pos, float init_pixel_rad);
 
-    Entity(EntityManager& manager);
-    Entity(EntityManager& manager, b2Vec2 init_pixel_pos, b2Vec2 init_pixel_size);
-    Entity(EntityManager& manager, b2Vec2 init_pixel_pos, float init_pixel_size);
+  void HandleEvents(SDL_Event &event);
+  void HandleKeyPress(SDL_Keycode key);
+  void HandleKeyRelease(SDL_Keycode key);
+  void Update();
+  void Render(SDL_Renderer *renderer);
+  void Destroy();
 
-    void HandleEvents(SDL_Event &event);
-    void HandleKeyPress(SDL_Keycode key);
-    void HandleKeyRelease(SDL_Keycode key);
-    void Update();
-    void Render(SDL_Renderer* renderer);
-    void Destroy();
+  template <typename T, typename... TArgs> T &AddComponent(TArgs &&...args) {
+    // Call would look like : EntityName->AddComponent<ComponentType>(Arguments)
+    T *newComponent(new T(std::forward<TArgs>(args)...));
+    newComponent->owner = this;
+    m_Components.emplace_back(newComponent);
+    m_ComponentTypeMap[&typeid(*newComponent)] = newComponent;
+    newComponent->Initialize();
+    return *newComponent;
+  }
 
-    template <typename T, typename... TArgs>
-    T& AddComponent(TArgs&&... args)
-    {
-        //Call would look like : EntityName->AddComponent<ComponentType>(Arguments)
-        T* newComponent(new T(std::forward<TArgs>(args)...));
-        newComponent->owner = this;
-        components.emplace_back(newComponent);
-        componentTypeMap[&typeid(*newComponent)] = newComponent;
-        newComponent->Initialize();
-        return *newComponent;
-    } 
-    
-    void ListAllComponents();
+  void ListAllComponents();
 
-    template<typename T>
-    T* GetComponent()
-    {
-        return static_cast<T*>(componentTypeMap[&typeid(T)]);
-    }
-    
-    template <typename T>
-    bool HasComponent() const
-    {
-        //Use by calling like : EntityObj->HasComponent<PhysicsComponent>()
-        return componentTypeMap.count(&typeid(T));
-    }
-    
-    bool IsActive() const
-    {
-        return isActive;//Not sure what purpose this serves.
-    }
+  template <typename T> T *GetComponent() {
+    return static_cast<T *>(m_ComponentTypeMap[&typeid(T)]);
+  }
 
-    void SetPixelPos(const b2Vec2 newScreenPos) { mPixelPos = newScreenPos; }
-    void SetPixelSize(const b2Vec2 newSize) { mPixelSize = newSize; }
-    void SetPixelSize(const float newRadius) { mPixelRad = newRadius;
-                                         mPixelSize = b2Vec2 {mPixelRad, mPixelRad}; }
+  template <typename T> bool HasComponent() const {
+    // Use by calling like : EntityObj->HasComponent<PhysicsComponent>()
+    return m_ComponentTypeMap.count(&typeid(T));
+  }
 
-    b2Vec2 GetPhysSize() { return b2Vec2{ mPixelSize.x * P2M, mPixelSize.y * P2M  }; }
-    b2Vec2 GetPhysPos() { return b2Vec2{ mPixelPos.x * P2M, mPixelPos.y * P2M }; }
-    b2Vec2 GetPixelSize() { return mPixelSize; }
-    b2Vec2 GetPixelPos() { return mPixelPos; }
-    int GetRadius() {return mPixelRad; }
-    float GetAngle() { return mAngle; }
-    
+  bool IsActive() const {
+    return isActive; // Not sure what purpose this serves.
+  }
 
-    // void ConvertPixelPosToPhysPos();
-    // void ConvertPixelSizeToPhysSize();
+  void SetPixelPos(const b2Vec2 newScreenPos) { m_PixelPos = newScreenPos; }
+  void SetPixelSize(const b2Vec2 newSize) { m_PixelSize = newSize; }
+  void SetPixelSize(const float newRadius) {
+    m_PixelRad = newRadius;
+    m_PixelSize = b2Vec2{m_PixelRad, m_PixelRad};
+  }
 
-    SDL_Renderer* GetRenderer() {return renderer;}
+  b2Vec2 GetPhysSize() {
+    return b2Vec2{m_PixelSize.x * P2M, m_PixelSize.y * P2M};
+  }
+  b2Vec2 GetPhysPos() { return b2Vec2{m_PixelPos.x * P2M, m_PixelPos.y * P2M}; }
+  b2Vec2 GetPixelSize() { return m_PixelSize; }
+  b2Vec2 GetPixelPos() { return m_PixelPos; }
+  int GetRadius() { return m_PixelRad; }
+  float GetAngle() { return m_Angle; }
+
+  // void ConvertPixelPosToPhysPos();
+  // void ConvertPixelSizeToPhysSize();
+
+  SDL_Renderer *GetRenderer() { return m_Renderer; }
 
 private:
+  EntityManager& m_Manager;
 
-    EntityManager& manager;
+  std::vector<Component*> m_Components;
+  //    std::vector<std::unique_ptr<Component>> components;
+  std::map<const std::type_info*, Component*> m_ComponentTypeMap;
 
-    std::vector<Component*> components;
-//    std::vector<std::unique_ptr<Component>> components;
-    std::map<const std::type_info*, Component*> componentTypeMap;
+  b2Vec2 m_PixelPos;
+  b2Vec2 m_PixelSize;
+  float m_PixelRad;
+  float m_Angle;
 
+  bool isActive;
 
-    b2Vec2 mPixelPos;
-    b2Vec2 mPixelSize;
-    float mPixelRad;
-    float mAngle;
-
-    bool isActive;
-
-    SDL_Renderer* renderer;
+  SDL_Renderer* m_Renderer;
 };
 
 #endif

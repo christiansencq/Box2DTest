@@ -8,7 +8,7 @@ App& App::Singleton()
     return theApp;
 }
 
-bool App::init(const char* title, int width, int height, bool fullscreen)
+bool App::Init(const char* title, int width, int height, bool fullscreen)
 {
     int flags = 0;
     if (fullscreen)
@@ -20,16 +20,16 @@ bool App::init(const char* title, int width, int height, bool fullscreen)
     {
         std::cout << "SDL Initialized" << std::endl;
 
-        window = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
-        if (window)
+        m_Window = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
+        if (m_Window)
         {
             std::cout << "Window created!" << std::endl;
         }
 
-        renderer = SDL_CreateRenderer(window, -1, 0);
-        if(renderer)
+        m_Renderer = SDL_CreateRenderer(m_Window, -1, 0);
+        if(m_Renderer)
         {
-            SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+            SDL_SetRenderDrawColor(m_Renderer, 255, 255, 255, 255);
             std::cout << "Renderer Created!" << std::endl;
         }
 
@@ -47,7 +47,7 @@ bool App::init(const char* title, int width, int height, bool fullscreen)
         isRunning = false;
     }
     
-    std::unique_ptr<GameMatchState> physState = std::make_unique<GameMatchState>(renderer);
+    std::unique_ptr<GameMatchState> physState = std::make_unique<GameMatchState>(m_Renderer);
     PushState(std::move(physState));
 
     return isRunning;
@@ -55,7 +55,7 @@ bool App::init(const char* title, int width, int height, bool fullscreen)
 
 void App::Run()
 {
-    if (window)
+    if (m_Window)
     {
         isRunning = true;
         while (isRunning)
@@ -74,7 +74,7 @@ void App::Run()
                 */
                 topState->HandleEvents();
                 topState->Update();
-                topState->Render(renderer);
+                topState->Render(m_Renderer);
             }
         }
     }
@@ -86,16 +86,16 @@ void App::PushState(std::unique_ptr<State> state)
 
     if (state)
     {
-        state->init();
-        mStateStack.emplace_back(std::move(state));
+        state->Init();
+        m_StateStack.emplace_back(std::move(state));
     }
 }
 
 void App::PopToMenu()
 {
-    while(mStateStack.size() > 1)
+    while(m_StateStack.size() > 1)
     {
-        mStateStack.pop_back();
+        m_StateStack.pop_back();
     }
 
     if (TopState())
@@ -106,20 +106,20 @@ void App::PopToMenu()
 
 State* App::TopState()
 {
-    if (mStateStack.empty())
+    if (m_StateStack.empty())
     {
         return nullptr;
     }
 
-    return mStateStack.back().get();
+    return m_StateStack.back().get();
 }
 
 App::~App()
 {
-    SDL_DestroyWindow(window);
-    SDL_DestroyRenderer(renderer);
-    window = nullptr;
-    renderer = nullptr;
+    SDL_DestroyWindow(m_Window);
+    SDL_DestroyRenderer(m_Renderer);
+    m_Window = nullptr;
+    m_Renderer = nullptr;
     TTF_Quit();
     SDL_Quit();
 }

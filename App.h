@@ -1,20 +1,17 @@
 #ifndef APP_H
 #define APP_H
 
-#include "SDL2/SDL.h"
-#include "SDL2/SDL_image.h"
-#include "SDL2/SDL_ttf.h"
-#include "GameMatchState.h"
-#include "State.h"
-//#include "Constants.h"
-
 #include <cassert>
 #include <iostream>
 #include <vector>
 #include <memory>
 
-//class State;
+#include "SDL2/SDL.h"
+#include "SDL2/SDL_image.h"
+#include "SDL2/SDL_ttf.h"
 
+#include "GameMatchState.h"
+#include "State.h"
 
 class App 
 {
@@ -22,7 +19,7 @@ public:
     ~App();
     static App& Singleton();
 
-    bool init(const char* title, int widthPhysics, int height, bool fullscreen);
+    bool Init(const char* title, int widthPhysics, int height, bool fullscreen);
 
     void PushState(std::unique_ptr<State> state);
     void PopState();
@@ -37,11 +34,11 @@ public:
 private:
     bool isRunning = false;
     
-    SDL_Renderer* renderer;
-    SDL_Surface* surface;
-    SDL_Window* window;
+    SDL_Renderer* m_Renderer;
+    SDL_Surface* m_Surface;
+    SDL_Window* m_Window;
     
-    std::vector<std::unique_ptr<State>> mStateStack;
+    std::vector<std::unique_ptr<State>> m_StateStack;
 };
 
 #endif

@@ -5,20 +5,13 @@
 The player class holds pointers to all of their balls and keeps track of the activeBall.
 Will want to create a "AddPlayer" method to PhysicsState.  
 Maybe have a static value in Player to help keep track of ID numbers?
-
-Is pNum/PlayerNo necessary?
-
 */
+#include <vector>
 
 #include "SDL2/SDL.h"
 
 #include "Entity.h"
-#include "SelectableComponent.h"
 
-//#include "Commands.h"
-#include <vector>
-
-class Entity;
 class Selector;
 class Command;
 
@@ -32,28 +25,27 @@ public:
     void HandleKeyPress(SDL_Keycode key);
     void HandleKeyRelease(SDL_Keycode key);
 
-    void AddEntity(Entity* newEnt) { teamsBalls.push_back(newEnt); }
-    void AddBallToTeam(Entity* newEnt) { teamsBalls.push_back(newEnt); }
+    void AddBallToTeam(Entity* new_entity) { m_TeamsBalls.push_back(new_entity); }
 
-    Entity* GetActive() { return activeBall; }
-    std::vector<Entity*> GetBalls() { return teamsBalls; }
+    Entity* GetActive() { return m_ActiveBall; }
+    std::vector<Entity*> GetBalls() { return m_TeamsBalls; }
 
     void SwapActiveBall(int new_ball);
 
-    std::array<SDL_Keycode, 4> GetActionKeys() { return ActionKeys;}
+    std::array<SDL_Keycode, 4> GetActionKeys() { return m_ActionKeys;}
 
     void RenderSelector(SDL_Renderer* renderer);
     void UpdateSelector();
 
-    void InitializeActiveBall() {activeBall = teamsBalls[0]; }
+    void InitializeActiveBall() {m_ActiveBall = m_TeamsBalls[0]; }
 
 private:
 
-    std::vector<Entity*> teamsBalls;
-    Entity* activeBall;
+    std::vector<Entity*> m_TeamsBalls;
+    Entity* m_ActiveBall;
     
-    const std::array<SDL_Keycode, 3> SwapKeys;
-    const std::array<SDL_Keycode, 4> ActionKeys;
+    const std::array<SDL_Keycode, 3> m_SwapKeys;
+    const std::array<SDL_Keycode, 4> m_ActionKeys;
 };
 
 #endif

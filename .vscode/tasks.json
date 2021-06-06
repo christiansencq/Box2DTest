@@ -8,6 +8,8 @@
 			"args": [
 				"-ggdb",
 				"${workspaceFolder}/**.cpp",
+				"${workspaceFolder}/Components/**.cpp",
+				"${workspaceFolder}/Commands/**.cpp",
 				// "-fsanitize=address",
 				// "-fno-omit-frame-pointer",
 				// "-static-libstdc++",

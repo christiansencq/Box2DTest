@@ -17,7 +17,7 @@
                     "name": "LSAN_OPTIONS", "value": "verbosity=1 : log_threads=1"
                 }
             ],
-            "externalConsole": true,
+            "externalConsole": false,
             "MIMode": "gdb",
             "miDebuggerPath": "/usr/bin/gdb",
             "setupCommands": [

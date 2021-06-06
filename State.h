@@ -9,7 +9,7 @@ class State
 {
 public:
     virtual ~State() {}
-    virtual void init() = 0;
+    virtual void Init() = 0;
     virtual void HandleEvents() = 0;
     virtual void Update() = 0;
     virtual void Render(SDL_Renderer* renderer) = 0;
