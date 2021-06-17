@@ -19,7 +19,7 @@ public:
     ~App();
     static App& Singleton();
 
-    bool Init(const char* title, int widthPhysics, int height, bool fullscreen);
+    bool Init(const char* title, int width, int height, bool fullscreen);
 
     void PushState(std::unique_ptr<State> state);
     void PopState();

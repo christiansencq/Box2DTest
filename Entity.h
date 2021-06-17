@@ -8,8 +8,9 @@
 #include "Box2D/Box2D.h"
 #include "SDL2/SDL.h"
 
-#include "Const/Constants.h"
+#include "Constants.h"
 
+#include "Components/GoalZoneComponent.h"
 #include "Components/KeyInputComponent.h"
 #include "Components/PhysicsComponent.h"
 #include "Components/SDLCircleComponent.h"
@@ -29,7 +30,7 @@ public:
   void HandleKeyPress(SDL_Keycode key);
   void HandleKeyRelease(SDL_Keycode key);
   void Update();
-  void Render(SDL_Renderer *renderer);
+  void Render();
   void Destroy();
 
   template <typename T, typename... TArgs> T &AddComponent(TArgs &&...args) {

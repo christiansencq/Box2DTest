@@ -20,6 +20,8 @@ void EntityManager::Update()
     {
         p->UpdateSelector();
     }
+
+
     //ListAllEntities();entity
     DestroyInactiveEntities();
 }
@@ -28,7 +30,7 @@ void EntityManager::Render(SDL_Renderer* renderer)
 {
     for (auto entity : m_Entities)
     {
-        entity->Render(renderer);
+        entity->Render();
     }
 
     for (auto p : m_Players)
@@ -90,7 +92,7 @@ void EntityManager::DestroyInactiveEntities()
     }
 }
 
-void EntityManager::AddPlayer(Player* player) 
+void EntityManager::AddPlayer(std::shared_ptr<Player> player) 
 {
     player->SwapActiveBall(0);
     m_Players.push_back(player);

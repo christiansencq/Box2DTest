@@ -29,13 +29,13 @@ public:
   unsigned int GetEntityCount() const { return m_Entities.size(); }
 
   void DestroyInactiveEntities();
-  void AddPlayer(Player *player);
+  void AddPlayer(std::shared_ptr<Player> player);
 
 private:
   SDL_Renderer *m_Renderer; // A shared pointer.
   // std::vector<std::shared_ptr<Entity>> entities;
-  std::vector<Entity *> m_Entities;
-  std::vector<Player *> m_Players;
+  std::vector<Entity*> m_Entities;
+  std::vector<std::shared_ptr<Player>> m_Players;
   // std::map<const std::string, Entity*> entityNameMap;
   b2World *m_PhysWorld;
 };

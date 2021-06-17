@@ -2,6 +2,7 @@
 #define PLAYER_H
 
 /*
+
 The player class holds pointers to all of their balls and keeps track of the activeBall.
 Will want to create a "AddPlayer" method to PhysicsState.  
 Maybe have a static value in Player to help keep track of ID numbers?
@@ -18,8 +19,7 @@ class Command;
 class Player
 {
 public:
-    Player(std::array<SDL_Keycode, 3> swap_keys, std::array<SDL_Keycode, 4> action_keys);
-
+    Player(std::array<SDL_Keycode, 3> swap_keys, std::array<SDL_Keycode, 4> action_keys, Entity* score_display);
     ~Player();
 
     void HandleKeyPress(SDL_Keycode key);
@@ -39,13 +39,18 @@ public:
 
     void InitializeActiveBall() {m_ActiveBall = m_TeamsBalls[0]; }
 
+    void IncrementScore(int num);
+    int GetScore() { return m_Score; }
 private:
 
+    SDL_Renderer* m_Renderer;
     std::vector<Entity*> m_TeamsBalls;
     Entity* m_ActiveBall;
-    
+    Entity* m_ScoreDisplay;    
     const std::array<SDL_Keycode, 3> m_SwapKeys;
     const std::array<SDL_Keycode, 4> m_ActionKeys;
+
+    int m_Score;
 };
 
 #endif

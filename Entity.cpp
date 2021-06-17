@@ -55,9 +55,9 @@ void Entity::Update() {
   }
 }
 
-void Entity::Render(SDL_Renderer *renderer) {
+void Entity::Render() {
   for (auto &component : m_Components) {
-    component->Render(m_Renderer);
+    component->Render();
   }
 }
 

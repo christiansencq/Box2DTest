@@ -2,8 +2,8 @@
 
 
 
-Player::Player(std::array<SDL_Keycode, 3> swap_keys, std::array<SDL_Keycode, 4> action_keys)
-: m_SwapKeys (swap_keys), m_ActionKeys (action_keys)
+Player::Player(std::array<SDL_Keycode, 3> swap_keys, std::array<SDL_Keycode, 4> action_keys, Entity* score_display)
+: m_SwapKeys (swap_keys), m_ActionKeys (action_keys), m_ScoreDisplay(score_display)
 {
 
 }
@@ -48,10 +48,17 @@ void Player::SwapActiveBall(int new_ball)
 
 void Player::RenderSelector(SDL_Renderer* renderer)
 {
-    m_ActiveBall->GetComponent<SelectableComponent>()->Render(renderer);
+    m_ActiveBall->GetComponent<SelectableComponent>()->Render();
 }
 
 void Player::UpdateSelector()
 {
     m_ActiveBall->GetComponent<SelectableComponent>()->Update();
+}
+
+void Player::IncrementScore(int num)
+{
+    m_Score += num;
+    std::string new_score = "Player Score" + std::to_string(m_Score);
+    m_ScoreDisplay->GetComponent<TextComponent>()->SetText(new_score);
 }
