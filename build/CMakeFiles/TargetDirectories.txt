@@ -1,0 +1,3 @@
+/home/charles/Cpp/Box2Test/build/CMakeFiles/rebuild_cache.dir
+/home/charles/Cpp/Box2Test/build/CMakeFiles/edit_cache.dir
+/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir

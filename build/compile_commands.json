@@ -1,0 +1,85 @@
+[
+{
+  "directory": "/home/charles/Cpp/Box2Test/build",
+  "command": "/bin/g++-10   -I/Commands -I/Components -I/Const  -g   -ggdb -Wall -Wpedantic -Wextra -Wno-unused-parameter -o CMakeFiles/HockeyExe.dir/App.cpp.o -c /home/charles/Cpp/Box2Test/App.cpp",
+  "file": "/home/charles/Cpp/Box2Test/App.cpp"
+},
+
+{
+  "directory": "/home/charles/Cpp/Box2Test/build",
+  "command": "/bin/g++-10   -I/Commands -I/Components -I/Const  -g   -ggdb -Wall -Wpedantic -Wextra -Wno-unused-parameter -o CMakeFiles/HockeyExe.dir/AssetManager.cpp.o -c /home/charles/Cpp/Box2Test/AssetManager.cpp",
+  "file": "/home/charles/Cpp/Box2Test/AssetManager.cpp"
+},
+
+{
+  "directory": "/home/charles/Cpp/Box2Test/build",
+  "command": "/bin/g++-10   -I/Commands -I/Components -I/Const  -g   -ggdb -Wall -Wpedantic -Wextra -Wno-unused-parameter -o CMakeFiles/HockeyExe.dir/Commands/Commands.cpp.o -c /home/charles/Cpp/Box2Test/Commands/Commands.cpp",
+  "file": "/home/charles/Cpp/Box2Test/Commands/Commands.cpp"
+},
+
+{
+  "directory": "/home/charles/Cpp/Box2Test/build",
+  "command": "/bin/g++-10   -I/Commands -I/Components -I/Const  -g   -ggdb -Wall -Wpedantic -Wextra -Wno-unused-parameter -o CMakeFiles/HockeyExe.dir/Components/KeyInputComponent.cpp.o -c /home/charles/Cpp/Box2Test/Components/KeyInputComponent.cpp",
+  "file": "/home/charles/Cpp/Box2Test/Components/KeyInputComponent.cpp"
+},
+
+{
+  "directory": "/home/charles/Cpp/Box2Test/build",
+  "command": "/bin/g++-10   -I/Commands -I/Components -I/Const  -g   -ggdb -Wall -Wpedantic -Wextra -Wno-unused-parameter -o CMakeFiles/HockeyExe.dir/Components/PhysicsComponent.cpp.o -c /home/charles/Cpp/Box2Test/Components/PhysicsComponent.cpp",
+  "file": "/home/charles/Cpp/Box2Test/Components/PhysicsComponent.cpp"
+},
+
+{
+  "directory": "/home/charles/Cpp/Box2Test/build",
+  "command": "/bin/g++-10   -I/Commands -I/Components -I/Const  -g   -ggdb -Wall -Wpedantic -Wextra -Wno-unused-parameter -o CMakeFiles/HockeyExe.dir/Components/SDLCircleComponent.cpp.o -c /home/charles/Cpp/Box2Test/Components/SDLCircleComponent.cpp",
+  "file": "/home/charles/Cpp/Box2Test/Components/SDLCircleComponent.cpp"
+},
+
+{
+  "directory": "/home/charles/Cpp/Box2Test/build",
+  "command": "/bin/g++-10   -I/Commands -I/Components -I/Const  -g   -ggdb -Wall -Wpedantic -Wextra -Wno-unused-parameter -o CMakeFiles/HockeyExe.dir/Components/SDLRectComponent.cpp.o -c /home/charles/Cpp/Box2Test/Components/SDLRectComponent.cpp",
+  "file": "/home/charles/Cpp/Box2Test/Components/SDLRectComponent.cpp"
+},
+
+{
+  "directory": "/home/charles/Cpp/Box2Test/build",
+  "command": "/bin/g++-10   -I/Commands -I/Components -I/Const  -g   -ggdb -Wall -Wpedantic -Wextra -Wno-unused-parameter -o CMakeFiles/HockeyExe.dir/Components/SelectableComponent.cpp.o -c /home/charles/Cpp/Box2Test/Components/SelectableComponent.cpp",
+  "file": "/home/charles/Cpp/Box2Test/Components/SelectableComponent.cpp"
+},
+
+{
+  "directory": "/home/charles/Cpp/Box2Test/build",
+  "command": "/bin/g++-10   -I/Commands -I/Components -I/Const  -g   -ggdb -Wall -Wpedantic -Wextra -Wno-unused-parameter -o CMakeFiles/HockeyExe.dir/Components/TextComponent.cpp.o -c /home/charles/Cpp/Box2Test/Components/TextComponent.cpp",
+  "file": "/home/charles/Cpp/Box2Test/Components/TextComponent.cpp"
+},
+
+{
+  "directory": "/home/charles/Cpp/Box2Test/build",
+  "command": "/bin/g++-10   -I/Commands -I/Components -I/Const  -g   -ggdb -Wall -Wpedantic -Wextra -Wno-unused-parameter -o CMakeFiles/HockeyExe.dir/Entity.cpp.o -c /home/charles/Cpp/Box2Test/Entity.cpp",
+  "file": "/home/charles/Cpp/Box2Test/Entity.cpp"
+},
+
+{
+  "directory": "/home/charles/Cpp/Box2Test/build",
+  "command": "/bin/g++-10   -I/Commands -I/Components -I/Const  -g   -ggdb -Wall -Wpedantic -Wextra -Wno-unused-parameter -o CMakeFiles/HockeyExe.dir/EntityManager.cpp.o -c /home/charles/Cpp/Box2Test/EntityManager.cpp",
+  "file": "/home/charles/Cpp/Box2Test/EntityManager.cpp"
+},
+
+{
+  "directory": "/home/charles/Cpp/Box2Test/build",
+  "command": "/bin/g++-10   -I/Commands -I/Components -I/Const  -g   -ggdb -Wall -Wpedantic -Wextra -Wno-unused-parameter -o CMakeFiles/HockeyExe.dir/GameMatchState.cpp.o -c /home/charles/Cpp/Box2Test/GameMatchState.cpp",
+  "file": "/home/charles/Cpp/Box2Test/GameMatchState.cpp"
+},
+
+{
+  "directory": "/home/charles/Cpp/Box2Test/build",
+  "command": "/bin/g++-10   -I/Commands -I/Components -I/Const  -g   -ggdb -Wall -Wpedantic -Wextra -Wno-unused-parameter -o CMakeFiles/HockeyExe.dir/Player.cpp.o -c /home/charles/Cpp/Box2Test/Player.cpp",
+  "file": "/home/charles/Cpp/Box2Test/Player.cpp"
+},
+
+{
+  "directory": "/home/charles/Cpp/Box2Test/build",
+  "command": "/bin/g++-10   -I/Commands -I/Components -I/Const  -g   -ggdb -Wall -Wpedantic -Wextra -Wno-unused-parameter -o CMakeFiles/HockeyExe.dir/main.cpp.o -c /home/charles/Cpp/Box2Test/main.cpp",
+  "file": "/home/charles/Cpp/Box2Test/main.cpp"
+}
+]
