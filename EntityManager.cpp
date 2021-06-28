@@ -81,6 +81,7 @@ Entity* EntityManager::AddEntity(b2Vec2 initPixelPos, float initPixelRadius)
     return entity; //Return the actual object?
 }
 
+
 void EntityManager::DestroyInactiveEntities()
 {
     for (size_t i = 0; i < m_Entities.size(); i++) 

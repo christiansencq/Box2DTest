@@ -10,8 +10,9 @@
 #include "SDL2/SDL_image.h"
 #include "SDL2/SDL_ttf.h"
 
-#include "GameMatchState.h"
 #include "State.h"
+
+//class GameMatchState;
 
 class App 
 {
@@ -22,6 +23,7 @@ public:
     bool Init(const char* title, int width, int height, bool fullscreen);
 
     void PushState(std::unique_ptr<State> state);
+//    void PushState(State* state);
     void PopState();
     void PopToMenu();
     State* TopState();
@@ -38,6 +40,7 @@ private:
     SDL_Surface* m_Surface;
     SDL_Window* m_Window;
     
+//    std::vector<std::unique_ptr<State>> m_StateStack;
     std::vector<std::unique_ptr<State>> m_StateStack;
 };
 

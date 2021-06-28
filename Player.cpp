@@ -1,10 +1,24 @@
 #include "Player.h"
+#include "Entity.h"
 
-
-
-Player::Player(std::array<SDL_Keycode, 3> swap_keys, std::array<SDL_Keycode, 4> action_keys, Entity* score_display)
-: m_SwapKeys (swap_keys), m_ActionKeys (action_keys), m_ScoreDisplay(score_display)
+Player::Player(const std::array<SDL_Keycode, 3> swap_keys, const std::array<SDL_Keycode, 4> action_keys)
+ : m_SwapKeys (swap_keys), m_ActionKeys (action_keys)
 {
+
+}
+
+Player::Player(const std::array<SDL_Keycode, 3> swap_keys, const std::array<SDL_Keycode, 4> action_keys, Entity* score_display)
+ : m_ScoreDisplay(score_display), m_SwapKeys (swap_keys), m_ActionKeys (action_keys) 
+{
+
+}
+
+Player::Player(const std::array<SDL_Keycode, 3> swap_keys, const std::array<SDL_Keycode, 4> action_keys, Entity* score_display, std::vector<b2Vec2> starting_pos)
+: m_StartingPositions(starting_pos), m_ScoreDisplay(score_display), m_SwapKeys (swap_keys), m_ActionKeys (action_keys) 
+
+{
+
+    //Set the Starting Angle
 
 }
 
@@ -40,8 +54,10 @@ void Player::HandleKeyRelease(SDL_Keycode key)
 
 void Player::SwapActiveBall(int new_ball) 
 {
-    std::cout << "Old activeBall: " << m_ActiveBall << " -  New activeBall: " << m_TeamsBalls[new_ball] << "\n";
-    m_ActiveBall->GetComponent<SelectableComponent>()->Deselect();
+    if (m_ActiveBall)
+    {
+        m_ActiveBall->GetComponent<SelectableComponent>()->Deselect();
+    }
     m_ActiveBall = m_TeamsBalls[new_ball];
     m_ActiveBall->GetComponent<SelectableComponent>()->Select(); 
 }
@@ -61,4 +77,15 @@ void Player::IncrementScore(int num)
     m_Score += num;
     std::string new_score = "Player Score" + std::to_string(m_Score);
     m_ScoreDisplay->GetComponent<TextComponent>()->SetText(new_score);
+    ResetPositions();
+}
+
+void Player::ResetPositions()
+{
+    //Assert that starting Positions have been assigned.
+    for (size_t i = 0; i < m_TeamsBalls.size(); i++)
+    {
+        m_TeamsBalls[i]->SetPixelPos(m_StartingPositions[i]);
+    }    
+
 }

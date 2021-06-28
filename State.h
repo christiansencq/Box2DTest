@@ -9,10 +9,10 @@ class State
 {
 public:
     virtual ~State() {}
-    virtual void Init() = 0;
-    virtual void HandleEvents() = 0;
-    virtual void Update() = 0;
-    virtual void Render(SDL_Renderer* renderer) = 0;
+    virtual void Init() {}
+    virtual void HandleEvents() {}
+    virtual void Update() {}
+    virtual void Render(SDL_Renderer* renderer) {}
 
 private:
 
