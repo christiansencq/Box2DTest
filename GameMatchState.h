@@ -10,15 +10,7 @@
 #include "State.h"
 #include "EntityManager.h"
 #include "Player.h"
-/*
-#include "Components/KeyInputComponent.h"
-#include "Components/SelectableComponent.h"
-#include "Components/PhysicsComponent.h"
-#include "Components/GoalZoneComponent.h"
-#include "Components/SDLCircleComponent.h"
-#include "Components/SDLRectComponent.h"
-#include "Components/TextComponent.h"
-*/
+
 class KeyInputComponent;
 class SelectableComponent;
 class PhysicsComponent;
@@ -34,7 +26,6 @@ public:
     void InitWorld();
     void AddPlayer(std::shared_ptr<Player> player) { m_Players.push_back(player); }
     void AddPlayerBall(Entity* entity, std::shared_ptr<Player> player);
-//    void SetUpPlayers(std::vector<std::vector<Entity*>> PlayerTeams);
     void SetUpPlayers();
     void InitPlayers(int num_players);
     void CreateBoundaries();
@@ -56,6 +47,8 @@ private:
 
     const std::vector<b2Vec2> P1StartingPositions = {b2Vec2{350, 640}, b2Vec2{350, 480}, b2Vec2{350, 320}};
     const std::vector<b2Vec2> P2StartingPositions = {b2Vec2{750, 640}, b2Vec2{750, 480}, b2Vec2{750, 320}};
+    const std::array<b2Vec2, 2> ScoreDisplayPositions = {b2Vec2{150, 50}, b2Vec2{850, 50}};
+
     const std::array<SDL_Keycode, 3> P1SwapKeys = { SDLK_i, SDLK_o, SDLK_p };
     const std::array<SDL_Keycode, 4> P1ActionKeys = { SDLK_UP, SDLK_DOWN, SDLK_LEFT, SDLK_RIGHT };
     const std::array<SDL_Keycode, 3> P2SwapKeys = { SDLK_v, SDLK_b, SDLK_n };

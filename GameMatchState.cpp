@@ -5,13 +5,7 @@ GameMatchState::GameMatchState(SDL_Renderer* renderer)
  {
     //SETUP FONT
     m_ScoreFont = TTF_OpenFont("arial.ttf", 14);
-
-    if (!m_ScoreFont)
-    { 
-        std::cout << "Failed to load the font! \n";
-    } else {
-        std::cout << "Font loaded fine \n";
-    }
+    !m_ScoreFont ? std::cout << "Failed to load font! \n" : std::cout << "Font loaded fine. \n";
 
     //SETUP ARENA START
     InitWorld();
@@ -37,28 +31,13 @@ GameMatchState::GameMatchState(SDL_Renderer* renderer)
     AddPlayerBall(movingObj3, m_P1);
 
     //Player Setup
-    //Score
-    m_P1ScoreDisplayUI = m_Manager->AddEntity(b2Vec2{150, 50}, b2Vec2{50, 20});
-    m_P1ScoreDisplayUI->AddComponent<TextComponent>(m_AssetManager, m_Renderer, "P1Score", "ScoreFont");
-
-    //Check for Player to have 3 assigned entities.
-//    std::cout << "Balls in P1 " << m_P1->GetBalls().size() << std::endl;
-
-    //Check for balls to have SelectorComponent.
-    bool MissingSelect = false;
-    for (Entity* ball : m_P1->GetBalls())
-    {
-        if (!ball->HasComponent<SelectableComponent>())
-        {
-            MissingSelect = true;
-        }
-    }
-    std::cout << "Missing any? " << MissingSelect << std::endl;
-
     SetUpPlayers();
 
     //Goal Setup.
+    
+    
     //Call Reset - Which will determine the actual position
+    
 }
 
 GameMatchState::~GameMatchState()
@@ -70,8 +49,15 @@ GameMatchState::~GameMatchState()
 // Constructor/ Update/ Render to just before those functions.  <F8>
 void GameMatchState::SetUpPlayers()
 {
+    //Score
+    m_P1ScoreDisplayUI = m_Manager->AddEntity(ScoreDisplayPositions[0], b2Vec2{50, 20});
+    m_P1ScoreDisplayUI->AddComponent<TextComponent>(m_AssetManager, m_Renderer, "P1Score", "ScoreFont");
+
     m_Manager->AddPlayer(m_P1);
     m_Players.push_back((m_P1));
+
+//    m_P2ScoreDisplayUI = m_Manager->AddEntity(ScoreDisplayPositions[1], b2Vec2{50, 20});
+//    m_P2ScoreDisplayUI->AddComponent<TextComponent>(m_AssetManager, m_Renderer, "P2Score", "ScoreFont");
 
     //m_Manager->AddPlayer(m_P2);
     //m_Players.push_back(m_P2);

@@ -15,7 +15,6 @@
 
 
 constexpr unsigned int FPS = 60;
-
 constexpr unsigned int FRAME_TARGET_TIME = 1000 / FPS;//Convert FPS to milliseconds per frame?
 
 constexpr float EPSILON = 0.0001f;
