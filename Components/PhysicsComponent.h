@@ -32,6 +32,7 @@ public:
     void SetThrustDirection(ThrustDir dir);
     void SetFixedTurning(TurnDir turning, bool fixed);  
     void SetTurning(TurnDir turning);    
+    void SetTransform(b2Vec2 pos, float angle);
 
     Entity* GetOwner() { return owner; }
     Entity* owner;

@@ -76,9 +76,9 @@ void PhysicsComponent::Update()
     if (isThrusting && (m_BodyType == b2_dynamicBody) )
     {
         //Get the Unit vector of my Object's angle. 
-        std::cout << "ThrustingVec Force (" << m_ThrustingVec.x << ", " << m_ThrustingVec.y << ")\n";
-        std::cout << "Owner X " << owner->GetPixelPos().x << ", Y " << owner->GetPixelPos().y << " \n";
-        std::cout << "PhysBody X " << m_PhysBody->GetPosition().x << ", Y " << m_PhysBody->GetPosition().y << "\n";
+//        std::cout << "ThrustingVec Force (" << m_ThrustingVec.x << ", " << m_ThrustingVec.y << ")\n";
+//        std::cout << "Owner X " << owner->GetPixelPos().x << ", Y " << owner->GetPixelPos().y << " \n";
+//        std::cout << "PhysBody X " << m_PhysBody->GetPosition().x << ", Y " << m_PhysBody->GetPosition().y << "\n";
         m_PhysBody->ApplyForceToCenter(m_ThrustingVec, true);
     }
 
@@ -129,4 +129,9 @@ void PhysicsComponent::SetThrustDirection(ThrustDir dir)
             isThrusting = false;
             break;            
     }
+}
+
+void PhysicsComponent::SetTransform(b2Vec2 pos, float angle)
+{
+    m_PhysBody->SetTransform(pos, angle);
 }

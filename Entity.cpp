@@ -8,7 +8,9 @@ Entity::Entity(EntityManager &manager, b2Vec2 init_pixel_pos,
     : m_Manager(manager), m_PixelPos(init_pixel_pos),
       m_PixelSize(init_pixel_size), isActive(true) 
 {
-    DetermineAngle(m_PixelPos.x);
+    DetermineAngleFromPosition(m_PixelPos.x);
+    m_StartingAngle = m_Angle;
+    m_StartingPixelPos = m_PixelPos;
 
     //Verify that the Vectors have valid Values.
     SetPixelSize(init_pixel_size);
@@ -20,11 +22,11 @@ Entity::Entity(EntityManager &manager, b2Vec2 init_pixel_pos,
     : m_Manager(manager), m_PixelPos(init_pixel_pos),
       m_PixelRad(init_pixel_rad), isActive(true) 
 {
-    DetermineAngle(m_PixelPos.x);
+    DetermineAngleFromPosition(m_PixelPos.x);
     SetPixelSize(init_pixel_rad * 2.0f);
 }
 
-void Entity::DetermineAngle(int x_pos)
+void Entity::DetermineAngleFromPosition(int x_pos)
 {
     if (x_pos > SCREEN_WIDTH/2)
     {
@@ -104,11 +106,26 @@ void Entity::ListAllComponents()
   }
 }
 
-void Entity::SetPixelPos(const b2Vec2 newScreenPos)
-{  
-    m_PixelPos = newScreenPos;
-}
+//void Entity::SetPixelPos(const b2Vec2 newScreenPos)
+//{  m_PixelPos = newScreenPos}
 
 void Entity::SetTransform(const b2Vec2 newScreenPos, float angle)
-{  }
+{ 
+    m_PixelPos = newScreenPos;
 
+    //Set Body Position
+    if (HasComponent<PhysicsComponent>())
+    {
+        GetComponent<PhysicsComponent>()->SetTransform(b2Vec2 {newScreenPos.x * P2M, newScreenPos.y * P2M}, angle);
+    }
+    
+    //Set Angle.
+    m_Angle = angle;
+}
+
+void Entity::ResetTransform()
+{
+    //
+    m_Angle = m_StartingAngle;
+    m_PixelPos = m_StartingPixelPos;
+}

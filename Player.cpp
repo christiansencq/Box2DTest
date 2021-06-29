@@ -72,20 +72,30 @@ void Player::UpdateSelector()
     m_ActiveBall->GetComponent<SelectableComponent>()->Update();
 }
 
+void Player::AddScoreDisplay(Entity* score_disp)
+{
+    m_ScoreDisplay = score_disp;
+}
+
+
 void Player::IncrementScore(int num)
 {
     m_Score += num;
     std::string new_score = "Player Score" + std::to_string(m_Score);
+
     m_ScoreDisplay->GetComponent<TextComponent>()->SetText(new_score);
     ResetPositions();
 }
 
 void Player::ResetPositions()
 {
+    std::cout << "ResetPositions Start." <<std::endl;
+    
     //Assert that starting Positions have been assigned.
     for (size_t i = 0; i < m_TeamsBalls.size(); i++)
     {
-        m_TeamsBalls[i]->SetPixelPos(m_StartingPositions[i]);
+        m_TeamsBalls[i]->SetTransform(m_StartingPositions[i], 0);
     }    
-
+    std::cout << "Reset End." <<std::endl;
 }
+

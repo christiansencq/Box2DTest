@@ -2,7 +2,7 @@
 #include "../Entity.h"
 
 //When merging with Physics object (maybe use a TurnIntoGoalMethod() or inheritance)
-GoalZoneComponent::GoalZoneComponent(b2World* world, Player* player)
+GoalZoneComponent::GoalZoneComponent(b2World* world, std::shared_ptr<Player> player)
     : m_Player(player), m_PhysWorld(world) 
 {
 

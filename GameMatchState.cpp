@@ -34,8 +34,8 @@ GameMatchState::GameMatchState(SDL_Renderer* renderer)
     SetUpPlayers();
 
     //Goal Setup.
-    
-    
+    goalZone = m_Manager->AddEntity(b2Vec2{1300, 450}, b2Vec2{250, 500});    
+    goalZone->AddComponent<GoalZoneComponent>(m_World, m_P1);
     //Call Reset - Which will determine the actual position
     
 }
@@ -53,6 +53,8 @@ void GameMatchState::SetUpPlayers()
     m_P1ScoreDisplayUI = m_Manager->AddEntity(ScoreDisplayPositions[0], b2Vec2{50, 20});
     m_P1ScoreDisplayUI->AddComponent<TextComponent>(m_AssetManager, m_Renderer, "P1Score", "ScoreFont");
 
+    m_P1->AddStartingPositions(P1StartingPositions);
+    m_P1->AddScoreDisplay(m_P1ScoreDisplayUI);
     m_Manager->AddPlayer(m_P1);
     m_Players.push_back((m_P1));
 

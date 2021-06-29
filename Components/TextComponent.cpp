@@ -2,7 +2,7 @@
 #include "../Entity.h"
 
 TextComponent::TextComponent(AssetManager* asset_manager, SDL_Renderer* renderer, std::string text, std::string font_name) 
- : m_AssetManager(asset_manager), m_Renderer(renderer), m_Text(text), m_FontName(font_name), m_Color(RED) 
+ : m_AssetManager(asset_manager), m_Renderer(renderer), m_FontName(font_name), m_Text(text), m_Color(RED) 
 {
 
 }
@@ -37,7 +37,7 @@ void TextComponent::Update()
 
 void TextComponent::SetText(std::string text) 
 {
-    //Update the text to reflect the new player score.
+   //Update the text to reflect the new player score.
     SDL_Surface* surface = TTF_RenderText_Blended(m_Font, text.c_str(), m_Color);
     m_Texture = SDL_CreateTextureFromSurface(m_Renderer, surface);
     SDL_FreeSurface(surface);

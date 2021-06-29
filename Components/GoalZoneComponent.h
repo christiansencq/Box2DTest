@@ -21,7 +21,7 @@ class Entity;
 class GoalZoneComponent : public Component
 {
 public:
-    GoalZoneComponent(b2World* world, Player* player);
+    GoalZoneComponent(b2World* world, std::shared_ptr<Player> player);
     ~GoalZoneComponent();
 
     virtual void Initialize() override;
@@ -39,7 +39,7 @@ public:
 private:
     int m_Width, m_Height;
     bool m_Triggered;
-    Player* m_Player;
+    std::shared_ptr<Player> m_Player;
     b2World* m_PhysWorld;
     b2Body* m_PhysBody;
 };

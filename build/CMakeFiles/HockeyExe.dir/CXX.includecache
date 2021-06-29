@@ -78,12 +78,6 @@ Component.h
 ../Player.h
 /home/charles/Cpp/Box2Test/Player.h
 
-/home/charles/Cpp/Box2Test/Components/KeyInputComponent.cpp
-KeyInputComponent.h
-/home/charles/Cpp/Box2Test/Components/KeyInputComponent.h
-PhysicsComponent.h
-/home/charles/Cpp/Box2Test/Components/PhysicsComponent.h
-
 /home/charles/Cpp/Box2Test/Components/KeyInputComponent.h
 map
 -
@@ -291,10 +285,4 @@ SDL2/SDL_image.h
 /home/charles/Cpp/Box2Test/SDL2/SDL_image.h
 Box2D/Box2D.h
 /home/charles/Cpp/Box2Test/Box2D/Box2D.h
-
-/home/charles/Cpp/Box2Test/main.cpp
-App.h
-/home/charles/Cpp/Box2Test/App.h
-Constants.h
-/home/charles/Cpp/Box2Test/Constants.h
 

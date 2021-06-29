@@ -41,20 +41,21 @@ public:
     //I think this is redundant from EntityManager::AddPlayer
 //    void InitializeActiveBall() {m_ActiveBall = m_TeamsBalls[0];}
 
+    void AddStartingPositions(std::vector<b2Vec2> start_pos) {m_StartingPositions = start_pos; }
     //Scoring:
+    void AddScoreDisplay(Entity* score_disp);
     void IncrementScore(int num);
     int GetScore() { return m_Score; }
 
 private:
-
     std::vector<b2Vec2> m_StartingPositions;
-    SDL_Renderer* m_Renderer;
+//    SDL_Renderer* m_Renderer;
     std::vector<Entity*> m_TeamsBalls;
     Entity* m_ActiveBall;
     Entity* m_ScoreDisplay;    
     const std::array<SDL_Keycode, 3> m_SwapKeys;
     const std::array<SDL_Keycode, 4> m_ActionKeys;
-    int m_Score;
+    int m_Score = 0;
 };
 
 #endif
