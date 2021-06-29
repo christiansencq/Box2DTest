@@ -69,7 +69,8 @@ public:
   void SetPixelPos(const b2Vec2 newScreenPos) { m_PixelPos = newScreenPos;}   
   void SetAngle(float new_angle) { m_Angle = new_angle; }
   void SetTransform(const b2Vec2 newScreenPos, float angle);
-  void DetermineAngleFromPosition(int x_pos);//Later change this to the pos vector, so we can rotate toward?
+  //void DetermineAngleFromPosition(int x_pos);//Later change this to the pos vector, so we can rotate toward?
+  void SignalManagerToReset(); 
   void ResetTransform();
 
   b2Vec2 GetPhysSize() { return b2Vec2{ m_PixelSize.x * P2M, m_PixelSize.y * P2M }; }
@@ -80,6 +81,8 @@ public:
 
   int GetRadius() { return m_PixelRad; }
   float GetAngle() { return m_Angle; }
+
+
 
 // SDL_Renderer *GetRenderer() { return m_Renderer; }
 

@@ -33,6 +33,7 @@ public:
     void CreateRectShape();
     void GenerateFixture(b2Shape* shape);
     void Score();
+
     Entity* GetOwner() {return owner;} 
     Entity* owner;
 

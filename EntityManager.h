@@ -30,6 +30,7 @@ public:
 
   void DestroyInactiveEntities();
   void AddPlayer(std::shared_ptr<Player> player);
+  void ResetStage();
 
 private:
   SDL_Renderer *m_Renderer; // A shared pointer.

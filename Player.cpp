@@ -84,7 +84,7 @@ void Player::IncrementScore(int num)
     std::string new_score = "Player Score" + std::to_string(m_Score);
 
     m_ScoreDisplay->GetComponent<TextComponent>()->SetText(new_score);
-    ResetPositions();
+    
 }
 
 void Player::ResetPositions()
@@ -94,7 +94,7 @@ void Player::ResetPositions()
     //Assert that starting Positions have been assigned.
     for (size_t i = 0; i < m_TeamsBalls.size(); i++)
     {
-        m_TeamsBalls[i]->SetTransform(m_StartingPositions[i], 0);
+        m_TeamsBalls[i]->ResetTransform();
     }    
     std::cout << "Reset End." <<std::endl;
 }

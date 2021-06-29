@@ -99,4 +99,12 @@ void EntityManager::AddPlayer(std::shared_ptr<Player> player)
     m_Players.push_back(player);
 }
 
+void EntityManager::ResetStage()
+{
+    for (Entity* ent : m_Entities)
+    {
+        ent->ResetTransform();
+    }
+
+}
 

@@ -37,7 +37,6 @@ GameMatchState::GameMatchState(SDL_Renderer* renderer)
     goalZone = m_Manager->AddEntity(b2Vec2{1300, 450}, b2Vec2{250, 500});    
     goalZone->AddComponent<GoalZoneComponent>(m_World, m_P1);
     //Call Reset - Which will determine the actual position
-    
 }
 
 GameMatchState::~GameMatchState()

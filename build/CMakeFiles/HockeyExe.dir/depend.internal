@@ -152,6 +152,7 @@ CMakeFiles/HockeyExe.dir/Entity.cpp.o
  /home/charles/Cpp/Box2Test/Constants.h
  /home/charles/Cpp/Box2Test/Entity.cpp
  /home/charles/Cpp/Box2Test/Entity.h
+ /home/charles/Cpp/Box2Test/EntityManager.h
  /home/charles/Cpp/Box2Test/Player.h
 CMakeFiles/HockeyExe.dir/EntityManager.cpp.o
  /home/charles/Cpp/Box2Test/AssetManager.h

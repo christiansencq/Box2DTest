@@ -151,6 +151,7 @@ CMakeFiles/HockeyExe.dir/Entity.cpp.o: ../Components/TextComponent.h
 CMakeFiles/HockeyExe.dir/Entity.cpp.o: ../Constants.h
 CMakeFiles/HockeyExe.dir/Entity.cpp.o: ../Entity.cpp
 CMakeFiles/HockeyExe.dir/Entity.cpp.o: ../Entity.h
+CMakeFiles/HockeyExe.dir/Entity.cpp.o: ../EntityManager.h
 CMakeFiles/HockeyExe.dir/Entity.cpp.o: ../Player.h
 
 CMakeFiles/HockeyExe.dir/EntityManager.cpp.o: ../AssetManager.h

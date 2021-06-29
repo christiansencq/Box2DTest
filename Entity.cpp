@@ -1,4 +1,5 @@
 #include "Entity.h"
+#include "EntityManager.h"
 
 Entity::Entity(EntityManager &manager) : m_Manager(manager) {}
 
@@ -8,7 +9,14 @@ Entity::Entity(EntityManager &manager, b2Vec2 init_pixel_pos,
     : m_Manager(manager), m_PixelPos(init_pixel_pos),
       m_PixelSize(init_pixel_size), isActive(true) 
 {
-    DetermineAngleFromPosition(m_PixelPos.x);
+    if (init_pixel_pos.x > SCREEN_WIDTH/2)
+    {
+        m_Angle = 3.14159;
+    }
+    else
+    {
+        m_Angle = 0;
+    }
     m_StartingAngle = m_Angle;
     m_StartingPixelPos = m_PixelPos;
 
@@ -22,13 +30,7 @@ Entity::Entity(EntityManager &manager, b2Vec2 init_pixel_pos,
     : m_Manager(manager), m_PixelPos(init_pixel_pos),
       m_PixelRad(init_pixel_rad), isActive(true) 
 {
-    DetermineAngleFromPosition(m_PixelPos.x);
-    SetPixelSize(init_pixel_rad * 2.0f);
-}
-
-void Entity::DetermineAngleFromPosition(int x_pos)
-{
-    if (x_pos > SCREEN_WIDTH/2)
+    if (init_pixel_pos.x > SCREEN_WIDTH/2)
     {
         m_Angle = 3.14159;
     }
@@ -36,8 +38,12 @@ void Entity::DetermineAngleFromPosition(int x_pos)
     {
         m_Angle = 0;
     }
-
+    m_StartingAngle = m_Angle;
+    m_StartingPixelPos = m_PixelPos;
+    SetPixelSize(init_pixel_rad * 2.0f);
 }
+
+
 
 void Entity::HandleKeyPress(SDL_Keycode key) 
 {
@@ -112,20 +118,29 @@ void Entity::ListAllComponents()
 void Entity::SetTransform(const b2Vec2 newScreenPos, float angle)
 { 
     m_PixelPos = newScreenPos;
+    m_Angle = angle;
 
-    //Set Body Position
+    //Set Body Position and Blank the Velocity
     if (HasComponent<PhysicsComponent>())
     {
         GetComponent<PhysicsComponent>()->SetTransform(b2Vec2 {newScreenPos.x * P2M, newScreenPos.y * P2M}, angle);
+        GetComponent<PhysicsComponent>()->GetPhysBody()->SetAngularVelocity(0);
+        GetComponent<PhysicsComponent>()->GetPhysBody()->SetLinearVelocity(b2Vec2{0,0});
     }
     
-    //Set Angle.
-    m_Angle = angle;
 }
 
+void Entity::SignalManagerToReset()
+{
+    m_Manager.ResetStage(); 
+}
 void Entity::ResetTransform()
 {
-    //
+    
     m_Angle = m_StartingAngle;
     m_PixelPos = m_StartingPixelPos;
+    std::cout << "m_Angle is: " << m_Angle << std::endl;
+    std::cout << "m_StartingPixelPos is: " << m_StartingPixelPos.x << ", " << m_StartingPixelPos.y << std::endl;
+    SetTransform(m_PixelPos, m_Angle);
+    
 }

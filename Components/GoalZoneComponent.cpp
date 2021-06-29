@@ -28,8 +28,8 @@ void GoalZoneComponent::Update()
    for ( b2ContactEdge* contact = m_PhysBody->GetContactList(); contact; contact = contact->next)
    {
         std::cout << "Score being made. \n";
+        owner->SignalManagerToReset();
         m_Player->IncrementScore(1);
-        
    }
 }
 
@@ -56,7 +56,3 @@ void GoalZoneComponent::GenerateFixture(b2Shape* shape)
     m_PhysBody->CreateFixture(&fixtureDef);
 }
 
-void GoalZoneComponent::Score()
-{
-
-}
