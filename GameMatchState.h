@@ -10,6 +10,7 @@
 #include "State.h"
 #include "EntityManager.h"
 #include "Player.h"
+#include "CollisionManager.h"
 
 class KeyInputComponent;
 class SelectableComponent;
@@ -54,11 +55,12 @@ private:
     const std::array<SDL_Keycode, 3> P2SwapKeys = { SDLK_v, SDLK_b, SDLK_n };
     const std::array<SDL_Keycode, 4> P2ActionKeys = { SDLK_w, SDLK_s, SDLK_a, SDLK_d };
 
-    std::unique_ptr<EntityManager> m_Manager;
+    std::unique_ptr<EntityManager> m_EntityManager;
     AssetManager* m_AssetManager;
     SDL_Renderer* m_Renderer;
-    b2World* m_World;
+    b2World* m_PhysicsWorld;
     TTF_Font* m_ScoreFont;
+    CollisionManager* m_CollisionManager;
     
     Entity* movingObj1 = nullptr;
     Entity* movingObj2 = nullptr;

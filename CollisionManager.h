@@ -1,7 +1,10 @@
+#ifndef COLLISION_MANAGER_H
+#define COLLISION_MANAGER_H
+
 #include "Box2D/Box2D.h"
 //#include <Box2D/Dynamics/b2WorldCallbacks.h>
 
-class ContactManager : public b2ContactListener
+class CollisionManager : public b2ContactListener
 {
 public:
     void BeginContact(b2Contact* contact);
@@ -13,3 +16,5 @@ private:
 
 
 };
+
+#endif

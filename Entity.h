@@ -82,10 +82,6 @@ public:
   int GetRadius() { return m_PixelRad; }
   float GetAngle() { return m_Angle; }
 
-
-
-// SDL_Renderer *GetRenderer() { return m_Renderer; }
-
 private:
   EntityManager& m_Manager;
 
@@ -102,6 +98,7 @@ private:
 
   b2Vec2 m_StartingPixelPos;
   float m_StartingAngle;
+
 
 };
 

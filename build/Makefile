@@ -177,6 +177,33 @@ AssetManager.cpp.s:
 	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/AssetManager.cpp.s
 .PHONY : AssetManager.cpp.s
 
+CollisionManager.o: CollisionManager.cpp.o
+
+.PHONY : CollisionManager.o
+
+# target to build an object file
+CollisionManager.cpp.o:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/CollisionManager.cpp.o
+.PHONY : CollisionManager.cpp.o
+
+CollisionManager.i: CollisionManager.cpp.i
+
+.PHONY : CollisionManager.i
+
+# target to preprocess a source file
+CollisionManager.cpp.i:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/CollisionManager.cpp.i
+.PHONY : CollisionManager.cpp.i
+
+CollisionManager.s: CollisionManager.cpp.s
+
+.PHONY : CollisionManager.s
+
+# target to generate assembly for a file
+CollisionManager.cpp.s:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/CollisionManager.cpp.s
+.PHONY : CollisionManager.cpp.s
+
 Commands/Commands.o: Commands/Commands.cpp.o
 
 .PHONY : Commands/Commands.o
@@ -393,33 +420,6 @@ Components/TextComponent.cpp.s:
 	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Components/TextComponent.cpp.s
 .PHONY : Components/TextComponent.cpp.s
 
-ContactManager.o: ContactManager.cpp.o
-
-.PHONY : ContactManager.o
-
-# target to build an object file
-ContactManager.cpp.o:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/ContactManager.cpp.o
-.PHONY : ContactManager.cpp.o
-
-ContactManager.i: ContactManager.cpp.i
-
-.PHONY : ContactManager.i
-
-# target to preprocess a source file
-ContactManager.cpp.i:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/ContactManager.cpp.i
-.PHONY : ContactManager.cpp.i
-
-ContactManager.s: ContactManager.cpp.s
-
-.PHONY : ContactManager.s
-
-# target to generate assembly for a file
-ContactManager.cpp.s:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/ContactManager.cpp.s
-.PHONY : ContactManager.cpp.s
-
 Entity.o: Entity.cpp.o
 
 .PHONY : Entity.o
@@ -570,6 +570,9 @@ help:
 	@echo "... AssetManager.o"
 	@echo "... AssetManager.i"
 	@echo "... AssetManager.s"
+	@echo "... CollisionManager.o"
+	@echo "... CollisionManager.i"
+	@echo "... CollisionManager.s"
 	@echo "... Commands/Commands.o"
 	@echo "... Commands/Commands.i"
 	@echo "... Commands/Commands.s"
@@ -594,9 +597,6 @@ help:
 	@echo "... Components/TextComponent.o"
 	@echo "... Components/TextComponent.i"
 	@echo "... Components/TextComponent.s"
-	@echo "... ContactManager.o"
-	@echo "... ContactManager.i"
-	@echo "... ContactManager.s"
 	@echo "... Entity.o"
 	@echo "... Entity.i"
 	@echo "... Entity.s"

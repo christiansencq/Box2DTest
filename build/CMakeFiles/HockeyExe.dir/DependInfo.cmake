@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/charles/Cpp/Box2Test/App.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/App.cpp.o"
   "/home/charles/Cpp/Box2Test/AssetManager.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/AssetManager.cpp.o"
+  "/home/charles/Cpp/Box2Test/CollisionManager.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/CollisionManager.cpp.o"
   "/home/charles/Cpp/Box2Test/Commands/Commands.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/Commands/Commands.cpp.o"
   "/home/charles/Cpp/Box2Test/Components/GoalZoneComponent.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/Components/GoalZoneComponent.cpp.o"
   "/home/charles/Cpp/Box2Test/Components/KeyInputComponent.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/Components/KeyInputComponent.cpp.o"
@@ -14,7 +15,6 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/charles/Cpp/Box2Test/Components/SDLRectComponent.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/Components/SDLRectComponent.cpp.o"
   "/home/charles/Cpp/Box2Test/Components/SelectableComponent.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/Components/SelectableComponent.cpp.o"
   "/home/charles/Cpp/Box2Test/Components/TextComponent.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/Components/TextComponent.cpp.o"
-  "/home/charles/Cpp/Box2Test/ContactManager.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/ContactManager.cpp.o"
   "/home/charles/Cpp/Box2Test/Entity.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/Entity.cpp.o"
   "/home/charles/Cpp/Box2Test/EntityManager.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/EntityManager.cpp.o"
   "/home/charles/Cpp/Box2Test/GameMatchState.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/GameMatchState.cpp.o"

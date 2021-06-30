@@ -4,6 +4,7 @@
 CMakeFiles/HockeyExe.dir/App.cpp.o: ../App.cpp
 CMakeFiles/HockeyExe.dir/App.cpp.o: ../App.h
 CMakeFiles/HockeyExe.dir/App.cpp.o: ../AssetManager.h
+CMakeFiles/HockeyExe.dir/App.cpp.o: ../CollisionManager.h
 CMakeFiles/HockeyExe.dir/App.cpp.o: ../Commands/Commands.h
 CMakeFiles/HockeyExe.dir/App.cpp.o: ../Components/Component.h
 CMakeFiles/HockeyExe.dir/App.cpp.o: ../Components/GoalZoneComponent.h
@@ -22,6 +23,9 @@ CMakeFiles/HockeyExe.dir/App.cpp.o: ../State.h
 
 CMakeFiles/HockeyExe.dir/AssetManager.cpp.o: ../AssetManager.cpp
 CMakeFiles/HockeyExe.dir/AssetManager.cpp.o: ../AssetManager.h
+
+CMakeFiles/HockeyExe.dir/CollisionManager.cpp.o: ../CollisionManager.cpp
+CMakeFiles/HockeyExe.dir/CollisionManager.cpp.o: ../CollisionManager.h
 
 CMakeFiles/HockeyExe.dir/Commands/Commands.cpp.o: ../AssetManager.h
 CMakeFiles/HockeyExe.dir/Commands/Commands.cpp.o: ../Commands/Commands.cpp
@@ -135,9 +139,6 @@ CMakeFiles/HockeyExe.dir/Components/TextComponent.cpp.o: ../Constants.h
 CMakeFiles/HockeyExe.dir/Components/TextComponent.cpp.o: ../Entity.h
 CMakeFiles/HockeyExe.dir/Components/TextComponent.cpp.o: ../Player.h
 
-CMakeFiles/HockeyExe.dir/ContactManager.cpp.o: ../ContactManager.cpp
-CMakeFiles/HockeyExe.dir/ContactManager.cpp.o: ../ContactManager.h
-
 CMakeFiles/HockeyExe.dir/Entity.cpp.o: ../AssetManager.h
 CMakeFiles/HockeyExe.dir/Entity.cpp.o: ../Commands/Commands.h
 CMakeFiles/HockeyExe.dir/Entity.cpp.o: ../Components/Component.h
@@ -172,6 +173,7 @@ CMakeFiles/HockeyExe.dir/EntityManager.cpp.o: ../Player.h
 
 CMakeFiles/HockeyExe.dir/GameMatchState.cpp.o: ../App.h
 CMakeFiles/HockeyExe.dir/GameMatchState.cpp.o: ../AssetManager.h
+CMakeFiles/HockeyExe.dir/GameMatchState.cpp.o: ../CollisionManager.h
 CMakeFiles/HockeyExe.dir/GameMatchState.cpp.o: ../Commands/Commands.h
 CMakeFiles/HockeyExe.dir/GameMatchState.cpp.o: ../Components/Component.h
 CMakeFiles/HockeyExe.dir/GameMatchState.cpp.o: ../Components/GoalZoneComponent.h

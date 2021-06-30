@@ -25,8 +25,14 @@ void GoalZoneComponent::Initialize()
 //void GoalZoneComponent::Update( b2body physBody) { }
 void GoalZoneComponent::Update()
 {
-   for ( b2ContactEdge* contact = m_PhysBody->GetContactList(); contact; contact = contact->next)
-   {
+    //This should go in a ContactListener probably.
+    for ( b2ContactEdge* ce = m_PhysBody->GetContactList(); ce; ce = ce->next)
+    {
+        
+        // b2Contact* c = ce->contact;
+        // // b2Filter filtA = c->GetFixtureA()->GetFilterData();
+        // b2Filter filtB = c->GetFixtureB()->GetFilterData();
+
         std::cout << "Score being made. \n";
         owner->SignalManagerToReset();
         m_Player->IncrementScore(1);

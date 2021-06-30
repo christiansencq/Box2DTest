@@ -5,6 +5,7 @@ CMakeFiles/HockeyExe.dir/App.cpp.o
  /home/charles/Cpp/Box2Test/App.cpp
  /home/charles/Cpp/Box2Test/App.h
  /home/charles/Cpp/Box2Test/AssetManager.h
+ /home/charles/Cpp/Box2Test/CollisionManager.h
  /home/charles/Cpp/Box2Test/Commands/Commands.h
  /home/charles/Cpp/Box2Test/Components/Component.h
  /home/charles/Cpp/Box2Test/Components/GoalZoneComponent.h
@@ -23,6 +24,9 @@ CMakeFiles/HockeyExe.dir/App.cpp.o
 CMakeFiles/HockeyExe.dir/AssetManager.cpp.o
  /home/charles/Cpp/Box2Test/AssetManager.cpp
  /home/charles/Cpp/Box2Test/AssetManager.h
+CMakeFiles/HockeyExe.dir/CollisionManager.cpp.o
+ /home/charles/Cpp/Box2Test/CollisionManager.cpp
+ /home/charles/Cpp/Box2Test/CollisionManager.h
 CMakeFiles/HockeyExe.dir/Commands/Commands.cpp.o
  /home/charles/Cpp/Box2Test/AssetManager.h
  /home/charles/Cpp/Box2Test/Commands/Commands.cpp
@@ -135,9 +139,6 @@ CMakeFiles/HockeyExe.dir/Components/TextComponent.cpp.o
  /home/charles/Cpp/Box2Test/Constants.h
  /home/charles/Cpp/Box2Test/Entity.h
  /home/charles/Cpp/Box2Test/Player.h
-CMakeFiles/HockeyExe.dir/ContactManager.cpp.o
- /home/charles/Cpp/Box2Test/ContactManager.cpp
- /home/charles/Cpp/Box2Test/ContactManager.h
 CMakeFiles/HockeyExe.dir/Entity.cpp.o
  /home/charles/Cpp/Box2Test/AssetManager.h
  /home/charles/Cpp/Box2Test/Commands/Commands.h
@@ -173,6 +174,7 @@ CMakeFiles/HockeyExe.dir/EntityManager.cpp.o
 CMakeFiles/HockeyExe.dir/GameMatchState.cpp.o
  /home/charles/Cpp/Box2Test/App.h
  /home/charles/Cpp/Box2Test/AssetManager.h
+ /home/charles/Cpp/Box2Test/CollisionManager.h
  /home/charles/Cpp/Box2Test/Commands/Commands.h
  /home/charles/Cpp/Box2Test/Components/Component.h
  /home/charles/Cpp/Box2Test/Components/GoalZoneComponent.h

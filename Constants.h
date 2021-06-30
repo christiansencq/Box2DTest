@@ -4,6 +4,7 @@
 #include "Box2D/Box2D.h"
 #include "SDL2/SDL.h"
 
+#include <bitset>
 #include <array>
 #include <map>
 //Constants
@@ -135,6 +136,26 @@ enum class Actions
 
 constexpr float TURNSPEED = 0.01;
 // COLLISION MASKS
+// uint16_t  is what is used by the Box2D Filter.
+const std::bitset<16> PUCK_BITS = { 1 };
+const std::bitset<16> P1GOAL_BITS = { 2 };
+const std::bitset<16> P2GOAL_BITS = { 4 };
+const std::bitset<16> P1BALL_BITS = { 8 };
+const std::bitset<16> P2BALL_BITS = { 16 };
+const std::bitset<16> WALL_BITS = { 32 };
+
+enum class ColGroup
+{
+    PUCK = 1,
+    P1GOAL = 2,
+    P2GOAL = 4,
+    P1BALLS = 8,
+    P2BALLS = 16,
+    WALLS = 32
+
+};
+
+/*
 constexpr int mask0{ 0b0000'0001 }; //Puck
 constexpr int mask1{ 0b0000'0010 }; //P1Goal
 constexpr int mask2{ 0b0000'0100 }; //P2Goal
@@ -142,6 +163,5 @@ constexpr int mask3{ 0b0000'1000 }; //P1Balls
 constexpr int mask4{ 0b0001'0000 }; //P2Balls
 constexpr int mask5{ 0b0010'0000 }; //Walls
 constexpr int mask6{ 0b0100'0000 };
-constexpr int mask7{ 0b1000'0000 };
-
+*/
 #endif

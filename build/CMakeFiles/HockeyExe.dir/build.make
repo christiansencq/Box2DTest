@@ -83,9 +83,22 @@ CMakeFiles/HockeyExe.dir/AssetManager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HockeyExe.dir/AssetManager.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/charles/Cpp/Box2Test/AssetManager.cpp -o CMakeFiles/HockeyExe.dir/AssetManager.cpp.s
 
+CMakeFiles/HockeyExe.dir/CollisionManager.cpp.o: CMakeFiles/HockeyExe.dir/flags.make
+CMakeFiles/HockeyExe.dir/CollisionManager.cpp.o: ../CollisionManager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/charles/Cpp/Box2Test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/HockeyExe.dir/CollisionManager.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HockeyExe.dir/CollisionManager.cpp.o -c /home/charles/Cpp/Box2Test/CollisionManager.cpp
+
+CMakeFiles/HockeyExe.dir/CollisionManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HockeyExe.dir/CollisionManager.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/charles/Cpp/Box2Test/CollisionManager.cpp > CMakeFiles/HockeyExe.dir/CollisionManager.cpp.i
+
+CMakeFiles/HockeyExe.dir/CollisionManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HockeyExe.dir/CollisionManager.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/charles/Cpp/Box2Test/CollisionManager.cpp -o CMakeFiles/HockeyExe.dir/CollisionManager.cpp.s
+
 CMakeFiles/HockeyExe.dir/Commands/Commands.cpp.o: CMakeFiles/HockeyExe.dir/flags.make
 CMakeFiles/HockeyExe.dir/Commands/Commands.cpp.o: ../Commands/Commands.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/charles/Cpp/Box2Test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/HockeyExe.dir/Commands/Commands.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/charles/Cpp/Box2Test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/HockeyExe.dir/Commands/Commands.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HockeyExe.dir/Commands/Commands.cpp.o -c /home/charles/Cpp/Box2Test/Commands/Commands.cpp
 
 CMakeFiles/HockeyExe.dir/Commands/Commands.cpp.i: cmake_force
@@ -98,7 +111,7 @@ CMakeFiles/HockeyExe.dir/Commands/Commands.cpp.s: cmake_force
 
 CMakeFiles/HockeyExe.dir/Components/GoalZoneComponent.cpp.o: CMakeFiles/HockeyExe.dir/flags.make
 CMakeFiles/HockeyExe.dir/Components/GoalZoneComponent.cpp.o: ../Components/GoalZoneComponent.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/charles/Cpp/Box2Test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/HockeyExe.dir/Components/GoalZoneComponent.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/charles/Cpp/Box2Test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/HockeyExe.dir/Components/GoalZoneComponent.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HockeyExe.dir/Components/GoalZoneComponent.cpp.o -c /home/charles/Cpp/Box2Test/Components/GoalZoneComponent.cpp
 
 CMakeFiles/HockeyExe.dir/Components/GoalZoneComponent.cpp.i: cmake_force
@@ -111,7 +124,7 @@ CMakeFiles/HockeyExe.dir/Components/GoalZoneComponent.cpp.s: cmake_force
 
 CMakeFiles/HockeyExe.dir/Components/KeyInputComponent.cpp.o: CMakeFiles/HockeyExe.dir/flags.make
 CMakeFiles/HockeyExe.dir/Components/KeyInputComponent.cpp.o: ../Components/KeyInputComponent.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/charles/Cpp/Box2Test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/HockeyExe.dir/Components/KeyInputComponent.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/charles/Cpp/Box2Test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/HockeyExe.dir/Components/KeyInputComponent.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HockeyExe.dir/Components/KeyInputComponent.cpp.o -c /home/charles/Cpp/Box2Test/Components/KeyInputComponent.cpp
 
 CMakeFiles/HockeyExe.dir/Components/KeyInputComponent.cpp.i: cmake_force
@@ -124,7 +137,7 @@ CMakeFiles/HockeyExe.dir/Components/KeyInputComponent.cpp.s: cmake_force
 
 CMakeFiles/HockeyExe.dir/Components/PhysicsComponent.cpp.o: CMakeFiles/HockeyExe.dir/flags.make
 CMakeFiles/HockeyExe.dir/Components/PhysicsComponent.cpp.o: ../Components/PhysicsComponent.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/charles/Cpp/Box2Test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/HockeyExe.dir/Components/PhysicsComponent.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/charles/Cpp/Box2Test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/HockeyExe.dir/Components/PhysicsComponent.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HockeyExe.dir/Components/PhysicsComponent.cpp.o -c /home/charles/Cpp/Box2Test/Components/PhysicsComponent.cpp
 
 CMakeFiles/HockeyExe.dir/Components/PhysicsComponent.cpp.i: cmake_force
@@ -137,7 +150,7 @@ CMakeFiles/HockeyExe.dir/Components/PhysicsComponent.cpp.s: cmake_force
 
 CMakeFiles/HockeyExe.dir/Components/SDLCircleComponent.cpp.o: CMakeFiles/HockeyExe.dir/flags.make
 CMakeFiles/HockeyExe.dir/Components/SDLCircleComponent.cpp.o: ../Components/SDLCircleComponent.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/charles/Cpp/Box2Test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/HockeyExe.dir/Components/SDLCircleComponent.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/charles/Cpp/Box2Test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/HockeyExe.dir/Components/SDLCircleComponent.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HockeyExe.dir/Components/SDLCircleComponent.cpp.o -c /home/charles/Cpp/Box2Test/Components/SDLCircleComponent.cpp
 
 CMakeFiles/HockeyExe.dir/Components/SDLCircleComponent.cpp.i: cmake_force
@@ -150,7 +163,7 @@ CMakeFiles/HockeyExe.dir/Components/SDLCircleComponent.cpp.s: cmake_force
 
 CMakeFiles/HockeyExe.dir/Components/SDLRectComponent.cpp.o: CMakeFiles/HockeyExe.dir/flags.make
 CMakeFiles/HockeyExe.dir/Components/SDLRectComponent.cpp.o: ../Components/SDLRectComponent.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/charles/Cpp/Box2Test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/HockeyExe.dir/Components/SDLRectComponent.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/charles/Cpp/Box2Test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/HockeyExe.dir/Components/SDLRectComponent.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HockeyExe.dir/Components/SDLRectComponent.cpp.o -c /home/charles/Cpp/Box2Test/Components/SDLRectComponent.cpp
 
 CMakeFiles/HockeyExe.dir/Components/SDLRectComponent.cpp.i: cmake_force
@@ -163,7 +176,7 @@ CMakeFiles/HockeyExe.dir/Components/SDLRectComponent.cpp.s: cmake_force
 
 CMakeFiles/HockeyExe.dir/Components/SelectableComponent.cpp.o: CMakeFiles/HockeyExe.dir/flags.make
 CMakeFiles/HockeyExe.dir/Components/SelectableComponent.cpp.o: ../Components/SelectableComponent.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/charles/Cpp/Box2Test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/HockeyExe.dir/Components/SelectableComponent.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/charles/Cpp/Box2Test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/HockeyExe.dir/Components/SelectableComponent.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HockeyExe.dir/Components/SelectableComponent.cpp.o -c /home/charles/Cpp/Box2Test/Components/SelectableComponent.cpp
 
 CMakeFiles/HockeyExe.dir/Components/SelectableComponent.cpp.i: cmake_force
@@ -176,7 +189,7 @@ CMakeFiles/HockeyExe.dir/Components/SelectableComponent.cpp.s: cmake_force
 
 CMakeFiles/HockeyExe.dir/Components/TextComponent.cpp.o: CMakeFiles/HockeyExe.dir/flags.make
 CMakeFiles/HockeyExe.dir/Components/TextComponent.cpp.o: ../Components/TextComponent.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/charles/Cpp/Box2Test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/HockeyExe.dir/Components/TextComponent.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/charles/Cpp/Box2Test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/HockeyExe.dir/Components/TextComponent.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HockeyExe.dir/Components/TextComponent.cpp.o -c /home/charles/Cpp/Box2Test/Components/TextComponent.cpp
 
 CMakeFiles/HockeyExe.dir/Components/TextComponent.cpp.i: cmake_force
@@ -186,19 +199,6 @@ CMakeFiles/HockeyExe.dir/Components/TextComponent.cpp.i: cmake_force
 CMakeFiles/HockeyExe.dir/Components/TextComponent.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HockeyExe.dir/Components/TextComponent.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/charles/Cpp/Box2Test/Components/TextComponent.cpp -o CMakeFiles/HockeyExe.dir/Components/TextComponent.cpp.s
-
-CMakeFiles/HockeyExe.dir/ContactManager.cpp.o: CMakeFiles/HockeyExe.dir/flags.make
-CMakeFiles/HockeyExe.dir/ContactManager.cpp.o: ../ContactManager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/charles/Cpp/Box2Test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/HockeyExe.dir/ContactManager.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HockeyExe.dir/ContactManager.cpp.o -c /home/charles/Cpp/Box2Test/ContactManager.cpp
-
-CMakeFiles/HockeyExe.dir/ContactManager.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HockeyExe.dir/ContactManager.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/charles/Cpp/Box2Test/ContactManager.cpp > CMakeFiles/HockeyExe.dir/ContactManager.cpp.i
-
-CMakeFiles/HockeyExe.dir/ContactManager.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HockeyExe.dir/ContactManager.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/charles/Cpp/Box2Test/ContactManager.cpp -o CMakeFiles/HockeyExe.dir/ContactManager.cpp.s
 
 CMakeFiles/HockeyExe.dir/Entity.cpp.o: CMakeFiles/HockeyExe.dir/flags.make
 CMakeFiles/HockeyExe.dir/Entity.cpp.o: ../Entity.cpp
@@ -269,6 +269,7 @@ CMakeFiles/HockeyExe.dir/main.cpp.s: cmake_force
 HockeyExe_OBJECTS = \
 "CMakeFiles/HockeyExe.dir/App.cpp.o" \
 "CMakeFiles/HockeyExe.dir/AssetManager.cpp.o" \
+"CMakeFiles/HockeyExe.dir/CollisionManager.cpp.o" \
 "CMakeFiles/HockeyExe.dir/Commands/Commands.cpp.o" \
 "CMakeFiles/HockeyExe.dir/Components/GoalZoneComponent.cpp.o" \
 "CMakeFiles/HockeyExe.dir/Components/KeyInputComponent.cpp.o" \
@@ -277,7 +278,6 @@ HockeyExe_OBJECTS = \
 "CMakeFiles/HockeyExe.dir/Components/SDLRectComponent.cpp.o" \
 "CMakeFiles/HockeyExe.dir/Components/SelectableComponent.cpp.o" \
 "CMakeFiles/HockeyExe.dir/Components/TextComponent.cpp.o" \
-"CMakeFiles/HockeyExe.dir/ContactManager.cpp.o" \
 "CMakeFiles/HockeyExe.dir/Entity.cpp.o" \
 "CMakeFiles/HockeyExe.dir/EntityManager.cpp.o" \
 "CMakeFiles/HockeyExe.dir/GameMatchState.cpp.o" \
@@ -289,6 +289,7 @@ HockeyExe_EXTERNAL_OBJECTS =
 
 HockeyExe: CMakeFiles/HockeyExe.dir/App.cpp.o
 HockeyExe: CMakeFiles/HockeyExe.dir/AssetManager.cpp.o
+HockeyExe: CMakeFiles/HockeyExe.dir/CollisionManager.cpp.o
 HockeyExe: CMakeFiles/HockeyExe.dir/Commands/Commands.cpp.o
 HockeyExe: CMakeFiles/HockeyExe.dir/Components/GoalZoneComponent.cpp.o
 HockeyExe: CMakeFiles/HockeyExe.dir/Components/KeyInputComponent.cpp.o
@@ -297,7 +298,6 @@ HockeyExe: CMakeFiles/HockeyExe.dir/Components/SDLCircleComponent.cpp.o
 HockeyExe: CMakeFiles/HockeyExe.dir/Components/SDLRectComponent.cpp.o
 HockeyExe: CMakeFiles/HockeyExe.dir/Components/SelectableComponent.cpp.o
 HockeyExe: CMakeFiles/HockeyExe.dir/Components/TextComponent.cpp.o
-HockeyExe: CMakeFiles/HockeyExe.dir/ContactManager.cpp.o
 HockeyExe: CMakeFiles/HockeyExe.dir/Entity.cpp.o
 HockeyExe: CMakeFiles/HockeyExe.dir/EntityManager.cpp.o
 HockeyExe: CMakeFiles/HockeyExe.dir/GameMatchState.cpp.o

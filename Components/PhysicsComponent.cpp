@@ -58,6 +58,7 @@ void PhysicsComponent::MakeRectShape()
     GenerateFixture(&shape);
 }
 
+
 //Change to AddFixtureToShape
 // Remove this.  Should not need to keep fixture past the addition fo the shape (for now)
 void PhysicsComponent::GenerateFixture(b2Shape* shape)
@@ -68,6 +69,8 @@ void PhysicsComponent::GenerateFixture(b2Shape* shape)
     fixtureDef.friction = m_Friction;
     fixtureDef.restitution = 0.1f;
     fixtureDef.isSensor = (m_IsSensor == isSensor::True);
+    fixtureDef.filter.categoryBits = m_colCategory;
+    fixtureDef.filter.maskBits = m_colMask;
     m_PhysBody->CreateFixture(&fixtureDef);
 }
 
@@ -135,3 +138,4 @@ void PhysicsComponent::SetTransform(b2Vec2 pos, float angle)
 {
     m_PhysBody->SetTransform(pos, angle);
 }
+

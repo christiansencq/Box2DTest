@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/HockeyExe.dir/App.cpp.o"
   "CMakeFiles/HockeyExe.dir/AssetManager.cpp.o"
+  "CMakeFiles/HockeyExe.dir/CollisionManager.cpp.o"
   "CMakeFiles/HockeyExe.dir/Commands/Commands.cpp.o"
   "CMakeFiles/HockeyExe.dir/Components/GoalZoneComponent.cpp.o"
   "CMakeFiles/HockeyExe.dir/Components/KeyInputComponent.cpp.o"
@@ -9,7 +10,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/HockeyExe.dir/Components/SDLRectComponent.cpp.o"
   "CMakeFiles/HockeyExe.dir/Components/SelectableComponent.cpp.o"
   "CMakeFiles/HockeyExe.dir/Components/TextComponent.cpp.o"
-  "CMakeFiles/HockeyExe.dir/ContactManager.cpp.o"
   "CMakeFiles/HockeyExe.dir/Entity.cpp.o"
   "CMakeFiles/HockeyExe.dir/EntityManager.cpp.o"
   "CMakeFiles/HockeyExe.dir/GameMatchState.cpp.o"
