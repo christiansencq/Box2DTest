@@ -3,7 +3,7 @@
 
 //When merging with Physics object (maybe use a TurnIntoGoalMethod() or inheritance)
 GoalZoneComponent::GoalZoneComponent(b2World* world, std::shared_ptr<Player> player)
-    : m_Player(player), m_PhysWorld(world) 
+    : m_Player(player), m_PhysWorld(world), m_BodyData(new BodyData())
 {
 
 }
@@ -11,7 +11,14 @@ GoalZoneComponent::GoalZoneComponent(b2World* world, std::shared_ptr<Player> pla
 GoalZoneComponent::~GoalZoneComponent()
 {
     m_PhysWorld->DestroyBody(m_PhysBody);
+    delete m_BodyData; 
 }
+
+void GoalZoneComponent::SetData(bool scorer)
+{
+    m_PhysBody->SetUserData(m_BodyData);
+}
+
 
 void GoalZoneComponent::Initialize()
 {
@@ -28,14 +35,18 @@ void GoalZoneComponent::Update()
     //This should go in a ContactListener probably.
     for ( b2ContactEdge* ce = m_PhysBody->GetContactList(); ce; ce = ce->next)
     {
-        
-        // b2Contact* c = ce->contact;
-        // // b2Filter filtA = c->GetFixtureA()->GetFilterData();
-        // b2Filter filtB = c->GetFixtureB()->GetFilterData();
+        b2Contact* c = ce->contact;
+        b2Body* bodyA = c->GetFixtureA()->GetBody();
+        b2Body* bodyB = c->GetFixtureB()->GetBody();
+        BodyData* dataA = (BodyData*)bodyA->GetUserData();
+        BodyData* dataB = (BodyData*)bodyB->GetUserData();
 
-        std::cout << "Score being made. \n";
-        owner->SignalManagerToReset();
-        m_Player->IncrementScore(1);
+        if (dataA->isScorer || dataB->isScorer)
+        {
+            std::cout << "Score being made. \n";
+            owner->SignalManagerToReset();
+            m_Player->IncrementScore(1);
+        }
    }
 }
 

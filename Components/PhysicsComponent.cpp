@@ -1,16 +1,27 @@
 #include "PhysicsComponent.h"
 #include "../Entity.h"
 
-PhysicsComponent::PhysicsComponent(b2World* world, ShapeType shape, b2BodyType body_type, isSensor is_sensor )
- : m_PhysWorld(world), m_ShapeType(shape), m_BodyType(body_type), m_IsSensor(is_sensor)
-{
 
+PhysicsComponent::PhysicsComponent(b2World* world, ShapeType shape, b2BodyType body_type)
+ : m_PhysWorld(world), m_ShapeType(shape), m_BodyType(body_type), m_BodyData(new BodyData())
+{
+    // m_BodyData = std::make_unique<BodyData>();
+    
+    
 }
 
 PhysicsComponent::~PhysicsComponent()
 {
     m_PhysWorld->DestroyBody(m_PhysBody);
+    delete m_BodyData; 
 }
+
+void PhysicsComponent::SetData(bool scorer)
+{
+    m_BodyData->isScorer = scorer;
+    m_PhysBody->SetUserData(m_BodyData);
+}
+
 
 void PhysicsComponent::Initialize()
 {
@@ -68,9 +79,9 @@ void PhysicsComponent::GenerateFixture(b2Shape* shape)
     fixtureDef.density = m_Density;
     fixtureDef.friction = m_Friction;
     fixtureDef.restitution = 0.1f;
-    fixtureDef.isSensor = (m_IsSensor == isSensor::True);
-    fixtureDef.filter.categoryBits = m_colCategory;
-    fixtureDef.filter.maskBits = m_colMask;
+    // fixtureDef.isSensor = (m_IsSensor == isSensor::True);
+    // fixtureDef.filter.categoryBits = m_colCategory;
+    // fixtureDef.filter.maskBits = m_colMask;
     m_PhysBody->CreateFixture(&fixtureDef);
 }
 

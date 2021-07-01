@@ -10,10 +10,11 @@ GameMatchState::GameMatchState(SDL_Renderer* renderer)
     //SETUP ARENA START
     InitWorld();
 
+
     puckObj = m_EntityManager->AddEntity(puckStart, 25.0f);
-    puckObj->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::CIRCLE, b2BodyType::b2_dynamicBody, isSensor::False);
-    puckObj->GetComponent<PhysicsComponent>()->SetCollisionCategory(PUCK_BITS);
-    // puckObj->GetComponent<PhysicsComponent>()->SetCollisionMask(PUCK_BITS);
+    puckObj->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::CIRCLE, b2BodyType::b2_dynamicBody); 
+    puckObj->GetComponent<PhysicsComponent>()->SetData(true);
+    //puckObj->GetComponent<PhysicsComponent>()->SetCollisionCategory(PUCK_BITS);
     puckObj->AddComponent<SDLCircleComponent>(m_Renderer, GREEN);
     CreateBoundaries();
     //SETUP ARENA END
@@ -38,6 +39,8 @@ GameMatchState::GameMatchState(SDL_Renderer* renderer)
     //Goal Setup.
     goalZone = m_EntityManager->AddEntity(b2Vec2{1300, 450}, b2Vec2{250, 500});    
     goalZone->AddComponent<GoalZoneComponent>(m_PhysicsWorld, m_P1);
+    goalZone->GetComponent<GoalZoneComponent>()->SetData(false);
+
     
     //Call Reset - Which will determine the actual position
     
@@ -72,20 +75,8 @@ void GameMatchState::SetUpPlayers()
 
 void GameMatchState::InitPlayers(int num_players)
 {
-    //Literally just creates some basic players that pull a control Scheme
-    //for (int i = 0; i < num_players; i++)
-    //{
-        // 
-    //    std::shared_ptr<Player> pl = std::make_shared<Player>();
-    //    m_EntityManager->AddPlayer();
-    //}
-}
 
-//void GameMatchState::SetUpPlayers(std::vector<std::vector<Entity*>> PlayerTeams)
-//{
-//Passing in the vector of Players, which at this point are just Vectors of Entities.
-//Divide into Players, Teams. Probably combine with AddPlayerBall?
-//}
+}
 
 void GameMatchState::Reset ()
 {
@@ -183,7 +174,8 @@ void GameMatchState::InitWorld()
 void GameMatchState::AddPlayerBall(Entity* entity, std::shared_ptr<Player> player)
 {
     player->AddBallToTeam(entity);
-    entity->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::CIRCLE, b2BodyType::b2_dynamicBody, isSensor::False);
+    entity->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::CIRCLE, b2BodyType::b2_dynamicBody);
+    entity->GetComponent<PhysicsComponent>()->SetData();
     entity->AddComponent<SDLCircleComponent>(m_Renderer, BLUE);
     entity->AddComponent<SelectableComponent>(m_Renderer);
     entity->AddComponent<KeyInputComponent>(player->GetActionKeys());
@@ -199,12 +191,16 @@ void GameMatchState::CreateBoundaries()
     staticObj2 = m_EntityManager->AddEntity(b2Vec2{SCREEN_WIDTH/2, SCREEN_HEIGHT - 30}, b2Vec2{SCREEN_WIDTH-70, WALL_THICKNESS});
     staticObj3 = m_EntityManager->AddEntity(b2Vec2{30, SCREEN_HEIGHT/2}, b2Vec2{WALL_THICKNESS, SCREEN_HEIGHT - WALL_BUFFER});
     staticObj4 = m_EntityManager->AddEntity(b2Vec2{SCREEN_WIDTH-30, SCREEN_HEIGHT/2}, b2Vec2{WALL_THICKNESS, SCREEN_HEIGHT - WALL_BUFFER});
-    staticObj1->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::RECT, b2BodyType::b2_staticBody, isSensor::False);
+    staticObj1->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::RECT, b2BodyType::b2_staticBody);
+    staticObj1->GetComponent<PhysicsComponent>()->SetData();
     staticObj1->AddComponent<SDLRectComponent>(m_Renderer);
-    staticObj2->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::RECT, b2BodyType::b2_staticBody, isSensor::False);
+    staticObj2->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::RECT, b2BodyType::b2_staticBody);
+    staticObj2->GetComponent<PhysicsComponent>()->SetData();
     staticObj2->AddComponent<SDLRectComponent>(m_Renderer);
-    staticObj3->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::RECT, b2BodyType::b2_staticBody, isSensor::False);
+    staticObj3->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::RECT, b2BodyType::b2_staticBody);
+    staticObj3->GetComponent<PhysicsComponent>()->SetData();
     staticObj3->AddComponent<SDLRectComponent>(m_Renderer);
-    staticObj4->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::RECT, b2BodyType::b2_staticBody, isSensor::False);
+    staticObj4->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::RECT, b2BodyType::b2_staticBody);
+    staticObj4->GetComponent<PhysicsComponent>()->SetData();
     staticObj4->AddComponent<SDLRectComponent>(m_Renderer);
 }

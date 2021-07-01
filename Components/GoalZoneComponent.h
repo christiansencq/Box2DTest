@@ -11,6 +11,7 @@
 #include "Component.h"
 
 #include "../Player.h"
+#include "PhysicsComponent.h"
 //#include "../Entity.h"
 
 //GoalZone has a RectanglePhysicsObject, and a Player to update when Triggered.
@@ -33,6 +34,8 @@ public:
     void CreateRectShape();
     void GenerateFixture(b2Shape* shape);
     void Score();
+    void SetData(bool scorer = false);
+
 
     Entity* GetOwner() {return owner;} 
     Entity* owner;
@@ -43,6 +46,7 @@ private:
     std::shared_ptr<Player> m_Player;
     b2World* m_PhysWorld;
     b2Body* m_PhysBody;
+    BodyData* m_BodyData;
 };
 
 #endif

@@ -7,14 +7,14 @@ void CollisionManager::BeginContact(b2Contact* contact)
 
     std::cout << "A contact has begun. \n";
 
-    //Check if a score has been made.  If so, set GoalMade to TRUE in GameMatchState. 
     // b2Fixture* fixA = contact->GetFixtureA();
     // b2Fixture* fixB = contact->GetFixtureB();
+    // if (fixA->GetUserData()->isScorer 
+    //Check if a score has been made.  If so, set GoalMade to TRUE in GameMatchState. 
     //
     // //Test if the combined bits are the same as the combined bits of P1sGoalZone and Puck's masks.
     // if (fixA->GetFilterData().categoryBits | fixB->GetFilterData().categoryBits ) 
     // {
-    //         
     // }
 }
 
