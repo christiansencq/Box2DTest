@@ -48,6 +48,7 @@ public:
     int GetScore() { return m_Score; }
 
 private:
+    
     std::vector<b2Vec2> m_StartingPositions;
 //    SDL_Renderer* m_Renderer;
     std::vector<Entity*> m_TeamsBalls;

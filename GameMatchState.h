@@ -24,21 +24,19 @@ class GameMatchState : public State
 {
 public:
 
-    void InitWorld();
-    void AddPlayer(std::shared_ptr<Player> player) { m_Players.push_back(player); }
-    void AddPlayerBall(Entity* entity, std::shared_ptr<Player> player);
+    void InitPhysics();
     void SetUpPlayers();
-    void InitPlayers(int num_players);
+    void SetUpScoreForPlayer(std::shared_ptr<Player> player);
     void SetUpPuck();
-    void SetUpScoreDisplay();
     void CreateBoundaries();
     void CreateGoalZones();
+    void AddPlayer(std::shared_ptr<Player> player) { m_Players.push_back(player); }
+    void AddPlayerBall(std::shared_ptr<Player> player);
 
     //Single Argument Constructor Without Explicit is a Converting Constructor
     explicit GameMatchState(SDL_Renderer* renderer);
     ~GameMatchState();
 
-    void Reset();
     void ResetPositions();
 
     void HandleEvents() override;
@@ -50,6 +48,7 @@ private:
 
     const std::vector<b2Vec2> P1StartingPositions = {b2Vec2{350, 640}, b2Vec2{350, 480}, b2Vec2{350, 320}};
     const std::vector<b2Vec2> P2StartingPositions = {b2Vec2{750, 640}, b2Vec2{750, 480}, b2Vec2{750, 320}};
+    std::vector<std::vector<b2Vec2>> StartPosSets = {{b2Vec2{350, 640}, b2Vec2{350, 480}, b2Vec2{350, 320}}, {b2Vec2{750, 640}, b2Vec2{750, 480}, b2Vec2{750, 320}}};
     const std::array<b2Vec2, 2> ScoreDisplayPositions = {b2Vec2{150, 50}, b2Vec2{850, 50}};
 
     const std::array<SDL_Keycode, 3> P1SwapKeys = { SDLK_i, SDLK_o, SDLK_p };
@@ -61,13 +60,8 @@ private:
     AssetManager* m_AssetManager;
     SDL_Renderer* m_Renderer;
     b2World* m_PhysicsWorld;
-    TTF_Font* m_ScoreFont;
     CollisionManager* m_CollisionManager;
     
-    Entity* P1ball_1 = nullptr;
-    Entity* P1ball_2 = nullptr;
-    Entity* P1ball_3 = nullptr;
-    Entity* puckObj = nullptr;
     //Walls
     Entity* staticObj1 = nullptr;
     Entity* staticObj2 = nullptr;
@@ -76,12 +70,12 @@ private:
     
     Entity* goalZone = nullptr;
 
-    Entity* m_P1ScoreDisplayUI = nullptr;
-    Entity* m_P2ScoreDisplayUI = nullptr;
-    std::vector<Entity*> m_ScoreDisplays;
+    //Entity* m_P1ScoreDisplayUI = nullptr;
+    //Entity* m_P2ScoreDisplayUI = nullptr;
+    //std::vector<Entity*> m_ScoreDisplays;
 
-    std::shared_ptr<Player> m_P1;
-    std::shared_ptr<Player> m_P2;
+//   std::shared_ptr<Player> m_P1;
+//   std::shared_ptr<Player> m_P2;
     //TODO see about removing this... or rather, the individual player pointers above.
     std::vector<std::shared_ptr<Player>> m_Players;
 

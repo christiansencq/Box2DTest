@@ -6,12 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/charles/Cpp/Box2Test/App.cpp
-App.h
-/home/charles/Cpp/Box2Test/App.h
-GameMatchState.h
-/home/charles/Cpp/Box2Test/GameMatchState.h
-
 /home/charles/Cpp/Box2Test/App.h
 cassert
 -
