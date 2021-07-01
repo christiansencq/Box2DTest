@@ -6,41 +6,21 @@ GameMatchState::GameMatchState(SDL_Renderer* renderer)
     //SETUP FONT
     m_ScoreFont = TTF_OpenFont("arial.ttf", 14);
     !m_ScoreFont ? std::cout << "Failed to load font! \n" : std::cout << "Font loaded fine. \n";
-
-    //SETUP ARENA START
+    //Set Up Managers and Physics.
     InitWorld();
 
 
-    puckObj = m_EntityManager->AddEntity(puckStart, 25.0f);
-    puckObj->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::CIRCLE, b2BodyType::b2_dynamicBody); 
-    puckObj->GetComponent<PhysicsComponent>()->SetData(true);
-    //puckObj->GetComponent<PhysicsComponent>()->SetCollisionCategory(PUCK_BITS);
-    puckObj->AddComponent<SDLCircleComponent>(m_Renderer, GREEN);
-    CreateBoundaries();
-    //SETUP ARENA END
-
     //SETUP PLAYER CONTROLS START
-    m_P1 = std::make_shared<Player>(P1SwapKeys, P1ActionKeys);
     //m_P2 = std::make_shared<Player>(P2SwapKeys, P2ActionKeys);
-
     //SETUP PLAYER CONTROLS END
-
-    //Set Up the balls that each player will control.
-    movingObj1 = m_EntityManager->AddEntity(P1StartingPositions[0], 50.0f);
-    AddPlayerBall(movingObj1, m_P1);//This is just a complicated way of assigning a variable should just have Player added to Entity (Could also be a Scorer or a Arena object)
-    movingObj2 = m_EntityManager->AddEntity(P1StartingPositions[1], 50.0f);
-    AddPlayerBall(movingObj2, m_P1);
-    movingObj3 = m_EntityManager->AddEntity(P1StartingPositions[2], 50.0f);
-    AddPlayerBall(movingObj3, m_P1);
 
     //Player Setup
     SetUpPlayers();
 
     //Goal Setup.
-    goalZone = m_EntityManager->AddEntity(b2Vec2{1300, 450}, b2Vec2{250, 500});    
-    goalZone->AddComponent<GoalZoneComponent>(m_PhysicsWorld, m_P1);
-    goalZone->GetComponent<GoalZoneComponent>()->SetData(false);
-
+    SetUpPuck();
+    CreateBoundaries();
+    CreateGoalZones();
     
     //Call Reset - Which will determine the actual position
     
@@ -53,25 +33,6 @@ GameMatchState::~GameMatchState()
     delete m_CollisionManager;
 }
 
-//Possibly move this up above the constructor?  Move Functions that are resolved by the end of
-// Constructor/ Update/ Render to just before those functions.  <F8>
-void GameMatchState::SetUpPlayers()
-{
-    //Score
-    m_P1ScoreDisplayUI = m_EntityManager->AddEntity(ScoreDisplayPositions[0], b2Vec2{50, 20});
-    m_P1ScoreDisplayUI->AddComponent<TextComponent>(m_AssetManager, m_Renderer, "P1Score", "ScoreFont");
-
-    m_P1->AddStartingPositions(P1StartingPositions);
-    m_P1->AddScoreDisplay(m_P1ScoreDisplayUI);
-    m_EntityManager->AddPlayer(m_P1);
-    m_Players.push_back((m_P1));
-
-//    m_P2ScoreDisplayUI = m_EntityManager->AddEntity(ScoreDisplayPositions[1], b2Vec2{50, 20});
-//    m_P2ScoreDisplayUI->AddComponent<TextComponent>(m_AssetManager, m_Renderer, "P2Score", "ScoreFont");
-
-    //m_EntityManager->AddPlayer(m_P2);
-    //m_Players.push_back(m_P2);
-}
 
 void GameMatchState::InitPlayers(int num_players)
 {
@@ -171,6 +132,42 @@ void GameMatchState::InitWorld()
     m_PhysicsWorld->SetContactListener(m_CollisionManager);
 }
 
+//Possibly move this up above the constructor?  Move Functions that are resolved by the end of
+// Constructor/ Update/ Render to just before those functions.  <F8>
+void GameMatchState::SetUpPlayers()
+{
+    m_P1 = std::make_shared<Player>(P1SwapKeys, P1ActionKeys);
+    m_P2 = std::make_shared<Player>(P2SwapKeys, P2ActionKeys);
+
+    //Set Up the balls that each player will control.
+    P1ball_1 = m_EntityManager->AddEntity(P1StartingPositions[0], 50.0f);
+    AddPlayerBall(P1ball_1, m_P1);//This is just a complicated way of assigning a variable should just have Player added to Entity (Could also be a Scorer or a Arena object)
+    P1ball_2 = m_EntityManager->AddEntity(P1StartingPositions[1], 50.0f);
+    AddPlayerBall(P1ball_2, m_P1);
+    P1ball_3 = m_EntityManager->AddEntity(P1StartingPositions[2], 50.0f);
+    AddPlayerBall(P1ball_3, m_P1);
+
+    //Score Object Setup.
+    SetUpScoreDisplay();
+
+    m_P1->AddStartingPositions(P1StartingPositions);
+    m_P1->AddScoreDisplay(m_P1ScoreDisplayUI);
+    m_EntityManager->AddPlayer(m_P1);
+    m_Players.push_back((m_P1));
+
+//    m_P2ScoreDisplayUI = m_EntityManager->AddEntity(ScoreDisplayPositions[1], b2Vec2{50, 20});
+//    m_P2ScoreDisplayUI->AddComponent<TextComponent>(m_AssetManager, m_Renderer, "P2Score", "ScoreFont");
+
+    //m_EntityManager->AddPlayer(m_P2);
+    //m_Players.push_back(m_P2);
+}
+
+void GameMatchState::SetUpScoreDisplay()
+{
+    m_P1ScoreDisplayUI = m_EntityManager->AddEntity(ScoreDisplayPositions[0], b2Vec2{50, 20});
+    m_P1ScoreDisplayUI->AddComponent<TextComponent>(m_AssetManager, m_Renderer, "P1Score", "ScoreFont");
+}
+
 void GameMatchState::AddPlayerBall(Entity* entity, std::shared_ptr<Player> player)
 {
     player->AddBallToTeam(entity);
@@ -204,3 +201,21 @@ void GameMatchState::CreateBoundaries()
     staticObj4->GetComponent<PhysicsComponent>()->SetData();
     staticObj4->AddComponent<SDLRectComponent>(m_Renderer);
 }
+
+void GameMatchState::SetUpPuck()
+{
+    puckObj = m_EntityManager->AddEntity(puckStart, 25.0f);
+    puckObj->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::CIRCLE, b2BodyType::b2_dynamicBody); 
+    puckObj->GetComponent<PhysicsComponent>()->SetData(true);
+    //puckObj->GetComponent<PhysicsComponent>()->SetCollisionCategory(PUCK_BITS);
+    puckObj->AddComponent<SDLCircleComponent>(m_Renderer, GREEN);
+}
+
+void GameMatchState::CreateGoalZones()
+{
+    goalZone = m_EntityManager->AddEntity(b2Vec2{1300, 450}, b2Vec2{250, 500});    
+    goalZone->AddComponent<GoalZoneComponent>(m_PhysicsWorld, m_P1);
+    goalZone->GetComponent<GoalZoneComponent>()->SetData(false);
+
+}
+

@@ -29,6 +29,8 @@ public:
     void AddPlayerBall(Entity* entity, std::shared_ptr<Player> player);
     void SetUpPlayers();
     void InitPlayers(int num_players);
+    void SetUpPuck();
+    void SetUpScoreDisplay();
     void CreateBoundaries();
     void CreateGoalZones();
 
@@ -62,9 +64,9 @@ private:
     TTF_Font* m_ScoreFont;
     CollisionManager* m_CollisionManager;
     
-    Entity* movingObj1 = nullptr;
-    Entity* movingObj2 = nullptr;
-    Entity* movingObj3 = nullptr;
+    Entity* P1ball_1 = nullptr;
+    Entity* P1ball_2 = nullptr;
+    Entity* P1ball_3 = nullptr;
     Entity* puckObj = nullptr;
     //Walls
     Entity* staticObj1 = nullptr;
