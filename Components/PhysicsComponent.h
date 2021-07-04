@@ -15,25 +15,10 @@ class Entity;
 
 //Separate out into : Collision, PhysBodyCommand, similar?
 
-struct BodyData 
+struct CollisionData 
 {
-    //Geometric
-    // int Radius = 10;
-    // int Width = 10;
-    // int Height = 10; 
-    // float Angle = 0;
-    //
-    //Physics
-    // float Restitution;
-    // float Friction = 0.1;
-    // float Elasticity;
-    // float Density = 0.1;
-    // float TurnSpeed = 0.01;
-    //
-    //Collision
     bool isSensor = false;
     bool isScorer = false;
-    bool isBall = false;
 };
 
 class PhysicsComponent : public Component
@@ -85,7 +70,7 @@ private:
     b2Fixture* m_PhysFixture;
     ShapeType m_ShapeType;
     b2BodyType m_BodyType;
-    BodyData m_BodyData;
+    CollisionData m_CollisionData;
 
     //Collision.  Assigned when fixture is. 
     // std::bitset<16> m_CollisionCategory;

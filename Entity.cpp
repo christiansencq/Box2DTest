@@ -1,5 +1,6 @@
 #include "Entity.h"
 #include "EntityManager.h"
+#include <cmath>
 
 Entity::Entity(EntityManager &manager) : m_Manager(manager) {}
 
@@ -7,16 +8,8 @@ Entity::Entity(EntityManager &manager) : m_Manager(manager) {}
 Entity::Entity(EntityManager &manager, b2Vec2 init_pixel_pos,
                b2Vec2 init_pixel_size)
     : m_Manager(manager), m_PixelPos(init_pixel_pos),
-      m_PixelSize(init_pixel_size), isActive(true) 
+      m_PixelSize(init_pixel_size), isActive(true), m_Angle(0)
 {
-    if (init_pixel_pos.x > SCREEN_WIDTH/2)
-    {
-        m_Angle = 1.74159;
-    }
-    else
-    {
-        m_Angle = 0;
-    }
     m_StartingAngle = m_Angle;
     m_StartingPixelPos = m_PixelPos;
 

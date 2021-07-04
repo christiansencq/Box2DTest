@@ -1,10 +1,10 @@
 #include "PhysicsComponent.h"
 #include "../Entity.h"
 
-//WHY is m_BodyData a pointer? It can be guaranteed to be within the scope/lifetime of this object.
+//WHY is m_CollisionData a pointer? It can be guaranteed to be within the scope/lifetime of this object.
 //Possibly just change to member value/reference.
 PhysicsComponent::PhysicsComponent(b2World* world, ShapeType shape, b2BodyType body_type)
- : m_PhysWorld(world), m_ShapeType(shape), m_BodyType(body_type), m_BodyData(BodyData())
+ : m_PhysWorld(world), m_ShapeType(shape), m_BodyType(body_type), m_CollisionData(CollisionData())
 {
     
 }
@@ -16,8 +16,8 @@ PhysicsComponent::~PhysicsComponent()
 
 void PhysicsComponent::SetData(bool scorer)
 {
-    m_BodyData.isScorer = scorer;
-    m_PhysBody->SetUserData(&m_BodyData);
+    m_CollisionData.isScorer = scorer;
+    m_PhysBody->SetUserData(&m_CollisionData);
 }
 
 

@@ -45,7 +45,7 @@ private:
     std::shared_ptr<Player> m_Player;
     b2World* m_PhysWorld;
     b2Body* m_PhysBody;
-    BodyData* m_BodyData;
+    CollisionData* m_CollisionData;
 };
 
 #endif

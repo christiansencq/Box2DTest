@@ -3,7 +3,7 @@
 
 //When merging with Physics object (maybe use a TurnIntoGoalMethod() or inheritance)
 GoalZoneComponent::GoalZoneComponent(b2World* world, std::shared_ptr<Player> player)
-    : m_Player(player), m_PhysWorld(world), m_BodyData(new BodyData())
+    : m_Player(player), m_PhysWorld(world), m_CollisionData(new CollisionData())
 {
 
 }
@@ -11,12 +11,12 @@ GoalZoneComponent::GoalZoneComponent(b2World* world, std::shared_ptr<Player> pla
 GoalZoneComponent::~GoalZoneComponent()
 {
     m_PhysWorld->DestroyBody(m_PhysBody);
-    delete m_BodyData; 
+    delete m_CollisionData; 
 }
 
 void GoalZoneComponent::SetData(bool scorer)
 {
-    m_PhysBody->SetUserData(m_BodyData);
+    m_PhysBody->SetUserData(m_CollisionData);
 }
 
 
@@ -38,8 +38,8 @@ void GoalZoneComponent::Update()
         b2Contact* c = ce->contact;
         b2Body* bodyA = c->GetFixtureA()->GetBody();
         b2Body* bodyB = c->GetFixtureB()->GetBody();
-        BodyData* dataA = (BodyData*)bodyA->GetUserData();
-        BodyData* dataB = (BodyData*)bodyB->GetUserData();
+        CollisionData* dataA = (CollisionData*)bodyA->GetUserData();
+        CollisionData* dataB = (CollisionData*)bodyB->GetUserData();
 
         if (dataA->isScorer || dataB->isScorer)
         {

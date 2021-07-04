@@ -16,7 +16,7 @@ GameMatchState::GameMatchState(SDL_Renderer* renderer)
     //Arena Setup.
     SetUpPuck();
     CreateBoundaries2();
-//    CreateGoalZones();
+    CreateGoalWalls();
 }
 
 GameMatchState::~GameMatchState()
@@ -171,23 +171,23 @@ void GameMatchState::CreateBoundaries2()
     }
 }
 
-// void GameMatchState::CreateBoundaries()
-// {
-//     Entity* wall1 = m_EntityManager->AddEntity(b2Vec2{SCREEN_WIDTH/2, 30}, b2Vec2{SCREEN_WIDTH-70, WALL_THICKNESS});
-//     Entity* wall2 = m_EntityManager->AddEntity(b2Vec2{SCREEN_WIDTH/2, SCREEN_HEIGHT - 30}, b2Vec2{SCREEN_WIDTH-70, WALL_THICKNESS});
-//     Entity* wall3 = m_EntityManager->AddEntity(b2Vec2{30, SCREEN_HEIGHT/2}, b2Vec2{WALL_THICKNESS, SCREEN_HEIGHT - WALL_BUFFER});
-//     Entity* wall4 = m_EntityManager->AddEntity(b2Vec2{SCREEN_WIDTH-30, SCREEN_HEIGHT/2}, b2Vec2{WALL_THICKNESS, SCREEN_HEIGHT - WALL_BUFFER});
-//     wall1->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::RECT, b2BodyType::b2_staticBody);
-//     wall1->GetComponent<PhysicsComponent>()->SetData();
-//     wall1->AddComponent<SDLRectComponent>(m_Renderer);
-//     wall2->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::RECT, b2BodyType::b2_staticBody);
-//     wall2->GetComponent<PhysicsComponent>()->SetData();
-//     wall2->AddComponent<SDLRectComponent>(m_Renderer);
-//     wall3->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::RECT, b2BodyType::b2_staticBody);
-//     wall3->GetComponent<PhysicsComponent>()->SetData();
-//     wall3->AddComponent<SDLRectComponent>(m_Renderer);
-//     wall4->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::RECT, b2BodyType::b2_staticBody);
-//     wall4->GetComponent<PhysicsComponent>()->SetData();
-//     wall4->AddComponent<SDLRectComponent>(m_Renderer);
-// }
-//
+void GameMatchState::CreateGoalWalls()
+{
+
+    for (int i = 0; i < 3; i++)
+    {
+        Entity* GoalWall = m_EntityManager->AddEntity(Goal1WallPositions[i], GoalWallSizes[i]);
+        GoalWall->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::RECT, b2BodyType::b2_staticBody);
+        GoalWall->GetComponent<PhysicsComponent>()->SetData();
+        GoalWall->AddComponent<SDLRectComponent>(m_Renderer);
+    }
+    for (int i = 0; i < 3; i++)
+    {
+        Entity* GoalWall = m_EntityManager->AddEntity(Goal2WallPositions[i], GoalWallSizes[i]);
+        GoalWall->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::RECT, b2BodyType::b2_staticBody);
+        GoalWall->GetComponent<PhysicsComponent>()->SetData();
+        GoalWall->AddComponent<SDLRectComponent>(m_Renderer);
+    }
+
+
+}
