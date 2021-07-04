@@ -11,11 +11,11 @@ GameMatchState::GameMatchState(SDL_Renderer* renderer)
     InitPhysics();
 
     //Player Setup
-    SetUpPlayers();
+    SetUpTwoPlayers();
 
     //Arena Setup.
     SetUpPuck();
-    CreateBoundaries();
+    CreateBoundaries2();
 //    CreateGoalZones();
 }
 
@@ -45,7 +45,7 @@ void GameMatchState::HandleEvents()
                 case SDLK_SPACE:
                     break;
                 default:
-                    m_EntityManager->HandleKeyPress(event.key.keysym.sym);
+                    m_EntityManager->HandleKeyPresses(event.key.keysym.sym);
                     break;
             }
             break;
@@ -53,7 +53,7 @@ void GameMatchState::HandleEvents()
 
         case SDL_KEYUP:
         {
-            m_EntityManager->HandleKeyRelease(event.key.keysym.sym);
+            m_EntityManager->HandleKeyReleases(event.key.keysym.sym);
             break;
         }
 
@@ -110,55 +110,44 @@ void GameMatchState::InitPhysics()
 
 //Possibly move this up above the constructor?  Move Functions that are resolved by the end of
 // Constructor/ Update/ Render to just before those functions.  <F8>
-void GameMatchState::SetUpPlayers()
+void GameMatchState::SetUpTwoPlayers()
 {
-    //m_P1 = std::make_shared<Player>(P1SwapKeys, P1ActionKeys);
-    //m_P2 = std::make_shared<Player>(P2SwapKeys, P2ActionKeys);
-    std::shared_ptr<Player> player = std::make_shared<Player>(P1SwapKeys, P1ActionKeys);
+    //Assert that the Vectors are long enough to supply the keybindings and that there are2 plaeyrs and 3 in Team.
+    for (int i = 0; i < NumPlayers; i++)
+    {
+        std::shared_ptr<Player> player = std::make_shared<Player>(SwapKeys[i], ActionKeys[i]);
 
-    //Set Up the balls that each player will control.
-    // Each Pulls from the Player's List for its starting position.
-    // Eventually add in an argument to add a Ball of a Type/Class etc.
-    AddPlayerBall(player);
-    AddPlayerBall(player);
-    AddPlayerBall(player);
+        //Set Up the balls that each player will control.
+        // Eventually add in an argument to add a Ball of a Type/Class etc.
+        for (int j = 0; j < TeamSize; j++)
+        {
+            AddPlayerBall(player, i, j);
+        }
+        //Set up the Entity to Show the Score
+        Entity* score_display = m_EntityManager->AddEntity(ScoreDisplayPositions[i], b2Vec2{50, 20});
+        score_display ->AddComponent<TextComponent>(m_AssetManager, m_Renderer, std::string(std::to_string(i) + " Score"), "ScoreFont");
+        player->AddScoreDisplay(score_display);
 
-    //Score Object Setup.  Combine this and player->AddScoreDisplay.
-    SetUpScoreForPlayer(player);
+        Entity* goal_zone = m_EntityManager->AddEntity(GoalPositions[i], GoalSize);
+        goal_zone->AddComponent<GoalZoneComponent>(m_PhysicsWorld, player);
+        goal_zone->GetComponent<GoalZoneComponent>()->SetData(false);
 
-    //Refactor this so that Player has a static list of starting positions it pulls from?
-    player->AddStartingPositions(P1StartingPositions);
-    m_EntityManager->AddPlayer(player);
-    m_Players.push_back((player));
-}
-
-void GameMatchState::SetUpScoreForPlayer(std::shared_ptr<Player> player)
-{
-    Entity* score_display = m_EntityManager->AddEntity(ScoreDisplayPositions[0], b2Vec2{50, 20});
-    score_display ->AddComponent<TextComponent>(m_AssetManager, m_Renderer, "P1Score", "ScoreFont");
-    player->AddScoreDisplay(score_display);
-
-    Entity* goal_zone = m_EntityManager->AddEntity(b2Vec2{1300, 450}, b2Vec2{250, 500});    
-    goal_zone->AddComponent<GoalZoneComponent>(m_PhysicsWorld, player);
-    goal_zone->GetComponent<GoalZoneComponent>()->SetData(false);
+        player->AddStartingPositions(StartingPositions[i]);
+        m_EntityManager->AddPlayer(player);
+        m_Players.push_back((player));
+    }
 }
 
 void GameMatchState::SetUpPuck()
-{
-    Entity* puck = m_EntityManager->AddEntity(puckStart, 25.0f);
+{ Entity* puck = m_EntityManager->AddEntity(puckStart, 25.0f);
     puck->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::CIRCLE, b2BodyType::b2_dynamicBody); 
     puck->GetComponent<PhysicsComponent>()->SetData(true);
-    //puckObj->GetComponent<PhysicsComponent>()->SetCollisionCategory(PUCK_BITS);
     puck->AddComponent<SDLCircleComponent>(m_Renderer, GREEN);
 }
 
-void GameMatchState::AddPlayerBall(std::shared_ptr<Player> player)
+void GameMatchState::AddPlayerBall(std::shared_ptr<Player> player, int i, int j)
 {
-    //Obviously, refactor so taht the StartingPosition vector is pulled from.
-    static std::vector<b2Vec2> TempStartingPos = P1StartingPositions;
-    b2Vec2 start_pos = TempStartingPos.back();
-    TempStartingPos.pop_back();
-    Entity* ball = m_EntityManager->AddEntity(start_pos, 50.0f);
+    Entity* ball = m_EntityManager->AddEntity(StartingPositions[i][j], 50.0f);
     player->AddBallToTeam(ball);
     ball->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::CIRCLE, b2BodyType::b2_dynamicBody);
     ball->GetComponent<PhysicsComponent>()->SetData();
@@ -171,23 +160,34 @@ void GameMatchState::AddPlayerBall(std::shared_ptr<Player> player)
     ball->GetComponent<KeyInputComponent>()->AddCommand<RightTurnCommand>();
 }
 
-void GameMatchState::CreateBoundaries()
+void GameMatchState::CreateBoundaries2()
 {
-    staticObj1 = m_EntityManager->AddEntity(b2Vec2{SCREEN_WIDTH/2, 30}, b2Vec2{SCREEN_WIDTH-70, WALL_THICKNESS});
-    staticObj2 = m_EntityManager->AddEntity(b2Vec2{SCREEN_WIDTH/2, SCREEN_HEIGHT - 30}, b2Vec2{SCREEN_WIDTH-70, WALL_THICKNESS});
-    staticObj3 = m_EntityManager->AddEntity(b2Vec2{30, SCREEN_HEIGHT/2}, b2Vec2{WALL_THICKNESS, SCREEN_HEIGHT - WALL_BUFFER});
-    staticObj4 = m_EntityManager->AddEntity(b2Vec2{SCREEN_WIDTH-30, SCREEN_HEIGHT/2}, b2Vec2{WALL_THICKNESS, SCREEN_HEIGHT - WALL_BUFFER});
-    staticObj1->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::RECT, b2BodyType::b2_staticBody);
-    staticObj1->GetComponent<PhysicsComponent>()->SetData();
-    staticObj1->AddComponent<SDLRectComponent>(m_Renderer);
-    staticObj2->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::RECT, b2BodyType::b2_staticBody);
-    staticObj2->GetComponent<PhysicsComponent>()->SetData();
-    staticObj2->AddComponent<SDLRectComponent>(m_Renderer);
-    staticObj3->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::RECT, b2BodyType::b2_staticBody);
-    staticObj3->GetComponent<PhysicsComponent>()->SetData();
-    staticObj3->AddComponent<SDLRectComponent>(m_Renderer);
-    staticObj4->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::RECT, b2BodyType::b2_staticBody);
-    staticObj4->GetComponent<PhysicsComponent>()->SetData();
-    staticObj4->AddComponent<SDLRectComponent>(m_Renderer);
+    for (int i = 0; i < 4; i++)
+    {
+    Entity* wall = m_EntityManager->AddEntity(WallPoses[i], WallSizes[i]);
+    wall->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::RECT, b2BodyType::b2_staticBody);
+    wall->GetComponent<PhysicsComponent>()->SetData();
+    wall->AddComponent<SDLRectComponent>(m_Renderer);
+    }
 }
 
+// void GameMatchState::CreateBoundaries()
+// {
+//     Entity* wall1 = m_EntityManager->AddEntity(b2Vec2{SCREEN_WIDTH/2, 30}, b2Vec2{SCREEN_WIDTH-70, WALL_THICKNESS});
+//     Entity* wall2 = m_EntityManager->AddEntity(b2Vec2{SCREEN_WIDTH/2, SCREEN_HEIGHT - 30}, b2Vec2{SCREEN_WIDTH-70, WALL_THICKNESS});
+//     Entity* wall3 = m_EntityManager->AddEntity(b2Vec2{30, SCREEN_HEIGHT/2}, b2Vec2{WALL_THICKNESS, SCREEN_HEIGHT - WALL_BUFFER});
+//     Entity* wall4 = m_EntityManager->AddEntity(b2Vec2{SCREEN_WIDTH-30, SCREEN_HEIGHT/2}, b2Vec2{WALL_THICKNESS, SCREEN_HEIGHT - WALL_BUFFER});
+//     wall1->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::RECT, b2BodyType::b2_staticBody);
+//     wall1->GetComponent<PhysicsComponent>()->SetData();
+//     wall1->AddComponent<SDLRectComponent>(m_Renderer);
+//     wall2->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::RECT, b2BodyType::b2_staticBody);
+//     wall2->GetComponent<PhysicsComponent>()->SetData();
+//     wall2->AddComponent<SDLRectComponent>(m_Renderer);
+//     wall3->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::RECT, b2BodyType::b2_staticBody);
+//     wall3->GetComponent<PhysicsComponent>()->SetData();
+//     wall3->AddComponent<SDLRectComponent>(m_Renderer);
+//     wall4->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::RECT, b2BodyType::b2_staticBody);
+//     wall4->GetComponent<PhysicsComponent>()->SetData();
+//     wall4->AddComponent<SDLRectComponent>(m_Renderer);
+// }
+//

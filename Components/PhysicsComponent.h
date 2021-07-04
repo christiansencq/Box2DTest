@@ -33,6 +33,7 @@ struct BodyData
     //Collision
     bool isSensor = false;
     bool isScorer = false;
+    bool isBall = false;
 };
 
 class PhysicsComponent : public Component
@@ -41,7 +42,7 @@ public:
     PhysicsComponent(b2World* world, ShapeType shape, b2BodyType body_type);
 //    PhysicsComponent(b2World* world, ShapeType shape, b2BodyType body_type, isSensor is_sensor, std::bitset<16> col_cat, std::bitset<16> col_mask);
     ~PhysicsComponent();
-    virtual void Initialize() override; //Handle the body, shape, fixture creation.
+    virtual void Initialize() override; 
     virtual void Update() override;
     void CreateBody();
     void MakeCircleShape(float x_offset, float y_offset);
@@ -84,9 +85,7 @@ private:
     b2Fixture* m_PhysFixture;
     ShapeType m_ShapeType;
     b2BodyType m_BodyType;
-
-    //Think I want this to just be a value, rather than a pointer, since we are sure it will exist
-    BodyData* m_BodyData;
+    BodyData m_BodyData;
 
     //Collision.  Assigned when fixture is. 
     // std::bitset<16> m_CollisionCategory;

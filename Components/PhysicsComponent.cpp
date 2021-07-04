@@ -1,25 +1,23 @@
 #include "PhysicsComponent.h"
 #include "../Entity.h"
 
-
+//WHY is m_BodyData a pointer? It can be guaranteed to be within the scope/lifetime of this object.
+//Possibly just change to member value/reference.
 PhysicsComponent::PhysicsComponent(b2World* world, ShapeType shape, b2BodyType body_type)
- : m_PhysWorld(world), m_ShapeType(shape), m_BodyType(body_type), m_BodyData(new BodyData())
+ : m_PhysWorld(world), m_ShapeType(shape), m_BodyType(body_type), m_BodyData(BodyData())
 {
-    // m_BodyData = std::make_unique<BodyData>();
-    
     
 }
 
 PhysicsComponent::~PhysicsComponent()
 {
     m_PhysWorld->DestroyBody(m_PhysBody);
-    delete m_BodyData; 
 }
 
 void PhysicsComponent::SetData(bool scorer)
 {
-    m_BodyData->isScorer = scorer;
-    m_PhysBody->SetUserData(m_BodyData);
+    m_BodyData.isScorer = scorer;
+    m_PhysBody->SetUserData(&m_BodyData);
 }
 
 
@@ -47,9 +45,11 @@ void PhysicsComponent::CreateBody()
 { 
     b2BodyDef bodyDef;
     bodyDef.position.Set(owner->GetPixelPos().x*P2M, owner->GetPixelPos().y*P2M);
-    //bodyDef.angle.Set(owner->GetAngle());
+    if (m_ShapeType == ShapeType::CIRCLE)
+        { bodyDef.angle = owner->GetAngle(); }
     bodyDef.type = m_BodyType;
     m_PhysBody = m_PhysWorld->CreateBody(&bodyDef);
+    
 }
 
 void PhysicsComponent::MakeCircleShape(float x_offset, float y_offset)

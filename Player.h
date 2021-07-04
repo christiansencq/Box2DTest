@@ -1,17 +1,12 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-/*
-The player class holds pointers to all of their balls and keeps track of the activeBall.
-Maybe have a static value in Player to help keep track of ID numbers?
-*/
 #include <vector>
 #include <array>
 
 #include "Box2D/Box2D.h"
 #include "SDL2/SDL.h"
-//Move to source?
-//#include "Entity.h"
+
 class Entity;
 class Selector;
 class Command;

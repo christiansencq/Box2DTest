@@ -1,7 +1,7 @@
 #include "App.h"
 #include "GameMatchState.h"
 
-SDL_Rect srcR, destR;
+//SDL_Rect srcR, destR;
 
 App& App::Singleton()
 {
@@ -66,13 +66,11 @@ void App::Run()
             assert(topState && "There is no scene!");
             if (topState)
             {
-                /*
-                while (!SDL_TICKS_PASSED(SDL_GetTicks(), ticksLastFrame + FRAME_TARGET_TIME));
+                // while (!SDL_TICKS_PASSED(SDL_GetTicks(), ticksLastFrame + FRAME_TARGET_TIME));
                 //Convert to seconds.
-                float deltaTime = (SDL_GetTicks() - ticksLastFrame) / 1000.0f;
-                deltaTime = (deltaTime > 0.05f) ? 0.05f : deltaTime;
-                ticksLastFrame = SDL_GetTicks(); 
-                */
+                // float deltaTime = (SDL_GetTicks() - ticksLastFrame) / 1000.0f;
+                // deltaTime = (deltaTime > 0.05f) ? 0.05f : deltaTime;
+                // ticksLastFrame = SDL_GetTicks(); 
                 topState->HandleEvents();
                 topState->Update();
                 topState->Render(m_Renderer);
@@ -97,11 +95,6 @@ void App::PopToMenu()
     while(m_StateStack.size() > 1)
     {
         m_StateStack.pop_back();
-    }
-
-    if (TopState())
-    {
-
     }
 }
 

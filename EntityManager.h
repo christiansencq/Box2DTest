@@ -16,8 +16,8 @@ public:
   void Update();
   void Render(SDL_Renderer *renderer);
   void HandleInput(SDL_Event &event) {}
-  void HandleKeyPress(SDL_Keycode key);
-  void HandleKeyRelease(SDL_Keycode key);
+  void HandleKeyPresses(SDL_Keycode key);
+  void HandleKeyReleases(SDL_Keycode key);
 
   // Entity Management and Access.
   Entity *AddEntity();
@@ -33,11 +33,10 @@ public:
   void ResetStage();
 
 private:
-  SDL_Renderer *m_Renderer; // A shared pointer.
-  // std::vector<std::shared_ptr<Entity>> entities;
+  SDL_Renderer *m_Renderer; 
   std::vector<Entity*> m_Entities;
   std::vector<std::shared_ptr<Player>> m_Players;
-  // std::map<const std::string, Entity*> entityNameMap;
   b2World *m_PhysWorld;
 };
+
 #endif

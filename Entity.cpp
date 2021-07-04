@@ -11,7 +11,7 @@ Entity::Entity(EntityManager &manager, b2Vec2 init_pixel_pos,
 {
     if (init_pixel_pos.x > SCREEN_WIDTH/2)
     {
-        m_Angle = 3.14159;
+        m_Angle = 1.74159;
     }
     else
     {
@@ -71,18 +71,8 @@ void Entity::HandleEvents(SDL_Event &event)
   }
 }
 
-void Entity::Update() {
-  // Update my tracking of Position & Angle.
-  // TODO : Have each Entity able to have a 'Position' component which is
-  // responsible for updating its position (either Physics, static, etc)
-  // TODO: Determine: is this necessary? Just have the PhysicsComponetn call SetPixelPos. Makes much more sense.
-  //if (HasComponent<PhysicsComponent>()) 
-  //{    m_PixelPos.x =
-  //      GetComponent<PhysicsComponent>()->GetPhysBody()->GetPosition().x * M2P;
-  //  m_PixelPos.y =
-  //      GetComponent<PhysicsComponent>()->GetPhysBody()->GetPosition().y * M2P;
-  //  m_Angle = GetComponent<PhysicsComponent>()->GetPhysBody()->GetAngle();
-  //}
+void Entity::Update() 
+{
 
   for (auto &component : m_Components) 
   {
@@ -90,7 +80,8 @@ void Entity::Update() {
   }
 }
 
-void Entity::Render() {
+void Entity::Render()  
+{
   for (auto &component : m_Components) 
   {
     component->Render();
@@ -112,9 +103,7 @@ void Entity::ListAllComponents()
   }
 }
 
-//void Entity::SetPixelPos(const b2Vec2 newScreenPos)
-//{  m_PixelPos = newScreenPos}
-
+//Set Default values to m_StartingAngle, m_StartingPixelPos?
 void Entity::SetTransform(const b2Vec2 newScreenPos, float angle)
 { 
     m_PixelPos = newScreenPos;
@@ -127,7 +116,6 @@ void Entity::SetTransform(const b2Vec2 newScreenPos, float angle)
         GetComponent<PhysicsComponent>()->GetPhysBody()->SetAngularVelocity(0);
         GetComponent<PhysicsComponent>()->GetPhysBody()->SetLinearVelocity(b2Vec2{0,0});
     }
-    
 }
 
 void Entity::SignalManagerToReset()
@@ -136,11 +124,7 @@ void Entity::SignalManagerToReset()
 }
 void Entity::ResetTransform()
 {
-    
     m_Angle = m_StartingAngle;
     m_PixelPos = m_StartingPixelPos;
-    std::cout << "m_Angle is: " << m_Angle << std::endl;
-    std::cout << "m_StartingPixelPos is: " << m_StartingPixelPos.x << ", " << m_StartingPixelPos.y << std::endl;
     SetTransform(m_PixelPos, m_Angle);
-    
 }

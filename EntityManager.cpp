@@ -39,7 +39,7 @@ void EntityManager::Render(SDL_Renderer* renderer)
     }
 }
 
-void EntityManager::HandleKeyPress(SDL_Keycode key)
+void EntityManager::HandleKeyPresses(SDL_Keycode key)
 {
     for (auto player : m_Players)
     {
@@ -47,7 +47,7 @@ void EntityManager::HandleKeyPress(SDL_Keycode key)
     }
 }
 
-void EntityManager::HandleKeyRelease(SDL_Keycode key)
+void EntityManager::HandleKeyReleases(SDL_Keycode key)
 {
     for (auto player : m_Players)
     {
@@ -57,30 +57,24 @@ void EntityManager::HandleKeyRelease(SDL_Keycode key)
 
 Entity* EntityManager::AddEntity()
 {
-    Entity* entity = new Entity(*this); //Create a new Generic Entity with entityName. Store a pointer to it in entity.
-    m_Entities.emplace_back(entity); //Add that pointer to the entities list.
-    return entity; //Return the actual object?
-
-    //std::shared_ptr<Entity> entity = std::make_shared<Entity>(*this, entityName);
-    //entities.emplace_back(entity);
-    //return entity;
-
+    Entity* entity = new Entity(*this); 
+    m_Entities.emplace_back(entity); 
+    return entity; 
 }
 
 Entity* EntityManager::AddEntity(b2Vec2 initPixelPos, b2Vec2 initPixelSize)
 {
-    Entity* entity = new Entity(*this, initPixelPos, initPixelSize); //Create a new Generic Entity with entityName. Store a pointer to it in entity.
-    m_Entities.emplace_back(entity); //Add that pointer to the entities list.
-    return entity; //Return the actual object?
+    Entity* entity = new Entity(*this, initPixelPos, initPixelSize); 
+    m_Entities.emplace_back(entity); 
+    return entity; 
 }
 
 Entity* EntityManager::AddEntity(b2Vec2 initPixelPos, float initPixelRadius)
 {
-    Entity* entity = new Entity(*this, initPixelPos, initPixelRadius); //Create a new Generic Entity with entityName. Store a pointer to it in entity.
-    m_Entities.emplace_back(entity); //Add that pointer to the entities list.
-    return entity; //Return the actual object?
+    Entity* entity = new Entity(*this, initPixelPos, initPixelRadius);
+    m_Entities.emplace_back(entity);
+    return entity;
 }
-
 
 void EntityManager::DestroyInactiveEntities()
 {
@@ -105,6 +99,5 @@ void EntityManager::ResetStage()
     {
         ent->ResetTransform();
     }
-
 }
 

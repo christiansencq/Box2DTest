@@ -9,10 +9,8 @@
 
 #include "../Constants.h"
 #include "Component.h"
-
 #include "../Player.h"
 #include "PhysicsComponent.h"
-//#include "../Entity.h"
 
 //GoalZone has a RectanglePhysicsObject, and a Player to update when Triggered.
 //TODO: Integrate the Physics portion into PhysicsComponent and have this be a go-between.
@@ -36,11 +34,12 @@ public:
     void Score();
     void SetData(bool scorer = false);
 
-
     Entity* GetOwner() {return owner;} 
     Entity* owner;
 
 private:
+
+
     int m_Width, m_Height;
     bool m_Triggered;
     std::shared_ptr<Player> m_Player;

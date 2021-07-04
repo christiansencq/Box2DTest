@@ -25,65 +25,66 @@ class GameMatchState : public State
 public:
 
     void InitPhysics();
-    void SetUpPlayers();
-    void SetUpScoreForPlayer(std::shared_ptr<Player> player);
+    void SetUpTwoPlayers();
     void SetUpPuck();
-    void CreateBoundaries();
+    void CreateBoundaries2();
     void CreateGoalZones();
-    void AddPlayer(std::shared_ptr<Player> player) { m_Players.push_back(player); }
-    void AddPlayerBall(std::shared_ptr<Player> player);
+    void AddPlayerBall(std::shared_ptr<Player> player, int i, int j);
 
-    //Single Argument Constructor Without Explicit is a Converting Constructor
     explicit GameMatchState(SDL_Renderer* renderer);
     ~GameMatchState();
 
-    void ResetPositions();
-
     void HandleEvents() override;
     void Update() override;
-
     void Render(SDL_Renderer* renderer) override;
 
 private:
 
-    const std::vector<b2Vec2> P1StartingPositions = {b2Vec2{350, 640}, b2Vec2{350, 480}, b2Vec2{350, 320}};
-    const std::vector<b2Vec2> P2StartingPositions = {b2Vec2{750, 640}, b2Vec2{750, 480}, b2Vec2{750, 320}};
-    std::vector<std::vector<b2Vec2>> StartPosSets = {{b2Vec2{350, 640}, b2Vec2{350, 480}, b2Vec2{350, 320}}, {b2Vec2{750, 640}, b2Vec2{750, 480}, b2Vec2{750, 320}}};
-    const std::array<b2Vec2, 2> ScoreDisplayPositions = {b2Vec2{150, 50}, b2Vec2{850, 50}};
+    //Data/Constants
+    const std::vector<b2Vec2> P1StartingPositions = {b2Vec2{450, 640}, b2Vec2{450, 480}, b2Vec2{450, 320}};
+    const std::vector<b2Vec2> P2StartingPositions = {b2Vec2{1150, 640}, b2Vec2{1150, 480}, b2Vec2{1150, 320}};
+    const std::vector<std::vector<b2Vec2>> StartingPositions = {P1StartingPositions, P2StartingPositions};
 
-    const std::array<SDL_Keycode, 3> P1SwapKeys = { SDLK_i, SDLK_o, SDLK_p };
-    const std::array<SDL_Keycode, 4> P1ActionKeys = { SDLK_UP, SDLK_DOWN, SDLK_LEFT, SDLK_RIGHT };
-    const std::array<SDL_Keycode, 3> P2SwapKeys = { SDLK_v, SDLK_b, SDLK_n };
-    const std::array<SDL_Keycode, 4> P2ActionKeys = { SDLK_w, SDLK_s, SDLK_a, SDLK_d };
+    const std::array<b2Vec2, 2> ScoreDisplayPositions = {b2Vec2{150, 50}, b2Vec2{800, 50}};
+    std::array<b2Vec2, 2> GoalPositions = {b2Vec2{1400, 450}, b2Vec2{200, 450}};
 
+    const b2Vec2 TopWallSize = {SCREEN_WIDTH-70, WALL_THICKNESS};
+    const b2Vec2 BottomWallSize = {SCREEN_WIDTH-70, WALL_THICKNESS};
+    const b2Vec2 LeftWallSize = {WALL_THICKNESS, SCREEN_HEIGHT-WALL_BUFFER};
+    const b2Vec2 RightWallSize = {WALL_THICKNESS, SCREEN_HEIGHT-WALL_BUFFER};
+    const std::array<b2Vec2, 4> WallSizes = {TopWallSize, BottomWallSize, LeftWallSize, RightWallSize};
+    
+    const b2Vec2 TopWallPos = {SCREEN_WIDTH/2, 30};
+    const b2Vec2 BottomWallPos = {SCREEN_WIDTH/2, SCREEN_HEIGHT - 30};
+    const b2Vec2 LeftWallPos = {30, SCREEN_HEIGHT/2};
+    const b2Vec2 RightWallPos = {SCREEN_WIDTH-30, SCREEN_HEIGHT/2};
+    const std::array<b2Vec2, 4> WallPoses = {TopWallPos, BottomWallPos, LeftWallPos, RightWallPos};
+
+    std::array<SDL_Keycode, 3> P1SwapKeys = { SDLK_i, SDLK_o, SDLK_p };
+    std::array<SDL_Keycode, 4> P1ActionKeys = { SDLK_UP, SDLK_DOWN, SDLK_LEFT, SDLK_RIGHT };
+    std::array<SDL_Keycode, 3> P2SwapKeys = { SDLK_v, SDLK_b, SDLK_n };
+    std::array<SDL_Keycode, 4> P2ActionKeys = { SDLK_w, SDLK_s, SDLK_a, SDLK_d };
+    std::vector<std::array<SDL_Keycode, 3>> SwapKeys = {P1SwapKeys, P2SwapKeys};
+    std::vector<std::array<SDL_Keycode, 4>> ActionKeys = { P1ActionKeys, P2ActionKeys };
+
+    b2Vec2 GoalSize = {250, 500};
+
+    const int NumPlayers = 2;
+    const int TeamSize = 3;
+
+    SDL_Renderer* m_Renderer;
     std::unique_ptr<EntityManager> m_EntityManager;
     AssetManager* m_AssetManager;
-    SDL_Renderer* m_Renderer;
     b2World* m_PhysicsWorld;
     CollisionManager* m_CollisionManager;
     
-    //Walls
-    Entity* staticObj1 = nullptr;
-    Entity* staticObj2 = nullptr;
-    Entity* staticObj3 = nullptr;
-    Entity* staticObj4 = nullptr;
-    
-    Entity* goalZone = nullptr;
-
-    //Entity* m_P1ScoreDisplayUI = nullptr;
-    //Entity* m_P2ScoreDisplayUI = nullptr;
-    //std::vector<Entity*> m_ScoreDisplays;
-
-//   std::shared_ptr<Player> m_P1;
-//   std::shared_ptr<Player> m_P2;
-    //TODO see about removing this... or rather, the individual player pointers above.
     std::vector<std::shared_ptr<Player>> m_Players;
 
-    bool m_GoalMade = false;
-    float m_TimeStep;
+    const float m_TimeStep;
     int m_VelocityIterations;
     int m_PositionIterations;
     int m_TicksLastFrame;
 };
+
 
 #endif
