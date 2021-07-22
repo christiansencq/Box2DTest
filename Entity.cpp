@@ -2,18 +2,20 @@
 #include "EntityManager.h"
 #include <cmath>
 
-Entity::Entity(EntityManager &manager) : m_Manager(manager) {}
+// Entity::Entity(EntityManager &manager) 
+//     : m_Manager(manager) 
+// {
+//     //Entity(manager, b2Vec2{5, 5}, 50.f);
+// }
 
 // Rectangle
 Entity::Entity(EntityManager &manager, b2Vec2 init_pixel_pos,
                b2Vec2 init_pixel_size)
     : m_Manager(manager), m_PixelPos(init_pixel_pos),
-      m_PixelSize(init_pixel_size), isActive(true), m_Angle(0)
+      m_PixelSize(init_pixel_size), m_PixelRad(init_pixel_size.x/2), m_Angle(0), isActive(true) 
 {
     m_StartingAngle = m_Angle;
     m_StartingPixelPos = m_PixelPos;
-
-    //Verify that the Vectors have valid Values.
     SetPixelSize(init_pixel_size);
 }
 
@@ -35,8 +37,6 @@ Entity::Entity(EntityManager &manager, b2Vec2 init_pixel_pos,
     m_StartingPixelPos = m_PixelPos;
     SetPixelSize(init_pixel_rad * 2.0f);
 }
-
-
 
 void Entity::HandleKeyPress(SDL_Keycode key) 
 {
@@ -96,7 +96,6 @@ void Entity::ListAllComponents()
   }
 }
 
-//Set Default values to m_StartingAngle, m_StartingPixelPos?
 void Entity::SetTransform(const b2Vec2 newScreenPos, float angle)
 { 
     m_PixelPos = newScreenPos;
@@ -115,6 +114,7 @@ void Entity::SignalManagerToReset()
 {
     m_Manager.ResetStage(); 
 }
+
 void Entity::ResetTransform()
 {
     m_Angle = m_StartingAngle;

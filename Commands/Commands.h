@@ -29,16 +29,12 @@ private:
 
 class ForwardThrustCommand : public Command
 {
-//Add in a vector to thrust upon?
-
 
 public:
     ForwardThrustCommand();
     virtual void Initialize() override;
     virtual void executePress() override;
     virtual void executeRelease() override;
-
-//    KeyInputComponent* owningComponent;
 
 private:
 
@@ -49,11 +45,9 @@ class BackwardThrustCommand : public Command
 {
 public:
     BackwardThrustCommand();
-    virtual void Initialize();
-    virtual void executePress();
-    virtual void executeRelease();
-
-//    KeyInputComponent* owningComponent;
+    virtual void Initialize() override;
+    virtual void executePress() override;
+    virtual void executeRelease() override;
 
 private:
 
@@ -63,11 +57,9 @@ class LeftTurnCommand : public Command
 {
 public:
     LeftTurnCommand();
-    virtual void Initialize();
-    virtual void executePress();
-    virtual void executeRelease();
-
-//    KeyInputComponent* owningComponent;
+    virtual void Initialize() override;
+    virtual void executePress() override;
+    virtual void executeRelease() override;
 
 private:
 
@@ -78,11 +70,9 @@ class RightTurnCommand : public Command
 {
 public:
     RightTurnCommand();
-    virtual void Initialize();
-    virtual void executePress();
-    virtual void executeRelease();
-
-    KeyInputComponent* owningComponent;
+    virtual void Initialize() override;
+    virtual void executePress() override;
+    virtual void executeRelease() override;
 
 private:
 

@@ -6,6 +6,30 @@
 
 #IncludeRegexTransform: 
 
+/home/charles/Cpp/Box2Test/App.cpp
+App.h
+/home/charles/Cpp/Box2Test/App.h
+GameMatchState.h
+/home/charles/Cpp/Box2Test/GameMatchState.h
+
+/home/charles/Cpp/Box2Test/App.h
+cassert
+-
+iostream
+-
+vector
+-
+memory
+-
+SDL2/SDL.h
+/home/charles/Cpp/Box2Test/SDL2/SDL.h
+SDL2/SDL_image.h
+/home/charles/Cpp/Box2Test/SDL2/SDL_image.h
+SDL2/SDL_ttf.h
+/home/charles/Cpp/Box2Test/SDL2/SDL_ttf.h
+State.h
+/home/charles/Cpp/Box2Test/State.h
+
 /home/charles/Cpp/Box2Test/AssetManager.h
 map
 -
@@ -13,6 +37,18 @@ string
 -
 SDL2/SDL_ttf.h
 /home/charles/Cpp/Box2Test/SDL2/SDL_ttf.h
+
+/home/charles/Cpp/Box2Test/CollisionManager.h
+Box2D/Box2D.h
+/home/charles/Cpp/Box2Test/Box2D/Box2D.h
+
+/home/charles/Cpp/Box2Test/Commands/Commands.cpp
+Commands.h
+/home/charles/Cpp/Box2Test/Commands/Commands.h
+../Components/KeyInputComponent.h
+/home/charles/Cpp/Box2Test/Components/KeyInputComponent.h
+../Entity.h
+/home/charles/Cpp/Box2Test/Entity.h
 
 /home/charles/Cpp/Box2Test/Commands/Commands.h
 ../Constants.h
@@ -23,6 +59,12 @@ SDL2/SDL.h
 /home/charles/Cpp/Box2Test/Components/SDL2/SDL.h
 Box2D/Box2D.h
 /home/charles/Cpp/Box2Test/Components/Box2D/Box2D.h
+
+/home/charles/Cpp/Box2Test/Components/GoalZoneComponent.cpp
+GoalZoneComponent.h
+/home/charles/Cpp/Box2Test/Components/GoalZoneComponent.h
+../Entity.h
+/home/charles/Cpp/Box2Test/Entity.h
 
 /home/charles/Cpp/Box2Test/Components/GoalZoneComponent.h
 SDL2/SDL.h
@@ -56,6 +98,12 @@ Component.h
 ../Constants.h
 /home/charles/Cpp/Box2Test/Constants.h
 
+/home/charles/Cpp/Box2Test/Components/PhysicsComponent.cpp
+PhysicsComponent.h
+/home/charles/Cpp/Box2Test/Components/PhysicsComponent.h
+../Entity.h
+/home/charles/Cpp/Box2Test/Entity.h
+
 /home/charles/Cpp/Box2Test/Components/PhysicsComponent.h
 iostream
 -
@@ -72,6 +120,12 @@ Box2D/Box2D.h
 Component.h
 /home/charles/Cpp/Box2Test/Components/Component.h
 
+/home/charles/Cpp/Box2Test/Components/SDLCircleComponent.cpp
+SDLCircleComponent.h
+/home/charles/Cpp/Box2Test/Components/SDLCircleComponent.h
+../Entity.h
+/home/charles/Cpp/Box2Test/Entity.h
+
 /home/charles/Cpp/Box2Test/Components/SDLCircleComponent.h
 array
 -
@@ -83,10 +137,30 @@ Box2D/Box2D.h
 /home/charles/Cpp/Box2Test/Components/Box2D/Box2D.h
 ../Constants.h
 /home/charles/Cpp/Box2Test/Constants.h
-Component.h
-/home/charles/Cpp/Box2Test/Components/Component.h
+SDLShapeComponent.h
+/home/charles/Cpp/Box2Test/Components/SDLShapeComponent.h
+
+/home/charles/Cpp/Box2Test/Components/SDLRectComponent.cpp
+SDLRectComponent.h
+/home/charles/Cpp/Box2Test/Components/SDLRectComponent.h
+../Entity.h
+/home/charles/Cpp/Box2Test/Entity.h
+PhysicsComponent.h
+/home/charles/Cpp/Box2Test/Components/PhysicsComponent.h
 
 /home/charles/Cpp/Box2Test/Components/SDLRectComponent.h
+array
+-
+SDL2/SDL.h
+/home/charles/Cpp/Box2Test/Components/SDL2/SDL.h
+SDL2/SDL_image.h
+/home/charles/Cpp/Box2Test/Components/SDL2/SDL_image.h
+../Constants.h
+/home/charles/Cpp/Box2Test/Constants.h
+SDLShapeComponent.h
+/home/charles/Cpp/Box2Test/Components/SDLShapeComponent.h
+
+/home/charles/Cpp/Box2Test/Components/SDLShapeComponent.h
 array
 -
 SDL2/SDL.h
@@ -98,11 +172,23 @@ SDL2/SDL_image.h
 Component.h
 /home/charles/Cpp/Box2Test/Components/Component.h
 
+/home/charles/Cpp/Box2Test/Components/SelectableComponent.cpp
+SelectableComponent.h
+/home/charles/Cpp/Box2Test/Components/SelectableComponent.h
+../Entity.h
+/home/charles/Cpp/Box2Test/Entity.h
+
 /home/charles/Cpp/Box2Test/Components/SelectableComponent.h
 ../Constants.h
 /home/charles/Cpp/Box2Test/Constants.h
 Component.h
 /home/charles/Cpp/Box2Test/Components/Component.h
+
+/home/charles/Cpp/Box2Test/Components/TextComponent.cpp
+TextComponent.h
+/home/charles/Cpp/Box2Test/Components/TextComponent.h
+../Entity.h
+/home/charles/Cpp/Box2Test/Entity.h
 
 /home/charles/Cpp/Box2Test/Components/TextComponent.h
 ../Constants.h
@@ -164,6 +250,12 @@ Components/SDLRectComponent.h
 Components/SelectableComponent.h
 /home/charles/Cpp/Box2Test/Components/SelectableComponent.h
 
+/home/charles/Cpp/Box2Test/EntityManager.cpp
+EntityManager.h
+/home/charles/Cpp/Box2Test/EntityManager.h
+iostream
+-
+
 /home/charles/Cpp/Box2Test/EntityManager.h
 memory
 -
@@ -174,6 +266,36 @@ Entity.h
 Player.h
 /home/charles/Cpp/Box2Test/Player.h
 
+/home/charles/Cpp/Box2Test/GameMatchState.cpp
+GameMatchState.h
+/home/charles/Cpp/Box2Test/GameMatchState.h
+
+/home/charles/Cpp/Box2Test/GameMatchState.h
+memory
+-
+vector
+-
+Constants.h
+/home/charles/Cpp/Box2Test/Constants.h
+AssetManager.h
+/home/charles/Cpp/Box2Test/AssetManager.h
+App.h
+/home/charles/Cpp/Box2Test/App.h
+State.h
+/home/charles/Cpp/Box2Test/State.h
+EntityManager.h
+/home/charles/Cpp/Box2Test/EntityManager.h
+Player.h
+/home/charles/Cpp/Box2Test/Player.h
+CollisionManager.h
+/home/charles/Cpp/Box2Test/CollisionManager.h
+
+/home/charles/Cpp/Box2Test/Player.cpp
+Player.h
+/home/charles/Cpp/Box2Test/Player.h
+Entity.h
+/home/charles/Cpp/Box2Test/Entity.h
+
 /home/charles/Cpp/Box2Test/Player.h
 vector
 -
@@ -183,4 +305,12 @@ Box2D/Box2D.h
 /home/charles/Cpp/Box2Test/Box2D/Box2D.h
 SDL2/SDL.h
 /home/charles/Cpp/Box2Test/SDL2/SDL.h
+
+/home/charles/Cpp/Box2Test/State.h
+SDL2/SDL.h
+/home/charles/Cpp/Box2Test/SDL2/SDL.h
+SDL2/SDL_image.h
+/home/charles/Cpp/Box2Test/SDL2/SDL_image.h
+Box2D/Box2D.h
+/home/charles/Cpp/Box2Test/Box2D/Box2D.h
 

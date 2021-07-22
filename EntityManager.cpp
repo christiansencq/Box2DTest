@@ -3,7 +3,7 @@
     
 void EntityManager::ClearData()
 {
-    for (auto entity : m_Entities)
+    for (auto& entity : m_Entities)
     {
         entity->Destroy();
     }
@@ -11,12 +11,12 @@ void EntityManager::ClearData()
 
 void EntityManager::Update()
 {
-    for (auto entity : m_Entities)
+    for (auto& entity : m_Entities)
     {
         entity->Update();
     }
 
-    for (auto p : m_Players)
+    for (auto& p : m_Players)
     {
         p->UpdateSelector();
     }
@@ -28,12 +28,12 @@ void EntityManager::Update()
 
 void EntityManager::Render(SDL_Renderer* renderer)
 {
-    for (auto entity : m_Entities)
+    for (auto& entity : m_Entities)
     {
         entity->Render();
     }
 
-    for (auto p : m_Players)
+    for (auto& p : m_Players)
     {
         p->RenderSelector(renderer);
     }
@@ -41,7 +41,7 @@ void EntityManager::Render(SDL_Renderer* renderer)
 
 void EntityManager::HandleKeyPresses(SDL_Keycode key)
 {
-    for (auto player : m_Players)
+    for (auto& player : m_Players)
     {
         player->HandleKeyPress(key);
     }
@@ -49,7 +49,7 @@ void EntityManager::HandleKeyPresses(SDL_Keycode key)
 
 void EntityManager::HandleKeyReleases(SDL_Keycode key)
 {
-    for (auto player : m_Players)
+    for (auto& player : m_Players)
     {
         player->HandleKeyRelease(key);
     }

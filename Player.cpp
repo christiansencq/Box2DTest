@@ -15,9 +15,7 @@ Player::Player(const std::array<SDL_Keycode, 3> swap_keys, const std::array<SDL_
 
 Player::Player(const std::array<SDL_Keycode, 3> swap_keys, const std::array<SDL_Keycode, 4> action_keys, Entity* score_display, std::vector<b2Vec2> starting_pos)
 : m_StartingPositions(starting_pos), m_ScoreDisplay(score_display), m_SwapKeys (swap_keys), m_ActionKeys (action_keys) 
-
 {
-
     //Set the Starting Angle
 
 }

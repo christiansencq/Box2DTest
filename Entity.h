@@ -25,10 +25,12 @@ class Entity
 {
 
 public:
-    explicit Entity(EntityManager &manager);
+
+    // Entity(EntityManager &manager); 
     Entity(EntityManager &manager, b2Vec2 init_pixel_pos, b2Vec2 init_pixel_size);
     Entity(EntityManager &manager, b2Vec2 init_pixel_pos, float init_pixel_rad);
 
+    //GameLoop Related
     void HandleEvents(SDL_Event &event);
     void HandleKeyPress(SDL_Keycode key);
     void HandleKeyRelease(SDL_Keycode key);
@@ -36,6 +38,7 @@ public:
     void Render();
     void Destroy();
 
+    //Component Management
     void ListAllComponents();
 
     template <typename T, typename... TArgs> T &AddComponent(TArgs &&...args) {
@@ -59,27 +62,25 @@ public:
         return isActive;
     }
 
+    // Mediating a Reset of the MatchState.
+    void SignalManagerToReset(); 
+    void ResetTransform();
+
+
+    //Transform Accessors.
     void SetPixelSize(const b2Vec2 newSize) 
     { m_PixelSize = newSize; }
     void SetPixelSize(const float newRadius) 
     {   m_PixelRad = newRadius;
         m_PixelSize = b2Vec2{m_PixelRad, m_PixelRad}; }
 
-    //Geometry - Translation
     void SetPixelPos(const b2Vec2 newScreenPos) { m_PixelPos = newScreenPos;}   
     void SetAngle(float new_angle) { m_Angle = new_angle; }
     void SetTransform(const b2Vec2 newScreenPos, float angle);
     //void DetermineAngleFromPosition(int x_pos);//Later change this to the pos vector, so we can rotate toward?
-    
-    // Mediating a Reset of the MatchState.
-    void SignalManagerToReset(); 
-    void ResetTransform();
 
-    //b2Vec2 GetPhysSize() { return b2Vec2{ m_PixelSize.x * P2M, m_PixelSize.y * P2M }; }
-    //b2Vec2 GetPhysPos() { return b2Vec2{ m_PixelPos.x * P2M, m_PixelPos.y * P2M }; }
     b2Vec2 GetPixelSize() { return m_PixelSize; }
     b2Vec2 GetPixelPos() { return m_PixelPos; }
-
     int GetRadius() { return m_PixelRad; }
     float GetAngle() { return m_Angle; }
 

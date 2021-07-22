@@ -2,6 +2,8 @@
 
 #include "../Components/KeyInputComponent.h"
 #include "../Entity.h"
+
+// ------------- FORWARD -------------------
 ForwardThrustCommand::ForwardThrustCommand()
 {
 
@@ -9,14 +11,12 @@ ForwardThrustCommand::ForwardThrustCommand()
 
 void ForwardThrustCommand::Initialize()
 { 
-    //owningComponent->m_ActionMap[Actions::FORWARD] = this;
     owningComponent->AssignAction(Actions::FORWARD, this);
 }
 
 void ForwardThrustCommand::executePress()
 {
     owningComponent->GetOwner()->GetComponent<PhysicsComponent>()->SetThrustDirection(ThrustDir::FORWARD);    
-    //owningComponent->GetOwner()->GetComponent<PhysicsComponent>()->SetThrusting(true);
 }
 
 void ForwardThrustCommand::executeRelease()
@@ -24,7 +24,7 @@ void ForwardThrustCommand::executeRelease()
     owningComponent->GetOwner()->GetComponent<PhysicsComponent>()->SetThrusting(false);
 }
 
-
+// ------------- BACKWARD -------------------
 BackwardThrustCommand::BackwardThrustCommand()
 {
     
@@ -32,14 +32,12 @@ BackwardThrustCommand::BackwardThrustCommand()
 
 void BackwardThrustCommand::Initialize()
 {
-//    owningComponent->m_ActionMap[Actions::BACKWARD] = this;
     owningComponent->AssignAction(Actions::BACKWARD, this);
 }
 
 void BackwardThrustCommand::executePress()
 {
     owningComponent->GetOwner()->GetComponent<PhysicsComponent>()->SetThrustDirection(ThrustDir::BACKWARD);    
-    //owningComponent->GetOwner()->GetComponent<PhysicsComponent>()->SetThrusting(true);
 }
 
 void BackwardThrustCommand::executeRelease()
@@ -48,6 +46,7 @@ void BackwardThrustCommand::executeRelease()
 }
 
 
+// ------------- LEFT -------------------
 LeftTurnCommand::LeftTurnCommand()
 { 
 
@@ -69,35 +68,7 @@ void LeftTurnCommand::executeRelease()
     owningComponent->GetOwner()->GetComponent<PhysicsComponent>()->SetTurning(TurnDir::NONE);
 }
 
-/*
-
-void LeftFixedTurnCommand::LeftFixedTurnCommand()
-{
-    
-}
-
-void LeftFixedTurnCommand::Initialize()
-{
-
-}
-
-void LeftFixedTurnCommand::executePress()
-{
-
-}
-
-void LeftFixedTurnCommand::executeRelease()
-{
-
-}
-
-
-*/
-
-
-
-
-
+// ------------- RIGHT -------------------
 RightTurnCommand::RightTurnCommand()
 { 
 

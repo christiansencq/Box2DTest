@@ -7,39 +7,32 @@
 #include "SDL2/SDL_image.h"
 
 #include "../Constants.h"
-#include "Component.h"
-
+#include "SDLShapeComponent.h"
 //Problematic coupling here: 
 //#include "PhysicsComponent.h"
 
 class Entity;
-
-class SDLRectComponent : public Component
+class SDLRectComponent : public ShapeComponent
 {
 public:
-    //SDLRectComponent(SDL_Renderer* renderer, int PixelW, int PixelH, SDL_Color color = BLACK);
-    SDLRectComponent(SDL_Renderer* renderer, SDL_Color color = BLACK);
-    ~SDLRectComponent() { }
+    explicit SDLRectComponent(SDL_Renderer* renderer, SDL_Color color = BLACK);
+    virtual ~SDLRectComponent() { }
 
-    void Initialize() override;
-    void Update() override; //Update will update the coordinates from the owner.
-    void Render() override;
+    virtual void Initialize() override;
+    virtual void Update() override;
+//    virtual void Render() override;
 
-    void DrawLine(int x0, int y0, int x1, int y1);
-    void DrawShape(b2Vec2* points, int numSegments); 
+    virtual void DrawLine(int x0, int y0, int x1, int y1) override;
+    virtual void DrawShape() override; 
     
-    void DisplayRect();
-    
-    void DisplayAngleIndicator();
-    void RotateAndTranslate(b2Vec2& vector, const b2Vec2& center, float angle);
+    virtual void DisplayAngleIndicator() override;
+    virtual void RotateAndTranslate(b2Vec2& vector, const b2Vec2& center, float angle) override;
 
-    Entity* GetOwner() { return owner; }
     Entity* owner;
-    b2Body* m_PhysBody;
-
 
 private:
     SDL_Renderer* m_Renderer;
+    b2Body* m_PhysBody;
     bool IsDynamic;
     int m_Width, m_Height;
     int m_PixelX, m_PixelY;

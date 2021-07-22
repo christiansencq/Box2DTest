@@ -1,9 +1,9 @@
 #include "GameMatchState.h"
 
 GameMatchState::GameMatchState(SDL_Renderer* renderer)
- : m_Renderer(renderer), m_TimeStep(1/30.0f), m_VelocityIterations(2), m_PositionIterations(6), m_TicksLastFrame(0)
+ : m_Renderer(renderer), m_EntityManager(std::make_unique<EntityManager>()), m_TimeStep(1/30.0f), m_VelocityIterations(2), m_PositionIterations(6), m_TicksLastFrame(0) 
  {
-    m_EntityManager = std::make_unique<EntityManager>();
+//    m_EntityManager = std::make_unique<EntityManager>();
     m_AssetManager = new AssetManager();
     m_AssetManager->AddFont("ScoreFont", "arial.ttf", 20);
 
@@ -115,7 +115,7 @@ void GameMatchState::SetUpTwoPlayers()
     //Assert that the Vectors are long enough to supply the keybindings and that there are2 plaeyrs and 3 in Team.
     for (int i = 0; i < NumPlayers; i++)
     {
-        std::shared_ptr<Player> player = std::make_shared<Player>(SwapKeys[i], ActionKeys[i]);
+        std::shared_ptr<Player> player = std::make_shared<Player>(keybindData.SwapKeys[i], keybindData.ActionKeys[i]);
 
         //Set Up the balls that each player will control.
         // Eventually add in an argument to add a Ball of a Type/Class etc.
@@ -124,15 +124,15 @@ void GameMatchState::SetUpTwoPlayers()
             AddPlayerBall(player, i, j);
         }
         //Set up the Entity to Show the Score
-        Entity* score_display = m_EntityManager->AddEntity(ScoreDisplayPositions[i], b2Vec2{50, 20});
+        Entity* score_display = m_EntityManager->AddEntity(arenaData.ScoreDisplayPositions[i], b2Vec2{50, 20});
         score_display ->AddComponent<TextComponent>(m_AssetManager, m_Renderer, std::string(std::to_string(i) + " Score"), "ScoreFont");
         player->AddScoreDisplay(score_display);
 
-        Entity* goal_zone = m_EntityManager->AddEntity(GoalPositions[i], GoalSize);
+        Entity* goal_zone = m_EntityManager->AddEntity(arenaData.GoalPositions[i], arenaData.GoalSize);
         goal_zone->AddComponent<GoalZoneComponent>(m_PhysicsWorld, player);
         goal_zone->GetComponent<GoalZoneComponent>()->SetData(false);
 
-        player->AddStartingPositions(StartingPositions[i]);
+        player->AddStartingPositions(arenaData.StartingPositions[i]);
         m_EntityManager->AddPlayer(player);
         m_Players.push_back((player));
     }
@@ -147,7 +147,7 @@ void GameMatchState::SetUpPuck()
 
 void GameMatchState::AddPlayerBall(std::shared_ptr<Player> player, int i, int j)
 {
-    Entity* ball = m_EntityManager->AddEntity(StartingPositions[i][j], 50.0f);
+    Entity* ball = m_EntityManager->AddEntity(arenaData.StartingPositions[i][j], 50.0f);
     player->AddBallToTeam(ball);
     ball->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::CIRCLE, b2BodyType::b2_dynamicBody);
     ball->GetComponent<PhysicsComponent>()->SetData();
@@ -164,7 +164,7 @@ void GameMatchState::CreateBoundaries2()
 {
     for (int i = 0; i < 4; i++)
     {
-    Entity* wall = m_EntityManager->AddEntity(WallPoses[i], WallSizes[i]);
+    Entity* wall = m_EntityManager->AddEntity(arenaData.WallPoses[i], arenaData.WallSizes[i]);
     wall->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::RECT, b2BodyType::b2_staticBody);
     wall->GetComponent<PhysicsComponent>()->SetData();
     wall->AddComponent<SDLRectComponent>(m_Renderer);
@@ -176,18 +176,16 @@ void GameMatchState::CreateGoalWalls()
 
     for (int i = 0; i < 3; i++)
     {
-        Entity* GoalWall = m_EntityManager->AddEntity(Goal1WallPositions[i], GoalWallSizes[i]);
+        Entity* GoalWall = m_EntityManager->AddEntity(arenaData.Goal1WallPositions[i], arenaData.GoalWallSizes[i]);
         GoalWall->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::RECT, b2BodyType::b2_staticBody);
         GoalWall->GetComponent<PhysicsComponent>()->SetData();
         GoalWall->AddComponent<SDLRectComponent>(m_Renderer);
     }
     for (int i = 0; i < 3; i++)
     {
-        Entity* GoalWall = m_EntityManager->AddEntity(Goal2WallPositions[i], GoalWallSizes[i]);
+        Entity* GoalWall = m_EntityManager->AddEntity(arenaData.Goal2WallPositions[i], arenaData.GoalWallSizes[i]);
         GoalWall->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::RECT, b2BodyType::b2_staticBody);
         GoalWall->GetComponent<PhysicsComponent>()->SetData();
         GoalWall->AddComponent<SDLRectComponent>(m_Renderer);
     }
-
-
 }

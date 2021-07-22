@@ -20,28 +20,22 @@ class SDLCircleComponent;
 class SDLRectComponent;
 class TextComponent;
 
-class GameMatchState : public State
+struct KeyBindingData
 {
-public:
+    std::array<SDL_Keycode, 3> P1SwapKeys = { SDLK_i, SDLK_o, SDLK_p };
+    std::array<SDL_Keycode, 4> P1ActionKeys = { SDLK_UP, SDLK_DOWN, SDLK_LEFT, SDLK_RIGHT };
+    std::array<SDL_Keycode, 3> P2SwapKeys = { SDLK_v, SDLK_b, SDLK_n };
+    std::array<SDL_Keycode, 4> P2ActionKeys = { SDLK_w, SDLK_s, SDLK_a, SDLK_d };
+    std::vector<std::array<SDL_Keycode, 3>> SwapKeys = {P1SwapKeys, P2SwapKeys};
+    std::vector<std::array<SDL_Keycode, 4>> ActionKeys = { P1ActionKeys, P2ActionKeys };
+};
 
-    void InitPhysics();
-    void SetUpTwoPlayers();
-    void SetUpPuck();
-    void CreateBoundaries2();
-    void CreateGoalZones();
-    void CreateGoalWalls();
-    void AddPlayerBall(std::shared_ptr<Player> player, int i, int j);
+struct ArenaLayoutData
+{
+    const float WALL_THICKNESS = 10.f;
+    const float WALL_BUFFER = 50.f;
+    const b2Vec2 GoalSize = {250, 500};
 
-    explicit GameMatchState(SDL_Renderer* renderer);
-    ~GameMatchState();
-
-    void HandleEvents() override;
-    void Update() override;
-    void Render(SDL_Renderer* renderer) override;
-
-private:
-
-    b2Vec2 GoalSize = {250, 500};
     //Data/Constants
     const std::vector<b2Vec2> P1StartingPositions = {b2Vec2{450, 640}, b2Vec2{450, 480}, b2Vec2{450, 320}};
     const std::vector<b2Vec2> P2StartingPositions = {b2Vec2{1150, 640}, b2Vec2{1150, 480}, b2Vec2{1150, 320}};
@@ -78,14 +72,31 @@ private:
     const b2Vec2 GoalBotWallSize = { GoalSize.x + (2 * WALL_THICKNESS), WALL_THICKNESS };
     const b2Vec2 GoalSideWallSize = { WALL_THICKNESS, GoalSize.y };
     const std::array<b2Vec2, 3> GoalWallSizes = { GoalTopWallSize, GoalBotWallSize, GoalSideWallSize };
+};
 
-    std::array<SDL_Keycode, 3> P1SwapKeys = { SDLK_i, SDLK_o, SDLK_p };
-    std::array<SDL_Keycode, 4> P1ActionKeys = { SDLK_UP, SDLK_DOWN, SDLK_LEFT, SDLK_RIGHT };
-    std::array<SDL_Keycode, 3> P2SwapKeys = { SDLK_v, SDLK_b, SDLK_n };
-    std::array<SDL_Keycode, 4> P2ActionKeys = { SDLK_w, SDLK_s, SDLK_a, SDLK_d };
-    std::vector<std::array<SDL_Keycode, 3>> SwapKeys = {P1SwapKeys, P2SwapKeys};
-    std::vector<std::array<SDL_Keycode, 4>> ActionKeys = { P1ActionKeys, P2ActionKeys };
+class GameMatchState : public State
+{
+public:
 
+    void InitPhysics();
+    void SetUpTwoPlayers();
+    void SetUpPuck();
+    void CreateBoundaries2();
+    void CreateGoalZones();
+    void CreateGoalWalls();
+    void AddPlayerBall(std::shared_ptr<Player> player, int i, int j);
+
+    explicit GameMatchState(SDL_Renderer* renderer);
+    ~GameMatchState();
+
+    void HandleEvents() override;
+    void Update() override;
+    void Render(SDL_Renderer* renderer) override;
+
+private:
+
+    ArenaLayoutData arenaData;
+    KeyBindingData keybindData;
 
     const int NumPlayers = 2;
     const int TeamSize = 3;
@@ -102,6 +113,7 @@ private:
     int m_VelocityIterations;
     int m_PositionIterations;
     int m_TicksLastFrame;
+
 };
 
 

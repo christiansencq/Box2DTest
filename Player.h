@@ -33,9 +33,6 @@ public:
     void RenderSelector(SDL_Renderer* renderer);
     void UpdateSelector();
 
-    //I think this is redundant from EntityManager::AddPlayer
-//    void InitializeActiveBall() {m_ActiveBall = m_TeamsBalls[0];}
-
     void AddStartingPositions(std::vector<b2Vec2> start_pos) {m_StartingPositions = start_pos; }
     //Scoring:
     void AddScoreDisplay(Entity* score_disp);

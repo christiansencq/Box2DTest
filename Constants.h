@@ -41,28 +41,15 @@ constexpr float SCREEN_WIDTH = 1600;
 constexpr float SCREEN_HEIGHT = 900;
 
 //Wall Thickness
-constexpr float WALL_THICKNESS = 10.f;
+// constexpr float WALL_THICKNESS = 10.f;
 //WallBuffer
-constexpr float WALL_BUFFER = 50.f;
-
-//Spawn locations
-// b2Vec2 p1startPos1 = {350, 640};
-// b2Vec2 p1startPos2 = {350, 480};
-// b2Vec2 p1startPos3 = {350, 320};
+// constexpr float WALL_BUFFER = 50.f;
 
 const b2Vec2 puckStart = {SCREEN_WIDTH/2, SCREEN_HEIGHT/2};
-
-// std::array<b2Vec2, 3> P1StartingPos = {p1startPos1, p1startPos2, p1startPos3};
-
-
-
 
 
 //------ FOR BALL SETUP
 
-
-
-//Rename to EntityShape
 enum class ShapeType
 {
     RECT,
@@ -82,35 +69,15 @@ enum class isSensor
     True
 };
 
-
-
-
-
-
 struct KeyBinding
 {
     KeyBinding(std::array<SDL_Keycode,3> swap_keys, std::array<SDL_Keycode, 7> action_keys)
     : SwapKeys(swap_keys), ActionKeys(action_keys)
-    {
-
-    }
+    {}
 
     std::array<SDL_Keycode, 3> SwapKeys;
     std::array<SDL_Keycode, 7> ActionKeys;
-
 };
-
-// std::array<SDL_Keycode, 3> P1SwapKeyBinds = { SDLK_i, SDLK_o, SDLK_p };
-// std::array<SDL_Keycode, 7> P1ActionKeyBinds = { SDLK_UP, SDLK_DOWN, SDLK_LEFT, SDLK_RIGHT, SDLK_j, SDLK_k, SDLK_l };
-
-enum class ColGroups
-{
-    PUCK = 1 << 0,
-    P1_GOAL = 1 << 1
-//    P2_GOAL = 1 << 2,
-
-};
-
 
 enum class TurnDir
 {
@@ -126,6 +93,10 @@ enum class ThrustDir
     BACKWARD
 };
 
+const float TURNSPEED = 0.01;
+
+// Input Related
+
 enum class Actions
 {
     FORWARD,
@@ -134,15 +105,16 @@ enum class Actions
     RIGHT
 };
 
-constexpr float TURNSPEED = 0.01;
-// COLLISION MASKS
-// uint16_t  is what is used by the Box2D Filter.
-const std::bitset<16> PUCK_BITS = { 1 };
-const std::bitset<16> P1GOAL_BITS = { 2 };
-const std::bitset<16> P2GOAL_BITS = { 4 };
-const std::bitset<16> P1BALL_BITS = { 8 };
-const std::bitset<16> P2BALL_BITS = { 16 };
-const std::bitset<16> WALL_BITS = { 32 };
+
+
+// Collision
+// COLLISION MASKS  uint16_t  is what is used by the Box2D Filter.
+constexpr std::bitset<16> PUCK_BITS = { 1 };
+constexpr std::bitset<16> P1GOAL_BITS = { 2 };
+constexpr std::bitset<16> P2GOAL_BITS = { 4 };
+constexpr std::bitset<16> P1BALL_BITS = { 8 };
+constexpr std::bitset<16> P2BALL_BITS = { 16 };
+constexpr std::bitset<16> WALL_BITS = { 32 };
 
 enum class ColGroup
 {
@@ -152,16 +124,12 @@ enum class ColGroup
     P1BALLS = 8,
     P2BALLS = 16,
     WALLS = 32
-
 };
 
-/*
-constexpr int mask0{ 0b0000'0001 }; //Puck
-constexpr int mask1{ 0b0000'0010 }; //P1Goal
-constexpr int mask2{ 0b0000'0100 }; //P2Goal
-constexpr int mask3{ 0b0000'1000 }; //P1Balls
-constexpr int mask4{ 0b0001'0000 }; //P2Balls
-constexpr int mask5{ 0b0010'0000 }; //Walls
-constexpr int mask6{ 0b0100'0000 };
-*/
+enum class ColGroups
+{
+    PUCK = 1 << 0,
+    P1_GOAL = 1 << 1
+};
+
 #endif

@@ -6,42 +6,49 @@
 #include "SDL2/SDL.h"
 #include "SDL2/SDL_image.h"
 
-//#include "Const/Constants.h"
-//#include "Entity.h"
+#include "../Constants.h"
+#include "Component.h"
 
-//class PhysicsComponent;
+class Entity;
+class PhysicsComponent;
 
-// class ShapeComponent : public Component
-// {
-// public:
-//     //SDLRectComponent(SDL_Renderer* renderer, int PixelW, int PixelH, SDL_Color color = BLACK);
-//     //SDLRectComponent(SDL_Renderer* renderer, SDL_Color color = BLACK);
-//     virtual ~ShapeComponent() { }
+class ShapeComponent : public Component
+{
+public:
+    virtual ~ShapeComponent() { }
 
-//     virtual void Initialize();
-//     virtual void Update(); //Update will update the coordinates from the owner.
-//     virtual void Render();
+    virtual void Initialize() override {}
+    virtual void Update() override {}
 
-//     virtual void DrawLine(int x0, int y0, int x1, int y1);
-//     virtual void DrawShape(b2Vec2* points, int numSegments); 
-    
-//     void DisplayRect();
-    
-//     virtual void DisplayAngleIndicator();
-//     virtual void RotateAndTranslate(b2Vec2& vector, const b2Vec2& center, float angle);
+    virtual void DisplayAngleIndicator() {}
+    virtual void DrawShape() {}
 
-//     std::shared_ptr<Entity> owner;
-//     b2Body* mPhysBody;
+    virtual float GetPixelX() { return m_PixelX; }
+    virtual float GetPixelY() { return m_PixelY; }
 
+    virtual void Render() override 
+    { 
+        SDL_SetRenderDrawColor(m_Renderer, m_Color.r, m_Color.g, m_Color.b, m_Color.a);
+        DrawShape(); 
+    }
 
-// private:
-//     SDL_Renderer* mnorenderer;
-// //void DrawLine(SDL_Surface* dest, int x0, int y0, int x1, int y1);
-//     bool IsDynamic;
+    virtual void DrawLine(int x0, int y0, int x1, int y1) 
+    {
+        SDL_RenderDrawLine(m_Renderer, x0, y0, x1, y1);
+    }
 
-//     int mWidth, mHeight;
-//     int mPixelX, mPixelY;
-//     SDL_Color mColor;
-// };
+    virtual void RotateAndTranslate(b2Vec2& vector, const b2Vec2& center, float angle) 
+    {
+        b2Vec2 tmp;
+        tmp.x = vector.x * cos(angle) - vector.y * sin(angle);
+        tmp.y = vector.x * sin(angle) + vector.y * cos(angle);
+        vector = tmp + center;
+    }
+
+private:
+    SDL_Renderer* m_Renderer;
+    SDL_Color m_Color;
+    float m_PixelX, m_PixelY;
+};
 
 #endif
