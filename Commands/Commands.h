@@ -2,7 +2,7 @@
 #define COMMANDS_H
 
 #include "../Constants.h"
-
+#include "../Components/PhysicsComponent.h"
 /*
     Commands tell the KeyInputComponent where to put it.  
     I.E. to the button assigned for Fwd,Back,Left,Right, etc.
@@ -12,6 +12,7 @@
 
 class KeyInputComponent;
 
+
 class Command
 {
 public:
@@ -20,12 +21,14 @@ public:
     virtual void Initialize() {}
     virtual void executePress() {}
     virtual void executeRelease() {}
+    virtual void Update() {}
 
     KeyInputComponent* owningComponent;
 
 private:
 
 };
+
 
 class ForwardThrustCommand : public Command
 {
@@ -35,8 +38,10 @@ public:
     virtual void Initialize() override;
     virtual void executePress() override;
     virtual void executeRelease() override;
+    virtual void Update() override;
 
 private:
+    PhysicsComponent* m_PhysComp;
 
 
 };
@@ -48,8 +53,10 @@ public:
     virtual void Initialize() override;
     virtual void executePress() override;
     virtual void executeRelease() override;
+    virtual void Update() override;
 
 private:
+    PhysicsComponent* m_PhysComp;
 
 };
 
@@ -60,8 +67,10 @@ public:
     virtual void Initialize() override;
     virtual void executePress() override;
     virtual void executeRelease() override;
+    virtual void Update() override;
 
 private:
+    PhysicsComponent* m_PhysComp;
 
 
 };
@@ -73,10 +82,29 @@ public:
     virtual void Initialize() override;
     virtual void executePress() override;
     virtual void executeRelease() override;
+    virtual void Update() override;
 
 private:
+    PhysicsComponent* m_PhysComp;
 
+};
 
+//Add a version of this with an Update command.
+class ImpulseFwdCommand : public Command
+{
+public:
+    ImpulseFwdCommand();
+    virtual void Initialize() override;
+    virtual void executePress() override;
+    virtual void executeRelease() override;
+    virtual void Update() override;
+
+private:
+    float base_cooldown = 3.0;
+    float cur_cooldown = 3.0;
+    bool isCoolingDown = false;
+
+    PhysicsComponent* m_PhysComp;
 };
 
 

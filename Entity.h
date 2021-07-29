@@ -26,7 +26,7 @@ class Entity
 
 public:
 
-    // Entity(EntityManager &manager); 
+    explicit Entity(EntityManager &manager); 
     Entity(EntityManager &manager, b2Vec2 init_pixel_pos, b2Vec2 init_pixel_size);
     Entity(EntityManager &manager, b2Vec2 init_pixel_pos, float init_pixel_rad);
 

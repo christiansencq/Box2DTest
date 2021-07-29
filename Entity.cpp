@@ -2,11 +2,11 @@
 #include "EntityManager.h"
 #include <cmath>
 
-// Entity::Entity(EntityManager &manager) 
-//     : m_Manager(manager) 
-// {
-//     //Entity(manager, b2Vec2{5, 5}, 50.f);
-// }
+Entity::Entity(EntityManager &manager) 
+    : m_Manager(manager) 
+{
+    Entity(manager, b2Vec2{5, 5}, 50.f);
+}
 
 // Rectangle
 Entity::Entity(EntityManager &manager, b2Vec2 init_pixel_pos,
