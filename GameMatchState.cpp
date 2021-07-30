@@ -91,12 +91,15 @@ void GameMatchState::Render(SDL_Renderer* renderer)
     }
     else
     {
-        //Add stuff to renderer:
         m_EntityManager->Render(renderer);
     }
     
     SDL_RenderPresent(renderer);
 }
+
+
+//SET UP Private Methods
+
 
 //Much below this can be replaced by data/scripting.
 
@@ -108,31 +111,40 @@ void GameMatchState::InitPhysics()
     m_PhysicsWorld->SetContactListener(m_CollisionManager);
 }
 
-//Possibly move this up above the constructor?  Move Functions that are resolved by the end of
-// Constructor/ Update/ Render to just before those functions.  <F8>
 void GameMatchState::SetUpTwoPlayers()
 {
     //Assert that the Vectors are long enough to supply the keybindings and that there are2 plaeyrs and 3 in Team.
     for (int i = 0; i < NumPlayers; i++)
     {
+        //Create a player with some keybindings set-up
         std::shared_ptr<Player> player = std::make_shared<Player>(keybindData.SwapKeys[i], keybindData.ActionKeys[i]);
 
+        player->AddStartingPositions(arenaData.StartingPositions[i]);
+
         //Set Up the balls that each player will control.
-        // Eventually add in an argument to add a Ball of a Type/Class etc.
         for (int j = 0; j < TeamSize; j++)
         {
             AddPlayerBall(player, i, j);
         }
-        //Set up the Entity to Show the Score
+        player->SwapActiveBall(0);
+
+        std::cout << "Active Ball (0), has SDLCircle? " << player->GetActive()->HasComponent<SDLCircleComponent>() << "\n";
+
+        std::cout << "Active Ball SDLCircle X, Y " << player->GetActive()->GetComponent<SDLCircleComponent>()->GetX() << ", " << player->GetActive()->GetComponent<SDLCircleComponent>()->GetY()  << "\n";
+
+
+        //Set up the score display
         Entity* score_display = m_EntityManager->AddEntity(arenaData.ScoreDisplayPositions[i], b2Vec2{50, 20});
         score_display ->AddComponent<TextComponent>(m_AssetManager, m_Renderer, std::string(std::to_string(i) + " Score"), "ScoreFont");
         player->AddScoreDisplay(score_display);
 
+        //Set up the Goal Zone
         Entity* goal_zone = m_EntityManager->AddEntity(arenaData.GoalPositions[i], arenaData.GoalSize);
         goal_zone->AddComponent<GoalZoneComponent>(m_PhysicsWorld, player);
         goal_zone->GetComponent<GoalZoneComponent>()->SetData(false);
 
-        player->AddStartingPositions(arenaData.StartingPositions[i]);
+        //Finally:
+//        player->SwapActiveBall(0);
         m_EntityManager->AddPlayer(player);
         m_Players.push_back((player));
     }
@@ -151,7 +163,7 @@ void GameMatchState::AddPlayerBall(std::shared_ptr<Player> player, int i, int j)
     player->AddBallToTeam(ball);
     ball->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::CIRCLE, b2BodyType::b2_dynamicBody);
     ball->GetComponent<PhysicsComponent>()->SetData();
-    ball->AddComponent<SDLCircleComponent>(m_Renderer, BLUE);
+    ball->AddComponent<SDLCircleComponent>(m_Renderer);
     ball->AddComponent<SelectableComponent>(m_Renderer);
     ball->AddComponent<KeyInputComponent>(player->GetActionKeys());
     ball->GetComponent<KeyInputComponent>()->AddCommand<ForwardThrustCommand>();
@@ -173,7 +185,6 @@ void GameMatchState::CreateBoundaries2()
 
 void GameMatchState::CreateGoalWalls()
 {
-
     for (int i = 0; i < 3; i++)
     {
         Entity* GoalWall = m_EntityManager->AddEntity(arenaData.Goal1WallPositions[i], arenaData.GoalWallSizes[i]);

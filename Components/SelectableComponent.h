@@ -5,6 +5,7 @@
 #include "Component.h"
 
 class Entity;
+//Make this inherit from SDLCircleComponent instead?
 
 class SelectableComponent : public Component
 {

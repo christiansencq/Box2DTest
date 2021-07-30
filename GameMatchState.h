@@ -74,17 +74,11 @@ struct ArenaLayoutData
     const std::array<b2Vec2, 3> GoalWallSizes = { GoalTopWallSize, GoalBotWallSize, GoalSideWallSize };
 };
 
+
+
 class GameMatchState : public State
 {
 public:
-
-    void InitPhysics();
-    void SetUpTwoPlayers();
-    void SetUpPuck();
-    void CreateBoundaries2();
-    void CreateGoalZones();
-    void CreateGoalWalls();
-    void AddPlayerBall(std::shared_ptr<Player> player, int i, int j);
 
     explicit GameMatchState(SDL_Renderer* renderer);
     ~GameMatchState();
@@ -94,6 +88,14 @@ public:
     void Render(SDL_Renderer* renderer) override;
 
 private:
+
+    void InitPhysics();
+    void SetUpTwoPlayers();
+    void SetUpPuck();
+    void CreateBoundaries2();
+    void CreateGoalZones();
+    void CreateGoalWalls();
+    void AddPlayerBall(std::shared_ptr<Player> player, int i, int j);
 
     ArenaLayoutData arenaData;
     KeyBindingData keybindData;

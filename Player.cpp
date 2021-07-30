@@ -16,7 +16,6 @@ Player::Player(const std::array<SDL_Keycode, 3> swap_keys, const std::array<SDL_
 Player::Player(const std::array<SDL_Keycode, 3> swap_keys, const std::array<SDL_Keycode, 4> action_keys, Entity* score_display, std::vector<b2Vec2> starting_pos)
 : m_StartingPositions(starting_pos), m_ScoreDisplay(score_display), m_SwapKeys (swap_keys), m_ActionKeys (action_keys) 
 {
-    //Set the Starting Angle
 
 }
 
@@ -52,11 +51,14 @@ void Player::HandleKeyRelease(SDL_Keycode key)
 
 void Player::SwapActiveBall(int new_ball) 
 {
+    //Possible that the first ball 
     if (m_ActiveBall)
     {
         m_ActiveBall->GetComponent<SelectableComponent>()->Deselect();
     }
+
     m_ActiveBall = m_TeamsBalls[new_ball];
+
     m_ActiveBall->GetComponent<SelectableComponent>()->Select(); 
 }
 

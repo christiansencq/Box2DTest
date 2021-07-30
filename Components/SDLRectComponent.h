@@ -21,16 +21,16 @@ public:
     virtual void Initialize() override;
     virtual void Update() override;
 //    virtual void Render() override;
-
-    virtual void DrawLine(int x0, int y0, int x1, int y1) override;
-    virtual void DrawShape() override; 
     
-    virtual void DisplayAngleIndicator() override;
-    virtual void RotateAndTranslate(b2Vec2& vector, const b2Vec2& center, float angle) override;
+    void DrawShape() override; 
+    void DisplayAngleIndicator() override;
 
     Entity* owner;
 
 private:
+    void DrawLine(int x0, int y0, int x1, int y1);
+    void RotateAndTranslate(b2Vec2& vector, const b2Vec2& center, float angle);
+
     SDL_Renderer* m_Renderer;
     b2Body* m_PhysBody;
     bool IsDynamic;

@@ -32,18 +32,19 @@ public:
         DrawShape(); 
     }
 
-    virtual void DrawLine(int x0, int y0, int x1, int y1) 
+
+    void DrawLine(int x0, int y0, int x1, int y1) 
     {
         SDL_RenderDrawLine(m_Renderer, x0, y0, x1, y1);
     }
-
-    virtual void RotateAndTranslate(b2Vec2& vector, const b2Vec2& center, float angle) 
-    {
-        b2Vec2 tmp;
-        tmp.x = vector.x * cos(angle) - vector.y * sin(angle);
-        tmp.y = vector.x * sin(angle) + vector.y * cos(angle);
-        vector = tmp + center;
-    }
+    //
+    // void RotateAndTranslate(b2Vec2& vector, const b2Vec2& center, float angle) 
+    // {
+    //     b2Vec2 tmp;
+    //     tmp.x = vector.x * cos(angle) - vector.y * sin(angle);
+    //     tmp.y = vector.x * sin(angle) + vector.y * cos(angle);
+    //     vector = tmp + center;
+    // }
 
 private:
     SDL_Renderer* m_Renderer;

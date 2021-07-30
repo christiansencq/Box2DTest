@@ -69,7 +69,7 @@ void SelectableComponent::Update()
 {
     if (isSelected)
     {
-        m_Diameter = (owner->GetRadius()) + addRad;
+        m_Diameter = owner->GetRadius() + addRad;
         m_PixelX = owner->GetPixelPos().x;
         m_PixelY = owner->GetPixelPos().y;
     }

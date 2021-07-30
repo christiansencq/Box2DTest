@@ -33,17 +33,18 @@ public:
     void RenderSelector(SDL_Renderer* renderer);
     void UpdateSelector();
 
-    void AddStartingPositions(std::vector<b2Vec2> start_pos) {m_StartingPositions = start_pos; }
+    void AddStartingPositions(const std::vector<b2Vec2>& start_pos) {m_StartingPositions = start_pos; }
     //Scoring:
     void AddScoreDisplay(Entity* score_disp);
     void IncrementScore(int num);
     int GetScore() { return m_Score; }
 
 private:
+
     
     std::vector<b2Vec2> m_StartingPositions;
-//    SDL_Renderer* m_Renderer;
     std::vector<Entity*> m_TeamsBalls;
+//    int Selected_Index = 0;//Could use this instead of m_ActiveBall?
     Entity* m_ActiveBall;
     Entity* m_ScoreDisplay;    
     const std::array<SDL_Keycode, 3> m_SwapKeys;

@@ -8,14 +8,19 @@ SDLCircleComponent::SDLCircleComponent(SDL_Renderer* renderer, SDL_Color color)
 void SDLCircleComponent::Initialize() 
 {
     m_Diameter = owner->GetPixelSize().x;
-    m_PixelX = owner->GetPixelPos().x;
-    m_PixelY = owner->GetPixelPos().y;
+    Update();
 }
 
 void SDLCircleComponent::Update()
 {
     m_PixelX = owner->GetPixelPos().x;
     m_PixelY = owner->GetPixelPos().y;
+}
+
+void SDLCircleComponent::Render()
+{
+    SDL_SetRenderDrawColor(m_Renderer, m_Color.r, m_Color.g, m_Color.b, m_Color.a);
+    DrawShape();
 }
 
 void SDLCircleComponent::DrawShape()
@@ -61,16 +66,20 @@ void SDLCircleComponent::DisplayAngleIndicator()
   SDL_SetRenderDrawColor(m_Renderer, 200, 50, 50, 255);
 
   b2Vec2 center {m_PixelX, m_PixelY};
-  //Using cos/sin is costly, look up possibility of using a lookup table for these values instead.
-  //Also, this is the only PhysBody reference in here. Possible to have Entity keep track of its angle?
   b2Vec2 endpoint {center.x + m_Diameter/2 * cos(owner->GetAngle()), 
                    center.y + m_Diameter/2 * sin(owner->GetAngle())};
   DrawLine(center.x, center.y, endpoint.x, endpoint.y);
+  //ShapeComponent::DrawLine(center.x, center.y, endpoint.x, endpoint.y);
+}
+
+void SDLCircleComponent::DrawLine(int x0, int y0, int x1, int y1)
+{
+    SDL_RenderDrawLine(m_Renderer, x0, y0, x1, y1);
 }
 
 void SDLCircleComponent::RotateAndTranslate(b2Vec2& vector, const b2Vec2& center, float angle)
 {
-  //Rotate the points around the 'center'
+    //Rotate the points around the 'center'
     b2Vec2 tmp;
     tmp.x = vector.x * cos(angle) - vector.y * sin(angle);
     tmp.y = vector.x * sin(angle) + vector.y * cos(angle);

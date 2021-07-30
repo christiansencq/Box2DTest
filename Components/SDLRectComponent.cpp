@@ -27,7 +27,6 @@ void SDLRectComponent::Update()
     }
 }
 
-
 void SDLRectComponent::DisplayAngleIndicator()
 { 
     //Draw the indicator line, which goes from the center to the edge in the direction the object is pointing.
