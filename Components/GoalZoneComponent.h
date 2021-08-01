@@ -28,9 +28,6 @@ public:
     virtual void Update() override;
     virtual void Render() override {}
 
-    void CreateBody();
-    void CreateRectShape();
-    void GenerateFixture(b2Shape* shape);
     void Score();
     void SetData(bool scorer = false);
 
@@ -39,6 +36,9 @@ public:
 
 private:
 
+    void GenerateFixture(b2Shape* shape);
+    void CreateBody();
+    void CreateRectShape();
 
     int m_Width, m_Height;
     bool m_Triggered;
