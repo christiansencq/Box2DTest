@@ -17,13 +17,15 @@ public:
     virtual void Render() override;
     virtual void Update() override;
     
-    void DrawCircle();
     void Select() { isSelected = true; }
     void Deselect() { isSelected = false; }
 
     Entity* owner;
 
 private:
+    void DrawCircle();
+
+
     SDL_Renderer* m_Renderer;
     bool isSelected;
     SDL_Color m_Color;

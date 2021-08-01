@@ -29,10 +29,6 @@ public:
     ~PhysicsComponent();
     virtual void Initialize() override; 
     virtual void Update() override;
-    void CreateBody();
-    void MakeCircleShape(float x_offset, float y_offset);
-    void MakeRectShape();
-    void GenerateFixture(b2Shape* shape);
 
     b2Body* GetPhysBody() { return m_PhysBody; }
     b2BodyType GetBodyType() { return m_PhysBody->GetType(); }
@@ -45,12 +41,18 @@ public:
     void SetFixedTurning(TurnDir turning, bool fixed);  
     void SetTurning(TurnDir turning);    
     void SetTransform(b2Vec2 pos, float angle);
+
     void SetData(bool scorer = false);
 
     Entity* GetOwner() { return owner; }
     Entity* owner;
 
 private:
+    void MakeCircleShape(float x_offset, float y_offset);
+    void MakeRectShape();
+    void GenerateFixture(b2Shape* shape);
+    void CreateBody();
+
     //In the same way that width/height were moved to the Entity. rad should too.
     int m_Radius;
     //int m_Width, m_Height;

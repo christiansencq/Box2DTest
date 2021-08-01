@@ -25,6 +25,8 @@ public:
     Entity* owner;
 
 private:
+
+
     AssetManager* m_AssetManager;
     SDL_Renderer* m_Renderer;
     std::string m_FontName;

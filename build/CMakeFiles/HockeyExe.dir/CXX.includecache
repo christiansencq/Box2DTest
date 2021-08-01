@@ -86,6 +86,12 @@ Component.h
 PhysicsComponent.h
 /home/charles/Cpp/Box2Test/Components/PhysicsComponent.h
 
+/home/charles/Cpp/Box2Test/Components/KeyInputComponent.cpp
+KeyInputComponent.h
+/home/charles/Cpp/Box2Test/Components/KeyInputComponent.h
+PhysicsComponent.h
+/home/charles/Cpp/Box2Test/Components/PhysicsComponent.h
+
 /home/charles/Cpp/Box2Test/Components/KeyInputComponent.h
 map
 -

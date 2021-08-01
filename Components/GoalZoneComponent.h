@@ -35,10 +35,10 @@ public:
     Entity* owner;
 
 private:
-
     void GenerateFixture(b2Shape* shape);
     void CreateBody();
     void CreateRectShape();
+
 
     int m_Width, m_Height;
     bool m_Triggered;
