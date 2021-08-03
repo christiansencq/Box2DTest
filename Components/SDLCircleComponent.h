@@ -8,11 +8,12 @@
 #include "Box2D/Box2D.h"
 
 #include "../Constants.h"
-#include "SDLShapeComponent.h"
+#include "Component.h"
+//#include "SDLShapeComponent.h"
 
 class Entity;
 
-class SDLCircleComponent : public ShapeComponent
+class SDLCircleComponent : public Component
 {
 public:
     SDLCircleComponent(SDL_Renderer* renderer, SDL_Color color = RED);
@@ -22,10 +23,10 @@ public:
     virtual void Update() override; 
     virtual void Render() override;
 
-    virtual void DrawLine(int x0, int y0, int x1, int y1);
-    virtual void DrawShape() override;
+    void DrawLine(int x0, int y0, int x1, int y1);
+    void DrawShape();
 
-    virtual void DisplayAngleIndicator() override;
+    void DisplayAngleIndicator();
     void RotateAndTranslate(b2Vec2& vector, const b2Vec2& center, float angle);
 
     float GetX() { return m_PixelX; }

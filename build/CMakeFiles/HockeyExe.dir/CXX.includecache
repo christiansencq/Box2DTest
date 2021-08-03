@@ -86,12 +86,6 @@ Component.h
 PhysicsComponent.h
 /home/charles/Cpp/Box2Test/Components/PhysicsComponent.h
 
-/home/charles/Cpp/Box2Test/Components/KeyInputComponent.cpp
-KeyInputComponent.h
-/home/charles/Cpp/Box2Test/Components/KeyInputComponent.h
-PhysicsComponent.h
-/home/charles/Cpp/Box2Test/Components/PhysicsComponent.h
-
 /home/charles/Cpp/Box2Test/Components/KeyInputComponent.h
 map
 -
@@ -145,8 +139,8 @@ Box2D/Box2D.h
 /home/charles/Cpp/Box2Test/Components/Box2D/Box2D.h
 ../Constants.h
 /home/charles/Cpp/Box2Test/Constants.h
-SDLShapeComponent.h
-/home/charles/Cpp/Box2Test/Components/SDLShapeComponent.h
+Component.h
+/home/charles/Cpp/Box2Test/Components/Component.h
 
 /home/charles/Cpp/Box2Test/Components/SDLRectComponent.cpp
 SDLRectComponent.h
@@ -157,18 +151,6 @@ PhysicsComponent.h
 /home/charles/Cpp/Box2Test/Components/PhysicsComponent.h
 
 /home/charles/Cpp/Box2Test/Components/SDLRectComponent.h
-array
--
-SDL2/SDL.h
-/home/charles/Cpp/Box2Test/Components/SDL2/SDL.h
-SDL2/SDL_image.h
-/home/charles/Cpp/Box2Test/Components/SDL2/SDL_image.h
-../Constants.h
-/home/charles/Cpp/Box2Test/Constants.h
-SDLShapeComponent.h
-/home/charles/Cpp/Box2Test/Components/SDLShapeComponent.h
-
-/home/charles/Cpp/Box2Test/Components/SDLShapeComponent.h
 array
 -
 SDL2/SDL.h
