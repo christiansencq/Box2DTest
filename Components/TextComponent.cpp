@@ -1,7 +1,7 @@
 #include "TextComponent.h"
 #include "../Entity.h"
 
-TextComponent::TextComponent(AssetManager* asset_manager, SDL_Renderer* renderer, std::string text, std::string font_name) 
+TextComponent::TextComponent(std::shared_ptr<AssetManager> asset_manager, SDL_Renderer* renderer, std::string text, std::string font_name) 
  : m_AssetManager(asset_manager), m_Renderer(renderer), m_FontName(font_name), m_Text(text), m_Color(RED) 
 {
 

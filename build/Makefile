@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named lua
+
+# Build rule for target.
+lua: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 lua
+.PHONY : lua
+
+# fast build rule for target.
+lua/fast:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/build
+.PHONY : lua/fast
+
+#=============================================================================
 # Target rules for targets named HockeyExe
 
 # Build rule for target.
@@ -528,6 +541,924 @@ Player.cpp.s:
 	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Player.cpp.s
 .PHONY : Player.cpp.s
 
+ScriptManager.o: ScriptManager.cpp.o
+
+.PHONY : ScriptManager.o
+
+# target to build an object file
+ScriptManager.cpp.o:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/ScriptManager.cpp.o
+.PHONY : ScriptManager.cpp.o
+
+ScriptManager.i: ScriptManager.cpp.i
+
+.PHONY : ScriptManager.i
+
+# target to preprocess a source file
+ScriptManager.cpp.i:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/ScriptManager.cpp.i
+.PHONY : ScriptManager.cpp.i
+
+ScriptManager.s: ScriptManager.cpp.s
+
+.PHONY : ScriptManager.s
+
+# target to generate assembly for a file
+ScriptManager.cpp.s:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/ScriptManager.cpp.s
+.PHONY : ScriptManager.cpp.s
+
+external/lua/lapi.o: external/lua/lapi.c.o
+
+.PHONY : external/lua/lapi.o
+
+# target to build an object file
+external/lua/lapi.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lapi.c.o
+.PHONY : external/lua/lapi.c.o
+
+external/lua/lapi.i: external/lua/lapi.c.i
+
+.PHONY : external/lua/lapi.i
+
+# target to preprocess a source file
+external/lua/lapi.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lapi.c.i
+.PHONY : external/lua/lapi.c.i
+
+external/lua/lapi.s: external/lua/lapi.c.s
+
+.PHONY : external/lua/lapi.s
+
+# target to generate assembly for a file
+external/lua/lapi.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lapi.c.s
+.PHONY : external/lua/lapi.c.s
+
+external/lua/lauxlib.o: external/lua/lauxlib.c.o
+
+.PHONY : external/lua/lauxlib.o
+
+# target to build an object file
+external/lua/lauxlib.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lauxlib.c.o
+.PHONY : external/lua/lauxlib.c.o
+
+external/lua/lauxlib.i: external/lua/lauxlib.c.i
+
+.PHONY : external/lua/lauxlib.i
+
+# target to preprocess a source file
+external/lua/lauxlib.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lauxlib.c.i
+.PHONY : external/lua/lauxlib.c.i
+
+external/lua/lauxlib.s: external/lua/lauxlib.c.s
+
+.PHONY : external/lua/lauxlib.s
+
+# target to generate assembly for a file
+external/lua/lauxlib.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lauxlib.c.s
+.PHONY : external/lua/lauxlib.c.s
+
+external/lua/lbaselib.o: external/lua/lbaselib.c.o
+
+.PHONY : external/lua/lbaselib.o
+
+# target to build an object file
+external/lua/lbaselib.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lbaselib.c.o
+.PHONY : external/lua/lbaselib.c.o
+
+external/lua/lbaselib.i: external/lua/lbaselib.c.i
+
+.PHONY : external/lua/lbaselib.i
+
+# target to preprocess a source file
+external/lua/lbaselib.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lbaselib.c.i
+.PHONY : external/lua/lbaselib.c.i
+
+external/lua/lbaselib.s: external/lua/lbaselib.c.s
+
+.PHONY : external/lua/lbaselib.s
+
+# target to generate assembly for a file
+external/lua/lbaselib.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lbaselib.c.s
+.PHONY : external/lua/lbaselib.c.s
+
+external/lua/lcode.o: external/lua/lcode.c.o
+
+.PHONY : external/lua/lcode.o
+
+# target to build an object file
+external/lua/lcode.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lcode.c.o
+.PHONY : external/lua/lcode.c.o
+
+external/lua/lcode.i: external/lua/lcode.c.i
+
+.PHONY : external/lua/lcode.i
+
+# target to preprocess a source file
+external/lua/lcode.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lcode.c.i
+.PHONY : external/lua/lcode.c.i
+
+external/lua/lcode.s: external/lua/lcode.c.s
+
+.PHONY : external/lua/lcode.s
+
+# target to generate assembly for a file
+external/lua/lcode.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lcode.c.s
+.PHONY : external/lua/lcode.c.s
+
+external/lua/lcorolib.o: external/lua/lcorolib.c.o
+
+.PHONY : external/lua/lcorolib.o
+
+# target to build an object file
+external/lua/lcorolib.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lcorolib.c.o
+.PHONY : external/lua/lcorolib.c.o
+
+external/lua/lcorolib.i: external/lua/lcorolib.c.i
+
+.PHONY : external/lua/lcorolib.i
+
+# target to preprocess a source file
+external/lua/lcorolib.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lcorolib.c.i
+.PHONY : external/lua/lcorolib.c.i
+
+external/lua/lcorolib.s: external/lua/lcorolib.c.s
+
+.PHONY : external/lua/lcorolib.s
+
+# target to generate assembly for a file
+external/lua/lcorolib.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lcorolib.c.s
+.PHONY : external/lua/lcorolib.c.s
+
+external/lua/lctype.o: external/lua/lctype.c.o
+
+.PHONY : external/lua/lctype.o
+
+# target to build an object file
+external/lua/lctype.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lctype.c.o
+.PHONY : external/lua/lctype.c.o
+
+external/lua/lctype.i: external/lua/lctype.c.i
+
+.PHONY : external/lua/lctype.i
+
+# target to preprocess a source file
+external/lua/lctype.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lctype.c.i
+.PHONY : external/lua/lctype.c.i
+
+external/lua/lctype.s: external/lua/lctype.c.s
+
+.PHONY : external/lua/lctype.s
+
+# target to generate assembly for a file
+external/lua/lctype.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lctype.c.s
+.PHONY : external/lua/lctype.c.s
+
+external/lua/ldblib.o: external/lua/ldblib.c.o
+
+.PHONY : external/lua/ldblib.o
+
+# target to build an object file
+external/lua/ldblib.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ldblib.c.o
+.PHONY : external/lua/ldblib.c.o
+
+external/lua/ldblib.i: external/lua/ldblib.c.i
+
+.PHONY : external/lua/ldblib.i
+
+# target to preprocess a source file
+external/lua/ldblib.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ldblib.c.i
+.PHONY : external/lua/ldblib.c.i
+
+external/lua/ldblib.s: external/lua/ldblib.c.s
+
+.PHONY : external/lua/ldblib.s
+
+# target to generate assembly for a file
+external/lua/ldblib.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ldblib.c.s
+.PHONY : external/lua/ldblib.c.s
+
+external/lua/ldebug.o: external/lua/ldebug.c.o
+
+.PHONY : external/lua/ldebug.o
+
+# target to build an object file
+external/lua/ldebug.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ldebug.c.o
+.PHONY : external/lua/ldebug.c.o
+
+external/lua/ldebug.i: external/lua/ldebug.c.i
+
+.PHONY : external/lua/ldebug.i
+
+# target to preprocess a source file
+external/lua/ldebug.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ldebug.c.i
+.PHONY : external/lua/ldebug.c.i
+
+external/lua/ldebug.s: external/lua/ldebug.c.s
+
+.PHONY : external/lua/ldebug.s
+
+# target to generate assembly for a file
+external/lua/ldebug.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ldebug.c.s
+.PHONY : external/lua/ldebug.c.s
+
+external/lua/ldo.o: external/lua/ldo.c.o
+
+.PHONY : external/lua/ldo.o
+
+# target to build an object file
+external/lua/ldo.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ldo.c.o
+.PHONY : external/lua/ldo.c.o
+
+external/lua/ldo.i: external/lua/ldo.c.i
+
+.PHONY : external/lua/ldo.i
+
+# target to preprocess a source file
+external/lua/ldo.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ldo.c.i
+.PHONY : external/lua/ldo.c.i
+
+external/lua/ldo.s: external/lua/ldo.c.s
+
+.PHONY : external/lua/ldo.s
+
+# target to generate assembly for a file
+external/lua/ldo.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ldo.c.s
+.PHONY : external/lua/ldo.c.s
+
+external/lua/ldump.o: external/lua/ldump.c.o
+
+.PHONY : external/lua/ldump.o
+
+# target to build an object file
+external/lua/ldump.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ldump.c.o
+.PHONY : external/lua/ldump.c.o
+
+external/lua/ldump.i: external/lua/ldump.c.i
+
+.PHONY : external/lua/ldump.i
+
+# target to preprocess a source file
+external/lua/ldump.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ldump.c.i
+.PHONY : external/lua/ldump.c.i
+
+external/lua/ldump.s: external/lua/ldump.c.s
+
+.PHONY : external/lua/ldump.s
+
+# target to generate assembly for a file
+external/lua/ldump.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ldump.c.s
+.PHONY : external/lua/ldump.c.s
+
+external/lua/lfunc.o: external/lua/lfunc.c.o
+
+.PHONY : external/lua/lfunc.o
+
+# target to build an object file
+external/lua/lfunc.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lfunc.c.o
+.PHONY : external/lua/lfunc.c.o
+
+external/lua/lfunc.i: external/lua/lfunc.c.i
+
+.PHONY : external/lua/lfunc.i
+
+# target to preprocess a source file
+external/lua/lfunc.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lfunc.c.i
+.PHONY : external/lua/lfunc.c.i
+
+external/lua/lfunc.s: external/lua/lfunc.c.s
+
+.PHONY : external/lua/lfunc.s
+
+# target to generate assembly for a file
+external/lua/lfunc.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lfunc.c.s
+.PHONY : external/lua/lfunc.c.s
+
+external/lua/lgc.o: external/lua/lgc.c.o
+
+.PHONY : external/lua/lgc.o
+
+# target to build an object file
+external/lua/lgc.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lgc.c.o
+.PHONY : external/lua/lgc.c.o
+
+external/lua/lgc.i: external/lua/lgc.c.i
+
+.PHONY : external/lua/lgc.i
+
+# target to preprocess a source file
+external/lua/lgc.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lgc.c.i
+.PHONY : external/lua/lgc.c.i
+
+external/lua/lgc.s: external/lua/lgc.c.s
+
+.PHONY : external/lua/lgc.s
+
+# target to generate assembly for a file
+external/lua/lgc.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lgc.c.s
+.PHONY : external/lua/lgc.c.s
+
+external/lua/linit.o: external/lua/linit.c.o
+
+.PHONY : external/lua/linit.o
+
+# target to build an object file
+external/lua/linit.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/linit.c.o
+.PHONY : external/lua/linit.c.o
+
+external/lua/linit.i: external/lua/linit.c.i
+
+.PHONY : external/lua/linit.i
+
+# target to preprocess a source file
+external/lua/linit.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/linit.c.i
+.PHONY : external/lua/linit.c.i
+
+external/lua/linit.s: external/lua/linit.c.s
+
+.PHONY : external/lua/linit.s
+
+# target to generate assembly for a file
+external/lua/linit.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/linit.c.s
+.PHONY : external/lua/linit.c.s
+
+external/lua/liolib.o: external/lua/liolib.c.o
+
+.PHONY : external/lua/liolib.o
+
+# target to build an object file
+external/lua/liolib.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/liolib.c.o
+.PHONY : external/lua/liolib.c.o
+
+external/lua/liolib.i: external/lua/liolib.c.i
+
+.PHONY : external/lua/liolib.i
+
+# target to preprocess a source file
+external/lua/liolib.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/liolib.c.i
+.PHONY : external/lua/liolib.c.i
+
+external/lua/liolib.s: external/lua/liolib.c.s
+
+.PHONY : external/lua/liolib.s
+
+# target to generate assembly for a file
+external/lua/liolib.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/liolib.c.s
+.PHONY : external/lua/liolib.c.s
+
+external/lua/llex.o: external/lua/llex.c.o
+
+.PHONY : external/lua/llex.o
+
+# target to build an object file
+external/lua/llex.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/llex.c.o
+.PHONY : external/lua/llex.c.o
+
+external/lua/llex.i: external/lua/llex.c.i
+
+.PHONY : external/lua/llex.i
+
+# target to preprocess a source file
+external/lua/llex.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/llex.c.i
+.PHONY : external/lua/llex.c.i
+
+external/lua/llex.s: external/lua/llex.c.s
+
+.PHONY : external/lua/llex.s
+
+# target to generate assembly for a file
+external/lua/llex.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/llex.c.s
+.PHONY : external/lua/llex.c.s
+
+external/lua/lmathlib.o: external/lua/lmathlib.c.o
+
+.PHONY : external/lua/lmathlib.o
+
+# target to build an object file
+external/lua/lmathlib.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lmathlib.c.o
+.PHONY : external/lua/lmathlib.c.o
+
+external/lua/lmathlib.i: external/lua/lmathlib.c.i
+
+.PHONY : external/lua/lmathlib.i
+
+# target to preprocess a source file
+external/lua/lmathlib.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lmathlib.c.i
+.PHONY : external/lua/lmathlib.c.i
+
+external/lua/lmathlib.s: external/lua/lmathlib.c.s
+
+.PHONY : external/lua/lmathlib.s
+
+# target to generate assembly for a file
+external/lua/lmathlib.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lmathlib.c.s
+.PHONY : external/lua/lmathlib.c.s
+
+external/lua/lmem.o: external/lua/lmem.c.o
+
+.PHONY : external/lua/lmem.o
+
+# target to build an object file
+external/lua/lmem.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lmem.c.o
+.PHONY : external/lua/lmem.c.o
+
+external/lua/lmem.i: external/lua/lmem.c.i
+
+.PHONY : external/lua/lmem.i
+
+# target to preprocess a source file
+external/lua/lmem.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lmem.c.i
+.PHONY : external/lua/lmem.c.i
+
+external/lua/lmem.s: external/lua/lmem.c.s
+
+.PHONY : external/lua/lmem.s
+
+# target to generate assembly for a file
+external/lua/lmem.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lmem.c.s
+.PHONY : external/lua/lmem.c.s
+
+external/lua/loadlib.o: external/lua/loadlib.c.o
+
+.PHONY : external/lua/loadlib.o
+
+# target to build an object file
+external/lua/loadlib.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/loadlib.c.o
+.PHONY : external/lua/loadlib.c.o
+
+external/lua/loadlib.i: external/lua/loadlib.c.i
+
+.PHONY : external/lua/loadlib.i
+
+# target to preprocess a source file
+external/lua/loadlib.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/loadlib.c.i
+.PHONY : external/lua/loadlib.c.i
+
+external/lua/loadlib.s: external/lua/loadlib.c.s
+
+.PHONY : external/lua/loadlib.s
+
+# target to generate assembly for a file
+external/lua/loadlib.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/loadlib.c.s
+.PHONY : external/lua/loadlib.c.s
+
+external/lua/lobject.o: external/lua/lobject.c.o
+
+.PHONY : external/lua/lobject.o
+
+# target to build an object file
+external/lua/lobject.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lobject.c.o
+.PHONY : external/lua/lobject.c.o
+
+external/lua/lobject.i: external/lua/lobject.c.i
+
+.PHONY : external/lua/lobject.i
+
+# target to preprocess a source file
+external/lua/lobject.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lobject.c.i
+.PHONY : external/lua/lobject.c.i
+
+external/lua/lobject.s: external/lua/lobject.c.s
+
+.PHONY : external/lua/lobject.s
+
+# target to generate assembly for a file
+external/lua/lobject.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lobject.c.s
+.PHONY : external/lua/lobject.c.s
+
+external/lua/lopcodes.o: external/lua/lopcodes.c.o
+
+.PHONY : external/lua/lopcodes.o
+
+# target to build an object file
+external/lua/lopcodes.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lopcodes.c.o
+.PHONY : external/lua/lopcodes.c.o
+
+external/lua/lopcodes.i: external/lua/lopcodes.c.i
+
+.PHONY : external/lua/lopcodes.i
+
+# target to preprocess a source file
+external/lua/lopcodes.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lopcodes.c.i
+.PHONY : external/lua/lopcodes.c.i
+
+external/lua/lopcodes.s: external/lua/lopcodes.c.s
+
+.PHONY : external/lua/lopcodes.s
+
+# target to generate assembly for a file
+external/lua/lopcodes.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lopcodes.c.s
+.PHONY : external/lua/lopcodes.c.s
+
+external/lua/loslib.o: external/lua/loslib.c.o
+
+.PHONY : external/lua/loslib.o
+
+# target to build an object file
+external/lua/loslib.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/loslib.c.o
+.PHONY : external/lua/loslib.c.o
+
+external/lua/loslib.i: external/lua/loslib.c.i
+
+.PHONY : external/lua/loslib.i
+
+# target to preprocess a source file
+external/lua/loslib.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/loslib.c.i
+.PHONY : external/lua/loslib.c.i
+
+external/lua/loslib.s: external/lua/loslib.c.s
+
+.PHONY : external/lua/loslib.s
+
+# target to generate assembly for a file
+external/lua/loslib.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/loslib.c.s
+.PHONY : external/lua/loslib.c.s
+
+external/lua/lparser.o: external/lua/lparser.c.o
+
+.PHONY : external/lua/lparser.o
+
+# target to build an object file
+external/lua/lparser.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lparser.c.o
+.PHONY : external/lua/lparser.c.o
+
+external/lua/lparser.i: external/lua/lparser.c.i
+
+.PHONY : external/lua/lparser.i
+
+# target to preprocess a source file
+external/lua/lparser.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lparser.c.i
+.PHONY : external/lua/lparser.c.i
+
+external/lua/lparser.s: external/lua/lparser.c.s
+
+.PHONY : external/lua/lparser.s
+
+# target to generate assembly for a file
+external/lua/lparser.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lparser.c.s
+.PHONY : external/lua/lparser.c.s
+
+external/lua/lstate.o: external/lua/lstate.c.o
+
+.PHONY : external/lua/lstate.o
+
+# target to build an object file
+external/lua/lstate.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lstate.c.o
+.PHONY : external/lua/lstate.c.o
+
+external/lua/lstate.i: external/lua/lstate.c.i
+
+.PHONY : external/lua/lstate.i
+
+# target to preprocess a source file
+external/lua/lstate.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lstate.c.i
+.PHONY : external/lua/lstate.c.i
+
+external/lua/lstate.s: external/lua/lstate.c.s
+
+.PHONY : external/lua/lstate.s
+
+# target to generate assembly for a file
+external/lua/lstate.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lstate.c.s
+.PHONY : external/lua/lstate.c.s
+
+external/lua/lstring.o: external/lua/lstring.c.o
+
+.PHONY : external/lua/lstring.o
+
+# target to build an object file
+external/lua/lstring.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lstring.c.o
+.PHONY : external/lua/lstring.c.o
+
+external/lua/lstring.i: external/lua/lstring.c.i
+
+.PHONY : external/lua/lstring.i
+
+# target to preprocess a source file
+external/lua/lstring.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lstring.c.i
+.PHONY : external/lua/lstring.c.i
+
+external/lua/lstring.s: external/lua/lstring.c.s
+
+.PHONY : external/lua/lstring.s
+
+# target to generate assembly for a file
+external/lua/lstring.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lstring.c.s
+.PHONY : external/lua/lstring.c.s
+
+external/lua/lstrlib.o: external/lua/lstrlib.c.o
+
+.PHONY : external/lua/lstrlib.o
+
+# target to build an object file
+external/lua/lstrlib.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lstrlib.c.o
+.PHONY : external/lua/lstrlib.c.o
+
+external/lua/lstrlib.i: external/lua/lstrlib.c.i
+
+.PHONY : external/lua/lstrlib.i
+
+# target to preprocess a source file
+external/lua/lstrlib.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lstrlib.c.i
+.PHONY : external/lua/lstrlib.c.i
+
+external/lua/lstrlib.s: external/lua/lstrlib.c.s
+
+.PHONY : external/lua/lstrlib.s
+
+# target to generate assembly for a file
+external/lua/lstrlib.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lstrlib.c.s
+.PHONY : external/lua/lstrlib.c.s
+
+external/lua/ltable.o: external/lua/ltable.c.o
+
+.PHONY : external/lua/ltable.o
+
+# target to build an object file
+external/lua/ltable.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ltable.c.o
+.PHONY : external/lua/ltable.c.o
+
+external/lua/ltable.i: external/lua/ltable.c.i
+
+.PHONY : external/lua/ltable.i
+
+# target to preprocess a source file
+external/lua/ltable.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ltable.c.i
+.PHONY : external/lua/ltable.c.i
+
+external/lua/ltable.s: external/lua/ltable.c.s
+
+.PHONY : external/lua/ltable.s
+
+# target to generate assembly for a file
+external/lua/ltable.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ltable.c.s
+.PHONY : external/lua/ltable.c.s
+
+external/lua/ltablib.o: external/lua/ltablib.c.o
+
+.PHONY : external/lua/ltablib.o
+
+# target to build an object file
+external/lua/ltablib.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ltablib.c.o
+.PHONY : external/lua/ltablib.c.o
+
+external/lua/ltablib.i: external/lua/ltablib.c.i
+
+.PHONY : external/lua/ltablib.i
+
+# target to preprocess a source file
+external/lua/ltablib.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ltablib.c.i
+.PHONY : external/lua/ltablib.c.i
+
+external/lua/ltablib.s: external/lua/ltablib.c.s
+
+.PHONY : external/lua/ltablib.s
+
+# target to generate assembly for a file
+external/lua/ltablib.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ltablib.c.s
+.PHONY : external/lua/ltablib.c.s
+
+external/lua/ltm.o: external/lua/ltm.c.o
+
+.PHONY : external/lua/ltm.o
+
+# target to build an object file
+external/lua/ltm.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ltm.c.o
+.PHONY : external/lua/ltm.c.o
+
+external/lua/ltm.i: external/lua/ltm.c.i
+
+.PHONY : external/lua/ltm.i
+
+# target to preprocess a source file
+external/lua/ltm.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ltm.c.i
+.PHONY : external/lua/ltm.c.i
+
+external/lua/ltm.s: external/lua/ltm.c.s
+
+.PHONY : external/lua/ltm.s
+
+# target to generate assembly for a file
+external/lua/ltm.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ltm.c.s
+.PHONY : external/lua/ltm.c.s
+
+external/lua/lua.o: external/lua/lua.c.o
+
+.PHONY : external/lua/lua.o
+
+# target to build an object file
+external/lua/lua.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lua.c.o
+.PHONY : external/lua/lua.c.o
+
+external/lua/lua.i: external/lua/lua.c.i
+
+.PHONY : external/lua/lua.i
+
+# target to preprocess a source file
+external/lua/lua.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lua.c.i
+.PHONY : external/lua/lua.c.i
+
+external/lua/lua.s: external/lua/lua.c.s
+
+.PHONY : external/lua/lua.s
+
+# target to generate assembly for a file
+external/lua/lua.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lua.c.s
+.PHONY : external/lua/lua.c.s
+
+external/lua/lundump.o: external/lua/lundump.c.o
+
+.PHONY : external/lua/lundump.o
+
+# target to build an object file
+external/lua/lundump.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lundump.c.o
+.PHONY : external/lua/lundump.c.o
+
+external/lua/lundump.i: external/lua/lundump.c.i
+
+.PHONY : external/lua/lundump.i
+
+# target to preprocess a source file
+external/lua/lundump.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lundump.c.i
+.PHONY : external/lua/lundump.c.i
+
+external/lua/lundump.s: external/lua/lundump.c.s
+
+.PHONY : external/lua/lundump.s
+
+# target to generate assembly for a file
+external/lua/lundump.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lundump.c.s
+.PHONY : external/lua/lundump.c.s
+
+external/lua/lutf8lib.o: external/lua/lutf8lib.c.o
+
+.PHONY : external/lua/lutf8lib.o
+
+# target to build an object file
+external/lua/lutf8lib.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lutf8lib.c.o
+.PHONY : external/lua/lutf8lib.c.o
+
+external/lua/lutf8lib.i: external/lua/lutf8lib.c.i
+
+.PHONY : external/lua/lutf8lib.i
+
+# target to preprocess a source file
+external/lua/lutf8lib.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lutf8lib.c.i
+.PHONY : external/lua/lutf8lib.c.i
+
+external/lua/lutf8lib.s: external/lua/lutf8lib.c.s
+
+.PHONY : external/lua/lutf8lib.s
+
+# target to generate assembly for a file
+external/lua/lutf8lib.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lutf8lib.c.s
+.PHONY : external/lua/lutf8lib.c.s
+
+external/lua/lvm.o: external/lua/lvm.c.o
+
+.PHONY : external/lua/lvm.o
+
+# target to build an object file
+external/lua/lvm.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lvm.c.o
+.PHONY : external/lua/lvm.c.o
+
+external/lua/lvm.i: external/lua/lvm.c.i
+
+.PHONY : external/lua/lvm.i
+
+# target to preprocess a source file
+external/lua/lvm.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lvm.c.i
+.PHONY : external/lua/lvm.c.i
+
+external/lua/lvm.s: external/lua/lvm.c.s
+
+.PHONY : external/lua/lvm.s
+
+# target to generate assembly for a file
+external/lua/lvm.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lvm.c.s
+.PHONY : external/lua/lvm.c.s
+
+external/lua/lzio.o: external/lua/lzio.c.o
+
+.PHONY : external/lua/lzio.o
+
+# target to build an object file
+external/lua/lzio.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lzio.c.o
+.PHONY : external/lua/lzio.c.o
+
+external/lua/lzio.i: external/lua/lzio.c.i
+
+.PHONY : external/lua/lzio.i
+
+# target to preprocess a source file
+external/lua/lzio.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lzio.c.i
+.PHONY : external/lua/lzio.c.i
+
+external/lua/lzio.s: external/lua/lzio.c.s
+
+.PHONY : external/lua/lzio.s
+
+# target to generate assembly for a file
+external/lua/lzio.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lzio.c.s
+.PHONY : external/lua/lzio.c.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -563,6 +1494,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... lua"
 	@echo "... HockeyExe"
 	@echo "... App.o"
 	@echo "... App.i"
@@ -609,6 +1541,108 @@ help:
 	@echo "... Player.o"
 	@echo "... Player.i"
 	@echo "... Player.s"
+	@echo "... ScriptManager.o"
+	@echo "... ScriptManager.i"
+	@echo "... ScriptManager.s"
+	@echo "... external/lua/lapi.o"
+	@echo "... external/lua/lapi.i"
+	@echo "... external/lua/lapi.s"
+	@echo "... external/lua/lauxlib.o"
+	@echo "... external/lua/lauxlib.i"
+	@echo "... external/lua/lauxlib.s"
+	@echo "... external/lua/lbaselib.o"
+	@echo "... external/lua/lbaselib.i"
+	@echo "... external/lua/lbaselib.s"
+	@echo "... external/lua/lcode.o"
+	@echo "... external/lua/lcode.i"
+	@echo "... external/lua/lcode.s"
+	@echo "... external/lua/lcorolib.o"
+	@echo "... external/lua/lcorolib.i"
+	@echo "... external/lua/lcorolib.s"
+	@echo "... external/lua/lctype.o"
+	@echo "... external/lua/lctype.i"
+	@echo "... external/lua/lctype.s"
+	@echo "... external/lua/ldblib.o"
+	@echo "... external/lua/ldblib.i"
+	@echo "... external/lua/ldblib.s"
+	@echo "... external/lua/ldebug.o"
+	@echo "... external/lua/ldebug.i"
+	@echo "... external/lua/ldebug.s"
+	@echo "... external/lua/ldo.o"
+	@echo "... external/lua/ldo.i"
+	@echo "... external/lua/ldo.s"
+	@echo "... external/lua/ldump.o"
+	@echo "... external/lua/ldump.i"
+	@echo "... external/lua/ldump.s"
+	@echo "... external/lua/lfunc.o"
+	@echo "... external/lua/lfunc.i"
+	@echo "... external/lua/lfunc.s"
+	@echo "... external/lua/lgc.o"
+	@echo "... external/lua/lgc.i"
+	@echo "... external/lua/lgc.s"
+	@echo "... external/lua/linit.o"
+	@echo "... external/lua/linit.i"
+	@echo "... external/lua/linit.s"
+	@echo "... external/lua/liolib.o"
+	@echo "... external/lua/liolib.i"
+	@echo "... external/lua/liolib.s"
+	@echo "... external/lua/llex.o"
+	@echo "... external/lua/llex.i"
+	@echo "... external/lua/llex.s"
+	@echo "... external/lua/lmathlib.o"
+	@echo "... external/lua/lmathlib.i"
+	@echo "... external/lua/lmathlib.s"
+	@echo "... external/lua/lmem.o"
+	@echo "... external/lua/lmem.i"
+	@echo "... external/lua/lmem.s"
+	@echo "... external/lua/loadlib.o"
+	@echo "... external/lua/loadlib.i"
+	@echo "... external/lua/loadlib.s"
+	@echo "... external/lua/lobject.o"
+	@echo "... external/lua/lobject.i"
+	@echo "... external/lua/lobject.s"
+	@echo "... external/lua/lopcodes.o"
+	@echo "... external/lua/lopcodes.i"
+	@echo "... external/lua/lopcodes.s"
+	@echo "... external/lua/loslib.o"
+	@echo "... external/lua/loslib.i"
+	@echo "... external/lua/loslib.s"
+	@echo "... external/lua/lparser.o"
+	@echo "... external/lua/lparser.i"
+	@echo "... external/lua/lparser.s"
+	@echo "... external/lua/lstate.o"
+	@echo "... external/lua/lstate.i"
+	@echo "... external/lua/lstate.s"
+	@echo "... external/lua/lstring.o"
+	@echo "... external/lua/lstring.i"
+	@echo "... external/lua/lstring.s"
+	@echo "... external/lua/lstrlib.o"
+	@echo "... external/lua/lstrlib.i"
+	@echo "... external/lua/lstrlib.s"
+	@echo "... external/lua/ltable.o"
+	@echo "... external/lua/ltable.i"
+	@echo "... external/lua/ltable.s"
+	@echo "... external/lua/ltablib.o"
+	@echo "... external/lua/ltablib.i"
+	@echo "... external/lua/ltablib.s"
+	@echo "... external/lua/ltm.o"
+	@echo "... external/lua/ltm.i"
+	@echo "... external/lua/ltm.s"
+	@echo "... external/lua/lua.o"
+	@echo "... external/lua/lua.i"
+	@echo "... external/lua/lua.s"
+	@echo "... external/lua/lundump.o"
+	@echo "... external/lua/lundump.i"
+	@echo "... external/lua/lundump.s"
+	@echo "... external/lua/lutf8lib.o"
+	@echo "... external/lua/lutf8lib.i"
+	@echo "... external/lua/lutf8lib.s"
+	@echo "... external/lua/lvm.o"
+	@echo "... external/lua/lvm.i"
+	@echo "... external/lua/lvm.s"
+	@echo "... external/lua/lzio.o"
+	@echo "... external/lua/lzio.i"
+	@echo "... external/lua/lzio.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

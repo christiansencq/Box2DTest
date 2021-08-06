@@ -6,6 +6,48 @@
 
 #IncludeRegexTransform: 
 
+../external/lua/lauxlib.h
+stddef.h
+-
+stdio.h
+-
+luaconf.h
+../external/lua/luaconf.h
+lua.h
+../external/lua/lua.h
+assert.h
+-
+
+../external/lua/lua.h
+stdarg.h
+-
+stddef.h
+-
+luaconf.h
+../external/lua/luaconf.h
+
+../external/lua/lua.hpp
+lua.h
+../external/lua/lua.h
+lualib.h
+../external/lua/lualib.h
+lauxlib.h
+../external/lua/lauxlib.h
+
+../external/lua/luaconf.h
+limits.h
+-
+stddef.h
+-
+stdint.h
+-
+assert.h
+-
+
+../external/lua/lualib.h
+lua.h
+../external/lua/lua.h
+
 /home/charles/Cpp/Box2Test/App.cpp
 App.h
 /home/charles/Cpp/Box2Test/App.h
@@ -42,14 +84,6 @@ SDL2/SDL_ttf.h
 Box2D/Box2D.h
 /home/charles/Cpp/Box2Test/Box2D/Box2D.h
 
-/home/charles/Cpp/Box2Test/Commands/Commands.cpp
-Commands.h
-/home/charles/Cpp/Box2Test/Commands/Commands.h
-../Components/KeyInputComponent.h
-/home/charles/Cpp/Box2Test/Components/KeyInputComponent.h
-../Entity.h
-/home/charles/Cpp/Box2Test/Entity.h
-
 /home/charles/Cpp/Box2Test/Commands/Commands.h
 ../Constants.h
 /home/charles/Cpp/Box2Test/Constants.h
@@ -61,12 +95,6 @@ SDL2/SDL.h
 /home/charles/Cpp/Box2Test/Components/SDL2/SDL.h
 Box2D/Box2D.h
 /home/charles/Cpp/Box2Test/Components/Box2D/Box2D.h
-
-/home/charles/Cpp/Box2Test/Components/GoalZoneComponent.cpp
-GoalZoneComponent.h
-/home/charles/Cpp/Box2Test/Components/GoalZoneComponent.h
-../Entity.h
-/home/charles/Cpp/Box2Test/Entity.h
 
 /home/charles/Cpp/Box2Test/Components/GoalZoneComponent.h
 SDL2/SDL.h
@@ -100,12 +128,6 @@ Component.h
 ../Constants.h
 /home/charles/Cpp/Box2Test/Constants.h
 
-/home/charles/Cpp/Box2Test/Components/PhysicsComponent.cpp
-PhysicsComponent.h
-/home/charles/Cpp/Box2Test/Components/PhysicsComponent.h
-../Entity.h
-/home/charles/Cpp/Box2Test/Entity.h
-
 /home/charles/Cpp/Box2Test/Components/PhysicsComponent.h
 iostream
 -
@@ -122,12 +144,6 @@ Box2D/Box2D.h
 Component.h
 /home/charles/Cpp/Box2Test/Components/Component.h
 
-/home/charles/Cpp/Box2Test/Components/SDLCircleComponent.cpp
-SDLCircleComponent.h
-/home/charles/Cpp/Box2Test/Components/SDLCircleComponent.h
-../Entity.h
-/home/charles/Cpp/Box2Test/Entity.h
-
 /home/charles/Cpp/Box2Test/Components/SDLCircleComponent.h
 array
 -
@@ -142,14 +158,6 @@ Box2D/Box2D.h
 Component.h
 /home/charles/Cpp/Box2Test/Components/Component.h
 
-/home/charles/Cpp/Box2Test/Components/SDLRectComponent.cpp
-SDLRectComponent.h
-/home/charles/Cpp/Box2Test/Components/SDLRectComponent.h
-../Entity.h
-/home/charles/Cpp/Box2Test/Entity.h
-PhysicsComponent.h
-/home/charles/Cpp/Box2Test/Components/PhysicsComponent.h
-
 /home/charles/Cpp/Box2Test/Components/SDLRectComponent.h
 array
 -
@@ -162,23 +170,11 @@ SDL2/SDL_image.h
 Component.h
 /home/charles/Cpp/Box2Test/Components/Component.h
 
-/home/charles/Cpp/Box2Test/Components/SelectableComponent.cpp
-SelectableComponent.h
-/home/charles/Cpp/Box2Test/Components/SelectableComponent.h
-../Entity.h
-/home/charles/Cpp/Box2Test/Entity.h
-
 /home/charles/Cpp/Box2Test/Components/SelectableComponent.h
 ../Constants.h
 /home/charles/Cpp/Box2Test/Constants.h
 Component.h
 /home/charles/Cpp/Box2Test/Components/Component.h
-
-/home/charles/Cpp/Box2Test/Components/TextComponent.cpp
-TextComponent.h
-/home/charles/Cpp/Box2Test/Components/TextComponent.h
-../Entity.h
-/home/charles/Cpp/Box2Test/Entity.h
 
 /home/charles/Cpp/Box2Test/Components/TextComponent.h
 ../Constants.h
@@ -200,14 +196,6 @@ bitset
 array
 -
 map
--
-
-/home/charles/Cpp/Box2Test/Entity.cpp
-Entity.h
-/home/charles/Cpp/Box2Test/Entity.h
-EntityManager.h
-/home/charles/Cpp/Box2Test/EntityManager.h
-cmath
 -
 
 /home/charles/Cpp/Box2Test/Entity.h
@@ -240,12 +228,6 @@ Components/SDLRectComponent.h
 Components/SelectableComponent.h
 /home/charles/Cpp/Box2Test/Components/SelectableComponent.h
 
-/home/charles/Cpp/Box2Test/EntityManager.cpp
-EntityManager.h
-/home/charles/Cpp/Box2Test/EntityManager.h
-iostream
--
-
 /home/charles/Cpp/Box2Test/EntityManager.h
 memory
 -
@@ -261,10 +243,14 @@ GameMatchState.h
 /home/charles/Cpp/Box2Test/GameMatchState.h
 
 /home/charles/Cpp/Box2Test/GameMatchState.h
+cassert
+-
 memory
 -
 vector
 -
+lua.hpp
+/home/charles/Cpp/Box2Test/lua.hpp
 Constants.h
 /home/charles/Cpp/Box2Test/Constants.h
 AssetManager.h
@@ -279,12 +265,6 @@ Player.h
 /home/charles/Cpp/Box2Test/Player.h
 CollisionManager.h
 /home/charles/Cpp/Box2Test/CollisionManager.h
-
-/home/charles/Cpp/Box2Test/Player.cpp
-Player.h
-/home/charles/Cpp/Box2Test/Player.h
-Entity.h
-/home/charles/Cpp/Box2Test/Entity.h
 
 /home/charles/Cpp/Box2Test/Player.h
 vector

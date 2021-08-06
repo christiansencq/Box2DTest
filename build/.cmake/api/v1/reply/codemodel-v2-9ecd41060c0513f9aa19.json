@@ -14,7 +14,8 @@
 					"source" : ".",
 					"targetIndexes" : 
 					[
-						0
+						0,
+						1
 					]
 				}
 			],
@@ -29,7 +30,8 @@
 					"name" : "HockeyProject",
 					"targetIndexes" : 
 					[
-						0
+						0,
+						1
 					]
 				}
 			],
@@ -38,8 +40,15 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "HockeyExe::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-HockeyExe-RELEASE-68d3494136790348941c.json",
+					"jsonFile" : "target-HockeyExe-RELEASE-d0e2eaffcb4afd5391cb.json",
 					"name" : "HockeyExe",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "lua::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-lua-RELEASE-fc3cb4385858c17f4cae.json",
+					"name" : "lua",
 					"projectIndex" : 0
 				}
 			]

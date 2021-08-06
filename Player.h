@@ -7,6 +7,7 @@
 #include "Box2D/Box2D.h"
 #include "SDL2/SDL.h"
 
+
 class Entity;
 class Selector;
 class Command;
@@ -23,7 +24,7 @@ public:
     void ResetPositions();
     void HandleKeyPress(SDL_Keycode key);
     void HandleKeyRelease(SDL_Keycode key);
-    void AddBallToTeam(Entity* new_entity) { m_TeamsBalls.push_back(new_entity); }
+    void AddBallToTeam(Entity* new_entity);
     Entity* GetActive() { return m_ActiveBall; }
     std::vector<Entity*> GetBalls() { return m_TeamsBalls; }
     void SwapActiveBall(int new_ball);
@@ -40,12 +41,11 @@ public:
     int GetScore() { return m_Score; }
 
 private:
-
     
     std::vector<b2Vec2> m_StartingPositions;
     std::vector<Entity*> m_TeamsBalls;
 //    int Selected_Index = 0;//Could use this instead of m_ActiveBall?
-    Entity* m_ActiveBall;
+    Entity* m_ActiveBall; 
     Entity* m_ScoreDisplay;    
     const std::array<SDL_Keycode, 3> m_SwapKeys;
     const std::array<SDL_Keycode, 4> m_ActionKeys;

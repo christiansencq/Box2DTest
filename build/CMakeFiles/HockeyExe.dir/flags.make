@@ -6,5 +6,5 @@ CXX_FLAGS = -O3 -DNDEBUG   -ggdb -Wall -Wpedantic -Wextra -Wno-unused-parameter
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/Commands -I/Components -isystem /usr/include/SDL2 
+CXX_INCLUDES = -I/Commands -I/Components -I/home/charles/Cpp/Box2Test/external -I/home/charles/Cpp/Box2Test/external/lua -isystem /usr/include/SDL2 
 

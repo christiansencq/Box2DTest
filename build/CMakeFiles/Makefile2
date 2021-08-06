@@ -53,6 +53,7 @@ CMAKE_BINARY_DIR = /home/charles/Cpp/Box2Test/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/lua.dir/all
 all: CMakeFiles/HockeyExe.dir/all
 
 .PHONY : all
@@ -63,23 +64,51 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: CMakeFiles/lua.dir/clean
 clean: CMakeFiles/HockeyExe.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/lua.dir
+
+# All Build rule for target.
+CMakeFiles/lua.dir/all:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/depend
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/charles/Cpp/Box2Test/build/CMakeFiles --progress-num=19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52 "Built target lua"
+.PHONY : CMakeFiles/lua.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/lua.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/charles/Cpp/Box2Test/build/CMakeFiles 34
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/lua.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/charles/Cpp/Box2Test/build/CMakeFiles 0
+.PHONY : CMakeFiles/lua.dir/rule
+
+# Convenience name for target.
+lua: CMakeFiles/lua.dir/rule
+
+.PHONY : lua
+
+# clean rule for target.
+CMakeFiles/lua.dir/clean:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/clean
+.PHONY : CMakeFiles/lua.dir/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/HockeyExe.dir
 
 # All Build rule for target.
-CMakeFiles/HockeyExe.dir/all:
+CMakeFiles/HockeyExe.dir/all: CMakeFiles/lua.dir/all
 	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/depend
 	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/charles/Cpp/Box2Test/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17 "Built target HockeyExe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/charles/Cpp/Box2Test/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 "Built target HockeyExe"
 .PHONY : CMakeFiles/HockeyExe.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/HockeyExe.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/charles/Cpp/Box2Test/build/CMakeFiles 17
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/charles/Cpp/Box2Test/build/CMakeFiles 52
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/HockeyExe.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/charles/Cpp/Box2Test/build/CMakeFiles 0
 .PHONY : CMakeFiles/HockeyExe.dir/rule

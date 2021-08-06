@@ -19,6 +19,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/charles/Cpp/Box2Test/EntityManager.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/EntityManager.cpp.o"
   "/home/charles/Cpp/Box2Test/GameMatchState.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/GameMatchState.cpp.o"
   "/home/charles/Cpp/Box2Test/Player.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/Player.cpp.o"
+  "/home/charles/Cpp/Box2Test/ScriptManager.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/ScriptManager.cpp.o"
   "/home/charles/Cpp/Box2Test/main.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
@@ -27,11 +28,14 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/Commands"
   "/Components"
+  "../external"
+  "../external/lua"
   "/usr/include/SDL2"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
+  "/home/charles/Cpp/Box2Test/build/CMakeFiles/lua.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

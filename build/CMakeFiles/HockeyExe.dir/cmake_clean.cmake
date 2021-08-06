@@ -14,6 +14,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/HockeyExe.dir/EntityManager.cpp.o"
   "CMakeFiles/HockeyExe.dir/GameMatchState.cpp.o"
   "CMakeFiles/HockeyExe.dir/Player.cpp.o"
+  "CMakeFiles/HockeyExe.dir/ScriptManager.cpp.o"
   "CMakeFiles/HockeyExe.dir/main.cpp.o"
   "HockeyExe"
   "HockeyExe.pdb"

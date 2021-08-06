@@ -54,5 +54,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/lua.dir/DependInfo.cmake"
   "CMakeFiles/HockeyExe.dir/DependInfo.cmake"
   )

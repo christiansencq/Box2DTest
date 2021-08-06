@@ -24,6 +24,11 @@ Player::~Player()
 
 }
 
+void Player::AddBallToTeam(Entity* new_entity) 
+{ 
+    m_TeamsBalls.push_back(new_entity); 
+}
+
 void Player::HandleKeyPress(SDL_Keycode key) 
 {
     if (key == m_SwapKeys[0])

@@ -36,6 +36,18 @@ public:
         return *newCommand;
     } 
     
+    template <typename T, typename... TArgs>    
+    T& AddCommand2(TArgs&&... args)
+    {
+        T* newCommand(std::make_unique<T>(std::forward<TArgs>(args)...)); 
+        newCommand->owningComponent = this; //Could use move?
+        m_Commands.push_back(newCommand);
+        m_CommandTypeMap[&typeid(*newCommand)] = newCommand;
+
+        newCommand->Initialize();
+        return *newCommand;
+    } 
+    
     template<typename T>
     T* GetCommand()
     {
