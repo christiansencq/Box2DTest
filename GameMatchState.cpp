@@ -6,7 +6,7 @@ GameMatchState::GameMatchState(SDL_Renderer* renderer)
 {
 //    m_EntityManager = std::make_unique<EntityManager>();
     
-    LoadArenaData(std::string("script.lua"));
+    LoadArenaData(std::string("lHockey.lua"));
 
     std::cout << "Arena Wall Thickness " << arena.WALL_THICKNESS << std::endl;
     std::cout << "Arena Wall Buffer" << arena.WALL_BUFFER << std::endl;
@@ -232,40 +232,162 @@ bool GameMatchState::LoadArenaData(std::string arena_data_file)
 
     if(CheckLua(L, luaL_dofile(L, arena_data_file.c_str())))
     {
-        //Look for a Function?
-        // lua_getglobal(L, "SetArena");
-        // //Check that the top object on the stack is a function.
-        // if (lua_isfunction(L, -1))
-        // {
-            //pcall catches thrown exceptions from lua code.
-        // if (CheckLua(L, lua_pcall(L, 2, 1, 0)))
-        // {
-            lua_getglobal(L, "lua_arena");
-            std::cout << "From C++, called SetArena \n";
-            if (lua_istable(L, -1))
-            {
-                lua_pushstring(L, "WallThickness");
-                lua_gettable(L, -2);
-                arena.WALL_THICKNESS = lua_tonumber(L, -1);
-                lua_pop(L, 1);
+        lua_getglobal(L, "lua_arena");
+        std::cout << "Loading variables from lua_arena \n";
+        if (lua_istable(L, -1))
+        {
+            lua_pushstring(L, "WallThickness");
+            lua_gettable(L, -2);
+            arena.WALL_THICKNESS = lua_tonumber(L, -1);
+            lua_pop(L, 1);
 
-                lua_pushstring(L, "WallBuffer");
-                lua_gettable(L, -2);
-                arena.WALL_BUFFER = lua_tonumber(L, -1);
-                lua_pop(L, 1);
+            lua_pushstring(L, "WallBuffer");
+            lua_gettable(L, -2);
+            arena.WALL_BUFFER = lua_tonumber(L, -1);
+            lua_pop(L, 1);
 
-                lua_pushstring(L, "GoalWidth");
-                lua_gettable(L, -2);
-                arena.GOAL_WIDTH = lua_tonumber(L, -1);
-                lua_pop(L, 1);
+            lua_pushstring(L, "GoalWidth");
+            lua_gettable(L, -2);
+            arena.GOAL_WIDTH = lua_tonumber(L, -1);
+            lua_pop(L, 1);
 
-                lua_pushstring(L, "GoalHeight");
-                lua_gettable(L, -2);
-                arena.GOAL_HEIGHT = lua_tonumber(L, -1);
-                lua_pop(L, 1);
-            }
-//            }
-//        }
+            lua_pushstring(L, "GoalHeight");
+            lua_gettable(L, -2);
+            arena.GOAL_HEIGHT = lua_tonumber(L, -1);
+            lua_pop(L, 1);
+        }
+
+        lua_getglobal(L, "P1StartingPos");
+        if (lua_istable(L, -1))
+        {
+            lua_pushstring(L, "x1");
+            lua_gettable(L, -2);
+            float p1x1 = lua_tonumber(L, -1);
+            lua_pop(L, 1);
+
+            lua_pushstring(L, "y1");
+            lua_gettable(L, -2);
+            float p1y1 = lua_tonumber(L, -1);
+            lua_pop(L, 1);
+            arena.P1StartingPositions.push_back({p1x1, p1y1});
+
+            lua_pushstring(L, "x2");
+            lua_gettable(L, -2);
+            float p1x2 = lua_tonumber(L, -1);
+            lua_pop(L, 1);
+
+            lua_pushstring(L, "y2");
+            lua_gettable(L, -2);
+            float p1y2 = lua_tonumber(L, -1);
+            lua_pop(L, 1);
+            arena.P1StartingPositions.push_back({p1x2, p1y2});
+
+            lua_pushstring(L, "x3");
+            lua_gettable(L, -2);
+            float p1x3 = lua_tonumber(L, -1);
+            lua_pop(L, 1);
+
+            lua_pushstring(L, "y3");
+            lua_gettable(L, -2);
+            float p1y3 = lua_tonumber(L, -1);
+            lua_pop(L, 1);
+            arena.P1StartingPositions.push_back({p1x3, p1y3});
+        }
+
+        lua_getglobal(L, "P2StartingPos");
+        if (lua_istable(L, -1))
+        {
+            lua_pushstring(L, "x1");
+            lua_gettable(L, -2);
+            float p2x1 = lua_tonumber(L, -1);
+            lua_pop(L, 1);
+
+            lua_pushstring(L, "y1");
+            lua_gettable(L, -2);
+            float p2y1 = lua_tonumber(L, -1);
+            lua_pop(L, 1);
+            arena.P2StartingPositions.push_back({p2x1, p2y1});
+
+            lua_pushstring(L, "x2");
+            lua_gettable(L, -2);
+            float p2x2 = lua_tonumber(L, -1);
+            lua_pop(L, 1);
+
+            lua_pushstring(L, "y2");
+            lua_gettable(L, -2);
+            float p2y2 = lua_tonumber(L, -1);
+            lua_pop(L, 1);
+            arena.P2StartingPositions.push_back({p2x2, p2y2});
+
+            lua_pushstring(L, "x3");
+            lua_gettable(L, -2);
+            float p2x3 = lua_tonumber(L, -1);
+            lua_pop(L, 1);
+
+            lua_pushstring(L, "y3");
+            lua_gettable(L, -2);
+            float p2y3 = lua_tonumber(L, -1);
+            lua_pop(L, 1);
+            arena.P2StartingPositions.push_back({p2x3, p2y3});
+        }
+
+        lua_getglobal(L, "ScoreDisplayPos");
+        if (lua_istable(L, -1))
+        {
+            lua_pushstring(L, "x1");
+            lua_gettable(L, -2);
+            float x1 = lua_tonumber(L, -1);
+            lua_pop(L, 1);
+
+            lua_pushstring(L, "y1");
+            lua_gettable(L, -2);
+            float y1 = lua_tonumber(L, -1);
+            lua_pop(L, 1);
+            arena.ScoreDisplayPositions.push_back({x1, y1});
+
+            lua_pushstring(L, "x2");
+            lua_gettable(L, -2);
+            float x2 = lua_tonumber(L, -1);
+            lua_pop(L, 1);
+
+            lua_pushstring(L, "y2");
+            lua_gettable(L, -2);
+            float y2 = lua_tonumber(L, -1);
+            lua_pop(L, 1);
+
+            arena.ScoreDisplayPositions.push_back({x2, y2});
+        }
+
+        lua_getglobal(L, "GoalPositions");
+        if (lua_istable(L, -1))
+        {
+            lua_pushstring(L, "x1");
+            lua_gettable(L, -2);
+            float g1x = lua_tonumber(L, -1);
+            lua_pop(L, 1);
+
+            lua_pushstring(L, "y1");
+            lua_gettable(L, -2);
+            float g1y = lua_tonumber(L, -1);
+            lua_pop(L, 1);
+            arena.GoalPositions.push_back({g1x, g1y});
+
+            lua_pushstring(L, "x2");
+            lua_gettable(L, -2);
+            float g2x = lua_tonumber(L, -1);
+            lua_pop(L, 1);
+
+            lua_pushstring(L, "y2");
+            lua_gettable(L, -2);
+            float g2y = lua_tonumber(L, -1);
+            lua_pop(L, 1);
+            arena.GoalPositions.push_back({g2x, g2y});
+        }
+        
+
+
+//Dependent Variables
+        arena.StartingPositions = {arena.P1StartingPositions, arena.P2StartingPositions};
 
             //Set the variables dependent on those pulled from lua.
         arena.GoalSize.x = arena.GOAL_WIDTH;
@@ -281,8 +403,6 @@ bool GameMatchState::LoadArenaData(std::string arena_data_file)
         arena.GoalBotWallSize = { arena.GOAL_WIDTH + (2 * arena.WALL_THICKNESS), arena.WALL_THICKNESS };
         arena.GoalSideWallSize = { arena.WALL_THICKNESS, arena.GOAL_HEIGHT };
         arena.GoalWallSizes = { arena.GoalTopWallSize, arena.GoalBotWallSize, arena.GoalSideWallSize };
-
-        
 
         arena.Goal1TopWallPos = { arena.GoalPositions[0].x, arena.GoalPositions[0].y - arena.GoalSize.y/2 };
         arena.Goal1BotWallPos = { arena.GoalPositions[0].x, arena.GoalPositions[0].y + arena.GoalSize.y/2 };

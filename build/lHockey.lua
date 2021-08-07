@@ -12,4 +12,5 @@ P2StartingPos = { x1 = 1150, y1 = 640,
 ScoreDisplayPos = { x1 = 150, y1 = 50,
                     x2 = 800, y2 = 50 }
 
-                
+GoalPositions = { x1 = 1400, y1 = 450,
+                  x2 = 200,  y2 = 450 }

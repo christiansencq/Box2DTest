@@ -42,9 +42,10 @@ struct ArenaLayoutData
     float WALL_THICKNESS;
     float WALL_BUFFER;
     float GOAL_WIDTH, GOAL_HEIGHT;
+    std::vector<b2Vec2> P1StartingPositions;
+    std::vector<b2Vec2> P2StartingPositions;
 
     //Derivative Variables from the Lua variables.
-
     //WallSizes
     b2Vec2 TopWallSize; 
     b2Vec2 BottomWallSize;
@@ -56,15 +57,16 @@ struct ArenaLayoutData
     b2Vec2 GoalBotWallSize;
     b2Vec2 GoalSideWallSize;
     std::array<b2Vec2, 3> GoalWallSizes;
+    b2Vec2 GoalSize; //Factor this out?
+    std::vector<std::vector<b2Vec2>> StartingPositions;
+    std::vector<b2Vec2> GoalPositions;
+    std::vector<b2Vec2> ScoreDisplayPositions;
 
-    b2Vec2 GoalSize; 
+    // const std::vector<b2Vec2> P1StartingPositions = {b2Vec2{450, 640}, b2Vec2{450, 480}, b2Vec2{450, 320}};
+    // const std::vector<b2Vec2> P2StartingPositions = {b2Vec2{1150, 640}, b2Vec2{1150, 480}, b2Vec2{1150, 320}};
+    // const std::vector<std::vector<b2Vec2>> StartingPositions = {P1StartingPositions, P2StartingPositions};
 
-    //Data/Constants
-    const std::vector<b2Vec2> P1StartingPositions = {b2Vec2{450, 640}, b2Vec2{450, 480}, b2Vec2{450, 320}};
-    const std::vector<b2Vec2> P2StartingPositions = {b2Vec2{1150, 640}, b2Vec2{1150, 480}, b2Vec2{1150, 320}};
-    const std::vector<std::vector<b2Vec2>> StartingPositions = {P1StartingPositions, P2StartingPositions};
-
-    const std::array<b2Vec2, 2> ScoreDisplayPositions = {b2Vec2{150, 50}, b2Vec2{800, 50}};
+    // const std::array<b2Vec2, 2> ScoreDisplayPositions = {b2Vec2{150, 50}, b2Vec2{800, 50}};
 
     b2Vec2 TopWallPos = {SCREEN_WIDTH/2, 30};
     b2Vec2 BottomWallPos = {SCREEN_WIDTH/2, SCREEN_HEIGHT - 30};
@@ -72,7 +74,7 @@ struct ArenaLayoutData
     b2Vec2 RightWallPos = {SCREEN_WIDTH-30, SCREEN_HEIGHT/2};
     std::array<b2Vec2, 4> WallPoses = {TopWallPos, BottomWallPos, LeftWallPos, RightWallPos};
 
-    std::array<b2Vec2, 2> GoalPositions = {b2Vec2{1400, 450}, b2Vec2{200, 450}};
+//    std::array<b2Vec2, 2> GoalPositions = {b2Vec2{1400, 450}, b2Vec2{200, 450}};
 
     b2Vec2 Goal1TopWallPos;
     b2Vec2 Goal1BotWallPos;
