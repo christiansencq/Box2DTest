@@ -29,7 +29,9 @@ find_package(SDL2_ttf REQUIRED)
 message("SDL2_ttf FOUND???" ${SDL2_ttf_FOUND})
 
 file(GLOB SOURCES "**.cpp" "Components/**.cpp" "Commands/**.cpp") 
-add_executable(HockeyExe ${SOURCES} "${PROJECT_SOURCE_DIR}/script.lua") 
+add_executable(HockeyExe ${SOURCES}) 
+#add_executable(HockeyExe ${SOURCES} "${PROJECT_SOURCE_DIR}/build/script.lua") 
+
 
 add_library(
     lua STATIC

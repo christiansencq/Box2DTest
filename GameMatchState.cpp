@@ -1,34 +1,35 @@
 #include "GameMatchState.h"
 
 GameMatchState::GameMatchState(SDL_Renderer* renderer)
- : m_Renderer(renderer), m_EntityManager(std::make_unique<EntityManager>()), m_AssetManager(std::make_shared<AssetManager>()),
+ : m_Renderer(renderer), m_EntityManager(std::make_shared<EntityManager>()), m_AssetManager(std::make_shared<AssetManager>()),
     m_TimeStep(1/30.0f), m_VelocityIterations(2), m_PositionIterations(6), m_TicksLastFrame(0) 
 {
-//    m_EntityManager = std::make_unique<EntityManager>();
-    
+
+    InitPhysics();
+
     LoadArenaData(std::string("lHockey.lua"));
-
-    std::cout << "Arena Wall Thickness " << arena.WALL_THICKNESS << std::endl;
-    std::cout << "Arena Wall Buffer" << arena.WALL_BUFFER << std::endl;
-
     m_AssetManager->AddFont("ScoreFont", "arial.ttf", 20);
 
     //Set Up Managers and Physics.
-    InitPhysics();
 
-    //Player Setup
+    m_EntityFactory = std::make_unique<EntityFactory>(m_Renderer, m_EntityManager, m_PhysicsWorld);
+
+
     SetUpTwoPlayers();
 
-    //Arena Setup.
-    SetUpPuck();
-    CreateBoundaries2();
+    m_EntityFactory->CreatePuck({SCREEN_WIDTH/2, SCREEN_HEIGHT/2});
+
+    m_EntityFactory->CreateOuterWalls(arena.WallPositions, arena.WallSizes);
+
+    //CreateBoundaries();
+
     CreateGoalWalls();
 }
 
 GameMatchState::~GameMatchState()
 {
     delete m_PhysicsWorld;
-    delete m_CollisionManager;
+    //delete m_CollisionManager;
 }
 
 void GameMatchState::HandleEvents()
@@ -112,58 +113,59 @@ void GameMatchState::InitPhysics()
 {
     b2Vec2 gravity = b2Vec2(0.0f, 0.0f);
     m_PhysicsWorld = new b2World(gravity);
-    m_CollisionManager = new CollisionManager();
-    m_PhysicsWorld->SetContactListener(m_CollisionManager);
+    // m_CollisionManager = new CollisionManager();
+    // m_PhysicsWorld->SetContactListener(m_CollisionManager);
 }
 
 void GameMatchState::SetUpTwoPlayers()
 {
-    //Assert that the Vectors are long enough to supply the keybindings and that there are2 plaeyrs and 3 in Team.
-    assert((NumPlayers != keybindData.SwapKeys.size()) && "Num of Swap keybinds != NumPlayers");
-    assert((NumPlayers != keybindData.ActionKeys.size()) && "Num of Action keybind != Num Players");
-    std::cout << "numplayers " << NumPlayers << "  SwapKeysSize " << keybindData.SwapKeys.size() << " \n";
+    assert((NumPlayers != static_cast<int>(keybindData.SwapKeys.size())) && "Num of Swap keybinds != NumPlayers");
+    assert((NumPlayers != static_cast<int>(keybindData.ActionKeys.size())) && "Num of Action keybind != Num Players");
+
+
     for (int i = 0; i < NumPlayers; i++)
     {
-        //Create a player with some keybindings set-up
         std::shared_ptr<Player> player = std::make_shared<Player>(keybindData.SwapKeys[i], keybindData.ActionKeys[i]);
 
         player->AddStartingPositions(arena.StartingPositions[i]);
 
+        std::cout << "Setting up player's ball \n";
         //Set Up the balls that each player will control.
         for (int j = 0; j < TeamSize; j++)
         {
             AddPlayerBall(player, i, j);
         }
 
-        player->SwapActiveBall(0);
 
-        std::cout << "Active Ball (0), has SDLCircle? " << player->GetActive()->HasComponent<SDLCircleComponent>() << "\n";
-
-        std::cout << "Active Ball SDLCircle X, Y " << player->GetActive()->GetComponent<SDLCircleComponent>()->GetX() << ", " << player->GetActive()->GetComponent<SDLCircleComponent>()->GetY()  << "\n";
-
+        //player->SwapActiveBall(0);
+        std::cout << "Setting Up player's score display \n";
 
         //Set up the score display
         Entity* score_display = m_EntityManager->AddEntity(arena.ScoreDisplayPositions[i], b2Vec2{50, 20});
-        score_display ->AddComponent<TextComponent>(m_AssetManager, m_Renderer, std::string(std::to_string(i) + " Score"), "ScoreFont");
+        score_display->AddComponent<TextComponent>(m_AssetManager, m_Renderer, std::string(std::to_string(i) + " Score"), "ScoreFont");
         player->AddScoreDisplay(score_display);
 
-        //DEBUG
-        std::cout << "Arena goalsize x " << arena.GoalSize.x << "  y " << arena.GoalSize.y << "\n";
-
+        std::cout << "Setting Up player's goal zone. \n";
         //Set up the Goal Zone
         Entity* goal_zone = m_EntityManager->AddEntity(arena.GoalPositions[i], arena.GoalSize);
         goal_zone->AddComponent<GoalZoneComponent>(m_PhysicsWorld, player);
-        goal_zone->GetComponent<GoalZoneComponent>()->SetData(false);
+
+        
+        std::cout << "Set Players ActiveBall  \n";
 
         //Finally:
         player->SwapActiveBall(0);
+        
+        std::cout << "Add Player to EntityManager  \n";
         m_EntityManager->AddPlayer(player);
         m_Players.push_back((player));
+        
     }
 }
 
 void GameMatchState::SetUpPuck()
-{ Entity* puck = m_EntityManager->AddEntity(puckStart, 25.0f);
+{
+    Entity* puck = m_EntityManager->AddEntity(puckStart, 25.0f);
     puck->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::CIRCLE, b2BodyType::b2_dynamicBody); 
     puck->GetComponent<PhysicsComponent>()->SetData(true);
     puck->AddComponent<SDLCircleComponent>(m_Renderer, GREEN);
@@ -171,6 +173,7 @@ void GameMatchState::SetUpPuck()
 
 void GameMatchState::AddPlayerBall(std::shared_ptr<Player> player, int i, int j)
 {
+    std::cout << "Position of Ball " << arena.StartingPositions[i][j].x << " , " << arena.StartingPositions[i][j].y << ". \n";
     Entity* ball = m_EntityManager->AddEntity(arena.StartingPositions[i][j], 50.0f);
     player->AddBallToTeam(ball);
     ball->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::CIRCLE, b2BodyType::b2_dynamicBody);
@@ -184,34 +187,32 @@ void GameMatchState::AddPlayerBall(std::shared_ptr<Player> player, int i, int j)
     ball->GetComponent<KeyInputComponent>()->AddCommand<RightTurnCommand>();
 }
 
-void GameMatchState::CreateBoundaries2()
+void GameMatchState::CreateBoundaries()
 {
-    for (int i = 0; i < 4; i++)
+    // for (int i = 0; i < 4; i++)
     {
-    Entity* wall = m_EntityManager->AddEntity(arena.WallPoses[i], arena.WallSizes[i]);
-    wall->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::RECT, b2BodyType::b2_staticBody);
-    wall->GetComponent<PhysicsComponent>()->SetData();
-    wall->AddComponent<SDLRectComponent>(m_Renderer);
+    m_EntityFactory->CreateOuterWalls(arena.WallPositions, arena.WallSizes);
     }
 }
 
 void GameMatchState::CreateGoalWalls()
 {
-    for (int i = 0; i < 3; i++)
-    {
-        std::cout << "goalwall pos  " << arena.GoalWallSizes[i].x << "  &  " << arena.GoalWallSizes[i].y << "\n"; 
-        Entity* GoalWall = m_EntityManager->AddEntity(arena.Goal1WallPositions[i], arena.GoalWallSizes[i]);
-        GoalWall->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::RECT, b2BodyType::b2_staticBody);
-        GoalWall->GetComponent<PhysicsComponent>()->SetData();
-        GoalWall->AddComponent<SDLRectComponent>(m_Renderer);
-    }
-    for (int i = 0; i < 3; i++)
-    {
-        Entity* GoalWall = m_EntityManager->AddEntity(arena.Goal2WallPositions[i], arena.GoalWallSizes[i]);
-        GoalWall->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::RECT, b2BodyType::b2_staticBody);
-        GoalWall->GetComponent<PhysicsComponent>()->SetData();
-        GoalWall->AddComponent<SDLRectComponent>(m_Renderer);
-    }
+    m_EntityFactory->CreateGoalWalls(arena.Goal1WallPositions, arena.GoalWallSizes);
+    m_EntityFactory->CreateGoalWalls(arena.Goal2WallPositions, arena.GoalWallSizes);
+
+        // Entity* GoalWall = m_EntityManager->AddEntity(arena.Goal1WallPositions[i], arena.GoalWallSizes[i]);
+        // GoalWall->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::RECT, b2BodyType::b2_staticBody);
+        // GoalWall->GetComponent<PhysicsComponent>()->SetData();
+        // GoalWall->AddComponent<SDLRectComponent>(m_Renderer);
+    // }
+    // for (int i = 0; i < 3; i++)
+    // {
+    //     m_EntityFactory->CreateGoalWalls(arena.Goal1WallPositions, arena.GoalWallSizes);
+    //     Entity* GoalWall = m_EntityManager->AddEntity(arena.Goal2WallPositions[i], arena.GoalWallSizes[i]);
+    //     GoalWall->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::RECT, b2BodyType::b2_staticBody);
+    //     GoalWall->GetComponent<PhysicsComponent>()->SetData();
+    //     GoalWall->AddComponent<SDLRectComponent>(m_Renderer);
+    // }
 }
 
 bool GameMatchState::CheckLua(lua_State* L, int r)
@@ -270,6 +271,8 @@ bool GameMatchState::LoadArenaData(std::string arena_data_file)
             float p1y1 = lua_tonumber(L, -1);
             lua_pop(L, 1);
             arena.P1StartingPositions.push_back({p1x1, p1y1});
+
+            std::cout << "P1 b1 " << p1x1 << " , " << p1y1 << "\n";
 
             lua_pushstring(L, "x2");
             lua_gettable(L, -2);
@@ -358,33 +361,47 @@ bool GameMatchState::LoadArenaData(std::string arena_data_file)
             arena.ScoreDisplayPositions.push_back({x2, y2});
         }
 
+        //Put GoalPositions on the Stack.
         lua_getglobal(L, "GoalPositions");
+        //Check to make sure that is a table.
         if (lua_istable(L, -1))
         {
-            lua_pushstring(L, "x1");
+
+            //Using the Lua stack, Get the two values of P1.
+            lua_pushstring(L, "P1");
+            //Replace the P1 key with the values at P1.
+            lua_gettable(L, -2);
+            //Add the index to the stack.
+            lua_pushnumber(L, 1);
+            //Access the table at -2 (that was given by key 'P1'), at the index at the top of the stack (which is currently 1)
+            // Remember, lua tables start from 1, not 0.
             lua_gettable(L, -2);
             float g1x = lua_tonumber(L, -1);
-            lua_pop(L, 1);
 
-            lua_pushstring(L, "y1");
+            lua_pop(L, 1);
+            lua_pushnumber(L, 2);
             lua_gettable(L, -2);
             float g1y = lua_tonumber(L, -1);
-            lua_pop(L, 1);
             arena.GoalPositions.push_back({g1x, g1y});
 
-            lua_pushstring(L, "x2");
+            lua_pop(L, 2);
+
+            lua_pushstring(L, "P2");
+            lua_gettable(L, -2); //This push
+            lua_pushnumber(L, 1);
             lua_gettable(L, -2);
+
             float g2x = lua_tonumber(L, -1);
             lua_pop(L, 1);
 
-            lua_pushstring(L, "y2");
+            lua_pushnumber(L, 2);
             lua_gettable(L, -2);
             float g2y = lua_tonumber(L, -1);
-            lua_pop(L, 1);
-            arena.GoalPositions.push_back({g2x, g2y});
-        }
-        
 
+            arena.GoalPositions.push_back({g2x, g2y});
+
+            std::cout << "G2x, y " << g2x << "   " << g2y << "\n";
+        }
 
 //Dependent Variables
         arena.StartingPositions = {arena.P1StartingPositions, arena.P2StartingPositions};
@@ -404,6 +421,7 @@ bool GameMatchState::LoadArenaData(std::string arena_data_file)
         arena.GoalSideWallSize = { arena.WALL_THICKNESS, arena.GOAL_HEIGHT };
         arena.GoalWallSizes = { arena.GoalTopWallSize, arena.GoalBotWallSize, arena.GoalSideWallSize };
 
+        std::cout << "Reading Goal Positions \n"; 
         arena.Goal1TopWallPos = { arena.GoalPositions[0].x, arena.GoalPositions[0].y - arena.GoalSize.y/2 };
         arena.Goal1BotWallPos = { arena.GoalPositions[0].x, arena.GoalPositions[0].y + arena.GoalSize.y/2 };
         arena.Goal1SideWallPos = { arena.GoalPositions[0].x + arena.GoalSize.x/2, arena.GoalPositions[0].y };
@@ -413,6 +431,8 @@ bool GameMatchState::LoadArenaData(std::string arena_data_file)
         arena.Goal2BotWallPos = { arena.GoalPositions[1].x, arena.GoalPositions[1].y + arena.GoalSize.y/2 };
         arena.Goal2SideWallPos = { arena.GoalPositions[1].x - arena.GoalSize.x/2, arena.GoalPositions[1].y };
         arena.Goal2WallPositions = { arena.Goal2TopWallPos, arena.Goal2BotWallPos, arena.Goal2SideWallPos };
+
+
     
         lua_close(L);
         return true;

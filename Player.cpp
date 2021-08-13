@@ -7,18 +7,6 @@ Player::Player(const std::array<SDL_Keycode, 3> swap_keys, const std::array<SDL_
 
 }
 
-Player::Player(const std::array<SDL_Keycode, 3> swap_keys, const std::array<SDL_Keycode, 4> action_keys, Entity* score_display)
- : m_ScoreDisplay(score_display), m_SwapKeys (swap_keys), m_ActionKeys (action_keys) 
-{
-
-}
-
-Player::Player(const std::array<SDL_Keycode, 3> swap_keys, const std::array<SDL_Keycode, 4> action_keys, Entity* score_display, std::vector<b2Vec2> starting_pos)
-: m_StartingPositions(starting_pos), m_ScoreDisplay(score_display), m_SwapKeys (swap_keys), m_ActionKeys (action_keys) 
-{
-
-}
-
 Player::~Player()
 {
 
@@ -27,6 +15,7 @@ Player::~Player()
 void Player::AddBallToTeam(Entity* new_entity) 
 { 
     m_TeamsBalls.push_back(new_entity); 
+    m_ActiveBall = m_TeamsBalls[0];
 }
 
 void Player::HandleKeyPress(SDL_Keycode key) 
@@ -56,14 +45,12 @@ void Player::HandleKeyRelease(SDL_Keycode key)
 
 void Player::SwapActiveBall(int new_ball) 
 {
-    //Possible that the first ball 
-    if (m_ActiveBall)
+    if (m_ActiveBall->HasComponent<SelectableComponent>())
     {
         m_ActiveBall->GetComponent<SelectableComponent>()->Deselect();
     }
 
     m_ActiveBall = m_TeamsBalls[new_ball];
-
     m_ActiveBall->GetComponent<SelectableComponent>()->Select(); 
 }
 

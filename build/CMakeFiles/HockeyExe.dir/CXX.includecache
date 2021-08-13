@@ -74,10 +74,6 @@ string
 SDL2/SDL_ttf.h
 /home/charles/Cpp/Box2Test/SDL2/SDL_ttf.h
 
-/home/charles/Cpp/Box2Test/CollisionManager.h
-Box2D/Box2D.h
-/home/charles/Cpp/Box2Test/Box2D/Box2D.h
-
 /home/charles/Cpp/Box2Test/Commands/Commands.h
 ../Constants.h
 /home/charles/Cpp/Box2Test/Constants.h
@@ -222,6 +218,20 @@ Components/SDLRectComponent.h
 Components/SelectableComponent.h
 /home/charles/Cpp/Box2Test/Components/SelectableComponent.h
 
+/home/charles/Cpp/Box2Test/EntityFactory.h
+cassert
+-
+memory
+-
+vector
+-
+Constants.h
+/home/charles/Cpp/Box2Test/Constants.h
+EntityManager.h
+/home/charles/Cpp/Box2Test/EntityManager.h
+Player.h
+/home/charles/Cpp/Box2Test/Player.h
+
 /home/charles/Cpp/Box2Test/EntityManager.h
 memory
 -
@@ -257,8 +267,8 @@ EntityManager.h
 /home/charles/Cpp/Box2Test/EntityManager.h
 Player.h
 /home/charles/Cpp/Box2Test/Player.h
-CollisionManager.h
-/home/charles/Cpp/Box2Test/CollisionManager.h
+EntityFactory.h
+/home/charles/Cpp/Box2Test/EntityFactory.h
 
 /home/charles/Cpp/Box2Test/Player.h
 vector

@@ -190,33 +190,6 @@ AssetManager.cpp.s:
 	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/AssetManager.cpp.s
 .PHONY : AssetManager.cpp.s
 
-CollisionManager.o: CollisionManager.cpp.o
-
-.PHONY : CollisionManager.o
-
-# target to build an object file
-CollisionManager.cpp.o:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/CollisionManager.cpp.o
-.PHONY : CollisionManager.cpp.o
-
-CollisionManager.i: CollisionManager.cpp.i
-
-.PHONY : CollisionManager.i
-
-# target to preprocess a source file
-CollisionManager.cpp.i:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/CollisionManager.cpp.i
-.PHONY : CollisionManager.cpp.i
-
-CollisionManager.s: CollisionManager.cpp.s
-
-.PHONY : CollisionManager.s
-
-# target to generate assembly for a file
-CollisionManager.cpp.s:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/CollisionManager.cpp.s
-.PHONY : CollisionManager.cpp.s
-
 Commands/Commands.o: Commands/Commands.cpp.o
 
 .PHONY : Commands/Commands.o
@@ -459,6 +432,33 @@ Entity.s: Entity.cpp.s
 Entity.cpp.s:
 	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Entity.cpp.s
 .PHONY : Entity.cpp.s
+
+EntityFactory.o: EntityFactory.cpp.o
+
+.PHONY : EntityFactory.o
+
+# target to build an object file
+EntityFactory.cpp.o:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/EntityFactory.cpp.o
+.PHONY : EntityFactory.cpp.o
+
+EntityFactory.i: EntityFactory.cpp.i
+
+.PHONY : EntityFactory.i
+
+# target to preprocess a source file
+EntityFactory.cpp.i:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/EntityFactory.cpp.i
+.PHONY : EntityFactory.cpp.i
+
+EntityFactory.s: EntityFactory.cpp.s
+
+.PHONY : EntityFactory.s
+
+# target to generate assembly for a file
+EntityFactory.cpp.s:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/EntityFactory.cpp.s
+.PHONY : EntityFactory.cpp.s
 
 EntityManager.o: EntityManager.cpp.o
 
@@ -1502,9 +1502,6 @@ help:
 	@echo "... AssetManager.o"
 	@echo "... AssetManager.i"
 	@echo "... AssetManager.s"
-	@echo "... CollisionManager.o"
-	@echo "... CollisionManager.i"
-	@echo "... CollisionManager.s"
 	@echo "... Commands/Commands.o"
 	@echo "... Commands/Commands.i"
 	@echo "... Commands/Commands.s"
@@ -1532,6 +1529,9 @@ help:
 	@echo "... Entity.o"
 	@echo "... Entity.i"
 	@echo "... Entity.s"
+	@echo "... EntityFactory.o"
+	@echo "... EntityFactory.i"
+	@echo "... EntityFactory.s"
 	@echo "... EntityManager.o"
 	@echo "... EntityManager.i"
 	@echo "... EntityManager.s"

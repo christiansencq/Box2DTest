@@ -13,7 +13,8 @@
 #include "State.h"
 #include "EntityManager.h"
 #include "Player.h"
-#include "CollisionManager.h"
+#include "EntityFactory.h"
+//#include "CollisionManager.h"
 
 
 class KeyInputComponent;
@@ -62,19 +63,11 @@ struct ArenaLayoutData
     std::vector<b2Vec2> GoalPositions;
     std::vector<b2Vec2> ScoreDisplayPositions;
 
-    // const std::vector<b2Vec2> P1StartingPositions = {b2Vec2{450, 640}, b2Vec2{450, 480}, b2Vec2{450, 320}};
-    // const std::vector<b2Vec2> P2StartingPositions = {b2Vec2{1150, 640}, b2Vec2{1150, 480}, b2Vec2{1150, 320}};
-    // const std::vector<std::vector<b2Vec2>> StartingPositions = {P1StartingPositions, P2StartingPositions};
-
-    // const std::array<b2Vec2, 2> ScoreDisplayPositions = {b2Vec2{150, 50}, b2Vec2{800, 50}};
-
     b2Vec2 TopWallPos = {SCREEN_WIDTH/2, 30};
     b2Vec2 BottomWallPos = {SCREEN_WIDTH/2, SCREEN_HEIGHT - 30};
     b2Vec2 LeftWallPos = {30, SCREEN_HEIGHT/2};
     b2Vec2 RightWallPos = {SCREEN_WIDTH-30, SCREEN_HEIGHT/2};
-    std::array<b2Vec2, 4> WallPoses = {TopWallPos, BottomWallPos, LeftWallPos, RightWallPos};
-
-//    std::array<b2Vec2, 2> GoalPositions = {b2Vec2{1400, 450}, b2Vec2{200, 450}};
+    std::array<b2Vec2, 4> WallPositions = {TopWallPos, BottomWallPos, LeftWallPos, RightWallPos};
 
     b2Vec2 Goal1TopWallPos;
     b2Vec2 Goal1BotWallPos;
@@ -105,13 +98,21 @@ private:
     bool CheckLua(lua_State* L, int r);
 
     void InitPhysics();
+
     void SetUpTwoPlayers();
-    void SetUpPuck();
     bool LoadArenaData(std::string arena_data_file);
-    void CreateBoundaries2();
+
+    //Factory
+    void SetUpPuck();
+    void CreateBoundaries();
     void CreateGoalZones();
     void CreateGoalWalls();
+
+    //Refactor this so the ints are x,y position, etc.
     void AddPlayerBall(std::shared_ptr<Player> player, int i, int j);
+
+
+
 
     ArenaLayoutData arena;
     KeyBindingData keybindData;
@@ -120,11 +121,13 @@ private:
     const int TeamSize = 3;
 
     SDL_Renderer* m_Renderer;
-    std::unique_ptr<EntityManager> m_EntityManager;
+    std::shared_ptr<EntityManager> m_EntityManager;
     std::shared_ptr<AssetManager> m_AssetManager;
+
+    std::unique_ptr<EntityFactory> m_EntityFactory;
     
     b2World* m_PhysicsWorld;
-    CollisionManager* m_CollisionManager;
+//    CollisionManager* m_CollisionManager;
     
     std::vector<std::shared_ptr<Player>> m_Players;
 
@@ -136,7 +139,6 @@ private:
     float WALL_THICKNESS;
     float WALL_BUFFER;
     b2Vec2 GoalSize;
-
 };
 
 

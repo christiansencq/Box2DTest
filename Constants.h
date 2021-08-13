@@ -7,13 +7,8 @@
 #include <bitset>
 #include <array>
 #include <map>
+
 //Constants
-
-//Phys constants - moved to World
-// const float timeStep = 1.0f / 60.0f;
-// const int velocityIterations = 6;
-// const int positionIterations = 2;
-
 
 constexpr unsigned int FPS = 60;
 constexpr unsigned int FRAME_TARGET_TIME = 1000 / FPS;//Convert FPS to milliseconds per frame?
@@ -39,11 +34,6 @@ const SDL_Color CYAN = {0, 0xFF, 0xFF, 0xFF};
 
 constexpr float SCREEN_WIDTH = 1600;
 constexpr float SCREEN_HEIGHT = 900;
-
-//Wall Thickness
-// constexpr float WALL_THICKNESS = 10.f;
-//WallBuffer
-// constexpr float WALL_BUFFER = 50.f;
 
 const b2Vec2 puckStart = {SCREEN_WIDTH/2, SCREEN_HEIGHT/2};
 

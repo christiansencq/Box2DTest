@@ -17,8 +17,8 @@ class Player
 public:
 
     Player(std::array<SDL_Keycode, 3> swap_keys, std::array<SDL_Keycode, 4> action_keys);
-    Player(std::array<SDL_Keycode, 3> swap_keys, std::array<SDL_Keycode, 4> action_keys, Entity* score_display);
-    Player(std::array<SDL_Keycode, 3> swap_keys, std::array<SDL_Keycode, 4> action_keys, Entity* score_display, std::vector<b2Vec2> starting_pos);
+    // Player(std::array<SDL_Keycode, 3> swap_keys, std::array<SDL_Keycode, 4> action_keys, Entity* score_display);
+    // Player(std::array<SDL_Keycode, 3> swap_keys, std::array<SDL_Keycode, 4> action_keys, Entity* score_display, std::vector<b2Vec2> starting_pos);
     ~Player();
 
     void ResetPositions();
