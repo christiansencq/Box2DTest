@@ -42,9 +42,11 @@ struct ArenaLayoutData
     //Lua imported variables.
     float WALL_THICKNESS;
     float WALL_BUFFER;
-    float GOAL_WIDTH, GOAL_HEIGHT;
     std::vector<b2Vec2> P1StartingPositions;
     std::vector<b2Vec2> P2StartingPositions;
+    std::vector<std::vector<b2Vec2>> StartingPositions;
+    std::vector<b2Vec2> GoalPositions;
+    std::vector<b2Vec2> ScoreDisplayPositions;
 
     //Derivative Variables from the Lua variables.
     //WallSizes
@@ -52,32 +54,29 @@ struct ArenaLayoutData
     b2Vec2 BottomWallSize;
     b2Vec2 LeftWallSize;
     b2Vec2 RightWallSize;
-    std::array<b2Vec2, 4> WallSizes;
+    std::vector<b2Vec2> WallSizes;
     //GoalWallSizes
     b2Vec2 GoalTopWallSize;
     b2Vec2 GoalBotWallSize;
     b2Vec2 GoalSideWallSize;
-    std::array<b2Vec2, 3> GoalWallSizes;
+    std::vector<b2Vec2> GoalWallSizes;
     b2Vec2 GoalSize; //Factor this out?
-    std::vector<std::vector<b2Vec2>> StartingPositions;
-    std::vector<b2Vec2> GoalPositions;
-    std::vector<b2Vec2> ScoreDisplayPositions;
 
     b2Vec2 TopWallPos = {SCREEN_WIDTH/2, 30};
     b2Vec2 BottomWallPos = {SCREEN_WIDTH/2, SCREEN_HEIGHT - 30};
     b2Vec2 LeftWallPos = {30, SCREEN_HEIGHT/2};
     b2Vec2 RightWallPos = {SCREEN_WIDTH-30, SCREEN_HEIGHT/2};
-    std::array<b2Vec2, 4> WallPositions = {TopWallPos, BottomWallPos, LeftWallPos, RightWallPos};
+    std::vector<b2Vec2> WallPositions = {TopWallPos, BottomWallPos, LeftWallPos, RightWallPos};
 
     b2Vec2 Goal1TopWallPos;
     b2Vec2 Goal1BotWallPos;
     b2Vec2 Goal1SideWallPos;
-    std::array<b2Vec2, 3> Goal1WallPositions; 
+    std::vector<b2Vec2> Goal1WallPositions; 
     
     b2Vec2 Goal2TopWallPos;
     b2Vec2 Goal2BotWallPos;
     b2Vec2 Goal2SideWallPos;
-    std::array<b2Vec2, 3> Goal2WallPositions; 
+    std::vector<b2Vec2> Goal2WallPositions; 
     
 };
 
@@ -103,15 +102,12 @@ private:
     bool LoadArenaData(std::string arena_data_file);
 
     //Factory
-    void SetUpPuck();
-    void CreateBoundaries();
-    void CreateGoalZones();
-    void CreateGoalWalls();
+    // void SetUpPuck();
+    void CreateStaticWalls();
 
     //Refactor this so the ints are x,y position, etc.
-    void AddPlayerBall(std::shared_ptr<Player> player, int i, int j);
-
-
+    // void AddPlayerBall(std::shared_ptr<Player> player, int i, int j);
+    void AddPlayerBalls(std::shared_ptr<Player> player, int player_number, int team_size);
 
 
     ArenaLayoutData arena;

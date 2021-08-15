@@ -12,18 +12,13 @@ GameMatchState::GameMatchState(SDL_Renderer* renderer)
 
     //Set Up Managers and Physics.
 
-    m_EntityFactory = std::make_unique<EntityFactory>(m_Renderer, m_EntityManager, m_PhysicsWorld);
-
+    m_EntityFactory = std::make_unique<EntityFactory>(m_Renderer, m_AssetManager, m_EntityManager, m_PhysicsWorld);
 
     SetUpTwoPlayers();
 
     m_EntityFactory->CreatePuck({SCREEN_WIDTH/2, SCREEN_HEIGHT/2});
 
-    m_EntityFactory->CreateOuterWalls(arena.WallPositions, arena.WallSizes);
-
-    //CreateBoundaries();
-
-    CreateGoalWalls();
+    CreateStaticWalls();
 }
 
 GameMatchState::~GameMatchState()
@@ -122,7 +117,6 @@ void GameMatchState::SetUpTwoPlayers()
     assert((NumPlayers != static_cast<int>(keybindData.SwapKeys.size())) && "Num of Swap keybinds != NumPlayers");
     assert((NumPlayers != static_cast<int>(keybindData.ActionKeys.size())) && "Num of Action keybind != Num Players");
 
-
     for (int i = 0; i < NumPlayers; i++)
     {
         std::shared_ptr<Player> player = std::make_shared<Player>(keybindData.SwapKeys[i], keybindData.ActionKeys[i]);
@@ -131,25 +125,22 @@ void GameMatchState::SetUpTwoPlayers()
 
         std::cout << "Setting up player's ball \n";
         //Set Up the balls that each player will control.
-        for (int j = 0; j < TeamSize; j++)
-        {
-            AddPlayerBall(player, i, j);
-        }
+        AddPlayerBalls(player, i, TeamSize);
 
-
-        //player->SwapActiveBall(0);
         std::cout << "Setting Up player's score display \n";
 
         //Set up the score display
-        Entity* score_display = m_EntityManager->AddEntity(arena.ScoreDisplayPositions[i], b2Vec2{50, 20});
-        score_display->AddComponent<TextComponent>(m_AssetManager, m_Renderer, std::string(std::to_string(i) + " Score"), "ScoreFont");
-        player->AddScoreDisplay(score_display);
+        m_EntityFactory->CreateScoreDisplay(player, arena.ScoreDisplayPositions[i], arena.GoalSize);
+        // Entity* score_display = m_EntityManager->AddEntity(arena.ScoreDisplayPositions[i], b2Vec2{50, 20});
+        // score_display->AddComponent<TextComponent>(m_AssetManager, m_Renderer, std::string(std::to_string(i) + " Score"), "ScoreFont");
+        // player->AddScoreDisplay(score_display);
 
         std::cout << "Setting Up player's goal zone. \n";
+        // m_EntityFactory->CreateScoreDisplay(player, arena.ScoreDisplayPositions[i], b2Vec2{50, 20});
+        m_EntityFactory->CreateScoreDisplay(player, arena.ScoreDisplayPositions[i], arena.GoalSize);
         //Set up the Goal Zone
-        Entity* goal_zone = m_EntityManager->AddEntity(arena.GoalPositions[i], arena.GoalSize);
-        goal_zone->AddComponent<GoalZoneComponent>(m_PhysicsWorld, player);
-
+        // Entity* goal_zone = m_EntityManager->AddEntity(arena.GoalPositions[i], arena.GoalSize);
+        // goal_zone->AddComponent<GoalZoneComponent>(m_PhysicsWorld, player);
         
         std::cout << "Set Players ActiveBall  \n";
 
@@ -171,10 +162,13 @@ void GameMatchState::SetUpPuck()
     puck->AddComponent<SDLCircleComponent>(m_Renderer, GREEN);
 }
 
-void GameMatchState::AddPlayerBall(std::shared_ptr<Player> player, int i, int j)
+void GameMatchState::AddPlayerBalls(std::shared_ptr<Player> player, int player_number, int team_size)
 {
-    std::cout << "Position of Ball " << arena.StartingPositions[i][j].x << " , " << arena.StartingPositions[i][j].y << ". \n";
-    Entity* ball = m_EntityManager->AddEntity(arena.StartingPositions[i][j], 50.0f);
+
+    for (int i = 0; i < team_size; i++)
+    {
+    // std::cout << "Position of Ball " << arena.StartingPositions[player_number][i].x << " , " << arena.StartingPositions[player_number][i].y << ". \n";
+    Entity* ball = m_EntityManager->AddEntity(arena.StartingPositions[player_number][i], 50.0f);
     player->AddBallToTeam(ball);
     ball->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::CIRCLE, b2BodyType::b2_dynamicBody);
     ball->GetComponent<PhysicsComponent>()->SetData();
@@ -185,34 +179,31 @@ void GameMatchState::AddPlayerBall(std::shared_ptr<Player> player, int i, int j)
     ball->GetComponent<KeyInputComponent>()->AddCommand<BackwardThrustCommand>();
     ball->GetComponent<KeyInputComponent>()->AddCommand<LeftTurnCommand>();
     ball->GetComponent<KeyInputComponent>()->AddCommand<RightTurnCommand>();
-}
-
-void GameMatchState::CreateBoundaries()
-{
-    // for (int i = 0; i < 4; i++)
-    {
-    m_EntityFactory->CreateOuterWalls(arena.WallPositions, arena.WallSizes);
     }
 }
 
-void GameMatchState::CreateGoalWalls()
+// void GameMatchState::AddPlayerBall(std::shared_ptr<Player> player, int i, int j)
+// {
+//     // std::cout << "Position of Ball " << arena.StartingPositions[i][j].x << " , " << arena.StartingPositions[i][j].y << ". \n";
+//     Entity* ball = m_EntityManager->AddEntity(arena.StartingPositions[i][j], 50.0f);
+//     player->AddBallToTeam(ball);
+//     ball->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::CIRCLE, b2BodyType::b2_dynamicBody);
+//     ball->GetComponent<PhysicsComponent>()->SetData();
+//     ball->AddComponent<SDLCircleComponent>(m_Renderer);
+//     ball->AddComponent<SelectableComponent>(m_Renderer);
+//     ball->AddComponent<KeyInputComponent>(player->GetActionKeys());
+//     ball->GetComponent<KeyInputComponent>()->AddCommand<ForwardThrustCommand>();
+//     ball->GetComponent<KeyInputComponent>()->AddCommand<BackwardThrustCommand>();
+//     ball->GetComponent<KeyInputComponent>()->AddCommand<LeftTurnCommand>();
+//     ball->GetComponent<KeyInputComponent>()->AddCommand<RightTurnCommand>();
+// }
+
+void GameMatchState::CreateStaticWalls()
 {
+    m_EntityFactory->CreateOuterWalls(arena.WallPositions, arena.WallSizes);
+
     m_EntityFactory->CreateGoalWalls(arena.Goal1WallPositions, arena.GoalWallSizes);
     m_EntityFactory->CreateGoalWalls(arena.Goal2WallPositions, arena.GoalWallSizes);
-
-        // Entity* GoalWall = m_EntityManager->AddEntity(arena.Goal1WallPositions[i], arena.GoalWallSizes[i]);
-        // GoalWall->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::RECT, b2BodyType::b2_staticBody);
-        // GoalWall->GetComponent<PhysicsComponent>()->SetData();
-        // GoalWall->AddComponent<SDLRectComponent>(m_Renderer);
-    // }
-    // for (int i = 0; i < 3; i++)
-    // {
-    //     m_EntityFactory->CreateGoalWalls(arena.Goal1WallPositions, arena.GoalWallSizes);
-    //     Entity* GoalWall = m_EntityManager->AddEntity(arena.Goal2WallPositions[i], arena.GoalWallSizes[i]);
-    //     GoalWall->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::RECT, b2BodyType::b2_staticBody);
-    //     GoalWall->GetComponent<PhysicsComponent>()->SetData();
-    //     GoalWall->AddComponent<SDLRectComponent>(m_Renderer);
-    // }
 }
 
 bool GameMatchState::CheckLua(lua_State* L, int r)
@@ -246,118 +237,148 @@ bool GameMatchState::LoadArenaData(std::string arena_data_file)
             lua_gettable(L, -2);
             arena.WALL_BUFFER = lua_tonumber(L, -1);
             lua_pop(L, 1);
+        }
 
-            lua_pushstring(L, "GoalWidth");
+        lua_getglobal(L, "GoalSize");
+        if (lua_istable(L, -1))
+        {
+            lua_pushnumber(L, 1);
             lua_gettable(L, -2);
-            arena.GOAL_WIDTH = lua_tonumber(L, -1);
+            arena.GoalSize.x = lua_tonumber(L, -1);
             lua_pop(L, 1);
-
-            lua_pushstring(L, "GoalHeight");
+            
+            lua_pushnumber(L, 1);
             lua_gettable(L, -2);
-            arena.GOAL_HEIGHT = lua_tonumber(L, -1);
+            arena.GoalSize.y = lua_tonumber(L, -1);
             lua_pop(L, 1);
         }
 
-        lua_getglobal(L, "P1StartingPos");
+        lua_getglobal(L, "BallStartPos");
         if (lua_istable(L, -1))
         {
-            lua_pushstring(L, "x1");
+            lua_pushstring(L, "P1");
+
+            lua_gettable(L, -2);
+            lua_pushstring(L, "b1");
+            lua_gettable(L, -2);
+            lua_pushnumber(L, 1);
             lua_gettable(L, -2);
             float p1x1 = lua_tonumber(L, -1);
+            
+
             lua_pop(L, 1);
 
-            lua_pushstring(L, "y1");
+            lua_pushnumber(L, 2);
             lua_gettable(L, -2);
             float p1y1 = lua_tonumber(L, -1);
-            lua_pop(L, 1);
-            arena.P1StartingPositions.push_back({p1x1, p1y1});
 
-            std::cout << "P1 b1 " << p1x1 << " , " << p1y1 << "\n";
+            lua_pop(L, 2);
 
-            lua_pushstring(L, "x2");
+            lua_pushstring(L, "b2");
+            lua_gettable(L, -2);
+            lua_pushnumber(L, 1);
             lua_gettable(L, -2);
             float p1x2 = lua_tonumber(L, -1);
+
             lua_pop(L, 1);
 
-            lua_pushstring(L, "y2");
+            lua_pushnumber(L, 2);
             lua_gettable(L, -2);
             float p1y2 = lua_tonumber(L, -1);
-            lua_pop(L, 1);
-            arena.P1StartingPositions.push_back({p1x2, p1y2});
 
-            lua_pushstring(L, "x3");
+            lua_pop(L, 2);
+
+            lua_pushstring(L, "b3");
+            lua_gettable(L, -2);
+            lua_pushnumber(L, 1);
             lua_gettable(L, -2);
             float p1x3 = lua_tonumber(L, -1);
+
             lua_pop(L, 1);
 
-            lua_pushstring(L, "y3");
+            lua_pushnumber(L, 2);
             lua_gettable(L, -2);
             float p1y3 = lua_tonumber(L, -1);
-            lua_pop(L, 1);
-            arena.P1StartingPositions.push_back({p1x3, p1y3});
-        }
 
-        lua_getglobal(L, "P2StartingPos");
-        if (lua_istable(L, -1))
-        {
-            lua_pushstring(L, "x1");
+            arena.P1StartingPositions = { {p1x1, p1y1}, {p1x2, p1y2}, {p1x3, p1y3} };
+
+            lua_pop(L, 3);
+
+            lua_pushstring(L, "P2");
+
+            lua_gettable(L, -2);
+            lua_pushstring(L, "b1");
+            lua_gettable(L, -2);
+            lua_pushnumber(L, 1);
             lua_gettable(L, -2);
             float p2x1 = lua_tonumber(L, -1);
+
             lua_pop(L, 1);
 
-            lua_pushstring(L, "y1");
+            lua_pushnumber(L, 2);
             lua_gettable(L, -2);
             float p2y1 = lua_tonumber(L, -1);
-            lua_pop(L, 1);
-            arena.P2StartingPositions.push_back({p2x1, p2y1});
 
-            lua_pushstring(L, "x2");
+            lua_pop(L, 2);
+
+            lua_pushstring(L, "b2");
+            lua_gettable(L, -2);
+            lua_pushnumber(L, 1);
             lua_gettable(L, -2);
             float p2x2 = lua_tonumber(L, -1);
+
             lua_pop(L, 1);
 
-            lua_pushstring(L, "y2");
+            lua_pushnumber(L, 2);
             lua_gettable(L, -2);
             float p2y2 = lua_tonumber(L, -1);
-            lua_pop(L, 1);
-            arena.P2StartingPositions.push_back({p2x2, p2y2});
 
-            lua_pushstring(L, "x3");
+            lua_pop(L, 2);
+
+            lua_pushstring(L, "b3");
+            lua_gettable(L, -2);
+            lua_pushnumber(L, 1);
             lua_gettable(L, -2);
             float p2x3 = lua_tonumber(L, -1);
+
             lua_pop(L, 1);
 
-            lua_pushstring(L, "y3");
+            lua_pushnumber(L, 2);
             lua_gettable(L, -2);
             float p2y3 = lua_tonumber(L, -1);
-            lua_pop(L, 1);
-            arena.P2StartingPositions.push_back({p2x3, p2y3});
+            arena.P2StartingPositions  = { {p2x1, p2y1}, {p2x2, p2y2}, {p2x3, p2y3} };
         }
 
         lua_getglobal(L, "ScoreDisplayPos");
         if (lua_istable(L, -1))
         {
-            lua_pushstring(L, "x1");
+            lua_pushstring(L, "P1");
+            lua_gettable(L, -2);
+            lua_pushnumber(L, 1);
             lua_gettable(L, -2);
             float x1 = lua_tonumber(L, -1);
+
             lua_pop(L, 1);
 
-            lua_pushstring(L, "y1");
+            lua_pushnumber(L, 2);
             lua_gettable(L, -2);
             float y1 = lua_tonumber(L, -1);
-            lua_pop(L, 1);
-            arena.ScoreDisplayPositions.push_back({x1, y1});
+            
+            lua_pop(L, 2);
 
-            lua_pushstring(L, "x2");
+            lua_pushstring(L, "P2");
+            lua_gettable(L, -2);
+            lua_pushnumber(L, 1);
             lua_gettable(L, -2);
             float x2 = lua_tonumber(L, -1);
+
             lua_pop(L, 1);
 
-            lua_pushstring(L, "y2");
+            lua_pushnumber(L, 2);
             lua_gettable(L, -2);
             float y2 = lua_tonumber(L, -1);
-            lua_pop(L, 1);
-
+            
+            arena.ScoreDisplayPositions.push_back({x1, y1});
             arena.ScoreDisplayPositions.push_back({x2, y2});
         }
 
@@ -382,33 +403,28 @@ bool GameMatchState::LoadArenaData(std::string arena_data_file)
             lua_pushnumber(L, 2);
             lua_gettable(L, -2);
             float g1y = lua_tonumber(L, -1);
-            arena.GoalPositions.push_back({g1x, g1y});
 
             lua_pop(L, 2);
 
             lua_pushstring(L, "P2");
-            lua_gettable(L, -2); //This push
+            lua_gettable(L, -2); 
+
             lua_pushnumber(L, 1);
             lua_gettable(L, -2);
-
             float g2x = lua_tonumber(L, -1);
+
             lua_pop(L, 1);
 
             lua_pushnumber(L, 2);
             lua_gettable(L, -2);
             float g2y = lua_tonumber(L, -1);
 
+            arena.GoalPositions.push_back({g1x, g1y});
             arena.GoalPositions.push_back({g2x, g2y});
-
-            std::cout << "G2x, y " << g2x << "   " << g2y << "\n";
         }
 
-//Dependent Variables
+        //Dependent Variables
         arena.StartingPositions = {arena.P1StartingPositions, arena.P2StartingPositions};
-
-            //Set the variables dependent on those pulled from lua.
-        arena.GoalSize.x = arena.GOAL_WIDTH;
-        arena.GoalSize.y = arena.GOAL_HEIGHT;
 
         arena.TopWallSize = {SCREEN_WIDTH-70, arena.WALL_THICKNESS};
         arena.BottomWallSize = {SCREEN_WIDTH-70, arena.WALL_THICKNESS};
@@ -416,9 +432,9 @@ bool GameMatchState::LoadArenaData(std::string arena_data_file)
         arena.RightWallSize = {arena.WALL_THICKNESS, SCREEN_HEIGHT-arena.WALL_BUFFER};
         arena.WallSizes = {arena.TopWallSize, arena.BottomWallSize, arena.LeftWallSize, arena.RightWallSize};
 
-        arena.GoalTopWallSize = { arena.GOAL_WIDTH + (2 * arena.WALL_THICKNESS), arena.WALL_THICKNESS };
-        arena.GoalBotWallSize = { arena.GOAL_WIDTH + (2 * arena.WALL_THICKNESS), arena.WALL_THICKNESS };
-        arena.GoalSideWallSize = { arena.WALL_THICKNESS, arena.GOAL_HEIGHT };
+        arena.GoalTopWallSize = { arena.GoalSize.x + (2 * arena.WALL_THICKNESS), arena.WALL_THICKNESS };
+        arena.GoalBotWallSize = { arena.GoalSize.x + (2 * arena.WALL_THICKNESS), arena.WALL_THICKNESS };
+        arena.GoalSideWallSize = { arena.WALL_THICKNESS, arena.GoalSize.y };
         arena.GoalWallSizes = { arena.GoalTopWallSize, arena.GoalBotWallSize, arena.GoalSideWallSize };
 
         std::cout << "Reading Goal Positions \n"; 
@@ -431,8 +447,6 @@ bool GameMatchState::LoadArenaData(std::string arena_data_file)
         arena.Goal2BotWallPos = { arena.GoalPositions[1].x, arena.GoalPositions[1].y + arena.GoalSize.y/2 };
         arena.Goal2SideWallPos = { arena.GoalPositions[1].x - arena.GoalSize.x/2, arena.GoalPositions[1].y };
         arena.Goal2WallPositions = { arena.Goal2TopWallPos, arena.Goal2BotWallPos, arena.Goal2SideWallPos };
-
-
     
         lua_close(L);
         return true;
