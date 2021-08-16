@@ -4,7 +4,7 @@
 Player::Player(const std::array<SDL_Keycode, 3> swap_keys, const std::array<SDL_Keycode, 4> action_keys)
  : m_SwapKeys (swap_keys), m_ActionKeys (action_keys)
 {
-
+    
 }
 
 Player::~Player()

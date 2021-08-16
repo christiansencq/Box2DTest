@@ -541,32 +541,32 @@ Player.cpp.s:
 	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Player.cpp.s
 .PHONY : Player.cpp.s
 
-ScriptManager.o: ScriptManager.cpp.o
+ScriptLoader.o: ScriptLoader.cpp.o
 
-.PHONY : ScriptManager.o
+.PHONY : ScriptLoader.o
 
 # target to build an object file
-ScriptManager.cpp.o:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/ScriptManager.cpp.o
-.PHONY : ScriptManager.cpp.o
+ScriptLoader.cpp.o:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/ScriptLoader.cpp.o
+.PHONY : ScriptLoader.cpp.o
 
-ScriptManager.i: ScriptManager.cpp.i
+ScriptLoader.i: ScriptLoader.cpp.i
 
-.PHONY : ScriptManager.i
+.PHONY : ScriptLoader.i
 
 # target to preprocess a source file
-ScriptManager.cpp.i:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/ScriptManager.cpp.i
-.PHONY : ScriptManager.cpp.i
+ScriptLoader.cpp.i:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/ScriptLoader.cpp.i
+.PHONY : ScriptLoader.cpp.i
 
-ScriptManager.s: ScriptManager.cpp.s
+ScriptLoader.s: ScriptLoader.cpp.s
 
-.PHONY : ScriptManager.s
+.PHONY : ScriptLoader.s
 
 # target to generate assembly for a file
-ScriptManager.cpp.s:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/ScriptManager.cpp.s
-.PHONY : ScriptManager.cpp.s
+ScriptLoader.cpp.s:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/ScriptLoader.cpp.s
+.PHONY : ScriptLoader.cpp.s
 
 external/lua/lapi.o: external/lua/lapi.c.o
 
@@ -1541,9 +1541,9 @@ help:
 	@echo "... Player.o"
 	@echo "... Player.i"
 	@echo "... Player.s"
-	@echo "... ScriptManager.o"
-	@echo "... ScriptManager.i"
-	@echo "... ScriptManager.s"
+	@echo "... ScriptLoader.o"
+	@echo "... ScriptLoader.i"
+	@echo "... ScriptLoader.s"
 	@echo "... external/lua/lapi.o"
 	@echo "... external/lua/lapi.i"
 	@echo "... external/lua/lapi.s"

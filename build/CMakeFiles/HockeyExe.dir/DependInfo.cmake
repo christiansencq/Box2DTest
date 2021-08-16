@@ -19,7 +19,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/charles/Cpp/Box2Test/EntityManager.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/EntityManager.cpp.o"
   "/home/charles/Cpp/Box2Test/GameMatchState.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/GameMatchState.cpp.o"
   "/home/charles/Cpp/Box2Test/Player.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/Player.cpp.o"
-  "/home/charles/Cpp/Box2Test/ScriptManager.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/ScriptManager.cpp.o"
+  "/home/charles/Cpp/Box2Test/ScriptLoader.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/ScriptLoader.cpp.o"
   "/home/charles/Cpp/Box2Test/main.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

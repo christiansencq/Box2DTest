@@ -17,8 +17,6 @@ class Player
 public:
 
     Player(std::array<SDL_Keycode, 3> swap_keys, std::array<SDL_Keycode, 4> action_keys);
-    // Player(std::array<SDL_Keycode, 3> swap_keys, std::array<SDL_Keycode, 4> action_keys, Entity* score_display);
-    // Player(std::array<SDL_Keycode, 3> swap_keys, std::array<SDL_Keycode, 4> action_keys, Entity* score_display, std::vector<b2Vec2> starting_pos);
     ~Player();
 
     void ResetPositions();
@@ -40,16 +38,17 @@ public:
     void IncrementScore(int num);
     int GetScore() { return m_Score; }
 
+    int id_number;
 private:
-    
+
     std::vector<b2Vec2> m_StartingPositions;
     std::vector<Entity*> m_TeamsBalls;
-//    int Selected_Index = 0;//Could use this instead of m_ActiveBall?
     Entity* m_ActiveBall; 
     Entity* m_ScoreDisplay;    
     const std::array<SDL_Keycode, 3> m_SwapKeys;
     const std::array<SDL_Keycode, 4> m_ActionKeys;
     int m_Score = 0;
 };
+
 
 #endif

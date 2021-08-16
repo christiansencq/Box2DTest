@@ -252,18 +252,18 @@ CMakeFiles/HockeyExe.dir/Player.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HockeyExe.dir/Player.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/charles/Cpp/Box2Test/Player.cpp -o CMakeFiles/HockeyExe.dir/Player.cpp.s
 
-CMakeFiles/HockeyExe.dir/ScriptManager.cpp.o: CMakeFiles/HockeyExe.dir/flags.make
-CMakeFiles/HockeyExe.dir/ScriptManager.cpp.o: ../ScriptManager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/charles/Cpp/Box2Test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/HockeyExe.dir/ScriptManager.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HockeyExe.dir/ScriptManager.cpp.o -c /home/charles/Cpp/Box2Test/ScriptManager.cpp
+CMakeFiles/HockeyExe.dir/ScriptLoader.cpp.o: CMakeFiles/HockeyExe.dir/flags.make
+CMakeFiles/HockeyExe.dir/ScriptLoader.cpp.o: ../ScriptLoader.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/charles/Cpp/Box2Test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/HockeyExe.dir/ScriptLoader.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HockeyExe.dir/ScriptLoader.cpp.o -c /home/charles/Cpp/Box2Test/ScriptLoader.cpp
 
-CMakeFiles/HockeyExe.dir/ScriptManager.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HockeyExe.dir/ScriptManager.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/charles/Cpp/Box2Test/ScriptManager.cpp > CMakeFiles/HockeyExe.dir/ScriptManager.cpp.i
+CMakeFiles/HockeyExe.dir/ScriptLoader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HockeyExe.dir/ScriptLoader.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/charles/Cpp/Box2Test/ScriptLoader.cpp > CMakeFiles/HockeyExe.dir/ScriptLoader.cpp.i
 
-CMakeFiles/HockeyExe.dir/ScriptManager.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HockeyExe.dir/ScriptManager.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/charles/Cpp/Box2Test/ScriptManager.cpp -o CMakeFiles/HockeyExe.dir/ScriptManager.cpp.s
+CMakeFiles/HockeyExe.dir/ScriptLoader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HockeyExe.dir/ScriptLoader.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/charles/Cpp/Box2Test/ScriptLoader.cpp -o CMakeFiles/HockeyExe.dir/ScriptLoader.cpp.s
 
 CMakeFiles/HockeyExe.dir/main.cpp.o: CMakeFiles/HockeyExe.dir/flags.make
 CMakeFiles/HockeyExe.dir/main.cpp.o: ../main.cpp
@@ -295,7 +295,7 @@ HockeyExe_OBJECTS = \
 "CMakeFiles/HockeyExe.dir/EntityManager.cpp.o" \
 "CMakeFiles/HockeyExe.dir/GameMatchState.cpp.o" \
 "CMakeFiles/HockeyExe.dir/Player.cpp.o" \
-"CMakeFiles/HockeyExe.dir/ScriptManager.cpp.o" \
+"CMakeFiles/HockeyExe.dir/ScriptLoader.cpp.o" \
 "CMakeFiles/HockeyExe.dir/main.cpp.o"
 
 # External object files for target HockeyExe
@@ -316,7 +316,7 @@ HockeyExe: CMakeFiles/HockeyExe.dir/EntityFactory.cpp.o
 HockeyExe: CMakeFiles/HockeyExe.dir/EntityManager.cpp.o
 HockeyExe: CMakeFiles/HockeyExe.dir/GameMatchState.cpp.o
 HockeyExe: CMakeFiles/HockeyExe.dir/Player.cpp.o
-HockeyExe: CMakeFiles/HockeyExe.dir/ScriptManager.cpp.o
+HockeyExe: CMakeFiles/HockeyExe.dir/ScriptLoader.cpp.o
 HockeyExe: CMakeFiles/HockeyExe.dir/main.cpp.o
 HockeyExe: CMakeFiles/HockeyExe.dir/build.make
 HockeyExe: /usr/lib/x86_64-linux-gnu/libSDL2_ttf.so
