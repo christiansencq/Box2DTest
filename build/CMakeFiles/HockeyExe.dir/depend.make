@@ -26,6 +26,7 @@ CMakeFiles/HockeyExe.dir/App.cpp.o: ../EntityManager.h
 CMakeFiles/HockeyExe.dir/App.cpp.o: ../GameMatchState.h
 CMakeFiles/HockeyExe.dir/App.cpp.o: ../KeybindData.h
 CMakeFiles/HockeyExe.dir/App.cpp.o: ../Player.h
+CMakeFiles/HockeyExe.dir/App.cpp.o: ../ScriptLoader.h
 CMakeFiles/HockeyExe.dir/App.cpp.o: ../State.h
 
 CMakeFiles/HockeyExe.dir/AssetManager.cpp.o: ../AssetManager.cpp
@@ -159,6 +160,7 @@ CMakeFiles/HockeyExe.dir/Entity.cpp.o: ../Entity.h
 CMakeFiles/HockeyExe.dir/Entity.cpp.o: ../EntityManager.h
 CMakeFiles/HockeyExe.dir/Entity.cpp.o: ../Player.h
 
+CMakeFiles/HockeyExe.dir/EntityFactory.cpp.o: ../ArenaLayout.h
 CMakeFiles/HockeyExe.dir/EntityFactory.cpp.o: ../AssetManager.h
 CMakeFiles/HockeyExe.dir/EntityFactory.cpp.o: ../Commands/Commands.h
 CMakeFiles/HockeyExe.dir/EntityFactory.cpp.o: ../Components/Component.h
@@ -174,6 +176,7 @@ CMakeFiles/HockeyExe.dir/EntityFactory.cpp.o: ../Entity.h
 CMakeFiles/HockeyExe.dir/EntityFactory.cpp.o: ../EntityFactory.cpp
 CMakeFiles/HockeyExe.dir/EntityFactory.cpp.o: ../EntityFactory.h
 CMakeFiles/HockeyExe.dir/EntityFactory.cpp.o: ../EntityManager.h
+CMakeFiles/HockeyExe.dir/EntityFactory.cpp.o: ../KeybindData.h
 CMakeFiles/HockeyExe.dir/EntityFactory.cpp.o: ../Player.h
 
 CMakeFiles/HockeyExe.dir/EntityManager.cpp.o: ../AssetManager.h
@@ -217,6 +220,7 @@ CMakeFiles/HockeyExe.dir/GameMatchState.cpp.o: ../GameMatchState.cpp
 CMakeFiles/HockeyExe.dir/GameMatchState.cpp.o: ../GameMatchState.h
 CMakeFiles/HockeyExe.dir/GameMatchState.cpp.o: ../KeybindData.h
 CMakeFiles/HockeyExe.dir/GameMatchState.cpp.o: ../Player.h
+CMakeFiles/HockeyExe.dir/GameMatchState.cpp.o: ../ScriptLoader.h
 CMakeFiles/HockeyExe.dir/GameMatchState.cpp.o: ../State.h
 
 CMakeFiles/HockeyExe.dir/Player.cpp.o: ../AssetManager.h

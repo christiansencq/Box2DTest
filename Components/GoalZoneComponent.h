@@ -13,7 +13,7 @@
 #include "PhysicsComponent.h"
 
 //GoalZone has a RectanglePhysicsObject, and a Player to update when Triggered.
-//TODO: Integrate the Physics portion into PhysicsComponent and have this be a go-between.
+//TODO: Integrate the Physics portion into PhysicsComponent
 
 class Entity;
 
@@ -24,9 +24,9 @@ public:
     ~GoalZoneComponent();
 
     virtual void Initialize() override;
-    virtual void HandleEvents(SDL_Event &event) override {}
+    // virtual void HandleEvents(SDL_Event &event) override {}
     virtual void Update() override;
-    virtual void Render() override {}
+    // virtual void Render() override {}
 
     void Score();
     void SetData(bool scorer = false);
@@ -39,13 +39,11 @@ private:
     void CreateBody();
     void CreateRectShape();
 
-
     int m_Width, m_Height;
-    bool m_Triggered;
     std::shared_ptr<Player> m_Player;
     b2World* m_PhysWorld;
     b2Body* m_PhysBody;
-    CollisionData* m_CollisionData;
+    CollisionData m_CollisionData;
 };
 
 #endif

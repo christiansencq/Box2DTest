@@ -14,6 +14,7 @@
 #include "EntityManager.h"
 #include "Player.h"
 #include "EntityFactory.h"
+#include "ScriptLoader.h"
 //#include "CollisionManager.h"
 
 #include "KeybindData.h"
@@ -35,28 +36,21 @@ public:
     explicit GameMatchState(SDL_Renderer* renderer);
     ~GameMatchState();
 
-    void HandleEvents() override;
-    void Update() override;
-    void Render(SDL_Renderer* renderer) override;
+    virtual void HandleEvents() override;
+    virtual void Update() override;
+    virtual void Render(SDL_Renderer* renderer) override;
 
 private:
 
-    bool CheckLua(lua_State* L, int r);
-
-    void LuaGetTableFromKey(lua_State* L, const char* key);
-    float LuaIndexToFloat(lua_State* L, int index);
-    float LuaKeyToFloat(lua_State* L, const char* lua_var_name);
-    b2Vec2 LuaKeyTob2Vec(lua_State* L, const char* key);
 
     void InitPhysics();
 
     void SetUpTwoPlayers();
-    bool LoadArenaData(std::string arena_data_file);
 
-
-    // void AddPlayerBalls(std::shared_ptr<Player> player, int player_number, int team_size);
     void AddPlayerBalls(std::shared_ptr<Player> player, int team_size);
 
+
+    //Data
 
     ArenaLayoutData arena;
     KeyBindingData keybindData;
@@ -69,6 +63,7 @@ private:
     std::shared_ptr<AssetManager> m_AssetManager;
 
     std::unique_ptr<EntityFactory> m_EntityFactory;
+    std::shared_ptr<ScriptLoader> m_ScriptLoader;
     
     b2World* m_PhysicsWorld;
 //    CollisionManager* m_CollisionManager;

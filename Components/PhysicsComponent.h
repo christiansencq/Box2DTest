@@ -25,7 +25,6 @@ class PhysicsComponent : public Component
 {
 public:
     PhysicsComponent(b2World* world, ShapeType shape, b2BodyType body_type);
-//    PhysicsComponent(b2World* world, ShapeType shape, b2BodyType body_type, isSensor is_sensor, std::bitset<16> col_cat, std::bitset<16> col_mask);
     ~PhysicsComponent();
     virtual void Initialize() override; 
     virtual void Update() override;
@@ -35,8 +34,8 @@ public:
 
     // void SetCollisionCategory(std::bitset<16> category) { m_CollisionCategory = category; }
     // void SetCollisionMask(std::bitset<16> mask) { m_CollisionMask = mask; }
+
     void SetThrusting(bool thrusting) { isThrusting = thrusting; }
-    void SetThrustingVec(b2Vec2 thrust_vector);
     void SetThrustDirection(ThrustDir dir);
     void SetFixedTurning(TurnDir turning, bool fixed);  
     void SetTurning(TurnDir turning);    
@@ -44,7 +43,7 @@ public:
 
     void SetData(bool scorer = false);
 
-    Entity* GetOwner() { return owner; }
+    Entity* GetOwner() const { return owner; }
     Entity* owner;
 
 private:
@@ -55,7 +54,6 @@ private:
 
     //In the same way that width/height were moved to the Entity. rad should too.
     int m_Radius;
-    //int m_Width, m_Height;
 
     bool isThrusting = false;
     b2Vec2 m_ThrustingVec;
@@ -72,9 +70,8 @@ private:
     b2Fixture* m_PhysFixture;
     ShapeType m_ShapeType;
     b2BodyType m_BodyType;
-    CollisionData m_CollisionData;
 
-    //Collision.  Assigned when fixture is. 
+    CollisionData m_CollisionData;
     // std::bitset<16> m_CollisionCategory;
     // std::bitset<16> m_CollisionMask;
     // uint16_t m_colCategory;

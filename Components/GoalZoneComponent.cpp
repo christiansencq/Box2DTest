@@ -3,7 +3,7 @@
 
 //When merging with Physics object (maybe use a TurnIntoGoalMethod() or inheritance)
 GoalZoneComponent::GoalZoneComponent(b2World* world, std::shared_ptr<Player> player)
-    : m_Player(player), m_PhysWorld(world), m_CollisionData(new CollisionData())
+    : m_Player(player), m_PhysWorld(world), m_CollisionData(CollisionData{})
 {
 
 }
@@ -11,14 +11,14 @@ GoalZoneComponent::GoalZoneComponent(b2World* world, std::shared_ptr<Player> pla
 GoalZoneComponent::~GoalZoneComponent()
 {
     m_PhysWorld->DestroyBody(m_PhysBody);
-    delete m_CollisionData; 
 }
 
 void GoalZoneComponent::SetData(bool scorer)
 {
-    m_PhysBody->SetUserData(m_CollisionData);
+    m_CollisionData.isScorer = false;
+    m_PhysBody->SetUserData(&m_CollisionData);
+    std::cout << "User Data For GoalZone set.\n";
 }
-
 
 void GoalZoneComponent::Initialize()
 {
@@ -29,17 +29,24 @@ void GoalZoneComponent::Initialize()
     CreateRectShape();
 }
 
-//void GoalZoneComponent::Update( b2body physBody) { }
 void GoalZoneComponent::Update()
 {
+    std::cout << "Contacts for this goal : " << m_PhysBody->GetContactList() << "\n";
     //This should go in a ContactListener probably.
     for ( b2ContactEdge* ce = m_PhysBody->GetContactList(); ce; ce = ce->next)
     {
+        std::cout << "Get collision data.\n";
         b2Contact* c = ce->contact;
         b2Body* bodyA = c->GetFixtureA()->GetBody();
         b2Body* bodyB = c->GetFixtureB()->GetBody();
         CollisionData* dataA = (CollisionData*)bodyA->GetUserData();
         CollisionData* dataB = (CollisionData*)bodyB->GetUserData();
+        std::cout << "Begin check for scorer.\n";
+
+        // std::cout << "dataA scorer? " << bodyA->GetUserData()->dataA << "\n";
+        // std::cout << "dataB scorer? " << dataB->isScorer << "\n";
+
+
 
         if (dataA->isScorer || dataB->isScorer)
         {
@@ -47,7 +54,7 @@ void GoalZoneComponent::Update()
             owner->SignalManagerToReset();
             m_Player->IncrementScore(1);
         }
-   }
+    }
 }
 
 void GoalZoneComponent::CreateBody()
