@@ -1,32 +1,39 @@
 #include "GameMatchState.h"
 
-GameMatchState::GameMatchState(SDL_Renderer* renderer)
- : m_Renderer(renderer), m_EntityManager(std::make_shared<EntityManager>()), m_AssetManager(std::make_shared<AssetManager>()), m_ScriptLoader(std::make_shared<ScriptLoader>()),
+GameMatchState::GameMatchState(SDL_Renderer* renderer, std::shared_ptr<ScriptLoader> script_loader)
+ : m_Renderer(renderer), m_ScriptLoader(script_loader), m_EntityManager(std::make_shared<EntityManager>()), m_AssetManager(std::make_shared<AssetManager>()),
     m_TimeStep(1/30.0f), m_VelocityIterations(2), m_PositionIterations(6), m_TicksLastFrame(0) 
 {
+
     std::cout << "Loading script\n";
     m_ScriptLoader->LoadArenaData("lHockey.lua", arena);
     std::cout << "Done loading script\n";
 
-    //Not initializing in init list because we need to load a script first.  Possibly refactor.
+    std::cout << "Initializing Physics.\n";
     InitPhysics();
-
-    // LoadArenaData(std::string("lHockey.lua"));
+    
+    std::cout <<"Setup Fonts.\n";
     m_AssetManager->AddFont("ScoreFont", "arial.ttf", 20);
 
-    //Set Up Managers and Physics.
-    std::cout << "Initializing EntityFactory.\n";
-    m_EntityFactory = std::make_unique<EntityFactory>(m_Renderer, m_AssetManager, m_EntityManager, m_PhysicsWorld);
+    //Finish Setting Up Managers that require Data/Libraries to be set up.
+    std::cout << "Initializing ObjectFactory.\n";
+    m_ObjectFactory = std::make_unique<ObjectFactory>(m_Renderer, arena, m_AssetManager, m_EntityManager, m_PhysicsWorld);
+
+    std::cout << "Initializing PlayerManager\n";
+    m_PlayerManager = std::make_shared<PlayerManager>(m_ObjectFactory, arena);
+
+
+    //Set Up Using the Managers.
 
     std::cout << "Setting Up Players.\n";
-    SetUpTwoPlayers();
+    m_PlayerManager->SetUpPlayers(NumPlayers);
 
     std::cout << "Setting up Arena.\n";
-    m_EntityFactory->CreatePuck({SCREEN_WIDTH/2, SCREEN_HEIGHT/2});
+    m_ObjectFactory->CreatePuck({SCREEN_WIDTH/2, SCREEN_HEIGHT/2});
 
-    m_EntityFactory->CreateOuterWalls(arena.WallPositions, arena.WallSizes);
-    m_EntityFactory->CreateGoalWalls(arena.Goal1WallPositions, arena.GoalWallSizes);
-    m_EntityFactory->CreateGoalWalls(arena.Goal2WallPositions, arena.GoalWallSizes);
+    m_ObjectFactory->CreateOuterWalls(arena.WallPositions, arena.WallSizes);
+    m_ObjectFactory->CreateGoalWalls(arena.Goal1WallPositions, arena.GoalWallSizes);
+    m_ObjectFactory->CreateGoalWalls(arena.Goal2WallPositions, arena.GoalWallSizes);
 }
 
 GameMatchState::~GameMatchState()
@@ -54,7 +61,7 @@ void GameMatchState::HandleEvents()
                 case SDLK_SPACE:
                     break;
                 default:
-                    m_EntityManager->HandleKeyPresses(event.key.keysym.sym);
+                    m_PlayerManager->HandleKeyPresses(event.key.keysym.sym);
                     break;
             }
             break;
@@ -62,7 +69,7 @@ void GameMatchState::HandleEvents()
 
         case SDL_KEYUP:
         {
-            m_EntityManager->HandleKeyReleases(event.key.keysym.sym);
+            m_PlayerManager->HandleKeyReleases(event.key.keysym.sym);
             break;
         }
 
@@ -107,52 +114,13 @@ void GameMatchState::Render(SDL_Renderer* renderer)
 }
 
 
-//SET UP Private Methods
 
-//Much below this can be replaced by data/scripting.
+//Private Methods
+
 void GameMatchState::InitPhysics()
 {
     b2Vec2 gravity = b2Vec2(0.0f, 0.0f);
     m_PhysicsWorld = new b2World(gravity);
     // m_CollisionManager = new CollisionManager();
     // m_PhysicsWorld->SetContactListener(m_CollisionManager);
-}
-
-void GameMatchState::SetUpTwoPlayers()
-{
-    assert((NumPlayers != static_cast<int>(keybindData.SwapKeys.size())) && "Num of Swap keybinds != NumPlayers");
-    assert((NumPlayers != static_cast<int>(keybindData.ActionKeys.size())) && "Num of Action keybind != Num Players");
-
-    for (int i = 0; i < NumPlayers; i++)
-    {
-        std::cout << "Creating a player\n";
-        std::shared_ptr<Player> player = std::make_shared<Player>(keybindData.SwapKeys[i], keybindData.ActionKeys[i]);
-
-        player->id_number = i;
-        std::cout << "Player number : " << player->id_number << "\n";
-
-        std::cout << "setting Starting positions\n";
-        std::cout << "Arena.StartingPositions[i] : " << arena.StartingPositions[i][0].x << "  " << arena.StartingPositions[i][0].y << "\n";
-        player->AddStartingPositions(arena.StartingPositions[i]);
-
-        std::cout << "Adding Player balls.\n";
-        AddPlayerBalls(player, TeamSize);
-
-        m_EntityFactory->CreateScoreDisplay(player, arena.ScoreDisplayPositions[i], arena.GoalSize);
-        m_EntityFactory->CreateGoalZone(player, arena.GoalPositions[i], arena.GoalSize);
-
-        player->SwapActiveBall(0);
-        
-        m_EntityManager->AddPlayer(player);
-        m_Players.push_back((player));
-    }
-}
-
-
-void GameMatchState::AddPlayerBalls(std::shared_ptr<Player> player, int team_size)
-{
-    for (int i = 0; i < team_size; i++)
-    {
-        m_EntityFactory->CreatePlayerBall(player, arena.StartingPositions[player->id_number][i]);
-    }
 }

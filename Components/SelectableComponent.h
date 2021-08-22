@@ -3,6 +3,7 @@
 
 #include "../Constants.h"
 #include "Component.h"
+#include "../Player.h"
 
 class Entity;
 //Make this inherit from SDLCircleComponent instead?
@@ -10,7 +11,7 @@ class Entity;
 class SelectableComponent : public Component
 {
 public:
-    explicit SelectableComponent(SDL_Renderer* renderer);
+    explicit SelectableComponent(SDL_Renderer* renderer, std::shared_ptr<Player> player);
     ~SelectableComponent();
 
     virtual void Initialize() override;

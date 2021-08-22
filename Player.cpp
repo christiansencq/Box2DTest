@@ -1,10 +1,10 @@
 #include "Player.h"
 #include "Entity.h"
 
-Player::Player(const std::array<SDL_Keycode, 3> swap_keys, const std::array<SDL_Keycode, 4> action_keys)
- : m_SwapKeys (swap_keys), m_ActionKeys (action_keys)
+Player::Player(std::vector<std::vector<SDL_Keycode>> keybind)
+ : m_SwapKeys(keybind[0]), m_ActionKeys(keybind[1])
 {
-    
+    std::cout << "Player constructor where SwapKeys is " << m_SwapKeys.size() << " and ActionKeys is " << m_ActionKeys.size() << " length\n";
 }
 
 Player::~Player()
@@ -64,16 +64,15 @@ void Player::UpdateSelector()
     m_ActiveBall->GetComponent<SelectableComponent>()->Update();
 }
 
-void Player::AddScoreDisplay(Entity* score_disp)
-{
-    m_ScoreDisplay = score_disp;
-}
-
+// void Player::AddScoreDisplay(Entity* score_disp)
+// {
+//     m_ScoreDisplay = score_disp;
+// }
 
 void Player::IncrementScore(int num)
 {
     m_Score += num;
-    std::string new_score = "Player Score" + std::to_string(m_Score);
+    std::string new_score = "Player " + std::to_string(id_number+1) + " Score : " + std::to_string(m_Score);
 
     m_ScoreDisplay->GetComponent<TextComponent>()->SetText(new_score);
     
@@ -88,6 +87,7 @@ void Player::ResetPositions()
     {
         m_TeamsBalls[i]->ResetTransform();
     }    
+
     std::cout << "Reset End." <<std::endl;
 }
 

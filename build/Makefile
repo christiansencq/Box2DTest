@@ -541,6 +541,33 @@ Player.cpp.s:
 	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Player.cpp.s
 .PHONY : Player.cpp.s
 
+PlayerManager.o: PlayerManager.cpp.o
+
+.PHONY : PlayerManager.o
+
+# target to build an object file
+PlayerManager.cpp.o:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/PlayerManager.cpp.o
+.PHONY : PlayerManager.cpp.o
+
+PlayerManager.i: PlayerManager.cpp.i
+
+.PHONY : PlayerManager.i
+
+# target to preprocess a source file
+PlayerManager.cpp.i:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/PlayerManager.cpp.i
+.PHONY : PlayerManager.cpp.i
+
+PlayerManager.s: PlayerManager.cpp.s
+
+.PHONY : PlayerManager.s
+
+# target to generate assembly for a file
+PlayerManager.cpp.s:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/PlayerManager.cpp.s
+.PHONY : PlayerManager.cpp.s
+
 ScriptLoader.o: ScriptLoader.cpp.o
 
 .PHONY : ScriptLoader.o
@@ -1541,6 +1568,9 @@ help:
 	@echo "... Player.o"
 	@echo "... Player.i"
 	@echo "... Player.s"
+	@echo "... PlayerManager.o"
+	@echo "... PlayerManager.i"
+	@echo "... PlayerManager.s"
 	@echo "... ScriptLoader.o"
 	@echo "... ScriptLoader.i"
 	@echo "... ScriptLoader.s"

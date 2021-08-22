@@ -16,8 +16,6 @@ public:
   void Update();
   void Render(SDL_Renderer *renderer);
   void HandleInput(SDL_Event &event) {}
-  void HandleKeyPresses(SDL_Keycode key);
-  void HandleKeyReleases(SDL_Keycode key);
 
   // Entity Management and Access.
   Entity *AddEntity();

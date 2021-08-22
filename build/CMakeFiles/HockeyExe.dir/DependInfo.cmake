@@ -19,6 +19,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/charles/Cpp/Box2Test/EntityManager.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/EntityManager.cpp.o"
   "/home/charles/Cpp/Box2Test/GameMatchState.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/GameMatchState.cpp.o"
   "/home/charles/Cpp/Box2Test/Player.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/Player.cpp.o"
+  "/home/charles/Cpp/Box2Test/PlayerManager.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/PlayerManager.cpp.o"
   "/home/charles/Cpp/Box2Test/ScriptLoader.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/ScriptLoader.cpp.o"
   "/home/charles/Cpp/Box2Test/main.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/main.cpp.o"
   )

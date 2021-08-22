@@ -25,6 +25,7 @@ Entity::Entity(EntityManager &manager, b2Vec2 init_pixel_pos,
     : m_Manager(manager), m_PixelPos(init_pixel_pos),
       m_PixelRad(init_pixel_rad), isActive(true) 
 {
+    std::cout << "Entity constructor\n";
     if (init_pixel_pos.x > SCREEN_WIDTH/2)
     {
         m_Angle = 3.14159;

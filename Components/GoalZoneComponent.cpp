@@ -17,7 +17,6 @@ void GoalZoneComponent::SetData(bool scorer)
 {
     m_CollisionData.isScorer = false;
     m_PhysBody->SetUserData(&m_CollisionData);
-    std::cout << "User Data For GoalZone set.\n";
 }
 
 void GoalZoneComponent::Initialize()
@@ -31,7 +30,7 @@ void GoalZoneComponent::Initialize()
 
 void GoalZoneComponent::Update()
 {
-    std::cout << "Contacts for this goal : " << m_PhysBody->GetContactList() << "\n";
+
     //This should go in a ContactListener probably.
     for ( b2ContactEdge* ce = m_PhysBody->GetContactList(); ce; ce = ce->next)
     {
@@ -42,11 +41,6 @@ void GoalZoneComponent::Update()
         CollisionData* dataA = (CollisionData*)bodyA->GetUserData();
         CollisionData* dataB = (CollisionData*)bodyB->GetUserData();
         std::cout << "Begin check for scorer.\n";
-
-        // std::cout << "dataA scorer? " << bodyA->GetUserData()->dataA << "\n";
-        // std::cout << "dataB scorer? " << dataB->isScorer << "\n";
-
-
 
         if (dataA->isScorer || dataB->isScorer)
         {

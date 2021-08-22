@@ -15,7 +15,7 @@ class KeyInputComponent : public Component
 {
 public:
 
-    KeyInputComponent(std::array<SDL_Keycode, 4> action_keys);
+    KeyInputComponent(std::vector<SDL_Keycode> action_keys);
     virtual ~KeyInputComponent();
 
     virtual void Initialize() override;
@@ -63,7 +63,7 @@ public:
     }
        
 private:
-    std::array<SDL_Keycode, 4> m_ActionKeys;
+    std::vector<SDL_Keycode> m_ActionKeys;
     std::vector<Command*> m_Commands;
     std::map<const std::type_info*, Command*> m_CommandTypeMap;
     std::map<Actions, Command*> m_ActionMap;

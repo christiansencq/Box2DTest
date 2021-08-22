@@ -1,9 +1,10 @@
 #include "KeyInputComponent.h"
 #include "PhysicsComponent.h"
 
-KeyInputComponent::KeyInputComponent(std::array<SDL_Keycode, 4> action_keys)
+KeyInputComponent::KeyInputComponent(std::vector<SDL_Keycode> action_keys)
  : m_ActionKeys(action_keys)
 {
+
 }
 
 KeyInputComponent::~KeyInputComponent()

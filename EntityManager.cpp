@@ -21,8 +21,6 @@ void EntityManager::Update()
         p->UpdateSelector();
     }
 
-
-    //ListAllEntities();entity
     DestroyInactiveEntities();
 }
 
@@ -36,22 +34,6 @@ void EntityManager::Render(SDL_Renderer* renderer)
     for (auto& p : m_Players)
     {
         p->RenderSelector(renderer);
-    }
-}
-
-void EntityManager::HandleKeyPresses(SDL_Keycode key)
-{
-    for (auto& player : m_Players)
-    {
-        player->HandleKeyPress(key);
-    }
-}
-
-void EntityManager::HandleKeyReleases(SDL_Keycode key)
-{
-    for (auto& player : m_Players)
-    {
-        player->HandleKeyRelease(key);
     }
 }
 
@@ -89,7 +71,7 @@ void EntityManager::DestroyInactiveEntities()
 
 void EntityManager::AddPlayer(std::shared_ptr<Player> player) 
 {
-    player->SwapActiveBall(0);
+    // player->SwapActiveBall(0);
     m_Players.push_back(player);
 }
 

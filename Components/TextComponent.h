@@ -25,17 +25,19 @@ public:
     Entity* owner;
 
 private:
-
-
+    // std::shared_ptr<Player> m_Player;
     std::shared_ptr<AssetManager> m_AssetManager;
     SDL_Renderer* m_Renderer;
+
     std::string m_FontName;
     TTF_Font* m_Font;
+
     SDL_Rect m_TextRect;
     std::string m_Text;
     SDL_Texture* m_Texture;
+
     SDL_Color m_Color;
-    std::shared_ptr<Player> m_Player;
+
 };
 
 

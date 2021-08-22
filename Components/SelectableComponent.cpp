@@ -1,7 +1,7 @@
 #include "SelectableComponent.h"
 #include "../Entity.h"
 
-SelectableComponent::SelectableComponent(SDL_Renderer* renderer)
+SelectableComponent::SelectableComponent(SDL_Renderer* renderer, std::shared_ptr<Player> player)
  : m_Renderer(renderer), isSelected(false), m_Color(RED), m_PixelX(0), m_PixelY(0)
 {
 
