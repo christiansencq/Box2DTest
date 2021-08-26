@@ -4,33 +4,31 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/charles/Cpp/Box2Test/App.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/App.cpp.o"
-  "/home/charles/Cpp/Box2Test/AssetManager.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/AssetManager.cpp.o"
-  "/home/charles/Cpp/Box2Test/Commands/Commands.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/Commands/Commands.cpp.o"
-  "/home/charles/Cpp/Box2Test/Components/GoalZoneComponent.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/Components/GoalZoneComponent.cpp.o"
-  "/home/charles/Cpp/Box2Test/Components/KeyInputComponent.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/Components/KeyInputComponent.cpp.o"
-  "/home/charles/Cpp/Box2Test/Components/PhysicsComponent.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/Components/PhysicsComponent.cpp.o"
-  "/home/charles/Cpp/Box2Test/Components/SDLCircleComponent.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/Components/SDLCircleComponent.cpp.o"
-  "/home/charles/Cpp/Box2Test/Components/SDLRectComponent.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/Components/SDLRectComponent.cpp.o"
-  "/home/charles/Cpp/Box2Test/Components/SelectableComponent.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/Components/SelectableComponent.cpp.o"
-  "/home/charles/Cpp/Box2Test/Components/TextComponent.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/Components/TextComponent.cpp.o"
-  "/home/charles/Cpp/Box2Test/Entity.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/Entity.cpp.o"
-  "/home/charles/Cpp/Box2Test/EntityFactory.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/EntityFactory.cpp.o"
-  "/home/charles/Cpp/Box2Test/EntityManager.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/EntityManager.cpp.o"
-  "/home/charles/Cpp/Box2Test/GameMatchState.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/GameMatchState.cpp.o"
-  "/home/charles/Cpp/Box2Test/Player.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/Player.cpp.o"
-  "/home/charles/Cpp/Box2Test/PlayerManager.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/PlayerManager.cpp.o"
-  "/home/charles/Cpp/Box2Test/ScriptLoader.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/ScriptLoader.cpp.o"
-  "/home/charles/Cpp/Box2Test/main.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/main.cpp.o"
+  "/home/charles/Cpp/Box2Test/source/App.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/source/App.cpp.o"
+  "/home/charles/Cpp/Box2Test/source/AssetManager.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/source/AssetManager.cpp.o"
+  "/home/charles/Cpp/Box2Test/source/Commands/Commands.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/source/Commands/Commands.cpp.o"
+  "/home/charles/Cpp/Box2Test/source/Components/GoalZoneComponent.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/source/Components/GoalZoneComponent.cpp.o"
+  "/home/charles/Cpp/Box2Test/source/Components/KeyInputComponent.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/source/Components/KeyInputComponent.cpp.o"
+  "/home/charles/Cpp/Box2Test/source/Components/PhysicsComponent.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/source/Components/PhysicsComponent.cpp.o"
+  "/home/charles/Cpp/Box2Test/source/Components/SDLCircleComponent.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/source/Components/SDLCircleComponent.cpp.o"
+  "/home/charles/Cpp/Box2Test/source/Components/SDLRectComponent.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/source/Components/SDLRectComponent.cpp.o"
+  "/home/charles/Cpp/Box2Test/source/Components/SelectableComponent.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/source/Components/SelectableComponent.cpp.o"
+  "/home/charles/Cpp/Box2Test/source/Components/TextComponent.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/source/Components/TextComponent.cpp.o"
+  "/home/charles/Cpp/Box2Test/source/Entity.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/source/Entity.cpp.o"
+  "/home/charles/Cpp/Box2Test/source/EntityManager.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/source/EntityManager.cpp.o"
+  "/home/charles/Cpp/Box2Test/source/GameMatchState.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o"
+  "/home/charles/Cpp/Box2Test/source/ObjectFactory.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/source/ObjectFactory.cpp.o"
+  "/home/charles/Cpp/Box2Test/source/Player.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/source/Player.cpp.o"
+  "/home/charles/Cpp/Box2Test/source/PlayerManager.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/source/PlayerManager.cpp.o"
+  "/home/charles/Cpp/Box2Test/source/ScriptLoader.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/source/ScriptLoader.cpp.o"
+  "/home/charles/Cpp/Box2Test/source/main.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/source/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/Commands"
-  "/Components"
-  "../external"
-  "../external/lua"
+  "../externals"
+  "../externals/lua"
   "/usr/include/SDL2"
   )
 

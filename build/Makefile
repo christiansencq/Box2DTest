@@ -111,19 +111,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named lua
-
-# Build rule for target.
-lua: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 lua
-.PHONY : lua
-
-# fast build rule for target.
-lua/fast:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/build
-.PHONY : lua/fast
-
-#=============================================================================
 # Target rules for targets named HockeyExe
 
 # Build rule for target.
@@ -136,1382 +123,1395 @@ HockeyExe/fast:
 	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/build
 .PHONY : HockeyExe/fast
 
-App.o: App.cpp.o
+#=============================================================================
+# Target rules for targets named lua
 
-.PHONY : App.o
+# Build rule for target.
+lua: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 lua
+.PHONY : lua
 
-# target to build an object file
-App.cpp.o:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/App.cpp.o
-.PHONY : App.cpp.o
+# fast build rule for target.
+lua/fast:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/build
+.PHONY : lua/fast
 
-App.i: App.cpp.i
+externals/lua/lapi.o: externals/lua/lapi.c.o
 
-.PHONY : App.i
-
-# target to preprocess a source file
-App.cpp.i:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/App.cpp.i
-.PHONY : App.cpp.i
-
-App.s: App.cpp.s
-
-.PHONY : App.s
-
-# target to generate assembly for a file
-App.cpp.s:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/App.cpp.s
-.PHONY : App.cpp.s
-
-AssetManager.o: AssetManager.cpp.o
-
-.PHONY : AssetManager.o
+.PHONY : externals/lua/lapi.o
 
 # target to build an object file
-AssetManager.cpp.o:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/AssetManager.cpp.o
-.PHONY : AssetManager.cpp.o
+externals/lua/lapi.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lapi.c.o
+.PHONY : externals/lua/lapi.c.o
 
-AssetManager.i: AssetManager.cpp.i
+externals/lua/lapi.i: externals/lua/lapi.c.i
 
-.PHONY : AssetManager.i
+.PHONY : externals/lua/lapi.i
 
 # target to preprocess a source file
-AssetManager.cpp.i:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/AssetManager.cpp.i
-.PHONY : AssetManager.cpp.i
+externals/lua/lapi.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lapi.c.i
+.PHONY : externals/lua/lapi.c.i
 
-AssetManager.s: AssetManager.cpp.s
+externals/lua/lapi.s: externals/lua/lapi.c.s
 
-.PHONY : AssetManager.s
+.PHONY : externals/lua/lapi.s
 
 # target to generate assembly for a file
-AssetManager.cpp.s:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/AssetManager.cpp.s
-.PHONY : AssetManager.cpp.s
+externals/lua/lapi.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lapi.c.s
+.PHONY : externals/lua/lapi.c.s
 
-Commands/Commands.o: Commands/Commands.cpp.o
+externals/lua/lauxlib.o: externals/lua/lauxlib.c.o
 
-.PHONY : Commands/Commands.o
+.PHONY : externals/lua/lauxlib.o
 
 # target to build an object file
-Commands/Commands.cpp.o:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Commands/Commands.cpp.o
-.PHONY : Commands/Commands.cpp.o
+externals/lua/lauxlib.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lauxlib.c.o
+.PHONY : externals/lua/lauxlib.c.o
 
-Commands/Commands.i: Commands/Commands.cpp.i
+externals/lua/lauxlib.i: externals/lua/lauxlib.c.i
 
-.PHONY : Commands/Commands.i
+.PHONY : externals/lua/lauxlib.i
 
 # target to preprocess a source file
-Commands/Commands.cpp.i:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Commands/Commands.cpp.i
-.PHONY : Commands/Commands.cpp.i
+externals/lua/lauxlib.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lauxlib.c.i
+.PHONY : externals/lua/lauxlib.c.i
 
-Commands/Commands.s: Commands/Commands.cpp.s
+externals/lua/lauxlib.s: externals/lua/lauxlib.c.s
 
-.PHONY : Commands/Commands.s
+.PHONY : externals/lua/lauxlib.s
 
 # target to generate assembly for a file
-Commands/Commands.cpp.s:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Commands/Commands.cpp.s
-.PHONY : Commands/Commands.cpp.s
+externals/lua/lauxlib.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lauxlib.c.s
+.PHONY : externals/lua/lauxlib.c.s
 
-Components/GoalZoneComponent.o: Components/GoalZoneComponent.cpp.o
+externals/lua/lbaselib.o: externals/lua/lbaselib.c.o
 
-.PHONY : Components/GoalZoneComponent.o
+.PHONY : externals/lua/lbaselib.o
 
 # target to build an object file
-Components/GoalZoneComponent.cpp.o:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Components/GoalZoneComponent.cpp.o
-.PHONY : Components/GoalZoneComponent.cpp.o
+externals/lua/lbaselib.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lbaselib.c.o
+.PHONY : externals/lua/lbaselib.c.o
 
-Components/GoalZoneComponent.i: Components/GoalZoneComponent.cpp.i
+externals/lua/lbaselib.i: externals/lua/lbaselib.c.i
 
-.PHONY : Components/GoalZoneComponent.i
+.PHONY : externals/lua/lbaselib.i
 
 # target to preprocess a source file
-Components/GoalZoneComponent.cpp.i:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Components/GoalZoneComponent.cpp.i
-.PHONY : Components/GoalZoneComponent.cpp.i
+externals/lua/lbaselib.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lbaselib.c.i
+.PHONY : externals/lua/lbaselib.c.i
 
-Components/GoalZoneComponent.s: Components/GoalZoneComponent.cpp.s
+externals/lua/lbaselib.s: externals/lua/lbaselib.c.s
 
-.PHONY : Components/GoalZoneComponent.s
+.PHONY : externals/lua/lbaselib.s
 
 # target to generate assembly for a file
-Components/GoalZoneComponent.cpp.s:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Components/GoalZoneComponent.cpp.s
-.PHONY : Components/GoalZoneComponent.cpp.s
+externals/lua/lbaselib.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lbaselib.c.s
+.PHONY : externals/lua/lbaselib.c.s
 
-Components/KeyInputComponent.o: Components/KeyInputComponent.cpp.o
+externals/lua/lcode.o: externals/lua/lcode.c.o
 
-.PHONY : Components/KeyInputComponent.o
+.PHONY : externals/lua/lcode.o
 
 # target to build an object file
-Components/KeyInputComponent.cpp.o:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Components/KeyInputComponent.cpp.o
-.PHONY : Components/KeyInputComponent.cpp.o
+externals/lua/lcode.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lcode.c.o
+.PHONY : externals/lua/lcode.c.o
 
-Components/KeyInputComponent.i: Components/KeyInputComponent.cpp.i
+externals/lua/lcode.i: externals/lua/lcode.c.i
 
-.PHONY : Components/KeyInputComponent.i
+.PHONY : externals/lua/lcode.i
 
 # target to preprocess a source file
-Components/KeyInputComponent.cpp.i:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Components/KeyInputComponent.cpp.i
-.PHONY : Components/KeyInputComponent.cpp.i
+externals/lua/lcode.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lcode.c.i
+.PHONY : externals/lua/lcode.c.i
 
-Components/KeyInputComponent.s: Components/KeyInputComponent.cpp.s
+externals/lua/lcode.s: externals/lua/lcode.c.s
 
-.PHONY : Components/KeyInputComponent.s
+.PHONY : externals/lua/lcode.s
 
 # target to generate assembly for a file
-Components/KeyInputComponent.cpp.s:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Components/KeyInputComponent.cpp.s
-.PHONY : Components/KeyInputComponent.cpp.s
+externals/lua/lcode.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lcode.c.s
+.PHONY : externals/lua/lcode.c.s
 
-Components/PhysicsComponent.o: Components/PhysicsComponent.cpp.o
+externals/lua/lcorolib.o: externals/lua/lcorolib.c.o
 
-.PHONY : Components/PhysicsComponent.o
+.PHONY : externals/lua/lcorolib.o
 
 # target to build an object file
-Components/PhysicsComponent.cpp.o:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Components/PhysicsComponent.cpp.o
-.PHONY : Components/PhysicsComponent.cpp.o
+externals/lua/lcorolib.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lcorolib.c.o
+.PHONY : externals/lua/lcorolib.c.o
 
-Components/PhysicsComponent.i: Components/PhysicsComponent.cpp.i
+externals/lua/lcorolib.i: externals/lua/lcorolib.c.i
 
-.PHONY : Components/PhysicsComponent.i
+.PHONY : externals/lua/lcorolib.i
 
 # target to preprocess a source file
-Components/PhysicsComponent.cpp.i:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Components/PhysicsComponent.cpp.i
-.PHONY : Components/PhysicsComponent.cpp.i
+externals/lua/lcorolib.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lcorolib.c.i
+.PHONY : externals/lua/lcorolib.c.i
 
-Components/PhysicsComponent.s: Components/PhysicsComponent.cpp.s
+externals/lua/lcorolib.s: externals/lua/lcorolib.c.s
 
-.PHONY : Components/PhysicsComponent.s
+.PHONY : externals/lua/lcorolib.s
 
 # target to generate assembly for a file
-Components/PhysicsComponent.cpp.s:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Components/PhysicsComponent.cpp.s
-.PHONY : Components/PhysicsComponent.cpp.s
+externals/lua/lcorolib.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lcorolib.c.s
+.PHONY : externals/lua/lcorolib.c.s
 
-Components/SDLCircleComponent.o: Components/SDLCircleComponent.cpp.o
+externals/lua/lctype.o: externals/lua/lctype.c.o
 
-.PHONY : Components/SDLCircleComponent.o
+.PHONY : externals/lua/lctype.o
 
 # target to build an object file
-Components/SDLCircleComponent.cpp.o:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Components/SDLCircleComponent.cpp.o
-.PHONY : Components/SDLCircleComponent.cpp.o
+externals/lua/lctype.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lctype.c.o
+.PHONY : externals/lua/lctype.c.o
 
-Components/SDLCircleComponent.i: Components/SDLCircleComponent.cpp.i
+externals/lua/lctype.i: externals/lua/lctype.c.i
 
-.PHONY : Components/SDLCircleComponent.i
+.PHONY : externals/lua/lctype.i
 
 # target to preprocess a source file
-Components/SDLCircleComponent.cpp.i:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Components/SDLCircleComponent.cpp.i
-.PHONY : Components/SDLCircleComponent.cpp.i
+externals/lua/lctype.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lctype.c.i
+.PHONY : externals/lua/lctype.c.i
 
-Components/SDLCircleComponent.s: Components/SDLCircleComponent.cpp.s
+externals/lua/lctype.s: externals/lua/lctype.c.s
 
-.PHONY : Components/SDLCircleComponent.s
+.PHONY : externals/lua/lctype.s
 
 # target to generate assembly for a file
-Components/SDLCircleComponent.cpp.s:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Components/SDLCircleComponent.cpp.s
-.PHONY : Components/SDLCircleComponent.cpp.s
+externals/lua/lctype.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lctype.c.s
+.PHONY : externals/lua/lctype.c.s
 
-Components/SDLRectComponent.o: Components/SDLRectComponent.cpp.o
+externals/lua/ldblib.o: externals/lua/ldblib.c.o
 
-.PHONY : Components/SDLRectComponent.o
+.PHONY : externals/lua/ldblib.o
 
 # target to build an object file
-Components/SDLRectComponent.cpp.o:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Components/SDLRectComponent.cpp.o
-.PHONY : Components/SDLRectComponent.cpp.o
+externals/lua/ldblib.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/ldblib.c.o
+.PHONY : externals/lua/ldblib.c.o
 
-Components/SDLRectComponent.i: Components/SDLRectComponent.cpp.i
+externals/lua/ldblib.i: externals/lua/ldblib.c.i
 
-.PHONY : Components/SDLRectComponent.i
+.PHONY : externals/lua/ldblib.i
 
 # target to preprocess a source file
-Components/SDLRectComponent.cpp.i:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Components/SDLRectComponent.cpp.i
-.PHONY : Components/SDLRectComponent.cpp.i
+externals/lua/ldblib.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/ldblib.c.i
+.PHONY : externals/lua/ldblib.c.i
 
-Components/SDLRectComponent.s: Components/SDLRectComponent.cpp.s
+externals/lua/ldblib.s: externals/lua/ldblib.c.s
 
-.PHONY : Components/SDLRectComponent.s
+.PHONY : externals/lua/ldblib.s
 
 # target to generate assembly for a file
-Components/SDLRectComponent.cpp.s:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Components/SDLRectComponent.cpp.s
-.PHONY : Components/SDLRectComponent.cpp.s
+externals/lua/ldblib.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/ldblib.c.s
+.PHONY : externals/lua/ldblib.c.s
 
-Components/SelectableComponent.o: Components/SelectableComponent.cpp.o
+externals/lua/ldebug.o: externals/lua/ldebug.c.o
 
-.PHONY : Components/SelectableComponent.o
+.PHONY : externals/lua/ldebug.o
 
 # target to build an object file
-Components/SelectableComponent.cpp.o:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Components/SelectableComponent.cpp.o
-.PHONY : Components/SelectableComponent.cpp.o
+externals/lua/ldebug.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/ldebug.c.o
+.PHONY : externals/lua/ldebug.c.o
 
-Components/SelectableComponent.i: Components/SelectableComponent.cpp.i
+externals/lua/ldebug.i: externals/lua/ldebug.c.i
 
-.PHONY : Components/SelectableComponent.i
+.PHONY : externals/lua/ldebug.i
 
 # target to preprocess a source file
-Components/SelectableComponent.cpp.i:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Components/SelectableComponent.cpp.i
-.PHONY : Components/SelectableComponent.cpp.i
+externals/lua/ldebug.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/ldebug.c.i
+.PHONY : externals/lua/ldebug.c.i
 
-Components/SelectableComponent.s: Components/SelectableComponent.cpp.s
+externals/lua/ldebug.s: externals/lua/ldebug.c.s
 
-.PHONY : Components/SelectableComponent.s
+.PHONY : externals/lua/ldebug.s
 
 # target to generate assembly for a file
-Components/SelectableComponent.cpp.s:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Components/SelectableComponent.cpp.s
-.PHONY : Components/SelectableComponent.cpp.s
+externals/lua/ldebug.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/ldebug.c.s
+.PHONY : externals/lua/ldebug.c.s
 
-Components/TextComponent.o: Components/TextComponent.cpp.o
+externals/lua/ldo.o: externals/lua/ldo.c.o
 
-.PHONY : Components/TextComponent.o
+.PHONY : externals/lua/ldo.o
 
 # target to build an object file
-Components/TextComponent.cpp.o:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Components/TextComponent.cpp.o
-.PHONY : Components/TextComponent.cpp.o
+externals/lua/ldo.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/ldo.c.o
+.PHONY : externals/lua/ldo.c.o
 
-Components/TextComponent.i: Components/TextComponent.cpp.i
+externals/lua/ldo.i: externals/lua/ldo.c.i
 
-.PHONY : Components/TextComponent.i
+.PHONY : externals/lua/ldo.i
 
 # target to preprocess a source file
-Components/TextComponent.cpp.i:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Components/TextComponent.cpp.i
-.PHONY : Components/TextComponent.cpp.i
+externals/lua/ldo.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/ldo.c.i
+.PHONY : externals/lua/ldo.c.i
 
-Components/TextComponent.s: Components/TextComponent.cpp.s
+externals/lua/ldo.s: externals/lua/ldo.c.s
 
-.PHONY : Components/TextComponent.s
+.PHONY : externals/lua/ldo.s
 
 # target to generate assembly for a file
-Components/TextComponent.cpp.s:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Components/TextComponent.cpp.s
-.PHONY : Components/TextComponent.cpp.s
+externals/lua/ldo.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/ldo.c.s
+.PHONY : externals/lua/ldo.c.s
 
-Entity.o: Entity.cpp.o
+externals/lua/ldump.o: externals/lua/ldump.c.o
 
-.PHONY : Entity.o
+.PHONY : externals/lua/ldump.o
 
 # target to build an object file
-Entity.cpp.o:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Entity.cpp.o
-.PHONY : Entity.cpp.o
+externals/lua/ldump.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/ldump.c.o
+.PHONY : externals/lua/ldump.c.o
 
-Entity.i: Entity.cpp.i
+externals/lua/ldump.i: externals/lua/ldump.c.i
 
-.PHONY : Entity.i
+.PHONY : externals/lua/ldump.i
 
 # target to preprocess a source file
-Entity.cpp.i:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Entity.cpp.i
-.PHONY : Entity.cpp.i
+externals/lua/ldump.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/ldump.c.i
+.PHONY : externals/lua/ldump.c.i
 
-Entity.s: Entity.cpp.s
+externals/lua/ldump.s: externals/lua/ldump.c.s
 
-.PHONY : Entity.s
+.PHONY : externals/lua/ldump.s
 
 # target to generate assembly for a file
-Entity.cpp.s:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Entity.cpp.s
-.PHONY : Entity.cpp.s
+externals/lua/ldump.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/ldump.c.s
+.PHONY : externals/lua/ldump.c.s
 
-EntityFactory.o: EntityFactory.cpp.o
+externals/lua/lfunc.o: externals/lua/lfunc.c.o
 
-.PHONY : EntityFactory.o
+.PHONY : externals/lua/lfunc.o
 
 # target to build an object file
-EntityFactory.cpp.o:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/EntityFactory.cpp.o
-.PHONY : EntityFactory.cpp.o
+externals/lua/lfunc.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lfunc.c.o
+.PHONY : externals/lua/lfunc.c.o
 
-EntityFactory.i: EntityFactory.cpp.i
+externals/lua/lfunc.i: externals/lua/lfunc.c.i
 
-.PHONY : EntityFactory.i
+.PHONY : externals/lua/lfunc.i
 
 # target to preprocess a source file
-EntityFactory.cpp.i:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/EntityFactory.cpp.i
-.PHONY : EntityFactory.cpp.i
+externals/lua/lfunc.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lfunc.c.i
+.PHONY : externals/lua/lfunc.c.i
 
-EntityFactory.s: EntityFactory.cpp.s
+externals/lua/lfunc.s: externals/lua/lfunc.c.s
 
-.PHONY : EntityFactory.s
+.PHONY : externals/lua/lfunc.s
 
 # target to generate assembly for a file
-EntityFactory.cpp.s:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/EntityFactory.cpp.s
-.PHONY : EntityFactory.cpp.s
+externals/lua/lfunc.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lfunc.c.s
+.PHONY : externals/lua/lfunc.c.s
 
-EntityManager.o: EntityManager.cpp.o
+externals/lua/lgc.o: externals/lua/lgc.c.o
 
-.PHONY : EntityManager.o
+.PHONY : externals/lua/lgc.o
 
 # target to build an object file
-EntityManager.cpp.o:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/EntityManager.cpp.o
-.PHONY : EntityManager.cpp.o
+externals/lua/lgc.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lgc.c.o
+.PHONY : externals/lua/lgc.c.o
 
-EntityManager.i: EntityManager.cpp.i
+externals/lua/lgc.i: externals/lua/lgc.c.i
 
-.PHONY : EntityManager.i
+.PHONY : externals/lua/lgc.i
 
 # target to preprocess a source file
-EntityManager.cpp.i:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/EntityManager.cpp.i
-.PHONY : EntityManager.cpp.i
+externals/lua/lgc.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lgc.c.i
+.PHONY : externals/lua/lgc.c.i
 
-EntityManager.s: EntityManager.cpp.s
+externals/lua/lgc.s: externals/lua/lgc.c.s
 
-.PHONY : EntityManager.s
+.PHONY : externals/lua/lgc.s
 
 # target to generate assembly for a file
-EntityManager.cpp.s:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/EntityManager.cpp.s
-.PHONY : EntityManager.cpp.s
+externals/lua/lgc.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lgc.c.s
+.PHONY : externals/lua/lgc.c.s
 
-GameMatchState.o: GameMatchState.cpp.o
+externals/lua/linit.o: externals/lua/linit.c.o
 
-.PHONY : GameMatchState.o
+.PHONY : externals/lua/linit.o
 
 # target to build an object file
-GameMatchState.cpp.o:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/GameMatchState.cpp.o
-.PHONY : GameMatchState.cpp.o
+externals/lua/linit.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/linit.c.o
+.PHONY : externals/lua/linit.c.o
 
-GameMatchState.i: GameMatchState.cpp.i
+externals/lua/linit.i: externals/lua/linit.c.i
 
-.PHONY : GameMatchState.i
+.PHONY : externals/lua/linit.i
 
 # target to preprocess a source file
-GameMatchState.cpp.i:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/GameMatchState.cpp.i
-.PHONY : GameMatchState.cpp.i
+externals/lua/linit.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/linit.c.i
+.PHONY : externals/lua/linit.c.i
 
-GameMatchState.s: GameMatchState.cpp.s
+externals/lua/linit.s: externals/lua/linit.c.s
 
-.PHONY : GameMatchState.s
+.PHONY : externals/lua/linit.s
 
 # target to generate assembly for a file
-GameMatchState.cpp.s:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/GameMatchState.cpp.s
-.PHONY : GameMatchState.cpp.s
+externals/lua/linit.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/linit.c.s
+.PHONY : externals/lua/linit.c.s
 
-Player.o: Player.cpp.o
+externals/lua/liolib.o: externals/lua/liolib.c.o
 
-.PHONY : Player.o
+.PHONY : externals/lua/liolib.o
 
 # target to build an object file
-Player.cpp.o:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Player.cpp.o
-.PHONY : Player.cpp.o
+externals/lua/liolib.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/liolib.c.o
+.PHONY : externals/lua/liolib.c.o
 
-Player.i: Player.cpp.i
+externals/lua/liolib.i: externals/lua/liolib.c.i
 
-.PHONY : Player.i
+.PHONY : externals/lua/liolib.i
 
 # target to preprocess a source file
-Player.cpp.i:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Player.cpp.i
-.PHONY : Player.cpp.i
+externals/lua/liolib.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/liolib.c.i
+.PHONY : externals/lua/liolib.c.i
 
-Player.s: Player.cpp.s
+externals/lua/liolib.s: externals/lua/liolib.c.s
 
-.PHONY : Player.s
+.PHONY : externals/lua/liolib.s
 
 # target to generate assembly for a file
-Player.cpp.s:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/Player.cpp.s
-.PHONY : Player.cpp.s
+externals/lua/liolib.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/liolib.c.s
+.PHONY : externals/lua/liolib.c.s
 
-PlayerManager.o: PlayerManager.cpp.o
+externals/lua/llex.o: externals/lua/llex.c.o
 
-.PHONY : PlayerManager.o
+.PHONY : externals/lua/llex.o
 
 # target to build an object file
-PlayerManager.cpp.o:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/PlayerManager.cpp.o
-.PHONY : PlayerManager.cpp.o
+externals/lua/llex.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/llex.c.o
+.PHONY : externals/lua/llex.c.o
 
-PlayerManager.i: PlayerManager.cpp.i
+externals/lua/llex.i: externals/lua/llex.c.i
 
-.PHONY : PlayerManager.i
+.PHONY : externals/lua/llex.i
 
 # target to preprocess a source file
-PlayerManager.cpp.i:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/PlayerManager.cpp.i
-.PHONY : PlayerManager.cpp.i
+externals/lua/llex.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/llex.c.i
+.PHONY : externals/lua/llex.c.i
 
-PlayerManager.s: PlayerManager.cpp.s
+externals/lua/llex.s: externals/lua/llex.c.s
 
-.PHONY : PlayerManager.s
+.PHONY : externals/lua/llex.s
 
 # target to generate assembly for a file
-PlayerManager.cpp.s:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/PlayerManager.cpp.s
-.PHONY : PlayerManager.cpp.s
+externals/lua/llex.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/llex.c.s
+.PHONY : externals/lua/llex.c.s
 
-ScriptLoader.o: ScriptLoader.cpp.o
+externals/lua/lmathlib.o: externals/lua/lmathlib.c.o
 
-.PHONY : ScriptLoader.o
+.PHONY : externals/lua/lmathlib.o
 
 # target to build an object file
-ScriptLoader.cpp.o:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/ScriptLoader.cpp.o
-.PHONY : ScriptLoader.cpp.o
+externals/lua/lmathlib.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lmathlib.c.o
+.PHONY : externals/lua/lmathlib.c.o
 
-ScriptLoader.i: ScriptLoader.cpp.i
+externals/lua/lmathlib.i: externals/lua/lmathlib.c.i
 
-.PHONY : ScriptLoader.i
+.PHONY : externals/lua/lmathlib.i
 
 # target to preprocess a source file
-ScriptLoader.cpp.i:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/ScriptLoader.cpp.i
-.PHONY : ScriptLoader.cpp.i
+externals/lua/lmathlib.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lmathlib.c.i
+.PHONY : externals/lua/lmathlib.c.i
 
-ScriptLoader.s: ScriptLoader.cpp.s
+externals/lua/lmathlib.s: externals/lua/lmathlib.c.s
 
-.PHONY : ScriptLoader.s
+.PHONY : externals/lua/lmathlib.s
 
 # target to generate assembly for a file
-ScriptLoader.cpp.s:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/ScriptLoader.cpp.s
-.PHONY : ScriptLoader.cpp.s
+externals/lua/lmathlib.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lmathlib.c.s
+.PHONY : externals/lua/lmathlib.c.s
 
-external/lua/lapi.o: external/lua/lapi.c.o
+externals/lua/lmem.o: externals/lua/lmem.c.o
 
-.PHONY : external/lua/lapi.o
+.PHONY : externals/lua/lmem.o
 
 # target to build an object file
-external/lua/lapi.c.o:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lapi.c.o
-.PHONY : external/lua/lapi.c.o
+externals/lua/lmem.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lmem.c.o
+.PHONY : externals/lua/lmem.c.o
 
-external/lua/lapi.i: external/lua/lapi.c.i
+externals/lua/lmem.i: externals/lua/lmem.c.i
 
-.PHONY : external/lua/lapi.i
+.PHONY : externals/lua/lmem.i
 
 # target to preprocess a source file
-external/lua/lapi.c.i:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lapi.c.i
-.PHONY : external/lua/lapi.c.i
+externals/lua/lmem.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lmem.c.i
+.PHONY : externals/lua/lmem.c.i
 
-external/lua/lapi.s: external/lua/lapi.c.s
+externals/lua/lmem.s: externals/lua/lmem.c.s
 
-.PHONY : external/lua/lapi.s
+.PHONY : externals/lua/lmem.s
 
 # target to generate assembly for a file
-external/lua/lapi.c.s:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lapi.c.s
-.PHONY : external/lua/lapi.c.s
+externals/lua/lmem.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lmem.c.s
+.PHONY : externals/lua/lmem.c.s
 
-external/lua/lauxlib.o: external/lua/lauxlib.c.o
+externals/lua/loadlib.o: externals/lua/loadlib.c.o
 
-.PHONY : external/lua/lauxlib.o
+.PHONY : externals/lua/loadlib.o
 
 # target to build an object file
-external/lua/lauxlib.c.o:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lauxlib.c.o
-.PHONY : external/lua/lauxlib.c.o
+externals/lua/loadlib.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/loadlib.c.o
+.PHONY : externals/lua/loadlib.c.o
 
-external/lua/lauxlib.i: external/lua/lauxlib.c.i
+externals/lua/loadlib.i: externals/lua/loadlib.c.i
 
-.PHONY : external/lua/lauxlib.i
+.PHONY : externals/lua/loadlib.i
 
 # target to preprocess a source file
-external/lua/lauxlib.c.i:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lauxlib.c.i
-.PHONY : external/lua/lauxlib.c.i
+externals/lua/loadlib.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/loadlib.c.i
+.PHONY : externals/lua/loadlib.c.i
 
-external/lua/lauxlib.s: external/lua/lauxlib.c.s
+externals/lua/loadlib.s: externals/lua/loadlib.c.s
 
-.PHONY : external/lua/lauxlib.s
+.PHONY : externals/lua/loadlib.s
 
 # target to generate assembly for a file
-external/lua/lauxlib.c.s:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lauxlib.c.s
-.PHONY : external/lua/lauxlib.c.s
+externals/lua/loadlib.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/loadlib.c.s
+.PHONY : externals/lua/loadlib.c.s
 
-external/lua/lbaselib.o: external/lua/lbaselib.c.o
+externals/lua/lobject.o: externals/lua/lobject.c.o
 
-.PHONY : external/lua/lbaselib.o
+.PHONY : externals/lua/lobject.o
 
 # target to build an object file
-external/lua/lbaselib.c.o:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lbaselib.c.o
-.PHONY : external/lua/lbaselib.c.o
+externals/lua/lobject.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lobject.c.o
+.PHONY : externals/lua/lobject.c.o
 
-external/lua/lbaselib.i: external/lua/lbaselib.c.i
+externals/lua/lobject.i: externals/lua/lobject.c.i
 
-.PHONY : external/lua/lbaselib.i
+.PHONY : externals/lua/lobject.i
 
 # target to preprocess a source file
-external/lua/lbaselib.c.i:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lbaselib.c.i
-.PHONY : external/lua/lbaselib.c.i
+externals/lua/lobject.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lobject.c.i
+.PHONY : externals/lua/lobject.c.i
 
-external/lua/lbaselib.s: external/lua/lbaselib.c.s
+externals/lua/lobject.s: externals/lua/lobject.c.s
 
-.PHONY : external/lua/lbaselib.s
+.PHONY : externals/lua/lobject.s
 
 # target to generate assembly for a file
-external/lua/lbaselib.c.s:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lbaselib.c.s
-.PHONY : external/lua/lbaselib.c.s
+externals/lua/lobject.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lobject.c.s
+.PHONY : externals/lua/lobject.c.s
 
-external/lua/lcode.o: external/lua/lcode.c.o
+externals/lua/lopcodes.o: externals/lua/lopcodes.c.o
 
-.PHONY : external/lua/lcode.o
+.PHONY : externals/lua/lopcodes.o
 
 # target to build an object file
-external/lua/lcode.c.o:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lcode.c.o
-.PHONY : external/lua/lcode.c.o
+externals/lua/lopcodes.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lopcodes.c.o
+.PHONY : externals/lua/lopcodes.c.o
 
-external/lua/lcode.i: external/lua/lcode.c.i
+externals/lua/lopcodes.i: externals/lua/lopcodes.c.i
 
-.PHONY : external/lua/lcode.i
+.PHONY : externals/lua/lopcodes.i
 
 # target to preprocess a source file
-external/lua/lcode.c.i:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lcode.c.i
-.PHONY : external/lua/lcode.c.i
+externals/lua/lopcodes.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lopcodes.c.i
+.PHONY : externals/lua/lopcodes.c.i
 
-external/lua/lcode.s: external/lua/lcode.c.s
+externals/lua/lopcodes.s: externals/lua/lopcodes.c.s
 
-.PHONY : external/lua/lcode.s
+.PHONY : externals/lua/lopcodes.s
 
 # target to generate assembly for a file
-external/lua/lcode.c.s:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lcode.c.s
-.PHONY : external/lua/lcode.c.s
+externals/lua/lopcodes.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lopcodes.c.s
+.PHONY : externals/lua/lopcodes.c.s
 
-external/lua/lcorolib.o: external/lua/lcorolib.c.o
+externals/lua/loslib.o: externals/lua/loslib.c.o
 
-.PHONY : external/lua/lcorolib.o
+.PHONY : externals/lua/loslib.o
 
 # target to build an object file
-external/lua/lcorolib.c.o:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lcorolib.c.o
-.PHONY : external/lua/lcorolib.c.o
+externals/lua/loslib.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/loslib.c.o
+.PHONY : externals/lua/loslib.c.o
 
-external/lua/lcorolib.i: external/lua/lcorolib.c.i
+externals/lua/loslib.i: externals/lua/loslib.c.i
 
-.PHONY : external/lua/lcorolib.i
+.PHONY : externals/lua/loslib.i
 
 # target to preprocess a source file
-external/lua/lcorolib.c.i:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lcorolib.c.i
-.PHONY : external/lua/lcorolib.c.i
+externals/lua/loslib.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/loslib.c.i
+.PHONY : externals/lua/loslib.c.i
 
-external/lua/lcorolib.s: external/lua/lcorolib.c.s
+externals/lua/loslib.s: externals/lua/loslib.c.s
 
-.PHONY : external/lua/lcorolib.s
+.PHONY : externals/lua/loslib.s
 
 # target to generate assembly for a file
-external/lua/lcorolib.c.s:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lcorolib.c.s
-.PHONY : external/lua/lcorolib.c.s
+externals/lua/loslib.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/loslib.c.s
+.PHONY : externals/lua/loslib.c.s
 
-external/lua/lctype.o: external/lua/lctype.c.o
+externals/lua/lparser.o: externals/lua/lparser.c.o
 
-.PHONY : external/lua/lctype.o
+.PHONY : externals/lua/lparser.o
 
 # target to build an object file
-external/lua/lctype.c.o:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lctype.c.o
-.PHONY : external/lua/lctype.c.o
+externals/lua/lparser.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lparser.c.o
+.PHONY : externals/lua/lparser.c.o
 
-external/lua/lctype.i: external/lua/lctype.c.i
+externals/lua/lparser.i: externals/lua/lparser.c.i
 
-.PHONY : external/lua/lctype.i
+.PHONY : externals/lua/lparser.i
 
 # target to preprocess a source file
-external/lua/lctype.c.i:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lctype.c.i
-.PHONY : external/lua/lctype.c.i
+externals/lua/lparser.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lparser.c.i
+.PHONY : externals/lua/lparser.c.i
 
-external/lua/lctype.s: external/lua/lctype.c.s
+externals/lua/lparser.s: externals/lua/lparser.c.s
 
-.PHONY : external/lua/lctype.s
+.PHONY : externals/lua/lparser.s
 
 # target to generate assembly for a file
-external/lua/lctype.c.s:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lctype.c.s
-.PHONY : external/lua/lctype.c.s
+externals/lua/lparser.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lparser.c.s
+.PHONY : externals/lua/lparser.c.s
 
-external/lua/ldblib.o: external/lua/ldblib.c.o
+externals/lua/lstate.o: externals/lua/lstate.c.o
 
-.PHONY : external/lua/ldblib.o
+.PHONY : externals/lua/lstate.o
 
 # target to build an object file
-external/lua/ldblib.c.o:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ldblib.c.o
-.PHONY : external/lua/ldblib.c.o
+externals/lua/lstate.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lstate.c.o
+.PHONY : externals/lua/lstate.c.o
 
-external/lua/ldblib.i: external/lua/ldblib.c.i
+externals/lua/lstate.i: externals/lua/lstate.c.i
 
-.PHONY : external/lua/ldblib.i
+.PHONY : externals/lua/lstate.i
 
 # target to preprocess a source file
-external/lua/ldblib.c.i:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ldblib.c.i
-.PHONY : external/lua/ldblib.c.i
+externals/lua/lstate.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lstate.c.i
+.PHONY : externals/lua/lstate.c.i
 
-external/lua/ldblib.s: external/lua/ldblib.c.s
+externals/lua/lstate.s: externals/lua/lstate.c.s
 
-.PHONY : external/lua/ldblib.s
+.PHONY : externals/lua/lstate.s
 
 # target to generate assembly for a file
-external/lua/ldblib.c.s:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ldblib.c.s
-.PHONY : external/lua/ldblib.c.s
+externals/lua/lstate.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lstate.c.s
+.PHONY : externals/lua/lstate.c.s
 
-external/lua/ldebug.o: external/lua/ldebug.c.o
+externals/lua/lstring.o: externals/lua/lstring.c.o
 
-.PHONY : external/lua/ldebug.o
+.PHONY : externals/lua/lstring.o
 
 # target to build an object file
-external/lua/ldebug.c.o:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ldebug.c.o
-.PHONY : external/lua/ldebug.c.o
+externals/lua/lstring.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lstring.c.o
+.PHONY : externals/lua/lstring.c.o
 
-external/lua/ldebug.i: external/lua/ldebug.c.i
+externals/lua/lstring.i: externals/lua/lstring.c.i
 
-.PHONY : external/lua/ldebug.i
+.PHONY : externals/lua/lstring.i
 
 # target to preprocess a source file
-external/lua/ldebug.c.i:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ldebug.c.i
-.PHONY : external/lua/ldebug.c.i
+externals/lua/lstring.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lstring.c.i
+.PHONY : externals/lua/lstring.c.i
 
-external/lua/ldebug.s: external/lua/ldebug.c.s
+externals/lua/lstring.s: externals/lua/lstring.c.s
 
-.PHONY : external/lua/ldebug.s
+.PHONY : externals/lua/lstring.s
 
 # target to generate assembly for a file
-external/lua/ldebug.c.s:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ldebug.c.s
-.PHONY : external/lua/ldebug.c.s
+externals/lua/lstring.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lstring.c.s
+.PHONY : externals/lua/lstring.c.s
 
-external/lua/ldo.o: external/lua/ldo.c.o
+externals/lua/lstrlib.o: externals/lua/lstrlib.c.o
 
-.PHONY : external/lua/ldo.o
+.PHONY : externals/lua/lstrlib.o
 
 # target to build an object file
-external/lua/ldo.c.o:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ldo.c.o
-.PHONY : external/lua/ldo.c.o
+externals/lua/lstrlib.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lstrlib.c.o
+.PHONY : externals/lua/lstrlib.c.o
 
-external/lua/ldo.i: external/lua/ldo.c.i
+externals/lua/lstrlib.i: externals/lua/lstrlib.c.i
 
-.PHONY : external/lua/ldo.i
+.PHONY : externals/lua/lstrlib.i
 
 # target to preprocess a source file
-external/lua/ldo.c.i:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ldo.c.i
-.PHONY : external/lua/ldo.c.i
+externals/lua/lstrlib.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lstrlib.c.i
+.PHONY : externals/lua/lstrlib.c.i
 
-external/lua/ldo.s: external/lua/ldo.c.s
+externals/lua/lstrlib.s: externals/lua/lstrlib.c.s
 
-.PHONY : external/lua/ldo.s
+.PHONY : externals/lua/lstrlib.s
 
 # target to generate assembly for a file
-external/lua/ldo.c.s:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ldo.c.s
-.PHONY : external/lua/ldo.c.s
+externals/lua/lstrlib.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lstrlib.c.s
+.PHONY : externals/lua/lstrlib.c.s
 
-external/lua/ldump.o: external/lua/ldump.c.o
+externals/lua/ltable.o: externals/lua/ltable.c.o
 
-.PHONY : external/lua/ldump.o
+.PHONY : externals/lua/ltable.o
 
 # target to build an object file
-external/lua/ldump.c.o:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ldump.c.o
-.PHONY : external/lua/ldump.c.o
+externals/lua/ltable.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/ltable.c.o
+.PHONY : externals/lua/ltable.c.o
 
-external/lua/ldump.i: external/lua/ldump.c.i
+externals/lua/ltable.i: externals/lua/ltable.c.i
 
-.PHONY : external/lua/ldump.i
+.PHONY : externals/lua/ltable.i
 
 # target to preprocess a source file
-external/lua/ldump.c.i:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ldump.c.i
-.PHONY : external/lua/ldump.c.i
+externals/lua/ltable.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/ltable.c.i
+.PHONY : externals/lua/ltable.c.i
 
-external/lua/ldump.s: external/lua/ldump.c.s
+externals/lua/ltable.s: externals/lua/ltable.c.s
 
-.PHONY : external/lua/ldump.s
+.PHONY : externals/lua/ltable.s
 
 # target to generate assembly for a file
-external/lua/ldump.c.s:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ldump.c.s
-.PHONY : external/lua/ldump.c.s
+externals/lua/ltable.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/ltable.c.s
+.PHONY : externals/lua/ltable.c.s
 
-external/lua/lfunc.o: external/lua/lfunc.c.o
+externals/lua/ltablib.o: externals/lua/ltablib.c.o
 
-.PHONY : external/lua/lfunc.o
+.PHONY : externals/lua/ltablib.o
 
 # target to build an object file
-external/lua/lfunc.c.o:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lfunc.c.o
-.PHONY : external/lua/lfunc.c.o
+externals/lua/ltablib.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/ltablib.c.o
+.PHONY : externals/lua/ltablib.c.o
 
-external/lua/lfunc.i: external/lua/lfunc.c.i
+externals/lua/ltablib.i: externals/lua/ltablib.c.i
 
-.PHONY : external/lua/lfunc.i
+.PHONY : externals/lua/ltablib.i
 
 # target to preprocess a source file
-external/lua/lfunc.c.i:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lfunc.c.i
-.PHONY : external/lua/lfunc.c.i
+externals/lua/ltablib.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/ltablib.c.i
+.PHONY : externals/lua/ltablib.c.i
 
-external/lua/lfunc.s: external/lua/lfunc.c.s
+externals/lua/ltablib.s: externals/lua/ltablib.c.s
 
-.PHONY : external/lua/lfunc.s
+.PHONY : externals/lua/ltablib.s
 
 # target to generate assembly for a file
-external/lua/lfunc.c.s:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lfunc.c.s
-.PHONY : external/lua/lfunc.c.s
+externals/lua/ltablib.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/ltablib.c.s
+.PHONY : externals/lua/ltablib.c.s
 
-external/lua/lgc.o: external/lua/lgc.c.o
+externals/lua/ltm.o: externals/lua/ltm.c.o
 
-.PHONY : external/lua/lgc.o
+.PHONY : externals/lua/ltm.o
 
 # target to build an object file
-external/lua/lgc.c.o:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lgc.c.o
-.PHONY : external/lua/lgc.c.o
+externals/lua/ltm.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/ltm.c.o
+.PHONY : externals/lua/ltm.c.o
 
-external/lua/lgc.i: external/lua/lgc.c.i
+externals/lua/ltm.i: externals/lua/ltm.c.i
 
-.PHONY : external/lua/lgc.i
+.PHONY : externals/lua/ltm.i
 
 # target to preprocess a source file
-external/lua/lgc.c.i:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lgc.c.i
-.PHONY : external/lua/lgc.c.i
+externals/lua/ltm.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/ltm.c.i
+.PHONY : externals/lua/ltm.c.i
 
-external/lua/lgc.s: external/lua/lgc.c.s
+externals/lua/ltm.s: externals/lua/ltm.c.s
 
-.PHONY : external/lua/lgc.s
+.PHONY : externals/lua/ltm.s
 
 # target to generate assembly for a file
-external/lua/lgc.c.s:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lgc.c.s
-.PHONY : external/lua/lgc.c.s
+externals/lua/ltm.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/ltm.c.s
+.PHONY : externals/lua/ltm.c.s
 
-external/lua/linit.o: external/lua/linit.c.o
+externals/lua/lua.o: externals/lua/lua.c.o
 
-.PHONY : external/lua/linit.o
+.PHONY : externals/lua/lua.o
 
 # target to build an object file
-external/lua/linit.c.o:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/linit.c.o
-.PHONY : external/lua/linit.c.o
+externals/lua/lua.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lua.c.o
+.PHONY : externals/lua/lua.c.o
 
-external/lua/linit.i: external/lua/linit.c.i
+externals/lua/lua.i: externals/lua/lua.c.i
 
-.PHONY : external/lua/linit.i
+.PHONY : externals/lua/lua.i
 
 # target to preprocess a source file
-external/lua/linit.c.i:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/linit.c.i
-.PHONY : external/lua/linit.c.i
+externals/lua/lua.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lua.c.i
+.PHONY : externals/lua/lua.c.i
 
-external/lua/linit.s: external/lua/linit.c.s
+externals/lua/lua.s: externals/lua/lua.c.s
 
-.PHONY : external/lua/linit.s
+.PHONY : externals/lua/lua.s
 
 # target to generate assembly for a file
-external/lua/linit.c.s:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/linit.c.s
-.PHONY : external/lua/linit.c.s
+externals/lua/lua.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lua.c.s
+.PHONY : externals/lua/lua.c.s
 
-external/lua/liolib.o: external/lua/liolib.c.o
+externals/lua/lundump.o: externals/lua/lundump.c.o
 
-.PHONY : external/lua/liolib.o
+.PHONY : externals/lua/lundump.o
 
 # target to build an object file
-external/lua/liolib.c.o:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/liolib.c.o
-.PHONY : external/lua/liolib.c.o
+externals/lua/lundump.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lundump.c.o
+.PHONY : externals/lua/lundump.c.o
 
-external/lua/liolib.i: external/lua/liolib.c.i
+externals/lua/lundump.i: externals/lua/lundump.c.i
 
-.PHONY : external/lua/liolib.i
+.PHONY : externals/lua/lundump.i
 
 # target to preprocess a source file
-external/lua/liolib.c.i:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/liolib.c.i
-.PHONY : external/lua/liolib.c.i
+externals/lua/lundump.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lundump.c.i
+.PHONY : externals/lua/lundump.c.i
 
-external/lua/liolib.s: external/lua/liolib.c.s
+externals/lua/lundump.s: externals/lua/lundump.c.s
 
-.PHONY : external/lua/liolib.s
+.PHONY : externals/lua/lundump.s
 
 # target to generate assembly for a file
-external/lua/liolib.c.s:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/liolib.c.s
-.PHONY : external/lua/liolib.c.s
+externals/lua/lundump.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lundump.c.s
+.PHONY : externals/lua/lundump.c.s
 
-external/lua/llex.o: external/lua/llex.c.o
+externals/lua/lutf8lib.o: externals/lua/lutf8lib.c.o
 
-.PHONY : external/lua/llex.o
+.PHONY : externals/lua/lutf8lib.o
 
 # target to build an object file
-external/lua/llex.c.o:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/llex.c.o
-.PHONY : external/lua/llex.c.o
+externals/lua/lutf8lib.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lutf8lib.c.o
+.PHONY : externals/lua/lutf8lib.c.o
 
-external/lua/llex.i: external/lua/llex.c.i
+externals/lua/lutf8lib.i: externals/lua/lutf8lib.c.i
 
-.PHONY : external/lua/llex.i
+.PHONY : externals/lua/lutf8lib.i
 
 # target to preprocess a source file
-external/lua/llex.c.i:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/llex.c.i
-.PHONY : external/lua/llex.c.i
+externals/lua/lutf8lib.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lutf8lib.c.i
+.PHONY : externals/lua/lutf8lib.c.i
 
-external/lua/llex.s: external/lua/llex.c.s
+externals/lua/lutf8lib.s: externals/lua/lutf8lib.c.s
 
-.PHONY : external/lua/llex.s
+.PHONY : externals/lua/lutf8lib.s
 
 # target to generate assembly for a file
-external/lua/llex.c.s:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/llex.c.s
-.PHONY : external/lua/llex.c.s
+externals/lua/lutf8lib.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lutf8lib.c.s
+.PHONY : externals/lua/lutf8lib.c.s
 
-external/lua/lmathlib.o: external/lua/lmathlib.c.o
+externals/lua/lvm.o: externals/lua/lvm.c.o
 
-.PHONY : external/lua/lmathlib.o
+.PHONY : externals/lua/lvm.o
 
 # target to build an object file
-external/lua/lmathlib.c.o:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lmathlib.c.o
-.PHONY : external/lua/lmathlib.c.o
+externals/lua/lvm.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lvm.c.o
+.PHONY : externals/lua/lvm.c.o
 
-external/lua/lmathlib.i: external/lua/lmathlib.c.i
+externals/lua/lvm.i: externals/lua/lvm.c.i
 
-.PHONY : external/lua/lmathlib.i
+.PHONY : externals/lua/lvm.i
 
 # target to preprocess a source file
-external/lua/lmathlib.c.i:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lmathlib.c.i
-.PHONY : external/lua/lmathlib.c.i
+externals/lua/lvm.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lvm.c.i
+.PHONY : externals/lua/lvm.c.i
 
-external/lua/lmathlib.s: external/lua/lmathlib.c.s
+externals/lua/lvm.s: externals/lua/lvm.c.s
 
-.PHONY : external/lua/lmathlib.s
+.PHONY : externals/lua/lvm.s
 
 # target to generate assembly for a file
-external/lua/lmathlib.c.s:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lmathlib.c.s
-.PHONY : external/lua/lmathlib.c.s
+externals/lua/lvm.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lvm.c.s
+.PHONY : externals/lua/lvm.c.s
 
-external/lua/lmem.o: external/lua/lmem.c.o
+externals/lua/lzio.o: externals/lua/lzio.c.o
 
-.PHONY : external/lua/lmem.o
+.PHONY : externals/lua/lzio.o
 
 # target to build an object file
-external/lua/lmem.c.o:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lmem.c.o
-.PHONY : external/lua/lmem.c.o
+externals/lua/lzio.c.o:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lzio.c.o
+.PHONY : externals/lua/lzio.c.o
 
-external/lua/lmem.i: external/lua/lmem.c.i
+externals/lua/lzio.i: externals/lua/lzio.c.i
 
-.PHONY : external/lua/lmem.i
+.PHONY : externals/lua/lzio.i
 
 # target to preprocess a source file
-external/lua/lmem.c.i:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lmem.c.i
-.PHONY : external/lua/lmem.c.i
+externals/lua/lzio.c.i:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lzio.c.i
+.PHONY : externals/lua/lzio.c.i
 
-external/lua/lmem.s: external/lua/lmem.c.s
+externals/lua/lzio.s: externals/lua/lzio.c.s
 
-.PHONY : external/lua/lmem.s
+.PHONY : externals/lua/lzio.s
 
 # target to generate assembly for a file
-external/lua/lmem.c.s:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lmem.c.s
-.PHONY : external/lua/lmem.c.s
+externals/lua/lzio.c.s:
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/externals/lua/lzio.c.s
+.PHONY : externals/lua/lzio.c.s
 
-external/lua/loadlib.o: external/lua/loadlib.c.o
+source/App.o: source/App.cpp.o
 
-.PHONY : external/lua/loadlib.o
+.PHONY : source/App.o
 
 # target to build an object file
-external/lua/loadlib.c.o:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/loadlib.c.o
-.PHONY : external/lua/loadlib.c.o
+source/App.cpp.o:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/App.cpp.o
+.PHONY : source/App.cpp.o
 
-external/lua/loadlib.i: external/lua/loadlib.c.i
+source/App.i: source/App.cpp.i
 
-.PHONY : external/lua/loadlib.i
+.PHONY : source/App.i
 
 # target to preprocess a source file
-external/lua/loadlib.c.i:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/loadlib.c.i
-.PHONY : external/lua/loadlib.c.i
+source/App.cpp.i:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/App.cpp.i
+.PHONY : source/App.cpp.i
 
-external/lua/loadlib.s: external/lua/loadlib.c.s
+source/App.s: source/App.cpp.s
 
-.PHONY : external/lua/loadlib.s
+.PHONY : source/App.s
 
 # target to generate assembly for a file
-external/lua/loadlib.c.s:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/loadlib.c.s
-.PHONY : external/lua/loadlib.c.s
+source/App.cpp.s:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/App.cpp.s
+.PHONY : source/App.cpp.s
 
-external/lua/lobject.o: external/lua/lobject.c.o
+source/AssetManager.o: source/AssetManager.cpp.o
 
-.PHONY : external/lua/lobject.o
+.PHONY : source/AssetManager.o
 
 # target to build an object file
-external/lua/lobject.c.o:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lobject.c.o
-.PHONY : external/lua/lobject.c.o
+source/AssetManager.cpp.o:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/AssetManager.cpp.o
+.PHONY : source/AssetManager.cpp.o
 
-external/lua/lobject.i: external/lua/lobject.c.i
+source/AssetManager.i: source/AssetManager.cpp.i
 
-.PHONY : external/lua/lobject.i
+.PHONY : source/AssetManager.i
 
 # target to preprocess a source file
-external/lua/lobject.c.i:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lobject.c.i
-.PHONY : external/lua/lobject.c.i
+source/AssetManager.cpp.i:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/AssetManager.cpp.i
+.PHONY : source/AssetManager.cpp.i
 
-external/lua/lobject.s: external/lua/lobject.c.s
+source/AssetManager.s: source/AssetManager.cpp.s
 
-.PHONY : external/lua/lobject.s
+.PHONY : source/AssetManager.s
 
 # target to generate assembly for a file
-external/lua/lobject.c.s:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lobject.c.s
-.PHONY : external/lua/lobject.c.s
+source/AssetManager.cpp.s:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/AssetManager.cpp.s
+.PHONY : source/AssetManager.cpp.s
 
-external/lua/lopcodes.o: external/lua/lopcodes.c.o
+source/Commands/Commands.o: source/Commands/Commands.cpp.o
 
-.PHONY : external/lua/lopcodes.o
+.PHONY : source/Commands/Commands.o
 
 # target to build an object file
-external/lua/lopcodes.c.o:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lopcodes.c.o
-.PHONY : external/lua/lopcodes.c.o
+source/Commands/Commands.cpp.o:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Commands/Commands.cpp.o
+.PHONY : source/Commands/Commands.cpp.o
 
-external/lua/lopcodes.i: external/lua/lopcodes.c.i
+source/Commands/Commands.i: source/Commands/Commands.cpp.i
 
-.PHONY : external/lua/lopcodes.i
+.PHONY : source/Commands/Commands.i
 
 # target to preprocess a source file
-external/lua/lopcodes.c.i:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lopcodes.c.i
-.PHONY : external/lua/lopcodes.c.i
+source/Commands/Commands.cpp.i:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Commands/Commands.cpp.i
+.PHONY : source/Commands/Commands.cpp.i
 
-external/lua/lopcodes.s: external/lua/lopcodes.c.s
+source/Commands/Commands.s: source/Commands/Commands.cpp.s
 
-.PHONY : external/lua/lopcodes.s
+.PHONY : source/Commands/Commands.s
 
 # target to generate assembly for a file
-external/lua/lopcodes.c.s:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lopcodes.c.s
-.PHONY : external/lua/lopcodes.c.s
+source/Commands/Commands.cpp.s:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Commands/Commands.cpp.s
+.PHONY : source/Commands/Commands.cpp.s
 
-external/lua/loslib.o: external/lua/loslib.c.o
+source/Components/GoalZoneComponent.o: source/Components/GoalZoneComponent.cpp.o
 
-.PHONY : external/lua/loslib.o
+.PHONY : source/Components/GoalZoneComponent.o
 
 # target to build an object file
-external/lua/loslib.c.o:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/loslib.c.o
-.PHONY : external/lua/loslib.c.o
+source/Components/GoalZoneComponent.cpp.o:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Components/GoalZoneComponent.cpp.o
+.PHONY : source/Components/GoalZoneComponent.cpp.o
 
-external/lua/loslib.i: external/lua/loslib.c.i
+source/Components/GoalZoneComponent.i: source/Components/GoalZoneComponent.cpp.i
 
-.PHONY : external/lua/loslib.i
+.PHONY : source/Components/GoalZoneComponent.i
 
 # target to preprocess a source file
-external/lua/loslib.c.i:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/loslib.c.i
-.PHONY : external/lua/loslib.c.i
+source/Components/GoalZoneComponent.cpp.i:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Components/GoalZoneComponent.cpp.i
+.PHONY : source/Components/GoalZoneComponent.cpp.i
 
-external/lua/loslib.s: external/lua/loslib.c.s
+source/Components/GoalZoneComponent.s: source/Components/GoalZoneComponent.cpp.s
 
-.PHONY : external/lua/loslib.s
+.PHONY : source/Components/GoalZoneComponent.s
 
 # target to generate assembly for a file
-external/lua/loslib.c.s:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/loslib.c.s
-.PHONY : external/lua/loslib.c.s
+source/Components/GoalZoneComponent.cpp.s:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Components/GoalZoneComponent.cpp.s
+.PHONY : source/Components/GoalZoneComponent.cpp.s
 
-external/lua/lparser.o: external/lua/lparser.c.o
+source/Components/KeyInputComponent.o: source/Components/KeyInputComponent.cpp.o
 
-.PHONY : external/lua/lparser.o
+.PHONY : source/Components/KeyInputComponent.o
 
 # target to build an object file
-external/lua/lparser.c.o:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lparser.c.o
-.PHONY : external/lua/lparser.c.o
+source/Components/KeyInputComponent.cpp.o:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Components/KeyInputComponent.cpp.o
+.PHONY : source/Components/KeyInputComponent.cpp.o
 
-external/lua/lparser.i: external/lua/lparser.c.i
+source/Components/KeyInputComponent.i: source/Components/KeyInputComponent.cpp.i
 
-.PHONY : external/lua/lparser.i
+.PHONY : source/Components/KeyInputComponent.i
 
 # target to preprocess a source file
-external/lua/lparser.c.i:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lparser.c.i
-.PHONY : external/lua/lparser.c.i
+source/Components/KeyInputComponent.cpp.i:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Components/KeyInputComponent.cpp.i
+.PHONY : source/Components/KeyInputComponent.cpp.i
 
-external/lua/lparser.s: external/lua/lparser.c.s
+source/Components/KeyInputComponent.s: source/Components/KeyInputComponent.cpp.s
 
-.PHONY : external/lua/lparser.s
+.PHONY : source/Components/KeyInputComponent.s
 
 # target to generate assembly for a file
-external/lua/lparser.c.s:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lparser.c.s
-.PHONY : external/lua/lparser.c.s
+source/Components/KeyInputComponent.cpp.s:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Components/KeyInputComponent.cpp.s
+.PHONY : source/Components/KeyInputComponent.cpp.s
 
-external/lua/lstate.o: external/lua/lstate.c.o
+source/Components/PhysicsComponent.o: source/Components/PhysicsComponent.cpp.o
 
-.PHONY : external/lua/lstate.o
+.PHONY : source/Components/PhysicsComponent.o
 
 # target to build an object file
-external/lua/lstate.c.o:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lstate.c.o
-.PHONY : external/lua/lstate.c.o
+source/Components/PhysicsComponent.cpp.o:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Components/PhysicsComponent.cpp.o
+.PHONY : source/Components/PhysicsComponent.cpp.o
 
-external/lua/lstate.i: external/lua/lstate.c.i
+source/Components/PhysicsComponent.i: source/Components/PhysicsComponent.cpp.i
 
-.PHONY : external/lua/lstate.i
+.PHONY : source/Components/PhysicsComponent.i
 
 # target to preprocess a source file
-external/lua/lstate.c.i:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lstate.c.i
-.PHONY : external/lua/lstate.c.i
+source/Components/PhysicsComponent.cpp.i:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Components/PhysicsComponent.cpp.i
+.PHONY : source/Components/PhysicsComponent.cpp.i
 
-external/lua/lstate.s: external/lua/lstate.c.s
+source/Components/PhysicsComponent.s: source/Components/PhysicsComponent.cpp.s
 
-.PHONY : external/lua/lstate.s
+.PHONY : source/Components/PhysicsComponent.s
 
 # target to generate assembly for a file
-external/lua/lstate.c.s:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lstate.c.s
-.PHONY : external/lua/lstate.c.s
+source/Components/PhysicsComponent.cpp.s:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Components/PhysicsComponent.cpp.s
+.PHONY : source/Components/PhysicsComponent.cpp.s
 
-external/lua/lstring.o: external/lua/lstring.c.o
+source/Components/SDLCircleComponent.o: source/Components/SDLCircleComponent.cpp.o
 
-.PHONY : external/lua/lstring.o
+.PHONY : source/Components/SDLCircleComponent.o
 
 # target to build an object file
-external/lua/lstring.c.o:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lstring.c.o
-.PHONY : external/lua/lstring.c.o
+source/Components/SDLCircleComponent.cpp.o:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Components/SDLCircleComponent.cpp.o
+.PHONY : source/Components/SDLCircleComponent.cpp.o
 
-external/lua/lstring.i: external/lua/lstring.c.i
+source/Components/SDLCircleComponent.i: source/Components/SDLCircleComponent.cpp.i
 
-.PHONY : external/lua/lstring.i
+.PHONY : source/Components/SDLCircleComponent.i
 
 # target to preprocess a source file
-external/lua/lstring.c.i:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lstring.c.i
-.PHONY : external/lua/lstring.c.i
+source/Components/SDLCircleComponent.cpp.i:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Components/SDLCircleComponent.cpp.i
+.PHONY : source/Components/SDLCircleComponent.cpp.i
 
-external/lua/lstring.s: external/lua/lstring.c.s
+source/Components/SDLCircleComponent.s: source/Components/SDLCircleComponent.cpp.s
 
-.PHONY : external/lua/lstring.s
+.PHONY : source/Components/SDLCircleComponent.s
 
 # target to generate assembly for a file
-external/lua/lstring.c.s:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lstring.c.s
-.PHONY : external/lua/lstring.c.s
+source/Components/SDLCircleComponent.cpp.s:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Components/SDLCircleComponent.cpp.s
+.PHONY : source/Components/SDLCircleComponent.cpp.s
 
-external/lua/lstrlib.o: external/lua/lstrlib.c.o
+source/Components/SDLRectComponent.o: source/Components/SDLRectComponent.cpp.o
 
-.PHONY : external/lua/lstrlib.o
+.PHONY : source/Components/SDLRectComponent.o
 
 # target to build an object file
-external/lua/lstrlib.c.o:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lstrlib.c.o
-.PHONY : external/lua/lstrlib.c.o
+source/Components/SDLRectComponent.cpp.o:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Components/SDLRectComponent.cpp.o
+.PHONY : source/Components/SDLRectComponent.cpp.o
 
-external/lua/lstrlib.i: external/lua/lstrlib.c.i
+source/Components/SDLRectComponent.i: source/Components/SDLRectComponent.cpp.i
 
-.PHONY : external/lua/lstrlib.i
+.PHONY : source/Components/SDLRectComponent.i
 
 # target to preprocess a source file
-external/lua/lstrlib.c.i:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lstrlib.c.i
-.PHONY : external/lua/lstrlib.c.i
+source/Components/SDLRectComponent.cpp.i:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Components/SDLRectComponent.cpp.i
+.PHONY : source/Components/SDLRectComponent.cpp.i
 
-external/lua/lstrlib.s: external/lua/lstrlib.c.s
+source/Components/SDLRectComponent.s: source/Components/SDLRectComponent.cpp.s
 
-.PHONY : external/lua/lstrlib.s
+.PHONY : source/Components/SDLRectComponent.s
 
 # target to generate assembly for a file
-external/lua/lstrlib.c.s:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lstrlib.c.s
-.PHONY : external/lua/lstrlib.c.s
+source/Components/SDLRectComponent.cpp.s:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Components/SDLRectComponent.cpp.s
+.PHONY : source/Components/SDLRectComponent.cpp.s
 
-external/lua/ltable.o: external/lua/ltable.c.o
+source/Components/SelectableComponent.o: source/Components/SelectableComponent.cpp.o
 
-.PHONY : external/lua/ltable.o
+.PHONY : source/Components/SelectableComponent.o
 
 # target to build an object file
-external/lua/ltable.c.o:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ltable.c.o
-.PHONY : external/lua/ltable.c.o
+source/Components/SelectableComponent.cpp.o:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Components/SelectableComponent.cpp.o
+.PHONY : source/Components/SelectableComponent.cpp.o
 
-external/lua/ltable.i: external/lua/ltable.c.i
+source/Components/SelectableComponent.i: source/Components/SelectableComponent.cpp.i
 
-.PHONY : external/lua/ltable.i
+.PHONY : source/Components/SelectableComponent.i
 
 # target to preprocess a source file
-external/lua/ltable.c.i:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ltable.c.i
-.PHONY : external/lua/ltable.c.i
+source/Components/SelectableComponent.cpp.i:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Components/SelectableComponent.cpp.i
+.PHONY : source/Components/SelectableComponent.cpp.i
 
-external/lua/ltable.s: external/lua/ltable.c.s
+source/Components/SelectableComponent.s: source/Components/SelectableComponent.cpp.s
 
-.PHONY : external/lua/ltable.s
+.PHONY : source/Components/SelectableComponent.s
 
 # target to generate assembly for a file
-external/lua/ltable.c.s:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ltable.c.s
-.PHONY : external/lua/ltable.c.s
+source/Components/SelectableComponent.cpp.s:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Components/SelectableComponent.cpp.s
+.PHONY : source/Components/SelectableComponent.cpp.s
 
-external/lua/ltablib.o: external/lua/ltablib.c.o
+source/Components/TextComponent.o: source/Components/TextComponent.cpp.o
 
-.PHONY : external/lua/ltablib.o
+.PHONY : source/Components/TextComponent.o
 
 # target to build an object file
-external/lua/ltablib.c.o:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ltablib.c.o
-.PHONY : external/lua/ltablib.c.o
+source/Components/TextComponent.cpp.o:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Components/TextComponent.cpp.o
+.PHONY : source/Components/TextComponent.cpp.o
 
-external/lua/ltablib.i: external/lua/ltablib.c.i
+source/Components/TextComponent.i: source/Components/TextComponent.cpp.i
 
-.PHONY : external/lua/ltablib.i
+.PHONY : source/Components/TextComponent.i
 
 # target to preprocess a source file
-external/lua/ltablib.c.i:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ltablib.c.i
-.PHONY : external/lua/ltablib.c.i
+source/Components/TextComponent.cpp.i:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Components/TextComponent.cpp.i
+.PHONY : source/Components/TextComponent.cpp.i
 
-external/lua/ltablib.s: external/lua/ltablib.c.s
+source/Components/TextComponent.s: source/Components/TextComponent.cpp.s
 
-.PHONY : external/lua/ltablib.s
+.PHONY : source/Components/TextComponent.s
 
 # target to generate assembly for a file
-external/lua/ltablib.c.s:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ltablib.c.s
-.PHONY : external/lua/ltablib.c.s
+source/Components/TextComponent.cpp.s:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Components/TextComponent.cpp.s
+.PHONY : source/Components/TextComponent.cpp.s
 
-external/lua/ltm.o: external/lua/ltm.c.o
+source/Entity.o: source/Entity.cpp.o
 
-.PHONY : external/lua/ltm.o
+.PHONY : source/Entity.o
 
 # target to build an object file
-external/lua/ltm.c.o:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ltm.c.o
-.PHONY : external/lua/ltm.c.o
+source/Entity.cpp.o:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Entity.cpp.o
+.PHONY : source/Entity.cpp.o
 
-external/lua/ltm.i: external/lua/ltm.c.i
+source/Entity.i: source/Entity.cpp.i
 
-.PHONY : external/lua/ltm.i
+.PHONY : source/Entity.i
 
 # target to preprocess a source file
-external/lua/ltm.c.i:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ltm.c.i
-.PHONY : external/lua/ltm.c.i
+source/Entity.cpp.i:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Entity.cpp.i
+.PHONY : source/Entity.cpp.i
 
-external/lua/ltm.s: external/lua/ltm.c.s
+source/Entity.s: source/Entity.cpp.s
 
-.PHONY : external/lua/ltm.s
+.PHONY : source/Entity.s
 
 # target to generate assembly for a file
-external/lua/ltm.c.s:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/ltm.c.s
-.PHONY : external/lua/ltm.c.s
+source/Entity.cpp.s:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Entity.cpp.s
+.PHONY : source/Entity.cpp.s
 
-external/lua/lua.o: external/lua/lua.c.o
+source/EntityManager.o: source/EntityManager.cpp.o
 
-.PHONY : external/lua/lua.o
+.PHONY : source/EntityManager.o
 
 # target to build an object file
-external/lua/lua.c.o:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lua.c.o
-.PHONY : external/lua/lua.c.o
+source/EntityManager.cpp.o:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/EntityManager.cpp.o
+.PHONY : source/EntityManager.cpp.o
 
-external/lua/lua.i: external/lua/lua.c.i
+source/EntityManager.i: source/EntityManager.cpp.i
 
-.PHONY : external/lua/lua.i
+.PHONY : source/EntityManager.i
 
 # target to preprocess a source file
-external/lua/lua.c.i:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lua.c.i
-.PHONY : external/lua/lua.c.i
+source/EntityManager.cpp.i:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/EntityManager.cpp.i
+.PHONY : source/EntityManager.cpp.i
 
-external/lua/lua.s: external/lua/lua.c.s
+source/EntityManager.s: source/EntityManager.cpp.s
 
-.PHONY : external/lua/lua.s
+.PHONY : source/EntityManager.s
 
 # target to generate assembly for a file
-external/lua/lua.c.s:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lua.c.s
-.PHONY : external/lua/lua.c.s
+source/EntityManager.cpp.s:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/EntityManager.cpp.s
+.PHONY : source/EntityManager.cpp.s
 
-external/lua/lundump.o: external/lua/lundump.c.o
+source/GameMatchState.o: source/GameMatchState.cpp.o
 
-.PHONY : external/lua/lundump.o
+.PHONY : source/GameMatchState.o
 
 # target to build an object file
-external/lua/lundump.c.o:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lundump.c.o
-.PHONY : external/lua/lundump.c.o
+source/GameMatchState.cpp.o:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o
+.PHONY : source/GameMatchState.cpp.o
 
-external/lua/lundump.i: external/lua/lundump.c.i
+source/GameMatchState.i: source/GameMatchState.cpp.i
 
-.PHONY : external/lua/lundump.i
+.PHONY : source/GameMatchState.i
 
 # target to preprocess a source file
-external/lua/lundump.c.i:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lundump.c.i
-.PHONY : external/lua/lundump.c.i
+source/GameMatchState.cpp.i:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.i
+.PHONY : source/GameMatchState.cpp.i
 
-external/lua/lundump.s: external/lua/lundump.c.s
+source/GameMatchState.s: source/GameMatchState.cpp.s
 
-.PHONY : external/lua/lundump.s
+.PHONY : source/GameMatchState.s
 
 # target to generate assembly for a file
-external/lua/lundump.c.s:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lundump.c.s
-.PHONY : external/lua/lundump.c.s
+source/GameMatchState.cpp.s:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.s
+.PHONY : source/GameMatchState.cpp.s
 
-external/lua/lutf8lib.o: external/lua/lutf8lib.c.o
+source/ObjectFactory.o: source/ObjectFactory.cpp.o
 
-.PHONY : external/lua/lutf8lib.o
+.PHONY : source/ObjectFactory.o
 
 # target to build an object file
-external/lua/lutf8lib.c.o:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lutf8lib.c.o
-.PHONY : external/lua/lutf8lib.c.o
+source/ObjectFactory.cpp.o:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/ObjectFactory.cpp.o
+.PHONY : source/ObjectFactory.cpp.o
 
-external/lua/lutf8lib.i: external/lua/lutf8lib.c.i
+source/ObjectFactory.i: source/ObjectFactory.cpp.i
 
-.PHONY : external/lua/lutf8lib.i
+.PHONY : source/ObjectFactory.i
 
 # target to preprocess a source file
-external/lua/lutf8lib.c.i:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lutf8lib.c.i
-.PHONY : external/lua/lutf8lib.c.i
+source/ObjectFactory.cpp.i:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/ObjectFactory.cpp.i
+.PHONY : source/ObjectFactory.cpp.i
 
-external/lua/lutf8lib.s: external/lua/lutf8lib.c.s
+source/ObjectFactory.s: source/ObjectFactory.cpp.s
 
-.PHONY : external/lua/lutf8lib.s
+.PHONY : source/ObjectFactory.s
 
 # target to generate assembly for a file
-external/lua/lutf8lib.c.s:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lutf8lib.c.s
-.PHONY : external/lua/lutf8lib.c.s
+source/ObjectFactory.cpp.s:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/ObjectFactory.cpp.s
+.PHONY : source/ObjectFactory.cpp.s
 
-external/lua/lvm.o: external/lua/lvm.c.o
+source/Player.o: source/Player.cpp.o
 
-.PHONY : external/lua/lvm.o
+.PHONY : source/Player.o
 
 # target to build an object file
-external/lua/lvm.c.o:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lvm.c.o
-.PHONY : external/lua/lvm.c.o
+source/Player.cpp.o:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Player.cpp.o
+.PHONY : source/Player.cpp.o
 
-external/lua/lvm.i: external/lua/lvm.c.i
+source/Player.i: source/Player.cpp.i
 
-.PHONY : external/lua/lvm.i
+.PHONY : source/Player.i
 
 # target to preprocess a source file
-external/lua/lvm.c.i:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lvm.c.i
-.PHONY : external/lua/lvm.c.i
+source/Player.cpp.i:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Player.cpp.i
+.PHONY : source/Player.cpp.i
 
-external/lua/lvm.s: external/lua/lvm.c.s
+source/Player.s: source/Player.cpp.s
 
-.PHONY : external/lua/lvm.s
+.PHONY : source/Player.s
 
 # target to generate assembly for a file
-external/lua/lvm.c.s:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lvm.c.s
-.PHONY : external/lua/lvm.c.s
+source/Player.cpp.s:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Player.cpp.s
+.PHONY : source/Player.cpp.s
 
-external/lua/lzio.o: external/lua/lzio.c.o
+source/PlayerManager.o: source/PlayerManager.cpp.o
 
-.PHONY : external/lua/lzio.o
+.PHONY : source/PlayerManager.o
 
 # target to build an object file
-external/lua/lzio.c.o:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lzio.c.o
-.PHONY : external/lua/lzio.c.o
+source/PlayerManager.cpp.o:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/PlayerManager.cpp.o
+.PHONY : source/PlayerManager.cpp.o
 
-external/lua/lzio.i: external/lua/lzio.c.i
+source/PlayerManager.i: source/PlayerManager.cpp.i
 
-.PHONY : external/lua/lzio.i
+.PHONY : source/PlayerManager.i
 
 # target to preprocess a source file
-external/lua/lzio.c.i:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lzio.c.i
-.PHONY : external/lua/lzio.c.i
+source/PlayerManager.cpp.i:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/PlayerManager.cpp.i
+.PHONY : source/PlayerManager.cpp.i
 
-external/lua/lzio.s: external/lua/lzio.c.s
+source/PlayerManager.s: source/PlayerManager.cpp.s
 
-.PHONY : external/lua/lzio.s
+.PHONY : source/PlayerManager.s
 
 # target to generate assembly for a file
-external/lua/lzio.c.s:
-	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/external/lua/lzio.c.s
-.PHONY : external/lua/lzio.c.s
+source/PlayerManager.cpp.s:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/PlayerManager.cpp.s
+.PHONY : source/PlayerManager.cpp.s
 
-main.o: main.cpp.o
+source/ScriptLoader.o: source/ScriptLoader.cpp.o
 
-.PHONY : main.o
+.PHONY : source/ScriptLoader.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/main.cpp.o
-.PHONY : main.cpp.o
+source/ScriptLoader.cpp.o:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/ScriptLoader.cpp.o
+.PHONY : source/ScriptLoader.cpp.o
 
-main.i: main.cpp.i
+source/ScriptLoader.i: source/ScriptLoader.cpp.i
 
-.PHONY : main.i
+.PHONY : source/ScriptLoader.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/main.cpp.i
-.PHONY : main.cpp.i
+source/ScriptLoader.cpp.i:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/ScriptLoader.cpp.i
+.PHONY : source/ScriptLoader.cpp.i
 
-main.s: main.cpp.s
+source/ScriptLoader.s: source/ScriptLoader.cpp.s
 
-.PHONY : main.s
+.PHONY : source/ScriptLoader.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/main.cpp.s
-.PHONY : main.cpp.s
+source/ScriptLoader.cpp.s:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/ScriptLoader.cpp.s
+.PHONY : source/ScriptLoader.cpp.s
+
+source/main.o: source/main.cpp.o
+
+.PHONY : source/main.o
+
+# target to build an object file
+source/main.cpp.o:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/main.cpp.o
+.PHONY : source/main.cpp.o
+
+source/main.i: source/main.cpp.i
+
+.PHONY : source/main.i
+
+# target to preprocess a source file
+source/main.cpp.i:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/main.cpp.i
+.PHONY : source/main.cpp.i
+
+source/main.s: source/main.cpp.s
+
+.PHONY : source/main.s
+
+# target to generate assembly for a file
+source/main.cpp.s:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/main.cpp.s
+.PHONY : source/main.cpp.s
 
 # Help Target
 help:
@@ -1521,161 +1521,161 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... lua"
 	@echo "... HockeyExe"
-	@echo "... App.o"
-	@echo "... App.i"
-	@echo "... App.s"
-	@echo "... AssetManager.o"
-	@echo "... AssetManager.i"
-	@echo "... AssetManager.s"
-	@echo "... Commands/Commands.o"
-	@echo "... Commands/Commands.i"
-	@echo "... Commands/Commands.s"
-	@echo "... Components/GoalZoneComponent.o"
-	@echo "... Components/GoalZoneComponent.i"
-	@echo "... Components/GoalZoneComponent.s"
-	@echo "... Components/KeyInputComponent.o"
-	@echo "... Components/KeyInputComponent.i"
-	@echo "... Components/KeyInputComponent.s"
-	@echo "... Components/PhysicsComponent.o"
-	@echo "... Components/PhysicsComponent.i"
-	@echo "... Components/PhysicsComponent.s"
-	@echo "... Components/SDLCircleComponent.o"
-	@echo "... Components/SDLCircleComponent.i"
-	@echo "... Components/SDLCircleComponent.s"
-	@echo "... Components/SDLRectComponent.o"
-	@echo "... Components/SDLRectComponent.i"
-	@echo "... Components/SDLRectComponent.s"
-	@echo "... Components/SelectableComponent.o"
-	@echo "... Components/SelectableComponent.i"
-	@echo "... Components/SelectableComponent.s"
-	@echo "... Components/TextComponent.o"
-	@echo "... Components/TextComponent.i"
-	@echo "... Components/TextComponent.s"
-	@echo "... Entity.o"
-	@echo "... Entity.i"
-	@echo "... Entity.s"
-	@echo "... EntityFactory.o"
-	@echo "... EntityFactory.i"
-	@echo "... EntityFactory.s"
-	@echo "... EntityManager.o"
-	@echo "... EntityManager.i"
-	@echo "... EntityManager.s"
-	@echo "... GameMatchState.o"
-	@echo "... GameMatchState.i"
-	@echo "... GameMatchState.s"
-	@echo "... Player.o"
-	@echo "... Player.i"
-	@echo "... Player.s"
-	@echo "... PlayerManager.o"
-	@echo "... PlayerManager.i"
-	@echo "... PlayerManager.s"
-	@echo "... ScriptLoader.o"
-	@echo "... ScriptLoader.i"
-	@echo "... ScriptLoader.s"
-	@echo "... external/lua/lapi.o"
-	@echo "... external/lua/lapi.i"
-	@echo "... external/lua/lapi.s"
-	@echo "... external/lua/lauxlib.o"
-	@echo "... external/lua/lauxlib.i"
-	@echo "... external/lua/lauxlib.s"
-	@echo "... external/lua/lbaselib.o"
-	@echo "... external/lua/lbaselib.i"
-	@echo "... external/lua/lbaselib.s"
-	@echo "... external/lua/lcode.o"
-	@echo "... external/lua/lcode.i"
-	@echo "... external/lua/lcode.s"
-	@echo "... external/lua/lcorolib.o"
-	@echo "... external/lua/lcorolib.i"
-	@echo "... external/lua/lcorolib.s"
-	@echo "... external/lua/lctype.o"
-	@echo "... external/lua/lctype.i"
-	@echo "... external/lua/lctype.s"
-	@echo "... external/lua/ldblib.o"
-	@echo "... external/lua/ldblib.i"
-	@echo "... external/lua/ldblib.s"
-	@echo "... external/lua/ldebug.o"
-	@echo "... external/lua/ldebug.i"
-	@echo "... external/lua/ldebug.s"
-	@echo "... external/lua/ldo.o"
-	@echo "... external/lua/ldo.i"
-	@echo "... external/lua/ldo.s"
-	@echo "... external/lua/ldump.o"
-	@echo "... external/lua/ldump.i"
-	@echo "... external/lua/ldump.s"
-	@echo "... external/lua/lfunc.o"
-	@echo "... external/lua/lfunc.i"
-	@echo "... external/lua/lfunc.s"
-	@echo "... external/lua/lgc.o"
-	@echo "... external/lua/lgc.i"
-	@echo "... external/lua/lgc.s"
-	@echo "... external/lua/linit.o"
-	@echo "... external/lua/linit.i"
-	@echo "... external/lua/linit.s"
-	@echo "... external/lua/liolib.o"
-	@echo "... external/lua/liolib.i"
-	@echo "... external/lua/liolib.s"
-	@echo "... external/lua/llex.o"
-	@echo "... external/lua/llex.i"
-	@echo "... external/lua/llex.s"
-	@echo "... external/lua/lmathlib.o"
-	@echo "... external/lua/lmathlib.i"
-	@echo "... external/lua/lmathlib.s"
-	@echo "... external/lua/lmem.o"
-	@echo "... external/lua/lmem.i"
-	@echo "... external/lua/lmem.s"
-	@echo "... external/lua/loadlib.o"
-	@echo "... external/lua/loadlib.i"
-	@echo "... external/lua/loadlib.s"
-	@echo "... external/lua/lobject.o"
-	@echo "... external/lua/lobject.i"
-	@echo "... external/lua/lobject.s"
-	@echo "... external/lua/lopcodes.o"
-	@echo "... external/lua/lopcodes.i"
-	@echo "... external/lua/lopcodes.s"
-	@echo "... external/lua/loslib.o"
-	@echo "... external/lua/loslib.i"
-	@echo "... external/lua/loslib.s"
-	@echo "... external/lua/lparser.o"
-	@echo "... external/lua/lparser.i"
-	@echo "... external/lua/lparser.s"
-	@echo "... external/lua/lstate.o"
-	@echo "... external/lua/lstate.i"
-	@echo "... external/lua/lstate.s"
-	@echo "... external/lua/lstring.o"
-	@echo "... external/lua/lstring.i"
-	@echo "... external/lua/lstring.s"
-	@echo "... external/lua/lstrlib.o"
-	@echo "... external/lua/lstrlib.i"
-	@echo "... external/lua/lstrlib.s"
-	@echo "... external/lua/ltable.o"
-	@echo "... external/lua/ltable.i"
-	@echo "... external/lua/ltable.s"
-	@echo "... external/lua/ltablib.o"
-	@echo "... external/lua/ltablib.i"
-	@echo "... external/lua/ltablib.s"
-	@echo "... external/lua/ltm.o"
-	@echo "... external/lua/ltm.i"
-	@echo "... external/lua/ltm.s"
-	@echo "... external/lua/lua.o"
-	@echo "... external/lua/lua.i"
-	@echo "... external/lua/lua.s"
-	@echo "... external/lua/lundump.o"
-	@echo "... external/lua/lundump.i"
-	@echo "... external/lua/lundump.s"
-	@echo "... external/lua/lutf8lib.o"
-	@echo "... external/lua/lutf8lib.i"
-	@echo "... external/lua/lutf8lib.s"
-	@echo "... external/lua/lvm.o"
-	@echo "... external/lua/lvm.i"
-	@echo "... external/lua/lvm.s"
-	@echo "... external/lua/lzio.o"
-	@echo "... external/lua/lzio.i"
-	@echo "... external/lua/lzio.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... lua"
+	@echo "... externals/lua/lapi.o"
+	@echo "... externals/lua/lapi.i"
+	@echo "... externals/lua/lapi.s"
+	@echo "... externals/lua/lauxlib.o"
+	@echo "... externals/lua/lauxlib.i"
+	@echo "... externals/lua/lauxlib.s"
+	@echo "... externals/lua/lbaselib.o"
+	@echo "... externals/lua/lbaselib.i"
+	@echo "... externals/lua/lbaselib.s"
+	@echo "... externals/lua/lcode.o"
+	@echo "... externals/lua/lcode.i"
+	@echo "... externals/lua/lcode.s"
+	@echo "... externals/lua/lcorolib.o"
+	@echo "... externals/lua/lcorolib.i"
+	@echo "... externals/lua/lcorolib.s"
+	@echo "... externals/lua/lctype.o"
+	@echo "... externals/lua/lctype.i"
+	@echo "... externals/lua/lctype.s"
+	@echo "... externals/lua/ldblib.o"
+	@echo "... externals/lua/ldblib.i"
+	@echo "... externals/lua/ldblib.s"
+	@echo "... externals/lua/ldebug.o"
+	@echo "... externals/lua/ldebug.i"
+	@echo "... externals/lua/ldebug.s"
+	@echo "... externals/lua/ldo.o"
+	@echo "... externals/lua/ldo.i"
+	@echo "... externals/lua/ldo.s"
+	@echo "... externals/lua/ldump.o"
+	@echo "... externals/lua/ldump.i"
+	@echo "... externals/lua/ldump.s"
+	@echo "... externals/lua/lfunc.o"
+	@echo "... externals/lua/lfunc.i"
+	@echo "... externals/lua/lfunc.s"
+	@echo "... externals/lua/lgc.o"
+	@echo "... externals/lua/lgc.i"
+	@echo "... externals/lua/lgc.s"
+	@echo "... externals/lua/linit.o"
+	@echo "... externals/lua/linit.i"
+	@echo "... externals/lua/linit.s"
+	@echo "... externals/lua/liolib.o"
+	@echo "... externals/lua/liolib.i"
+	@echo "... externals/lua/liolib.s"
+	@echo "... externals/lua/llex.o"
+	@echo "... externals/lua/llex.i"
+	@echo "... externals/lua/llex.s"
+	@echo "... externals/lua/lmathlib.o"
+	@echo "... externals/lua/lmathlib.i"
+	@echo "... externals/lua/lmathlib.s"
+	@echo "... externals/lua/lmem.o"
+	@echo "... externals/lua/lmem.i"
+	@echo "... externals/lua/lmem.s"
+	@echo "... externals/lua/loadlib.o"
+	@echo "... externals/lua/loadlib.i"
+	@echo "... externals/lua/loadlib.s"
+	@echo "... externals/lua/lobject.o"
+	@echo "... externals/lua/lobject.i"
+	@echo "... externals/lua/lobject.s"
+	@echo "... externals/lua/lopcodes.o"
+	@echo "... externals/lua/lopcodes.i"
+	@echo "... externals/lua/lopcodes.s"
+	@echo "... externals/lua/loslib.o"
+	@echo "... externals/lua/loslib.i"
+	@echo "... externals/lua/loslib.s"
+	@echo "... externals/lua/lparser.o"
+	@echo "... externals/lua/lparser.i"
+	@echo "... externals/lua/lparser.s"
+	@echo "... externals/lua/lstate.o"
+	@echo "... externals/lua/lstate.i"
+	@echo "... externals/lua/lstate.s"
+	@echo "... externals/lua/lstring.o"
+	@echo "... externals/lua/lstring.i"
+	@echo "... externals/lua/lstring.s"
+	@echo "... externals/lua/lstrlib.o"
+	@echo "... externals/lua/lstrlib.i"
+	@echo "... externals/lua/lstrlib.s"
+	@echo "... externals/lua/ltable.o"
+	@echo "... externals/lua/ltable.i"
+	@echo "... externals/lua/ltable.s"
+	@echo "... externals/lua/ltablib.o"
+	@echo "... externals/lua/ltablib.i"
+	@echo "... externals/lua/ltablib.s"
+	@echo "... externals/lua/ltm.o"
+	@echo "... externals/lua/ltm.i"
+	@echo "... externals/lua/ltm.s"
+	@echo "... externals/lua/lua.o"
+	@echo "... externals/lua/lua.i"
+	@echo "... externals/lua/lua.s"
+	@echo "... externals/lua/lundump.o"
+	@echo "... externals/lua/lundump.i"
+	@echo "... externals/lua/lundump.s"
+	@echo "... externals/lua/lutf8lib.o"
+	@echo "... externals/lua/lutf8lib.i"
+	@echo "... externals/lua/lutf8lib.s"
+	@echo "... externals/lua/lvm.o"
+	@echo "... externals/lua/lvm.i"
+	@echo "... externals/lua/lvm.s"
+	@echo "... externals/lua/lzio.o"
+	@echo "... externals/lua/lzio.i"
+	@echo "... externals/lua/lzio.s"
+	@echo "... source/App.o"
+	@echo "... source/App.i"
+	@echo "... source/App.s"
+	@echo "... source/AssetManager.o"
+	@echo "... source/AssetManager.i"
+	@echo "... source/AssetManager.s"
+	@echo "... source/Commands/Commands.o"
+	@echo "... source/Commands/Commands.i"
+	@echo "... source/Commands/Commands.s"
+	@echo "... source/Components/GoalZoneComponent.o"
+	@echo "... source/Components/GoalZoneComponent.i"
+	@echo "... source/Components/GoalZoneComponent.s"
+	@echo "... source/Components/KeyInputComponent.o"
+	@echo "... source/Components/KeyInputComponent.i"
+	@echo "... source/Components/KeyInputComponent.s"
+	@echo "... source/Components/PhysicsComponent.o"
+	@echo "... source/Components/PhysicsComponent.i"
+	@echo "... source/Components/PhysicsComponent.s"
+	@echo "... source/Components/SDLCircleComponent.o"
+	@echo "... source/Components/SDLCircleComponent.i"
+	@echo "... source/Components/SDLCircleComponent.s"
+	@echo "... source/Components/SDLRectComponent.o"
+	@echo "... source/Components/SDLRectComponent.i"
+	@echo "... source/Components/SDLRectComponent.s"
+	@echo "... source/Components/SelectableComponent.o"
+	@echo "... source/Components/SelectableComponent.i"
+	@echo "... source/Components/SelectableComponent.s"
+	@echo "... source/Components/TextComponent.o"
+	@echo "... source/Components/TextComponent.i"
+	@echo "... source/Components/TextComponent.s"
+	@echo "... source/Entity.o"
+	@echo "... source/Entity.i"
+	@echo "... source/Entity.s"
+	@echo "... source/EntityManager.o"
+	@echo "... source/EntityManager.i"
+	@echo "... source/EntityManager.s"
+	@echo "... source/GameMatchState.o"
+	@echo "... source/GameMatchState.i"
+	@echo "... source/GameMatchState.s"
+	@echo "... source/ObjectFactory.o"
+	@echo "... source/ObjectFactory.i"
+	@echo "... source/ObjectFactory.s"
+	@echo "... source/Player.o"
+	@echo "... source/Player.i"
+	@echo "... source/Player.s"
+	@echo "... source/PlayerManager.o"
+	@echo "... source/PlayerManager.i"
+	@echo "... source/PlayerManager.s"
+	@echo "... source/ScriptLoader.o"
+	@echo "... source/ScriptLoader.i"
+	@echo "... source/ScriptLoader.s"
+	@echo "... source/main.o"
+	@echo "... source/main.i"
+	@echo "... source/main.s"
 .PHONY : help
 
 

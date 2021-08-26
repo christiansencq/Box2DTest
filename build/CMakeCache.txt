@@ -25,7 +25,7 @@ CMAKE_AR:FILEPATH=/usr/bin/ar
 
 //Choose the type of build, options are: None Debug Release RelWithDebInfo
 // MinSizeRel ...
-CMAKE_BUILD_TYPE:STRING=RELEASE
+CMAKE_BUILD_TYPE:STRING=
 
 //Enable/Disable color output during build.
 CMAKE_COLOR_MAKEFILE:BOOL=ON
@@ -236,9 +236,6 @@ HockeyProject_SOURCE_DIR:STATIC=/home/charles/Cpp/Box2Test
 //Where the SDL2main library can be found
 SDL2MAIN_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libSDL2main.a
 
-//The directory containing a CMake configuration file for SDL2.
-SDL2_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/SDL2
-
 //Where the SDL2 headers can be found
 SDL2_INCLUDE_DIR:PATH=/usr/include/SDL2
 
@@ -262,15 +259,6 @@ SDL2_TTF_NO_DEFAULT_PATH:BOOL=OFF
 
 //Custom SDL2_ttf Library path
 SDL2_TTF_PATH:STRING=
-
-//The directory containing a CMake configuration file for SDL2_main.
-SDL2_main_DIR:PATH=SDL2_main_DIR-NOTFOUND
-
-//The directory containing a CMake configuration file for SDL2_ttf.
-SDL2_ttf_DIR:PATH=SDL2_ttf_DIR-NOTFOUND
-
-//The directory containing a CMake configuration file for SDL2main.
-SDL2main_DIR:PATH=SDL2main_DIR-NOTFOUND
 
 
 ########################
