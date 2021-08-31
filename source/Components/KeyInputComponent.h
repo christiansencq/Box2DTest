@@ -8,7 +8,7 @@
 //#include "PhysicsComponent.h"
 #include "Component.h"
 #include "../Commands/Commands.h"
-#include "../Constants.h"
+#include "Constants.h"
 
 
 class KeyInputComponent : public Component

@@ -1,7 +1,7 @@
 #ifndef COMMANDS_H
 #define COMMANDS_H
 
-#include "../Constants.h"
+#include "Constants.h"
 #include "../Components/PhysicsComponent.h"
 /*
     Commands tell the KeyInputComponent where to put it.  

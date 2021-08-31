@@ -2,37 +2,48 @@ cmake_minimum_required(VERSION 3.16)
 project(HockeyProject VERSION 1.0 LANGUAGES C CXX)
 set(CMAKE_CXX_STANDARD 17)
 
-# # Test code
-# if(NOT CMAKE_BUILD_TYPE)
-#     set(CMAKE_BUILD_TYPE "Release")
-#     message(STATUS "Build type not specified, building Release as default.")
-#     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/release)
-# endif(NOT CMAKE_BUILD_TYPE)
+# Test code
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE "RELEASE")
+    message(STATUS "Build type not specified, building Release as default.")
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/release)
+endif(NOT CMAKE_BUILD_TYPE)
 
-# if(CMAKE_BUILD_TYPE EQUAL "DEBUG")
-#     message("Building Debug Mode.")
-#     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/debug)
-    #endif (CMAKE_BUILD_TYPE EQUAL "DEBUG")
-#End Test
+if(CMAKE_BUILD_TYPE EQUAL "DEBUG")
+    message("Building Debug Mode.")
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/debug)
+endif (CMAKE_BUILD_TYPE EQUAL "DEBUG")
+    #End Test
 
-
+#CMake Modules for Dynamic Libs
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
-set(APP_SOURCE_DIR "${PROJECT_SOURCE_DIR}/source")
+#Static Libs
 set(EXTERNALS_DIR "${PROJECT_SOURCE_DIR}/externals")
 set(LUA_DIR "${EXTERNALS_DIR}/lua")
 set(SOL2_DIR "${EXTERNALS_DIR}/sol")
        
 
+#Source Organization
+set(APP_SOURCE_DIR "${PROJECT_SOURCE_DIR}/source")
+set(DATA_DIR "${APP_SOURCE_DIR}/Data")
+set(COMPONENTS_DIR "${APP_SOURCE_DIR}/Components")
+set(COMMANDS_DIR "${APP_SOURCE_DIR}/Commands")
+
+
 find_package(Box2D REQUIRED)
 find_package(SDL2 REQUIRED)
 find_package(SDL2_ttf REQUIRED) 
+
 message("Box2D FOUND?" ${Box2D_FOUND})
 message("SDL2 FOUND?" ${SDL2_FOUND})
 message("SDL2_ttf FOUND?" ${SDL2_ttf_FOUND})
 
-file(GLOB SOURCES "source/**.cpp" "source/Components/**.cpp" "source/Commands/**.cpp" "source/lHockey.lua" "source/lColors.lua") 
-#add_executable(HockeyExe ${SOURCES} "${PROJECT_SOURCE_DIR}/build/script.lua") 
+file(GLOB SOURCES "source/**.cpp" 
+                  "source/Components/**.cpp" 
+                  "source/Commands/**.cpp" 
+                  "source/lHockey.lua" 
+                  "source/lColors.lua" ) 
 
 add_library(
     lua STATIC
@@ -72,6 +83,8 @@ add_library(
 )
 
 add_executable(HockeyExe ${SOURCES})
+# add_executable(HockeyExe "${APP_SOURCE_DIR}/**.cpp" "${COMPONENTS_DIR}/**.cpp" "${COMMANDS_DIR}/**.cpp" "source/lHockey.lua" "source/lColors.lua")
+# add_executable(HockeyExe "${APP_SOURCE_DIR}/**.cpp" "${COMPONENTS_DIR}/**.cpp" "${COMMANDS_DIR}/**.cpp" ${DATA_DIR} "source/lHockey.lua" "source/lColors.lua")
 
 target_link_libraries( HockeyExe 
                        PRIVATE Box2D 
@@ -81,7 +94,8 @@ target_link_libraries( HockeyExe
 
 target_include_directories( HockeyExe 
                             PRIVATE ${EXTERNALS_DIR} 
-                            PRIVATE ${LUA_DIR} )
+                            PRIVATE ${LUA_DIR}
+                            PRIVATE ${DATA_DIR} )
  
 target_compile_options( HockeyExe 
                         PRIVATE 

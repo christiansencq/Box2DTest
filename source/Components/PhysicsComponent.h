@@ -8,7 +8,7 @@
 #include "SDL2/SDL.h"
 #include "Box2D/Box2D.h"
 
-#include "../Constants.h"
+#include "Constants.h"
 #include "Component.h"
 
 class Entity;

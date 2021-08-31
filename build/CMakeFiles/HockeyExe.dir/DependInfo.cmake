@@ -29,6 +29,7 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../externals"
   "../externals/lua"
+  "../source/Data"
   "/usr/include/SDL2"
   )
 

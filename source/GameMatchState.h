@@ -7,18 +7,17 @@
 
 #include "lua.hpp"
 
-#include "Constants.h"
+#include "Data/Constants.h"
 #include "AssetManager.h"
 #include "App.h"
 #include "State.h"
 #include "EntityManager.h"
 #include "PlayerManager.h"
 #include "ObjectFactory.h"
+
+
 #include "ScriptLoader.h"
 //#include "CollisionManager.h"
-
-#include "KeyBindingData.h"
-#include "ArenaLayout.h"
 
 class KeyInputComponent;
 class SelectableComponent;
@@ -40,7 +39,11 @@ public:
     virtual void Update() override;
     virtual void Render(SDL_Renderer* renderer) override;
 
+    void TogglePause();
+
 private:
+
+    bool paused = false;
 
     void InitPhysics();
 
@@ -58,6 +61,7 @@ private:
     std::shared_ptr<AssetManager> m_AssetManager;
     std::shared_ptr<ObjectFactory> m_ObjectFactory;
     std::shared_ptr<PlayerManager> m_PlayerManager;
+
     
     b2World* m_PhysicsWorld;
 //    CollisionManager* m_CollisionManager;

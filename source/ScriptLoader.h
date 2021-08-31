@@ -12,6 +12,7 @@
 
 #include "Colors.h"
 #include "ArenaLayout.h"
+#include "KeyBindingData.h"
 
 #include "Player.h"
 
@@ -24,10 +25,12 @@ public:
     void SolLoadArenaData(std::string arena_data_file, ArenaLayoutData& arena);
 
     void LoadPlayerSelectorColors(const char* color_data_file, PlayerColorData& color);
+    void LoadKeybinds(const char* keybind_data_file, KeyBindingData& keybind);
 
 private:
     void LoadSingleColor(SDL_Color& color, const std::vector<int>& cvec);
     void CalcArenaData(ArenaLayoutData& arena);
+
 };
 
 #endif

@@ -112,11 +112,13 @@ CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../externals/sol/variadic_args.hpp
 CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../externals/sol/variadic_results.hpp
 CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../externals/sol/version.hpp
 CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../externals/sol/wrapper.hpp
+CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../source/Data/ArenaLayout.h
+CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../source/Data/Colors.h
+CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../source/Data/Constants.h
+CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../source/Data/KeyBindingData.h
 CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../source/App.cpp
 CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../source/App.h
-CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../source/ArenaLayout.h
 CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../source/AssetManager.h
-CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../source/Colors.h
 CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../source/Commands/Commands.h
 CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../source/Components/Component.h
 CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../source/Components/GoalZoneComponent.h
@@ -126,11 +128,10 @@ CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../source/Components/SDLCircleCompone
 CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../source/Components/SDLRectComponent.h
 CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../source/Components/SelectableComponent.h
 CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../source/Components/TextComponent.h
-CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../source/Constants.h
+CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../source/Data/Constants.h
 CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../source/Entity.h
 CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../source/EntityManager.h
 CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../source/GameMatchState.h
-CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../source/KeyBindingData.h
 CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../source/ObjectFactory.h
 CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../source/Player.h
 CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../source/PlayerManager.h
@@ -140,6 +141,7 @@ CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../source/State.h
 CMakeFiles/HockeyExe.dir/source/AssetManager.cpp.o: ../source/AssetManager.cpp
 CMakeFiles/HockeyExe.dir/source/AssetManager.cpp.o: ../source/AssetManager.h
 
+CMakeFiles/HockeyExe.dir/source/Commands/Commands.cpp.o: ../source/Data/Constants.h
 CMakeFiles/HockeyExe.dir/source/Commands/Commands.cpp.o: ../source/AssetManager.h
 CMakeFiles/HockeyExe.dir/source/Commands/Commands.cpp.o: ../source/Commands/Commands.cpp
 CMakeFiles/HockeyExe.dir/source/Commands/Commands.cpp.o: ../source/Commands/Commands.h
@@ -151,10 +153,10 @@ CMakeFiles/HockeyExe.dir/source/Commands/Commands.cpp.o: ../source/Components/SD
 CMakeFiles/HockeyExe.dir/source/Commands/Commands.cpp.o: ../source/Components/SDLRectComponent.h
 CMakeFiles/HockeyExe.dir/source/Commands/Commands.cpp.o: ../source/Components/SelectableComponent.h
 CMakeFiles/HockeyExe.dir/source/Commands/Commands.cpp.o: ../source/Components/TextComponent.h
-CMakeFiles/HockeyExe.dir/source/Commands/Commands.cpp.o: ../source/Constants.h
 CMakeFiles/HockeyExe.dir/source/Commands/Commands.cpp.o: ../source/Entity.h
 CMakeFiles/HockeyExe.dir/source/Commands/Commands.cpp.o: ../source/Player.h
 
+CMakeFiles/HockeyExe.dir/source/Components/GoalZoneComponent.cpp.o: ../source/Data/Constants.h
 CMakeFiles/HockeyExe.dir/source/Components/GoalZoneComponent.cpp.o: ../source/AssetManager.h
 CMakeFiles/HockeyExe.dir/source/Components/GoalZoneComponent.cpp.o: ../source/Commands/Commands.h
 CMakeFiles/HockeyExe.dir/source/Components/GoalZoneComponent.cpp.o: ../source/Components/Component.h
@@ -166,17 +168,17 @@ CMakeFiles/HockeyExe.dir/source/Components/GoalZoneComponent.cpp.o: ../source/Co
 CMakeFiles/HockeyExe.dir/source/Components/GoalZoneComponent.cpp.o: ../source/Components/SDLRectComponent.h
 CMakeFiles/HockeyExe.dir/source/Components/GoalZoneComponent.cpp.o: ../source/Components/SelectableComponent.h
 CMakeFiles/HockeyExe.dir/source/Components/GoalZoneComponent.cpp.o: ../source/Components/TextComponent.h
-CMakeFiles/HockeyExe.dir/source/Components/GoalZoneComponent.cpp.o: ../source/Constants.h
 CMakeFiles/HockeyExe.dir/source/Components/GoalZoneComponent.cpp.o: ../source/Entity.h
 CMakeFiles/HockeyExe.dir/source/Components/GoalZoneComponent.cpp.o: ../source/Player.h
 
+CMakeFiles/HockeyExe.dir/source/Components/KeyInputComponent.cpp.o: ../source/Data/Constants.h
 CMakeFiles/HockeyExe.dir/source/Components/KeyInputComponent.cpp.o: ../source/Commands/Commands.h
 CMakeFiles/HockeyExe.dir/source/Components/KeyInputComponent.cpp.o: ../source/Components/Component.h
 CMakeFiles/HockeyExe.dir/source/Components/KeyInputComponent.cpp.o: ../source/Components/KeyInputComponent.cpp
 CMakeFiles/HockeyExe.dir/source/Components/KeyInputComponent.cpp.o: ../source/Components/KeyInputComponent.h
 CMakeFiles/HockeyExe.dir/source/Components/KeyInputComponent.cpp.o: ../source/Components/PhysicsComponent.h
-CMakeFiles/HockeyExe.dir/source/Components/KeyInputComponent.cpp.o: ../source/Constants.h
 
+CMakeFiles/HockeyExe.dir/source/Components/PhysicsComponent.cpp.o: ../source/Data/Constants.h
 CMakeFiles/HockeyExe.dir/source/Components/PhysicsComponent.cpp.o: ../source/AssetManager.h
 CMakeFiles/HockeyExe.dir/source/Components/PhysicsComponent.cpp.o: ../source/Commands/Commands.h
 CMakeFiles/HockeyExe.dir/source/Components/PhysicsComponent.cpp.o: ../source/Components/Component.h
@@ -188,10 +190,10 @@ CMakeFiles/HockeyExe.dir/source/Components/PhysicsComponent.cpp.o: ../source/Com
 CMakeFiles/HockeyExe.dir/source/Components/PhysicsComponent.cpp.o: ../source/Components/SDLRectComponent.h
 CMakeFiles/HockeyExe.dir/source/Components/PhysicsComponent.cpp.o: ../source/Components/SelectableComponent.h
 CMakeFiles/HockeyExe.dir/source/Components/PhysicsComponent.cpp.o: ../source/Components/TextComponent.h
-CMakeFiles/HockeyExe.dir/source/Components/PhysicsComponent.cpp.o: ../source/Constants.h
 CMakeFiles/HockeyExe.dir/source/Components/PhysicsComponent.cpp.o: ../source/Entity.h
 CMakeFiles/HockeyExe.dir/source/Components/PhysicsComponent.cpp.o: ../source/Player.h
 
+CMakeFiles/HockeyExe.dir/source/Components/SDLCircleComponent.cpp.o: ../source/Data/Constants.h
 CMakeFiles/HockeyExe.dir/source/Components/SDLCircleComponent.cpp.o: ../source/AssetManager.h
 CMakeFiles/HockeyExe.dir/source/Components/SDLCircleComponent.cpp.o: ../source/Commands/Commands.h
 CMakeFiles/HockeyExe.dir/source/Components/SDLCircleComponent.cpp.o: ../source/Components/Component.h
@@ -203,10 +205,10 @@ CMakeFiles/HockeyExe.dir/source/Components/SDLCircleComponent.cpp.o: ../source/C
 CMakeFiles/HockeyExe.dir/source/Components/SDLCircleComponent.cpp.o: ../source/Components/SDLRectComponent.h
 CMakeFiles/HockeyExe.dir/source/Components/SDLCircleComponent.cpp.o: ../source/Components/SelectableComponent.h
 CMakeFiles/HockeyExe.dir/source/Components/SDLCircleComponent.cpp.o: ../source/Components/TextComponent.h
-CMakeFiles/HockeyExe.dir/source/Components/SDLCircleComponent.cpp.o: ../source/Constants.h
 CMakeFiles/HockeyExe.dir/source/Components/SDLCircleComponent.cpp.o: ../source/Entity.h
 CMakeFiles/HockeyExe.dir/source/Components/SDLCircleComponent.cpp.o: ../source/Player.h
 
+CMakeFiles/HockeyExe.dir/source/Components/SDLRectComponent.cpp.o: ../source/Data/Constants.h
 CMakeFiles/HockeyExe.dir/source/Components/SDLRectComponent.cpp.o: ../source/AssetManager.h
 CMakeFiles/HockeyExe.dir/source/Components/SDLRectComponent.cpp.o: ../source/Commands/Commands.h
 CMakeFiles/HockeyExe.dir/source/Components/SDLRectComponent.cpp.o: ../source/Components/Component.h
@@ -218,10 +220,10 @@ CMakeFiles/HockeyExe.dir/source/Components/SDLRectComponent.cpp.o: ../source/Com
 CMakeFiles/HockeyExe.dir/source/Components/SDLRectComponent.cpp.o: ../source/Components/SDLRectComponent.h
 CMakeFiles/HockeyExe.dir/source/Components/SDLRectComponent.cpp.o: ../source/Components/SelectableComponent.h
 CMakeFiles/HockeyExe.dir/source/Components/SDLRectComponent.cpp.o: ../source/Components/TextComponent.h
-CMakeFiles/HockeyExe.dir/source/Components/SDLRectComponent.cpp.o: ../source/Constants.h
 CMakeFiles/HockeyExe.dir/source/Components/SDLRectComponent.cpp.o: ../source/Entity.h
 CMakeFiles/HockeyExe.dir/source/Components/SDLRectComponent.cpp.o: ../source/Player.h
 
+CMakeFiles/HockeyExe.dir/source/Components/SelectableComponent.cpp.o: ../source/Data/Constants.h
 CMakeFiles/HockeyExe.dir/source/Components/SelectableComponent.cpp.o: ../source/AssetManager.h
 CMakeFiles/HockeyExe.dir/source/Components/SelectableComponent.cpp.o: ../source/Commands/Commands.h
 CMakeFiles/HockeyExe.dir/source/Components/SelectableComponent.cpp.o: ../source/Components/Component.h
@@ -233,10 +235,10 @@ CMakeFiles/HockeyExe.dir/source/Components/SelectableComponent.cpp.o: ../source/
 CMakeFiles/HockeyExe.dir/source/Components/SelectableComponent.cpp.o: ../source/Components/SelectableComponent.cpp
 CMakeFiles/HockeyExe.dir/source/Components/SelectableComponent.cpp.o: ../source/Components/SelectableComponent.h
 CMakeFiles/HockeyExe.dir/source/Components/SelectableComponent.cpp.o: ../source/Components/TextComponent.h
-CMakeFiles/HockeyExe.dir/source/Components/SelectableComponent.cpp.o: ../source/Constants.h
 CMakeFiles/HockeyExe.dir/source/Components/SelectableComponent.cpp.o: ../source/Entity.h
 CMakeFiles/HockeyExe.dir/source/Components/SelectableComponent.cpp.o: ../source/Player.h
 
+CMakeFiles/HockeyExe.dir/source/Components/TextComponent.cpp.o: ../source/Data/Constants.h
 CMakeFiles/HockeyExe.dir/source/Components/TextComponent.cpp.o: ../source/AssetManager.h
 CMakeFiles/HockeyExe.dir/source/Components/TextComponent.cpp.o: ../source/Commands/Commands.h
 CMakeFiles/HockeyExe.dir/source/Components/TextComponent.cpp.o: ../source/Components/Component.h
@@ -248,10 +250,10 @@ CMakeFiles/HockeyExe.dir/source/Components/TextComponent.cpp.o: ../source/Compon
 CMakeFiles/HockeyExe.dir/source/Components/TextComponent.cpp.o: ../source/Components/SelectableComponent.h
 CMakeFiles/HockeyExe.dir/source/Components/TextComponent.cpp.o: ../source/Components/TextComponent.cpp
 CMakeFiles/HockeyExe.dir/source/Components/TextComponent.cpp.o: ../source/Components/TextComponent.h
-CMakeFiles/HockeyExe.dir/source/Components/TextComponent.cpp.o: ../source/Constants.h
 CMakeFiles/HockeyExe.dir/source/Components/TextComponent.cpp.o: ../source/Entity.h
 CMakeFiles/HockeyExe.dir/source/Components/TextComponent.cpp.o: ../source/Player.h
 
+CMakeFiles/HockeyExe.dir/source/Entity.cpp.o: ../source/Data/Constants.h
 CMakeFiles/HockeyExe.dir/source/Entity.cpp.o: ../source/AssetManager.h
 CMakeFiles/HockeyExe.dir/source/Entity.cpp.o: ../source/Commands/Commands.h
 CMakeFiles/HockeyExe.dir/source/Entity.cpp.o: ../source/Components/Component.h
@@ -262,12 +264,12 @@ CMakeFiles/HockeyExe.dir/source/Entity.cpp.o: ../source/Components/SDLCircleComp
 CMakeFiles/HockeyExe.dir/source/Entity.cpp.o: ../source/Components/SDLRectComponent.h
 CMakeFiles/HockeyExe.dir/source/Entity.cpp.o: ../source/Components/SelectableComponent.h
 CMakeFiles/HockeyExe.dir/source/Entity.cpp.o: ../source/Components/TextComponent.h
-CMakeFiles/HockeyExe.dir/source/Entity.cpp.o: ../source/Constants.h
 CMakeFiles/HockeyExe.dir/source/Entity.cpp.o: ../source/Entity.cpp
 CMakeFiles/HockeyExe.dir/source/Entity.cpp.o: ../source/Entity.h
 CMakeFiles/HockeyExe.dir/source/Entity.cpp.o: ../source/EntityManager.h
 CMakeFiles/HockeyExe.dir/source/Entity.cpp.o: ../source/Player.h
 
+CMakeFiles/HockeyExe.dir/source/EntityManager.cpp.o: ../source/Data/Constants.h
 CMakeFiles/HockeyExe.dir/source/EntityManager.cpp.o: ../source/AssetManager.h
 CMakeFiles/HockeyExe.dir/source/EntityManager.cpp.o: ../source/Commands/Commands.h
 CMakeFiles/HockeyExe.dir/source/EntityManager.cpp.o: ../source/Components/Component.h
@@ -278,7 +280,6 @@ CMakeFiles/HockeyExe.dir/source/EntityManager.cpp.o: ../source/Components/SDLCir
 CMakeFiles/HockeyExe.dir/source/EntityManager.cpp.o: ../source/Components/SDLRectComponent.h
 CMakeFiles/HockeyExe.dir/source/EntityManager.cpp.o: ../source/Components/SelectableComponent.h
 CMakeFiles/HockeyExe.dir/source/EntityManager.cpp.o: ../source/Components/TextComponent.h
-CMakeFiles/HockeyExe.dir/source/EntityManager.cpp.o: ../source/Constants.h
 CMakeFiles/HockeyExe.dir/source/EntityManager.cpp.o: ../source/Entity.h
 CMakeFiles/HockeyExe.dir/source/EntityManager.cpp.o: ../source/EntityManager.cpp
 CMakeFiles/HockeyExe.dir/source/EntityManager.cpp.o: ../source/EntityManager.h
@@ -395,10 +396,12 @@ CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../externals/sol/variadic_
 CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../externals/sol/variadic_results.hpp
 CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../externals/sol/version.hpp
 CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../externals/sol/wrapper.hpp
+CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/Data/ArenaLayout.h
+CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/Data/Colors.h
+CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/Data/Constants.h
+CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/Data/KeyBindingData.h
 CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/App.h
-CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/ArenaLayout.h
 CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/AssetManager.h
-CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/Colors.h
 CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/Commands/Commands.h
 CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/Components/Component.h
 CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/Components/GoalZoneComponent.h
@@ -408,19 +411,19 @@ CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/Components/SDLCi
 CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/Components/SDLRectComponent.h
 CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/Components/SelectableComponent.h
 CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/Components/TextComponent.h
-CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/Constants.h
+CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/Data/Constants.h
 CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/Entity.h
 CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/EntityManager.h
 CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/GameMatchState.cpp
 CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/GameMatchState.h
-CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/KeyBindingData.h
 CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/ObjectFactory.h
 CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/Player.h
 CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/PlayerManager.h
 CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/ScriptLoader.h
 CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/State.h
 
-CMakeFiles/HockeyExe.dir/source/ObjectFactory.cpp.o: ../source/ArenaLayout.h
+CMakeFiles/HockeyExe.dir/source/ObjectFactory.cpp.o: ../source/Data/ArenaLayout.h
+CMakeFiles/HockeyExe.dir/source/ObjectFactory.cpp.o: ../source/Data/Constants.h
 CMakeFiles/HockeyExe.dir/source/ObjectFactory.cpp.o: ../source/AssetManager.h
 CMakeFiles/HockeyExe.dir/source/ObjectFactory.cpp.o: ../source/Commands/Commands.h
 CMakeFiles/HockeyExe.dir/source/ObjectFactory.cpp.o: ../source/Components/Component.h
@@ -431,13 +434,13 @@ CMakeFiles/HockeyExe.dir/source/ObjectFactory.cpp.o: ../source/Components/SDLCir
 CMakeFiles/HockeyExe.dir/source/ObjectFactory.cpp.o: ../source/Components/SDLRectComponent.h
 CMakeFiles/HockeyExe.dir/source/ObjectFactory.cpp.o: ../source/Components/SelectableComponent.h
 CMakeFiles/HockeyExe.dir/source/ObjectFactory.cpp.o: ../source/Components/TextComponent.h
-CMakeFiles/HockeyExe.dir/source/ObjectFactory.cpp.o: ../source/Constants.h
 CMakeFiles/HockeyExe.dir/source/ObjectFactory.cpp.o: ../source/Entity.h
 CMakeFiles/HockeyExe.dir/source/ObjectFactory.cpp.o: ../source/EntityManager.h
 CMakeFiles/HockeyExe.dir/source/ObjectFactory.cpp.o: ../source/ObjectFactory.cpp
 CMakeFiles/HockeyExe.dir/source/ObjectFactory.cpp.o: ../source/ObjectFactory.h
 CMakeFiles/HockeyExe.dir/source/ObjectFactory.cpp.o: ../source/Player.h
 
+CMakeFiles/HockeyExe.dir/source/Player.cpp.o: ../source/Data/Constants.h
 CMakeFiles/HockeyExe.dir/source/Player.cpp.o: ../source/AssetManager.h
 CMakeFiles/HockeyExe.dir/source/Player.cpp.o: ../source/Commands/Commands.h
 CMakeFiles/HockeyExe.dir/source/Player.cpp.o: ../source/Components/Component.h
@@ -448,7 +451,6 @@ CMakeFiles/HockeyExe.dir/source/Player.cpp.o: ../source/Components/SDLCircleComp
 CMakeFiles/HockeyExe.dir/source/Player.cpp.o: ../source/Components/SDLRectComponent.h
 CMakeFiles/HockeyExe.dir/source/Player.cpp.o: ../source/Components/SelectableComponent.h
 CMakeFiles/HockeyExe.dir/source/Player.cpp.o: ../source/Components/TextComponent.h
-CMakeFiles/HockeyExe.dir/source/Player.cpp.o: ../source/Constants.h
 CMakeFiles/HockeyExe.dir/source/Player.cpp.o: ../source/Entity.h
 CMakeFiles/HockeyExe.dir/source/Player.cpp.o: ../source/Player.cpp
 CMakeFiles/HockeyExe.dir/source/Player.cpp.o: ../source/Player.h
@@ -564,9 +566,11 @@ CMakeFiles/HockeyExe.dir/source/PlayerManager.cpp.o: ../externals/sol/variadic_a
 CMakeFiles/HockeyExe.dir/source/PlayerManager.cpp.o: ../externals/sol/variadic_results.hpp
 CMakeFiles/HockeyExe.dir/source/PlayerManager.cpp.o: ../externals/sol/version.hpp
 CMakeFiles/HockeyExe.dir/source/PlayerManager.cpp.o: ../externals/sol/wrapper.hpp
-CMakeFiles/HockeyExe.dir/source/PlayerManager.cpp.o: ../source/ArenaLayout.h
+CMakeFiles/HockeyExe.dir/source/PlayerManager.cpp.o: ../source/Data/ArenaLayout.h
+CMakeFiles/HockeyExe.dir/source/PlayerManager.cpp.o: ../source/Data/Colors.h
+CMakeFiles/HockeyExe.dir/source/PlayerManager.cpp.o: ../source/Data/Constants.h
+CMakeFiles/HockeyExe.dir/source/PlayerManager.cpp.o: ../source/Data/KeyBindingData.h
 CMakeFiles/HockeyExe.dir/source/PlayerManager.cpp.o: ../source/AssetManager.h
-CMakeFiles/HockeyExe.dir/source/PlayerManager.cpp.o: ../source/Colors.h
 CMakeFiles/HockeyExe.dir/source/PlayerManager.cpp.o: ../source/Commands/Commands.h
 CMakeFiles/HockeyExe.dir/source/PlayerManager.cpp.o: ../source/Components/Component.h
 CMakeFiles/HockeyExe.dir/source/PlayerManager.cpp.o: ../source/Components/GoalZoneComponent.h
@@ -576,10 +580,8 @@ CMakeFiles/HockeyExe.dir/source/PlayerManager.cpp.o: ../source/Components/SDLCir
 CMakeFiles/HockeyExe.dir/source/PlayerManager.cpp.o: ../source/Components/SDLRectComponent.h
 CMakeFiles/HockeyExe.dir/source/PlayerManager.cpp.o: ../source/Components/SelectableComponent.h
 CMakeFiles/HockeyExe.dir/source/PlayerManager.cpp.o: ../source/Components/TextComponent.h
-CMakeFiles/HockeyExe.dir/source/PlayerManager.cpp.o: ../source/Constants.h
 CMakeFiles/HockeyExe.dir/source/PlayerManager.cpp.o: ../source/Entity.h
 CMakeFiles/HockeyExe.dir/source/PlayerManager.cpp.o: ../source/EntityManager.h
-CMakeFiles/HockeyExe.dir/source/PlayerManager.cpp.o: ../source/KeyBindingData.h
 CMakeFiles/HockeyExe.dir/source/PlayerManager.cpp.o: ../source/ObjectFactory.h
 CMakeFiles/HockeyExe.dir/source/PlayerManager.cpp.o: ../source/Player.h
 CMakeFiles/HockeyExe.dir/source/PlayerManager.cpp.o: ../source/PlayerManager.cpp
@@ -697,9 +699,10 @@ CMakeFiles/HockeyExe.dir/source/ScriptLoader.cpp.o: ../externals/sol/variadic_ar
 CMakeFiles/HockeyExe.dir/source/ScriptLoader.cpp.o: ../externals/sol/variadic_results.hpp
 CMakeFiles/HockeyExe.dir/source/ScriptLoader.cpp.o: ../externals/sol/version.hpp
 CMakeFiles/HockeyExe.dir/source/ScriptLoader.cpp.o: ../externals/sol/wrapper.hpp
-CMakeFiles/HockeyExe.dir/source/ScriptLoader.cpp.o: ../source/ArenaLayout.h
-CMakeFiles/HockeyExe.dir/source/ScriptLoader.cpp.o: ../source/Colors.h
-CMakeFiles/HockeyExe.dir/source/ScriptLoader.cpp.o: ../source/Constants.h
+CMakeFiles/HockeyExe.dir/source/ScriptLoader.cpp.o: ../source/Data/ArenaLayout.h
+CMakeFiles/HockeyExe.dir/source/ScriptLoader.cpp.o: ../source/Data/Colors.h
+CMakeFiles/HockeyExe.dir/source/ScriptLoader.cpp.o: ../source/Data/Constants.h
+CMakeFiles/HockeyExe.dir/source/ScriptLoader.cpp.o: ../source/Data/KeyBindingData.h
 CMakeFiles/HockeyExe.dir/source/ScriptLoader.cpp.o: ../source/Player.h
 CMakeFiles/HockeyExe.dir/source/ScriptLoader.cpp.o: ../source/ScriptLoader.cpp
 CMakeFiles/HockeyExe.dir/source/ScriptLoader.cpp.o: ../source/ScriptLoader.h
@@ -815,10 +818,11 @@ CMakeFiles/HockeyExe.dir/source/main.cpp.o: ../externals/sol/variadic_args.hpp
 CMakeFiles/HockeyExe.dir/source/main.cpp.o: ../externals/sol/variadic_results.hpp
 CMakeFiles/HockeyExe.dir/source/main.cpp.o: ../externals/sol/version.hpp
 CMakeFiles/HockeyExe.dir/source/main.cpp.o: ../externals/sol/wrapper.hpp
+CMakeFiles/HockeyExe.dir/source/main.cpp.o: ../source/Data/ArenaLayout.h
+CMakeFiles/HockeyExe.dir/source/main.cpp.o: ../source/Data/Colors.h
+CMakeFiles/HockeyExe.dir/source/main.cpp.o: ../source/Data/Constants.h
+CMakeFiles/HockeyExe.dir/source/main.cpp.o: ../source/Data/KeyBindingData.h
 CMakeFiles/HockeyExe.dir/source/main.cpp.o: ../source/App.h
-CMakeFiles/HockeyExe.dir/source/main.cpp.o: ../source/ArenaLayout.h
-CMakeFiles/HockeyExe.dir/source/main.cpp.o: ../source/Colors.h
-CMakeFiles/HockeyExe.dir/source/main.cpp.o: ../source/Constants.h
 CMakeFiles/HockeyExe.dir/source/main.cpp.o: ../source/Player.h
 CMakeFiles/HockeyExe.dir/source/main.cpp.o: ../source/ScriptLoader.h
 CMakeFiles/HockeyExe.dir/source/main.cpp.o: ../source/State.h

@@ -4,10 +4,12 @@ GameMatchState::GameMatchState(SDL_Renderer* renderer, std::shared_ptr<ScriptLoa
  : m_Renderer(renderer), m_ScriptLoader(script_loader), m_EntityManager(std::make_shared<EntityManager>()), m_AssetManager(std::make_shared<AssetManager>()),
     m_TimeStep(1/30.0f), m_VelocityIterations(2), m_PositionIterations(6), m_TicksLastFrame(0) 
 {
+    
+
     std::cout << "Loading script\n";
     m_ScriptLoader->SolLoadArenaData("lHockey.lua", arena);
     m_ScriptLoader->LoadPlayerSelectorColors("lColors.lua", color);
-    std::cout << "Done loading script\n";
+    m_ScriptLoader->LoadKeybinds("lKeys.lua", keybindData);
 
     std::cout << "Initializing Physics.\n";
     InitPhysics();
@@ -17,20 +19,18 @@ GameMatchState::GameMatchState(SDL_Renderer* renderer, std::shared_ptr<ScriptLoa
 
     //Finish Setting Up Managers that require Data/Libraries to be set up.
     std::cout << "Initializing ObjectFactory.\n";
-    m_ObjectFactory = std::make_unique<ObjectFactory>(m_Renderer, arena, m_AssetManager, m_EntityManager, m_PhysicsWorld);
+    m_ObjectFactory = std::make_unique<ObjectFactory>(m_Renderer, m_AssetManager, m_EntityManager, m_PhysicsWorld);
 
     std::cout << "Initializing PlayerManager\n";
-    m_PlayerManager = std::make_shared<PlayerManager>(m_ObjectFactory, arena);
+    m_PlayerManager = std::make_shared<PlayerManager>(m_ObjectFactory, arena, keybindData);
 
     //Load Player Colors.
+    //Factor this out.
     m_PlayerManager->SetSelectorColors(color);
 
-    //Set Up Using the Managers.
-
-    std::cout << "Setting Up Players.\n";
+    std::cout << "Setting Up Objects.\n";
     m_PlayerManager->SetUpPlayers(NumPlayers);
 
-    std::cout << "Setting up Arena.\n";
     m_ObjectFactory->CreatePuck({SCREEN_WIDTH/2, SCREEN_HEIGHT/2});
 
     m_ObjectFactory->CreateOuterWalls(arena.WallPositions, arena.WallSizes);
@@ -60,6 +60,8 @@ void GameMatchState::HandleEvents()
                 case SDLK_ESCAPE:
                     App::Singleton().QuitApp();
                     break;
+                // case SDLK_RETURN:
+                //      App::Singleton().PushState(PauseState);
                 case SDLK_SPACE:
                     break;
                 default:
@@ -92,6 +94,7 @@ void GameMatchState::Update()
 
     m_TicksLastFrame = SDL_GetTicks();
     m_PhysicsWorld->Step(m_TimeStep, m_VelocityIterations, m_PositionIterations); 
+    //GameEntityManager
     m_EntityManager->Update();
 }
 
@@ -116,13 +119,24 @@ void GameMatchState::Render(SDL_Renderer* renderer)
 }
 
 
-
 //Private Methods
-
 void GameMatchState::InitPhysics()
 {
     b2Vec2 gravity = b2Vec2(0.0f, 0.0f);
     m_PhysicsWorld = new b2World(gravity);
     // m_CollisionManager = new CollisionManager();
     // m_PhysicsWorld->SetContactListener(m_CollisionManager);
+}
+
+void GameMatchState::TogglePause()
+{
+    if (paused)
+    {
+
+    }
+    else
+    {
+
+    }
+
 }

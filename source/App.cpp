@@ -68,6 +68,7 @@ void App::Run()
             assert(topState && "There is no scene!");
             if (topState)
             {
+                //May want to move event polling to here, rather than within the states?
                 // while (!SDL_TICKS_PASSED(SDL_GetTicks(), ticksLastFrame + FRAME_TARGET_TIME));
                 //Convert to seconds.
                 // float deltaTime = (SDL_GetTicks() - ticksLastFrame) / 1000.0f;

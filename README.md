@@ -3,15 +3,19 @@
 
 Compiled on Linux(Kubuntu 20.10) with g++.  Built with [Cmake](https://cmake.org).
 
-This is a simple physics Hockey game & engine which uses 
+This is a simple physics Hockey game & built-from-scratch engine which uses (along with the STL)
  - [Box2D](https://box2d.org) for physics simulation. 
  - [SDL2](https://www.libsdl.org/) for graphics, keyboard input, and text.
- - [Lua](https://www.lua.org) for Scripting/Variable manipulation (only for the layout of the arena for now).
+ - [Lua](https://www.lua.org) for Scripting/Variable manipulation.
+ - [Sol](https://www.github.com/ThePhD/sol2) for binding Lua to C++.
+
 
 The engine itself utilizes a finite state-machine for game states, a command system for unique and varied abilities, and an Entity-Component system for creating unique, manageable game entities.
 
 
 The Ice Hockey game is implemented within the 'GameMatchState'. 
+
+###Design
 
 The objective gameplay is a 1v1 hockey game/ 'slow' RTS, where the unpredictability and challenge of planning commands for units and working with 'friendly/team ai' 
 are replaced by inertia, and potentially delayed and interacting responses from the physics engine. So instead of the non-selected player on the hockey team making decision

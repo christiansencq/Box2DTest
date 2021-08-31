@@ -2,7 +2,7 @@
 #include "Components/GoalZoneComponent.h"
 #include "Components/PhysicsComponent.h"
 
-ObjectFactory::ObjectFactory(SDL_Renderer* renderer, ArenaLayoutData& arena, std::shared_ptr<AssetManager> assetManager, std::shared_ptr<EntityManager> entityManager, b2World* physWorld) : m_Renderer(renderer), arena(arena), m_AssetManager(assetManager), m_EntityManager(entityManager), m_PhysicsWorld(physWorld)
+ObjectFactory::ObjectFactory(SDL_Renderer* renderer, std::shared_ptr<AssetManager> assetManager, std::shared_ptr<EntityManager> entityManager, b2World* physWorld) : m_Renderer(renderer), m_AssetManager(assetManager), m_EntityManager(entityManager), m_PhysicsWorld(physWorld)
 {
 
 }
@@ -69,29 +69,6 @@ Entity* ObjectFactory::CreatePlayerBall(std::shared_ptr<Player> player, b2Vec2 s
     std::cout << "Done with Ball.\n";
     return ball;
 }
-
-
-// Entity* ObjectFactory::CreatePlayerBall(std::shared_ptr<Player> player, b2Vec2 startPos)
-// {
-//     std::cout << "Creating Player Ball at " << startPos.x << " " << startPos.y << "\n";
-//
-//     Entity* ball = m_EntityManager->AddEntity(startPos, 50.0f);
-//     std::cout << "Entity made; Adding to Team\n";
-//     player->AddBallToTeam(ball);
-//     std::cout << "Adding Components\n";
-//     ball->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::CIRCLE, b2BodyType::b2_dynamicBody);
-//     ball->GetComponent<PhysicsComponent>()->SetData(false);
-//     ball->AddComponent<SDLCircleComponent>(m_Renderer);
-//     ball->AddComponent<SelectableComponent>(m_Renderer);
-//     ball->AddComponent<KeyInputComponent>(player->GetActionKeys());
-//     ball->GetComponent<KeyInputComponent>()->AddCommand<ForwardThrustCommand>();
-//     ball->GetComponent<KeyInputComponent>()->AddCommand<BackwardThrustCommand>();
-//     ball->GetComponent<KeyInputComponent>()->AddCommand<LeftTurnCommand>();
-//     ball->GetComponent<KeyInputComponent>()->AddCommand<RightTurnCommand>();
-//
-//     std::cout << "Done with Ball.\n";
-//     return ball;
-// }
 
 Entity* ObjectFactory::CreateGoalZone(std::shared_ptr<Player> player, b2Vec2 position, b2Vec2 size)
 {

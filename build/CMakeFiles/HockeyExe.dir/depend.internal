@@ -113,11 +113,13 @@ CMakeFiles/HockeyExe.dir/source/App.cpp.o
  ../externals/sol/variadic_results.hpp
  ../externals/sol/version.hpp
  ../externals/sol/wrapper.hpp
+ ../source/Data/ArenaLayout.h
+ ../source/Data/Colors.h
+ ../source/Data/Constants.h
+ ../source/Data/KeyBindingData.h
  /home/charles/Cpp/Box2Test/source/App.cpp
  /home/charles/Cpp/Box2Test/source/App.h
- /home/charles/Cpp/Box2Test/source/ArenaLayout.h
  /home/charles/Cpp/Box2Test/source/AssetManager.h
- /home/charles/Cpp/Box2Test/source/Colors.h
  /home/charles/Cpp/Box2Test/source/Commands/Commands.h
  /home/charles/Cpp/Box2Test/source/Components/Component.h
  /home/charles/Cpp/Box2Test/source/Components/GoalZoneComponent.h
@@ -127,11 +129,10 @@ CMakeFiles/HockeyExe.dir/source/App.cpp.o
  /home/charles/Cpp/Box2Test/source/Components/SDLRectComponent.h
  /home/charles/Cpp/Box2Test/source/Components/SelectableComponent.h
  /home/charles/Cpp/Box2Test/source/Components/TextComponent.h
- /home/charles/Cpp/Box2Test/source/Constants.h
+ /home/charles/Cpp/Box2Test/source/Data/Constants.h
  /home/charles/Cpp/Box2Test/source/Entity.h
  /home/charles/Cpp/Box2Test/source/EntityManager.h
  /home/charles/Cpp/Box2Test/source/GameMatchState.h
- /home/charles/Cpp/Box2Test/source/KeyBindingData.h
  /home/charles/Cpp/Box2Test/source/ObjectFactory.h
  /home/charles/Cpp/Box2Test/source/Player.h
  /home/charles/Cpp/Box2Test/source/PlayerManager.h
@@ -141,6 +142,7 @@ CMakeFiles/HockeyExe.dir/source/AssetManager.cpp.o
  /home/charles/Cpp/Box2Test/source/AssetManager.cpp
  /home/charles/Cpp/Box2Test/source/AssetManager.h
 CMakeFiles/HockeyExe.dir/source/Commands/Commands.cpp.o
+ ../source/Data/Constants.h
  /home/charles/Cpp/Box2Test/source/AssetManager.h
  /home/charles/Cpp/Box2Test/source/Commands/Commands.cpp
  /home/charles/Cpp/Box2Test/source/Commands/Commands.h
@@ -152,10 +154,10 @@ CMakeFiles/HockeyExe.dir/source/Commands/Commands.cpp.o
  /home/charles/Cpp/Box2Test/source/Components/SDLRectComponent.h
  /home/charles/Cpp/Box2Test/source/Components/SelectableComponent.h
  /home/charles/Cpp/Box2Test/source/Components/TextComponent.h
- /home/charles/Cpp/Box2Test/source/Constants.h
  /home/charles/Cpp/Box2Test/source/Entity.h
  /home/charles/Cpp/Box2Test/source/Player.h
 CMakeFiles/HockeyExe.dir/source/Components/GoalZoneComponent.cpp.o
+ ../source/Data/Constants.h
  /home/charles/Cpp/Box2Test/source/AssetManager.h
  /home/charles/Cpp/Box2Test/source/Commands/Commands.h
  /home/charles/Cpp/Box2Test/source/Components/Component.h
@@ -167,17 +169,17 @@ CMakeFiles/HockeyExe.dir/source/Components/GoalZoneComponent.cpp.o
  /home/charles/Cpp/Box2Test/source/Components/SDLRectComponent.h
  /home/charles/Cpp/Box2Test/source/Components/SelectableComponent.h
  /home/charles/Cpp/Box2Test/source/Components/TextComponent.h
- /home/charles/Cpp/Box2Test/source/Constants.h
  /home/charles/Cpp/Box2Test/source/Entity.h
  /home/charles/Cpp/Box2Test/source/Player.h
 CMakeFiles/HockeyExe.dir/source/Components/KeyInputComponent.cpp.o
+ ../source/Data/Constants.h
  /home/charles/Cpp/Box2Test/source/Commands/Commands.h
  /home/charles/Cpp/Box2Test/source/Components/Component.h
  /home/charles/Cpp/Box2Test/source/Components/KeyInputComponent.cpp
  /home/charles/Cpp/Box2Test/source/Components/KeyInputComponent.h
  /home/charles/Cpp/Box2Test/source/Components/PhysicsComponent.h
- /home/charles/Cpp/Box2Test/source/Constants.h
 CMakeFiles/HockeyExe.dir/source/Components/PhysicsComponent.cpp.o
+ ../source/Data/Constants.h
  /home/charles/Cpp/Box2Test/source/AssetManager.h
  /home/charles/Cpp/Box2Test/source/Commands/Commands.h
  /home/charles/Cpp/Box2Test/source/Components/Component.h
@@ -189,10 +191,10 @@ CMakeFiles/HockeyExe.dir/source/Components/PhysicsComponent.cpp.o
  /home/charles/Cpp/Box2Test/source/Components/SDLRectComponent.h
  /home/charles/Cpp/Box2Test/source/Components/SelectableComponent.h
  /home/charles/Cpp/Box2Test/source/Components/TextComponent.h
- /home/charles/Cpp/Box2Test/source/Constants.h
  /home/charles/Cpp/Box2Test/source/Entity.h
  /home/charles/Cpp/Box2Test/source/Player.h
 CMakeFiles/HockeyExe.dir/source/Components/SDLCircleComponent.cpp.o
+ ../source/Data/Constants.h
  /home/charles/Cpp/Box2Test/source/AssetManager.h
  /home/charles/Cpp/Box2Test/source/Commands/Commands.h
  /home/charles/Cpp/Box2Test/source/Components/Component.h
@@ -204,10 +206,10 @@ CMakeFiles/HockeyExe.dir/source/Components/SDLCircleComponent.cpp.o
  /home/charles/Cpp/Box2Test/source/Components/SDLRectComponent.h
  /home/charles/Cpp/Box2Test/source/Components/SelectableComponent.h
  /home/charles/Cpp/Box2Test/source/Components/TextComponent.h
- /home/charles/Cpp/Box2Test/source/Constants.h
  /home/charles/Cpp/Box2Test/source/Entity.h
  /home/charles/Cpp/Box2Test/source/Player.h
 CMakeFiles/HockeyExe.dir/source/Components/SDLRectComponent.cpp.o
+ ../source/Data/Constants.h
  /home/charles/Cpp/Box2Test/source/AssetManager.h
  /home/charles/Cpp/Box2Test/source/Commands/Commands.h
  /home/charles/Cpp/Box2Test/source/Components/Component.h
@@ -219,10 +221,10 @@ CMakeFiles/HockeyExe.dir/source/Components/SDLRectComponent.cpp.o
  /home/charles/Cpp/Box2Test/source/Components/SDLRectComponent.h
  /home/charles/Cpp/Box2Test/source/Components/SelectableComponent.h
  /home/charles/Cpp/Box2Test/source/Components/TextComponent.h
- /home/charles/Cpp/Box2Test/source/Constants.h
  /home/charles/Cpp/Box2Test/source/Entity.h
  /home/charles/Cpp/Box2Test/source/Player.h
 CMakeFiles/HockeyExe.dir/source/Components/SelectableComponent.cpp.o
+ ../source/Data/Constants.h
  /home/charles/Cpp/Box2Test/source/AssetManager.h
  /home/charles/Cpp/Box2Test/source/Commands/Commands.h
  /home/charles/Cpp/Box2Test/source/Components/Component.h
@@ -234,10 +236,10 @@ CMakeFiles/HockeyExe.dir/source/Components/SelectableComponent.cpp.o
  /home/charles/Cpp/Box2Test/source/Components/SelectableComponent.cpp
  /home/charles/Cpp/Box2Test/source/Components/SelectableComponent.h
  /home/charles/Cpp/Box2Test/source/Components/TextComponent.h
- /home/charles/Cpp/Box2Test/source/Constants.h
  /home/charles/Cpp/Box2Test/source/Entity.h
  /home/charles/Cpp/Box2Test/source/Player.h
 CMakeFiles/HockeyExe.dir/source/Components/TextComponent.cpp.o
+ ../source/Data/Constants.h
  /home/charles/Cpp/Box2Test/source/AssetManager.h
  /home/charles/Cpp/Box2Test/source/Commands/Commands.h
  /home/charles/Cpp/Box2Test/source/Components/Component.h
@@ -249,10 +251,10 @@ CMakeFiles/HockeyExe.dir/source/Components/TextComponent.cpp.o
  /home/charles/Cpp/Box2Test/source/Components/SelectableComponent.h
  /home/charles/Cpp/Box2Test/source/Components/TextComponent.cpp
  /home/charles/Cpp/Box2Test/source/Components/TextComponent.h
- /home/charles/Cpp/Box2Test/source/Constants.h
  /home/charles/Cpp/Box2Test/source/Entity.h
  /home/charles/Cpp/Box2Test/source/Player.h
 CMakeFiles/HockeyExe.dir/source/Entity.cpp.o
+ ../source/Data/Constants.h
  /home/charles/Cpp/Box2Test/source/AssetManager.h
  /home/charles/Cpp/Box2Test/source/Commands/Commands.h
  /home/charles/Cpp/Box2Test/source/Components/Component.h
@@ -263,12 +265,12 @@ CMakeFiles/HockeyExe.dir/source/Entity.cpp.o
  /home/charles/Cpp/Box2Test/source/Components/SDLRectComponent.h
  /home/charles/Cpp/Box2Test/source/Components/SelectableComponent.h
  /home/charles/Cpp/Box2Test/source/Components/TextComponent.h
- /home/charles/Cpp/Box2Test/source/Constants.h
  /home/charles/Cpp/Box2Test/source/Entity.cpp
  /home/charles/Cpp/Box2Test/source/Entity.h
  /home/charles/Cpp/Box2Test/source/EntityManager.h
  /home/charles/Cpp/Box2Test/source/Player.h
 CMakeFiles/HockeyExe.dir/source/EntityManager.cpp.o
+ ../source/Data/Constants.h
  /home/charles/Cpp/Box2Test/source/AssetManager.h
  /home/charles/Cpp/Box2Test/source/Commands/Commands.h
  /home/charles/Cpp/Box2Test/source/Components/Component.h
@@ -279,7 +281,6 @@ CMakeFiles/HockeyExe.dir/source/EntityManager.cpp.o
  /home/charles/Cpp/Box2Test/source/Components/SDLRectComponent.h
  /home/charles/Cpp/Box2Test/source/Components/SelectableComponent.h
  /home/charles/Cpp/Box2Test/source/Components/TextComponent.h
- /home/charles/Cpp/Box2Test/source/Constants.h
  /home/charles/Cpp/Box2Test/source/Entity.h
  /home/charles/Cpp/Box2Test/source/EntityManager.cpp
  /home/charles/Cpp/Box2Test/source/EntityManager.h
@@ -396,10 +397,12 @@ CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o
  ../externals/sol/variadic_results.hpp
  ../externals/sol/version.hpp
  ../externals/sol/wrapper.hpp
+ ../source/Data/ArenaLayout.h
+ ../source/Data/Colors.h
+ ../source/Data/Constants.h
+ ../source/Data/KeyBindingData.h
  /home/charles/Cpp/Box2Test/source/App.h
- /home/charles/Cpp/Box2Test/source/ArenaLayout.h
  /home/charles/Cpp/Box2Test/source/AssetManager.h
- /home/charles/Cpp/Box2Test/source/Colors.h
  /home/charles/Cpp/Box2Test/source/Commands/Commands.h
  /home/charles/Cpp/Box2Test/source/Components/Component.h
  /home/charles/Cpp/Box2Test/source/Components/GoalZoneComponent.h
@@ -409,19 +412,19 @@ CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o
  /home/charles/Cpp/Box2Test/source/Components/SDLRectComponent.h
  /home/charles/Cpp/Box2Test/source/Components/SelectableComponent.h
  /home/charles/Cpp/Box2Test/source/Components/TextComponent.h
- /home/charles/Cpp/Box2Test/source/Constants.h
+ /home/charles/Cpp/Box2Test/source/Data/Constants.h
  /home/charles/Cpp/Box2Test/source/Entity.h
  /home/charles/Cpp/Box2Test/source/EntityManager.h
  /home/charles/Cpp/Box2Test/source/GameMatchState.cpp
  /home/charles/Cpp/Box2Test/source/GameMatchState.h
- /home/charles/Cpp/Box2Test/source/KeyBindingData.h
  /home/charles/Cpp/Box2Test/source/ObjectFactory.h
  /home/charles/Cpp/Box2Test/source/Player.h
  /home/charles/Cpp/Box2Test/source/PlayerManager.h
  /home/charles/Cpp/Box2Test/source/ScriptLoader.h
  /home/charles/Cpp/Box2Test/source/State.h
 CMakeFiles/HockeyExe.dir/source/ObjectFactory.cpp.o
- /home/charles/Cpp/Box2Test/source/ArenaLayout.h
+ ../source/Data/ArenaLayout.h
+ ../source/Data/Constants.h
  /home/charles/Cpp/Box2Test/source/AssetManager.h
  /home/charles/Cpp/Box2Test/source/Commands/Commands.h
  /home/charles/Cpp/Box2Test/source/Components/Component.h
@@ -432,13 +435,13 @@ CMakeFiles/HockeyExe.dir/source/ObjectFactory.cpp.o
  /home/charles/Cpp/Box2Test/source/Components/SDLRectComponent.h
  /home/charles/Cpp/Box2Test/source/Components/SelectableComponent.h
  /home/charles/Cpp/Box2Test/source/Components/TextComponent.h
- /home/charles/Cpp/Box2Test/source/Constants.h
  /home/charles/Cpp/Box2Test/source/Entity.h
  /home/charles/Cpp/Box2Test/source/EntityManager.h
  /home/charles/Cpp/Box2Test/source/ObjectFactory.cpp
  /home/charles/Cpp/Box2Test/source/ObjectFactory.h
  /home/charles/Cpp/Box2Test/source/Player.h
 CMakeFiles/HockeyExe.dir/source/Player.cpp.o
+ ../source/Data/Constants.h
  /home/charles/Cpp/Box2Test/source/AssetManager.h
  /home/charles/Cpp/Box2Test/source/Commands/Commands.h
  /home/charles/Cpp/Box2Test/source/Components/Component.h
@@ -449,7 +452,6 @@ CMakeFiles/HockeyExe.dir/source/Player.cpp.o
  /home/charles/Cpp/Box2Test/source/Components/SDLRectComponent.h
  /home/charles/Cpp/Box2Test/source/Components/SelectableComponent.h
  /home/charles/Cpp/Box2Test/source/Components/TextComponent.h
- /home/charles/Cpp/Box2Test/source/Constants.h
  /home/charles/Cpp/Box2Test/source/Entity.h
  /home/charles/Cpp/Box2Test/source/Player.cpp
  /home/charles/Cpp/Box2Test/source/Player.h
@@ -565,9 +567,11 @@ CMakeFiles/HockeyExe.dir/source/PlayerManager.cpp.o
  ../externals/sol/variadic_results.hpp
  ../externals/sol/version.hpp
  ../externals/sol/wrapper.hpp
- /home/charles/Cpp/Box2Test/source/ArenaLayout.h
+ ../source/Data/ArenaLayout.h
+ ../source/Data/Colors.h
+ ../source/Data/Constants.h
+ ../source/Data/KeyBindingData.h
  /home/charles/Cpp/Box2Test/source/AssetManager.h
- /home/charles/Cpp/Box2Test/source/Colors.h
  /home/charles/Cpp/Box2Test/source/Commands/Commands.h
  /home/charles/Cpp/Box2Test/source/Components/Component.h
  /home/charles/Cpp/Box2Test/source/Components/GoalZoneComponent.h
@@ -577,10 +581,8 @@ CMakeFiles/HockeyExe.dir/source/PlayerManager.cpp.o
  /home/charles/Cpp/Box2Test/source/Components/SDLRectComponent.h
  /home/charles/Cpp/Box2Test/source/Components/SelectableComponent.h
  /home/charles/Cpp/Box2Test/source/Components/TextComponent.h
- /home/charles/Cpp/Box2Test/source/Constants.h
  /home/charles/Cpp/Box2Test/source/Entity.h
  /home/charles/Cpp/Box2Test/source/EntityManager.h
- /home/charles/Cpp/Box2Test/source/KeyBindingData.h
  /home/charles/Cpp/Box2Test/source/ObjectFactory.h
  /home/charles/Cpp/Box2Test/source/Player.h
  /home/charles/Cpp/Box2Test/source/PlayerManager.cpp
@@ -698,9 +700,10 @@ CMakeFiles/HockeyExe.dir/source/ScriptLoader.cpp.o
  ../externals/sol/variadic_results.hpp
  ../externals/sol/version.hpp
  ../externals/sol/wrapper.hpp
- /home/charles/Cpp/Box2Test/source/ArenaLayout.h
- /home/charles/Cpp/Box2Test/source/Colors.h
- /home/charles/Cpp/Box2Test/source/Constants.h
+ ../source/Data/ArenaLayout.h
+ ../source/Data/Colors.h
+ ../source/Data/Constants.h
+ ../source/Data/KeyBindingData.h
  /home/charles/Cpp/Box2Test/source/Player.h
  /home/charles/Cpp/Box2Test/source/ScriptLoader.cpp
  /home/charles/Cpp/Box2Test/source/ScriptLoader.h
@@ -816,10 +819,11 @@ CMakeFiles/HockeyExe.dir/source/main.cpp.o
  ../externals/sol/variadic_results.hpp
  ../externals/sol/version.hpp
  ../externals/sol/wrapper.hpp
+ ../source/Data/ArenaLayout.h
+ ../source/Data/Colors.h
+ ../source/Data/Constants.h
+ ../source/Data/KeyBindingData.h
  /home/charles/Cpp/Box2Test/source/App.h
- /home/charles/Cpp/Box2Test/source/ArenaLayout.h
- /home/charles/Cpp/Box2Test/source/Colors.h
- /home/charles/Cpp/Box2Test/source/Constants.h
  /home/charles/Cpp/Box2Test/source/Player.h
  /home/charles/Cpp/Box2Test/source/ScriptLoader.h
  /home/charles/Cpp/Box2Test/source/State.h

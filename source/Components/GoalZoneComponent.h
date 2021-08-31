@@ -7,7 +7,7 @@
 #include <iostream>
 #include <memory>
 
-#include "../Constants.h"
+#include "Constants.h"
 #include "Component.h"
 #include "../Player.h"
 #include "PhysicsComponent.h"

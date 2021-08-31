@@ -1,7 +1,7 @@
 #ifndef SELECTABLE_COMPONENT_H
 #define SELECTABLE_COMPONENT_H
 
-#include "../Constants.h"
+#include "Constants.h"
 #include "Component.h"
 #include "../Player.h"
 
