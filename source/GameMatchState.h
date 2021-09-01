@@ -8,15 +8,15 @@
 #include "lua.hpp"
 
 #include "Data/Constants.h"
+#include "Data/Colors.h"
+
 #include "AssetManager.h"
 #include "App.h"
 #include "State.h"
 #include "EntityManager.h"
 #include "PlayerManager.h"
 #include "ObjectFactory.h"
-
-
-#include "ScriptLoader.h" //#include "CollisionManager.h"
+#include "ScriptLoader.h" 
 
 class KeyInputComponent;
 class SelectableComponent;
@@ -44,7 +44,6 @@ private:
     bool paused = false;
     b2World* InitPhysics();
 
-
     std::vector<PlayerColorData> player_colors;
     PlayerColorData color;
     ArenaLayoutData arena;
@@ -66,8 +65,8 @@ private:
 //    CollisionManager* m_CollisionManager;
     
     const float m_TimeStep;
-    int m_VelocityIterations;
-    int m_PositionIterations;
+    const int m_VelocityIterations;
+    const int m_PositionIterations;
     int m_TicksLastFrame;
 
 };

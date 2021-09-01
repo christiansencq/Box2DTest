@@ -13,10 +13,11 @@
 class PlayerManager
 {
 public:
-    PlayerManager(ObjectFactory& object_factory, ArenaLayoutData& arena);
-    PlayerManager(ObjectFactory& object_factory, ArenaLayoutData& arena, KeyBindingData& keybind_data);
+    // PlayerManager(ObjectFactory& object_factory, ArenaLayoutData& arena_data);
+    PlayerManager(ObjectFactory& object_factory, ArenaLayoutData& arena_data, KeyBindingData& keybind_data);
+    // PlayerManager(ObjectFactory& object_factory, ArenaLayoutData& arena_data, KeyBindingData& keybind_data, PlayerColorData& color_data);
 
-    void SetUpPlayers(int player_count);
+    void SetUpPlayers(PlayerColorData& color, int player_count);
     void ResetPlayers();
     void HandleKeyPresses(SDL_Keycode key);
     void HandleKeyReleases(SDL_Keycode key);
@@ -25,21 +26,27 @@ public:
     int GetTeamSize() const { return team_size; }
     std::vector<SDL_Color> GetSelColor() { return PlayerSelectorColors; }
 
-    void SetSelectorColors(PlayerColorData& player_sel_colors) { PlayerSelectorColors = { player_sel_colors.p1_sel_color, player_sel_colors.p2_sel_color }; }
     
 private:
+
+    void SetPlayerColors(PlayerColorData& player_colors) {
+        PlayerSelectorColors = {player_colors.p1_sel_color, player_colors.p2_sel_color};
+        PlayerScoreColors = {player_colors.p1_score_color, player_colors.p2_score_color};
+    }
     ObjectFactory& mObjectFactory;
-    ArenaLayoutData& arena;
+    ArenaLayoutData& mArena;
+    std::vector<std::vector<std::vector<SDL_Keycode>>> mKeybinds;
+    // PlayerColorData& mColors;
 
     std::vector<Player> mPlayers;
-    // std::vector<std::shared_ptr<Player>> mPlayers;
     std::vector<std::vector<b2Vec2>> mStartingPositions;
     std::vector<SDL_Color> PlayerSelectorColors;
+    std::vector<SDL_Color> PlayerScoreColors;
 
-    KeyBindingData kbdat;
-    std::vector<std::vector<std::vector<SDL_Keycode>>> mKeybinds;
 
-    int player_count;
+    // KeyBindingData kbdat;
+
+    int player_count = 2;
     int team_size = 3;
 };
 

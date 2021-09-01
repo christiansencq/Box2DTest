@@ -34,7 +34,7 @@ public:
     Entity* GetActive() { return m_ActiveBall; }
     std::vector<Entity*> GetBalls() { return m_TeamsBalls; }
     std::vector<SDL_Keycode> GetActionKeys() { return m_ActionKeys;}
-    int GetScore() { return m_Score; }
+    int GetScore() const { return m_Score; }
 
 
     //Selector Indicator
@@ -47,13 +47,13 @@ public:
 
 private:
 
-    int id_number;
+    const int id_number;
     std::vector<b2Vec2> m_StartingPositions;
     std::vector<Entity*> m_TeamsBalls;
     Entity* m_ActiveBall;
     Entity* m_ScoreDisplay;
-    std::vector<SDL_Keycode> m_SwapKeys;
-    std::vector<SDL_Keycode> m_ActionKeys;
+    const std::vector<SDL_Keycode> m_SwapKeys;
+    const std::vector<SDL_Keycode> m_ActionKeys;
     int m_Score = 0;
 };
 

@@ -46,10 +46,6 @@ void PhysicsComponent::Update()
 {
     if (isThrusting && (m_BodyType == b2_dynamicBody) )
     {
-        //Get the Unit vector of my Object's angle. 
-//        std::cout << "ThrustingVec Force (" << m_ThrustingVec.x << ", " << m_ThrustingVec.y << ")\n";
-//        std::cout << "Owner X " << owner->GetPixelPos().x << ", Y " << owner->GetPixelPos().y << " \n";
-//        std::cout << "PhysBody X " << m_PhysBody->GetPosition().x << ", Y " << m_PhysBody->GetPosition().y << "\n";
         m_PhysBody->ApplyForceToCenter(m_ThrustingVec, true);
     }
 
@@ -101,9 +97,6 @@ void PhysicsComponent::GenerateFixture(b2Shape* shape)
     fixtureDef.density = m_Density;
     fixtureDef.friction = m_Friction;
     fixtureDef.restitution = 0.1f;
-    // fixtureDef.isSensor = (m_IsSensor == isSensor::True);
-    // fixtureDef.filter.categoryBits = m_colCategory;
-    // fixtureDef.filter.maskBits = m_colMask;
     m_PhysBody->CreateFixture(&fixtureDef);
 }
 
@@ -116,9 +109,6 @@ void PhysicsComponent::SetFixedTurning(TurnDir turning, bool fixed)
 
 void PhysicsComponent::SetTurning(TurnDir turning) 
 {
-    /*  Currently there is an issue with the rotating velocity.
-        May want to 'SetFixedRotation' for the duration of a m_Turn.  */
-
     if (m_Turn != TurnDir::NONE)
          m_PhysBody->SetFixedRotation(true);
     else

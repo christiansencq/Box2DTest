@@ -73,16 +73,18 @@ Entity* ObjectFactory::CreatePlayerBall(Player& player, b2Vec2 startPos, SDL_Col
 Entity* ObjectFactory::CreateGoalZone(Player& player, b2Vec2 position, b2Vec2 size)
 {
     Entity* goal_zone = m_EntityManager.AddEntity(position, size);
+    std::cout << "Goal entity made \n";
     goal_zone->AddComponent<GoalZoneComponent>(m_PhysicsWorld, player);
+    std::cout << "Goal zone component added \n";
     goal_zone->GetComponent<GoalZoneComponent>()->SetData(false);
 
     return goal_zone;
 }
 
-Entity* ObjectFactory::CreateScoreDisplay(Player& player, b2Vec2 position, b2Vec2 size)
+Entity* ObjectFactory::CreateScoreDisplay(Player& player, b2Vec2 position, b2Vec2 size, SDL_Color text_color)
 {
     Entity* score_display = m_EntityManager.AddEntity(position, size);
-    score_display->AddComponent<TextComponent>(m_AssetManager, m_Renderer, "Player " + std::to_string(player.GetPlayerID()+1) + " Score : " + std::to_string(0), "ScoreFont");
+    score_display->AddComponent<TextComponent>(m_AssetManager, m_Renderer, "Player " + std::to_string(player.GetPlayerID()+1) + " Score : " + std::to_string(0), "ScoreFont", text_color);
     player.AddScoreDisplay(score_display);
 
     return score_display;

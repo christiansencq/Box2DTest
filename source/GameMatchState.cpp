@@ -3,7 +3,8 @@
 GameMatchState::GameMatchState(SDL_Renderer* renderer, ScriptLoader& script_loader)
  : m_Renderer(renderer), m_ScriptLoader(script_loader), m_EntityManager(EntityManager()), 
     m_AssetManager(AssetManager{}), m_PhysicsWorld(InitPhysics()), 
-    m_ObjectFactory(ObjectFactory{m_Renderer, m_AssetManager, m_EntityManager, m_PhysicsWorld}), m_PlayerManager(m_ObjectFactory, arena, keybindData),
+    m_ObjectFactory(ObjectFactory{m_Renderer, m_AssetManager, m_EntityManager, m_PhysicsWorld}), 
+    m_PlayerManager(m_ObjectFactory, arena, keybindData),
     m_TimeStep(1/30.0f), m_VelocityIterations(2), m_PositionIterations(6), m_TicksLastFrame(0)
 {
     std::cout << "Loading script\n";
@@ -15,17 +16,16 @@ GameMatchState::GameMatchState(SDL_Renderer* renderer, ScriptLoader& script_load
     m_AssetManager.AddFont("ScoreFont", "arial.ttf", 20);
 
     std::cout << "Initializing PlayerManager\n";
-    // m_PlayerManager = PlayerManager{m_ObjectFactory, arena, keybindData};
-    // m_PlayerManager = std::make_shared<PlayerManager>(m_ObjectFactory, arena, keybindData);
 
     //Load Player Colors.
-    //Factor this out.
-    m_PlayerManager.SetSelectorColors(color);
+    //Factor this out. I dont like the indirection where PlayerManager is also calling ObjectFactory.
     std::cout << "Setting Up Objects.\n";
-    m_PlayerManager.SetUpPlayers(NumPlayers);
+    m_PlayerManager.SetUpPlayers(color, NumPlayers);
 
+    std::cout << "Creating puck\n";
     m_ObjectFactory.CreatePuck({SCREEN_WIDTH/2, SCREEN_HEIGHT/2});
 
+    std::cout << "Creating walls\n";
     m_ObjectFactory.CreateOuterWalls(arena.WallPositions, arena.WallSizes);
     m_ObjectFactory.CreateGoalWalls(arena.Goal1WallPositions, arena.GoalWallSizes);
     m_ObjectFactory.CreateGoalWalls(arena.Goal2WallPositions, arena.GoalWallSizes);

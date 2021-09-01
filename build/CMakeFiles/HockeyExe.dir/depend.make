@@ -128,6 +128,7 @@ CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../source/Components/SDLCircleCompone
 CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../source/Components/SDLRectComponent.h
 CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../source/Components/SelectableComponent.h
 CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../source/Components/TextComponent.h
+CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../source/Data/Colors.h
 CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../source/Data/Constants.h
 CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../source/Entity.h
 CMakeFiles/HockeyExe.dir/source/App.cpp.o: ../source/EntityManager.h
@@ -411,6 +412,7 @@ CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/Components/SDLCi
 CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/Components/SDLRectComponent.h
 CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/Components/SelectableComponent.h
 CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/Components/TextComponent.h
+CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/Data/Colors.h
 CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/Data/Constants.h
 CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/Entity.h
 CMakeFiles/HockeyExe.dir/source/GameMatchState.cpp.o: ../source/EntityManager.h

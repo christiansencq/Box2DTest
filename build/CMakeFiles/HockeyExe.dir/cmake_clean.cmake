@@ -17,8 +17,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/HockeyExe.dir/source/PlayerManager.cpp.o"
   "CMakeFiles/HockeyExe.dir/source/ScriptLoader.cpp.o"
   "CMakeFiles/HockeyExe.dir/source/main.cpp.o"
-  "release/HockeyExe"
-  "release/HockeyExe.pdb"
+  "HockeyExe"
+  "HockeyExe.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

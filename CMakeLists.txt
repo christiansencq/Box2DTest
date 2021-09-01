@@ -3,16 +3,16 @@ project(HockeyProject VERSION 1.0 LANGUAGES C CXX)
 set(CMAKE_CXX_STANDARD 17)
 
 # Test code
-if(NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE "RELEASE")
-    message(STATUS "Build type not specified, building Release as default.")
-    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/release)
-endif(NOT CMAKE_BUILD_TYPE)
-
-if(CMAKE_BUILD_TYPE EQUAL "DEBUG")
-    message("Building Debug Mode.")
-    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/debug)
-endif (CMAKE_BUILD_TYPE EQUAL "DEBUG")
+# if(NOT CMAKE_BUILD_TYPE)
+#     set(CMAKE_BUILD_TYPE "RELEASE")
+#     message(STATUS "Build type not specified, building Release as default.")
+#     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/release)
+# endif(NOT CMAKE_BUILD_TYPE)
+#
+# if(CMAKE_BUILD_TYPE EQUAL "DEBUG")
+#     message("Building Debug Mode.")
+#     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/debug)
+# endif (CMAKE_BUILD_TYPE EQUAL "DEBUG")
     #End Test
 
 #CMake Modules for Dynamic Libs

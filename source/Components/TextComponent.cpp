@@ -1,8 +1,8 @@
 #include "TextComponent.h"
 #include "../Entity.h"
 
-TextComponent::TextComponent(AssetManager& asset_manager, SDL_Renderer* renderer, std::string text, std::string font_name) 
- : m_AssetManager(asset_manager), m_Renderer(renderer), m_FontName(font_name), m_Text(text), m_Color(RED) 
+TextComponent::TextComponent(AssetManager& asset_manager, SDL_Renderer* renderer, std::string text, std::string font_name, SDL_Color color) 
+ : m_AssetManager(asset_manager), m_Renderer(renderer), m_FontName(font_name), m_Text(text), m_Color(color)
 {
 
 }
@@ -24,6 +24,7 @@ void TextComponent::Initialize()
 
 void TextComponent::Render()
 {
+    // std::cout << "Renderer resolution set ? " << SDL_RenderSetLogicalSize(m_Renderer, 640, 480) << "\n";
     //m_Texture contains the actual text, which is changed by SetText.
     SDL_RenderCopy(m_Renderer, m_Texture, NULL, &m_TextRect);
 }

@@ -28,6 +28,9 @@ bool App::Init(const char* title, int width, int height, bool fullscreen)
         }
 
         m_Renderer = SDL_CreateRenderer(m_Window, -1, 0);
+
+        SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, 0);
+        std::cout << "Renderer resolution set ? " << SDL_RenderSetLogicalSize(m_Renderer, 640, 480) << "\n";
         if(m_Renderer)
         {
             SDL_SetRenderDrawColor(m_Renderer, 255, 255, 255, 255);

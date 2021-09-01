@@ -79,19 +79,20 @@ void ScriptLoader::LoadPlayerSelectorColors(const char* color_data_script, Playe
     sol::tie( tempColor[0], tempColor[1], tempColor[2], tempColor[3] ) = luaColorLoader(2);
     LoadSingleColor(color_data.p2_sel_color, tempColor);
 
-    std::cout << "Player Colors Loaded Successfully.\n";
+    std::cout << "[C++] Player Colors Loaded Successfully.\n";
 }
 
 
 void ScriptLoader::LoadKeybinds(const char* keybind_data_file, KeyBindingData& keybind)
 {
-    std::cout << "Loading keybinds from: " << keybind_data_file << " \n";
+    std::cout << "[C++] Loading keybinds from: " << keybind_data_file << " \n";
     sol::state lua{};
 
     lua.open_libraries(sol::lib::base);
     lua.script_file(keybind_data_file);
 
     //Moving the SDLK enum values to be accessible by Lua.
+    //
     lua["SDL_Keycode"] = lua.create_table_with (
             "a", SDLK_a,
             "b", SDLK_b,
@@ -123,30 +124,39 @@ void ScriptLoader::LoadKeybinds(const char* keybind_data_file, KeyBindingData& k
             "5", SDLK_5, "6", SDLK_6, "7", SDLK_7, "8", SDLK_8, "9", SDLK_9,
             "UP", SDLK_UP, "DOWN", SDLK_DOWN, "LEFT", SDLK_LEFT, "RIGHT", SDLK_RIGHT
             );
-
+    //
     //TODO insert a check to make sure the keys are valid to be assigned to a player.
-    keybind.P1SwapKeys = { lua["SwapKeys"]["P1"][1], 
-                           lua["SwapKeys"]["P1"][2],
-                           lua["SwapKeys"]["P1"][3]};
+    // SDL_Keycode p1swap1 = static_cast<SDL_Keycode>(lua["SwapKeys"]["P1"][1]);
+    // SDL_Keycode p1swap2 = static_cast<SDL_Keycode>(lua["SwapKeys"]["P1"][1]);
+    // SDL_Keycode p1swap3 = static_cast<SDL_Keycode>(lua["SwapKeys"]["P1"][1]);
+    // // keybind.P1SwapKeys = { p1swap1, p1swap2, p1swap3 };
+    //
+    // keybind.P1SwapKeys = { lua["SwapKeys"]["P1"][1], 
+    //                        lua["SwapKeys"]["P1"][2],
+    //                        lua["SwapKeys"]["P1"][3]};
+    //
+    // keybind.P2SwapKeys = { lua["SwapKeys"]["P2"][1], 
+    //                        lua["SwapKeys"]["P2"][2],
+    //                        lua["SwapKeys"]["P2"][3]};
+    //
+    // keybind.P1DirectionKeys = { lua["DirectionKeys"]["P1"]["UP"],
+    //                             lua["DirectionKeys"]["P1"]["DOWN"],
+    //                             lua["DirectionKeys"]["P1"]["LEFT"],
+    //                             lua["DirectionKeys"]["P1"]["RIGHT"] };
+    //
+    // keybind.P2DirectionKeys = { lua["DirectionKeys"]["P2"]["UP"],
+    //                             lua["DirectionKeys"]["P2"]["DOWN"],
+    //                             lua["DirectionKeys"]["P2"]["LEFT"],
+    //                             lua["DirectionKeys"]["P2"]["RIGHT"] };
+    //
+    // keybind.P1Keys = { keybind.P1SwapKeys, keybind.P1DirectionKeys };
+    // keybind.P2Keys = { keybind.P2SwapKeys, keybind.P2DirectionKeys };
+    //
+    // keybind.Keys = { keybind.P1Keys, keybind.P2Keys };
+    //
+    // std::cout << "keybind P1SwapKeys " << keybind.P1SwapKeys[0] << "  " << keybind.P1SwapKeys[1] << "  " << keybind.P1SwapKeys[2] << " \n\n";
 
-    keybind.P2SwapKeys = { lua["SwapKeys"]["P2"][1], 
-                           lua["SwapKeys"]["P2"][2],
-                           lua["SwapKeys"]["P2"][3]};
-
-    keybind.P1DirectionKeys = { lua["DirectionKeys"]["P1"]["UP"],
-                                lua["DirectionKeys"]["P1"]["DOWN"],
-                                lua["DirectionKeys"]["P1"]["LEFT"],
-                                lua["DirectionKeys"]["P1"]["RIGHT"] };
-
-    keybind.P2DirectionKeys = { lua["DirectionKeys"]["P2"]["UP"],
-                                lua["DirectionKeys"]["P2"]["DOWN"],
-                                lua["DirectionKeys"]["P2"]["LEFT"],
-                                lua["DirectionKeys"]["P2"]["RIGHT"] };
-
-    keybind.P1Keys = { keybind.P1SwapKeys, keybind.P1DirectionKeys };
-    keybind.P2Keys = { keybind.P2SwapKeys, keybind.P2DirectionKeys };
-
-    keybind.Keys = { keybind.P1Keys, keybind.P2Keys };
+    std::cout << "[C++] Keybinds loaded.\n";
 }
 
 //Private

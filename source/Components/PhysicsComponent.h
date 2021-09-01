@@ -13,7 +13,6 @@
 
 class Entity;
 
-//Separate out into : Collision, PhysBodyCommand, similar?
 
 struct CollisionData 
 {
@@ -31,9 +30,6 @@ public:
 
     b2Body* GetPhysBody() { return m_PhysBody; }
     b2BodyType GetBodyType() { return m_PhysBody->GetType(); }
-
-    // void SetCollisionCategory(std::bitset<16> category) { m_CollisionCategory = category; }
-    // void SetCollisionMask(std::bitset<16> mask) { m_CollisionMask = mask; }
 
     void SetThrusting(bool thrusting) { isThrusting = thrusting; }
     void SetThrustDirection(ThrustDir dir);
@@ -66,16 +62,13 @@ private:
     bool m_IsSensor;
 
     b2World* m_PhysWorld;//Needed for body creation only.  Could be passed in until CreateBody is called.
+
     b2Body* m_PhysBody;
     b2Fixture* m_PhysFixture;
     ShapeType m_ShapeType;
     b2BodyType m_BodyType;
 
     CollisionData m_CollisionData;
-    // std::bitset<16> m_CollisionCategory;
-    // std::bitset<16> m_CollisionMask;
-    // uint16_t m_colCategory;
-    // uint16_t m_colMask;
     
     const std::string type = "PhysicsComponent";
 };

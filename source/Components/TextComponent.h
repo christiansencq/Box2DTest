@@ -8,11 +8,10 @@
 
 class Entity;
 
-//TODO Rename to ScoreDisplayComponent. Separate 
 class TextComponent : public Component
 {
 public:
-    TextComponent(AssetManager& asset_manager, SDL_Renderer* renderer, std::string text, std::string font_name);
+    TextComponent(AssetManager& asset_manager, SDL_Renderer* renderer, std::string text, std::string font_name, SDL_Color color);
     ~TextComponent();
 
     virtual void Initialize() override;

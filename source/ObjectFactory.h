@@ -9,7 +9,6 @@
 #include "EntityManager.h"
 #include "Player.h"
 #include "ArenaLayout.h"
-// #include "KeyBindingData.h"
 #include "Components/KeyInputComponent.h"
 
 
@@ -29,9 +28,9 @@ public:
     void CreateGoalWalls(std::vector<b2Vec2> wallPositions, std::vector<b2Vec2> wallSizes);
 
     Entity* CreateGoalZone(Player& player, b2Vec2 position, b2Vec2 size);
-    Entity* CreateScoreDisplay(Player& player, b2Vec2 position, b2Vec2 size);
+    Entity* CreateScoreDisplay(Player& player, b2Vec2 position, b2Vec2 size, SDL_Color text_color);
 
-    // Entity* CreateTimerDisplay(b2Vec2 position, b2Vec2 size);
+    // Entity* CreateGameTimerDisplay(b2Vec2 position, b2Vec2 size);
 
     void CreateOuterWalls(std::vector<b2Vec2> positions, std::vector<b2Vec2> sizes);
     void CreateTeamForPlayer(Player& player, int team_size);
