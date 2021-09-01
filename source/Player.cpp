@@ -1,8 +1,8 @@
 #include "Player.h"
 #include "Entity.h"
 
-Player::Player(std::vector<std::vector<SDL_Keycode>> keybind)
- : m_SwapKeys(keybind[0]), m_ActionKeys(keybind[1])
+Player::Player(int id_num, std::vector<std::vector<SDL_Keycode>> keybind)
+ : id_number(id_num), m_SwapKeys(keybind[0]), m_ActionKeys(keybind[1])
 {
     std::cout << "Player constructor where SwapKeys is " << m_SwapKeys.size() << " and ActionKeys is " << m_ActionKeys.size() << " length\n";
 }

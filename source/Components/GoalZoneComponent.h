@@ -20,7 +20,7 @@ class Entity;
 class GoalZoneComponent : public Component
 {
 public:
-    GoalZoneComponent(b2World* world, std::shared_ptr<Player> player);
+    GoalZoneComponent(b2World* world, Player& player);
     ~GoalZoneComponent();
 
     virtual void Initialize() override;
@@ -40,7 +40,7 @@ private:
     void CreateRectShape();
 
     int m_Width, m_Height;
-    std::shared_ptr<Player> m_Player;
+    Player& m_Player;
     b2World* m_PhysWorld;
     b2Body* m_PhysBody;
     CollisionData m_CollisionData;

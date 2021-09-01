@@ -28,15 +28,15 @@ public:
 
     void CreateGoalWalls(std::vector<b2Vec2> wallPositions, std::vector<b2Vec2> wallSizes);
 
-    Entity* CreateGoalZone(std::shared_ptr<Player> player, b2Vec2 position, b2Vec2 size);
-    Entity* CreateScoreDisplay(std::shared_ptr<Player> player, b2Vec2 position, b2Vec2 size);
+    Entity* CreateGoalZone(Player& player, b2Vec2 position, b2Vec2 size);
+    Entity* CreateScoreDisplay(Player& player, b2Vec2 position, b2Vec2 size);
 
     // Entity* CreateTimerDisplay(b2Vec2 position, b2Vec2 size);
 
     void CreateOuterWalls(std::vector<b2Vec2> positions, std::vector<b2Vec2> sizes);
-    void CreateTeamForPlayer(std::shared_ptr<Player> player, int team_size);
+    void CreateTeamForPlayer(Player& player, int team_size);
 
-    Entity* CreatePlayerBall(std::shared_ptr<Player> player, b2Vec2 startPos, SDL_Color sel_color);
+    Entity* CreatePlayerBall(Player& player, b2Vec2 startPos, SDL_Color sel_color);
     Entity* CreatePuck(b2Vec2 startPos);
 
 

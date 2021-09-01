@@ -2,7 +2,7 @@
 #include "../Entity.h"
 
 //When merging with Physics object (maybe use a TurnIntoGoalMethod() or inheritance)
-GoalZoneComponent::GoalZoneComponent(b2World* world, std::shared_ptr<Player> player)
+GoalZoneComponent::GoalZoneComponent(b2World* world, Player& player)
     : m_Player(player), m_PhysWorld(world), m_CollisionData(CollisionData{})
 {
 
@@ -46,7 +46,7 @@ void GoalZoneComponent::Update()
         {
             std::cout << "Score being made. \n";
             owner->SignalManagerToReset();
-            m_Player->IncrementScore(1);
+            m_Player.IncrementScore(1);
         }
     }
 }

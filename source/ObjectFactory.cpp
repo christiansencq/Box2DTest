@@ -48,19 +48,19 @@ Entity* ObjectFactory::CreatePuck(b2Vec2 startPos)
     return puck;
 }
 
-Entity* ObjectFactory::CreatePlayerBall(std::shared_ptr<Player> player, b2Vec2 startPos, SDL_Color sel_color)
+Entity* ObjectFactory::CreatePlayerBall(Player& player, b2Vec2 startPos, SDL_Color sel_color)
 {
     std::cout << "Creating Player Ball at " << startPos.x << " " << startPos.y << "\n";
 
     Entity* ball = m_EntityManager.AddEntity(startPos, 50.0f);
     std::cout << "Entity made; Adding to Team\n";
-    player->AddBallToTeam(ball);
+    player.AddBallToTeam(ball);
     std::cout << "Adding Components\n";
     ball->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::CIRCLE, b2BodyType::b2_dynamicBody);
     ball->GetComponent<PhysicsComponent>()->SetData(false);
     ball->AddComponent<SDLCircleComponent>(m_Renderer);
     ball->AddComponent<SelectableComponent>(m_Renderer, sel_color);
-    ball->AddComponent<KeyInputComponent>(player->GetActionKeys());
+    ball->AddComponent<KeyInputComponent>(player.GetActionKeys());
     ball->GetComponent<KeyInputComponent>()->AddCommand<ForwardThrustCommand>();
     ball->GetComponent<KeyInputComponent>()->AddCommand<BackwardThrustCommand>();
     ball->GetComponent<KeyInputComponent>()->AddCommand<LeftTurnCommand>();
@@ -70,7 +70,7 @@ Entity* ObjectFactory::CreatePlayerBall(std::shared_ptr<Player> player, b2Vec2 s
     return ball;
 }
 
-Entity* ObjectFactory::CreateGoalZone(std::shared_ptr<Player> player, b2Vec2 position, b2Vec2 size)
+Entity* ObjectFactory::CreateGoalZone(Player& player, b2Vec2 position, b2Vec2 size)
 {
     Entity* goal_zone = m_EntityManager.AddEntity(position, size);
     goal_zone->AddComponent<GoalZoneComponent>(m_PhysicsWorld, player);
@@ -79,11 +79,11 @@ Entity* ObjectFactory::CreateGoalZone(std::shared_ptr<Player> player, b2Vec2 pos
     return goal_zone;
 }
 
-Entity* ObjectFactory::CreateScoreDisplay(std::shared_ptr<Player> player, b2Vec2 position, b2Vec2 size)
+Entity* ObjectFactory::CreateScoreDisplay(Player& player, b2Vec2 position, b2Vec2 size)
 {
     Entity* score_display = m_EntityManager.AddEntity(position, size);
-    score_display->AddComponent<TextComponent>(m_AssetManager, m_Renderer, "Player " + std::to_string(player->id_number+1) + " Score : " + std::to_string(0), "ScoreFont");
-    player->AddScoreDisplay(score_display);
+    score_display->AddComponent<TextComponent>(m_AssetManager, m_Renderer, "Player " + std::to_string(player.GetPlayerID()+1) + " Score : " + std::to_string(0), "ScoreFont");
+    player.AddScoreDisplay(score_display);
 
     return score_display;
 }

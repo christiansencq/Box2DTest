@@ -31,7 +31,8 @@ private:
     ObjectFactory& mObjectFactory;
     ArenaLayoutData& arena;
 
-    std::vector<std::shared_ptr<Player>> mPlayers;
+    std::vector<Player> mPlayers;
+    // std::vector<std::shared_ptr<Player>> mPlayers;
     std::vector<std::vector<b2Vec2>> mStartingPositions;
     std::vector<SDL_Color> PlayerSelectorColors;
 

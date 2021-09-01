@@ -5,7 +5,6 @@
 #include <array>
 
 #include "Box2D/Box2D.h"
-// #include "KeyBindingData.h"
 #include "SDL2/SDL.h"
 
 
@@ -18,7 +17,7 @@ class Player
 public:
 
     
-    explicit Player(std::vector<std::vector<SDL_Keycode>> keybind);
+    Player(int id_num, std::vector<std::vector<SDL_Keycode>> keybind);
     ~Player();
 
     void ResetPositions();
@@ -42,14 +41,13 @@ public:
     void RenderSelector(SDL_Renderer* renderer);
     void UpdateSelector();
 
-
     //Scoring:
     void IncrementScore(int num);
-
-    int id_number;
+    int GetPlayerID() const { return id_number; }
 
 private:
 
+    int id_number;
     std::vector<b2Vec2> m_StartingPositions;
     std::vector<Entity*> m_TeamsBalls;
     Entity* m_ActiveBall;

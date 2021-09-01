@@ -18,7 +18,8 @@ void PlayerManager::HandleKeyPresses(SDL_Keycode key)
 {
     for (auto& player : mPlayers)
     {
-        player->HandleKeyPress(key);
+        player.HandleKeyPress(key);
+        // player->HandleKeyPress(key);
     }
 }
 
@@ -26,7 +27,7 @@ void PlayerManager::HandleKeyReleases(SDL_Keycode key)
 {
     for (auto& player : mPlayers)
     {
-        player->HandleKeyRelease(key);
+        player.HandleKeyRelease(key);
     }
 }
 
@@ -34,7 +35,7 @@ void PlayerManager::ResetPlayers()
 {
     for (auto& player : mPlayers)
     {
-        player->ResetPositions();
+        player.ResetPositions();
     }
 }
 
@@ -46,13 +47,13 @@ void PlayerManager::SetUpPlayers(int player_count)
 
     for (int i = 0; i < player_count; i++)
     {
-        std::shared_ptr<Player> player = std::make_shared<Player>(mKeybinds[i]);
+        Player player = Player(i, mKeybinds[i]);
         std::cout << "Player " << std::to_string(i+1) << " made. \n";
 
-        player->id_number = i;
+        // player.id_number = i;
 
         std::cout << "Adding starting positions \n";
-        player->AddStartingPositions(mStartingPositions[i]);
+        player.AddStartingPositions(mStartingPositions[i]);
 
         std::cout << "Making player balls \n";
         for (int j = 0; j < team_size; j++)
@@ -67,7 +68,7 @@ void PlayerManager::SetUpPlayers(int player_count)
         std::cout << "Making goal zone\n";
         mObjectFactory.CreateGoalZone(player, arena.GoalPositions[i], arena.GoalSize);
 
-        player->SwapActiveBall(0);
+        player.SwapActiveBall(0);
         
         mPlayers.push_back(player);
         std::cout << "Player " << std::to_string(i+1) << " made. \n";
