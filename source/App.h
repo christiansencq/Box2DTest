@@ -39,7 +39,7 @@ private:
     SDL_Surface* m_Surface;
     SDL_Window* m_Window;
     
-    std::shared_ptr<ScriptLoader> m_ScriptLoader;
+    ScriptLoader m_ScriptLoader;
     std::vector<std::unique_ptr<State>> m_StateStack;
 };
 

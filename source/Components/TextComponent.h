@@ -12,7 +12,7 @@ class Entity;
 class TextComponent : public Component
 {
 public:
-    TextComponent(std::shared_ptr<AssetManager> asset_manager, SDL_Renderer* renderer, std::string text, std::string font_name);
+    TextComponent(AssetManager& asset_manager, SDL_Renderer* renderer, std::string text, std::string font_name);
     ~TextComponent();
 
     virtual void Initialize() override;
@@ -26,7 +26,7 @@ public:
 
 private:
     // std::shared_ptr<Player> m_Player;
-    std::shared_ptr<AssetManager> m_AssetManager;
+    AssetManager& m_AssetManager;
     SDL_Renderer* m_Renderer;
 
     std::string m_FontName;

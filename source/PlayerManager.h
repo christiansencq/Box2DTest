@@ -13,8 +13,8 @@
 class PlayerManager
 {
 public:
-    PlayerManager(std::shared_ptr<ObjectFactory> object_factory, ArenaLayoutData& arena);
-    PlayerManager(std::shared_ptr<ObjectFactory> object_factory, ArenaLayoutData& arena, KeyBindingData& keybind_data);
+    PlayerManager(ObjectFactory& object_factory, ArenaLayoutData& arena);
+    PlayerManager(ObjectFactory& object_factory, ArenaLayoutData& arena, KeyBindingData& keybind_data);
 
     void SetUpPlayers(int player_count);
     void ResetPlayers();
@@ -28,7 +28,7 @@ public:
     void SetSelectorColors(PlayerColorData& player_sel_colors) { PlayerSelectorColors = { player_sel_colors.p1_sel_color, player_sel_colors.p2_sel_color }; }
     
 private:
-    std::shared_ptr<ObjectFactory> mObjectFactory;
+    ObjectFactory& mObjectFactory;
     ArenaLayoutData& arena;
 
     std::vector<std::shared_ptr<Player>> mPlayers;

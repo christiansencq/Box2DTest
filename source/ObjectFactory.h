@@ -24,7 +24,7 @@ class TextComponent;
 class ObjectFactory
 {
 public:
-    ObjectFactory(SDL_Renderer* renderer, std::shared_ptr<AssetManager> assetManager, std::shared_ptr<EntityManager> entityManager, b2World* physWorld);
+    ObjectFactory(SDL_Renderer* renderer, AssetManager& assetManager, EntityManager& entityManager, b2World* physWorld);
 
     void CreateGoalWalls(std::vector<b2Vec2> wallPositions, std::vector<b2Vec2> wallSizes);
 
@@ -43,8 +43,8 @@ public:
 private:
 
     SDL_Renderer* m_Renderer;
-    std::shared_ptr<AssetManager> m_AssetManager;
-    std::shared_ptr<EntityManager> m_EntityManager;
+    AssetManager& m_AssetManager;
+    EntityManager& m_EntityManager;
     b2World* m_PhysicsWorld;
 
 };

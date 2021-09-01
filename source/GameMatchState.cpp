@@ -1,41 +1,34 @@
 #include "GameMatchState.h"
 
-GameMatchState::GameMatchState(SDL_Renderer* renderer, std::shared_ptr<ScriptLoader> script_loader)
- : m_Renderer(renderer), m_ScriptLoader(script_loader), m_EntityManager(std::make_shared<EntityManager>()), m_AssetManager(std::make_shared<AssetManager>()),
-    m_TimeStep(1/30.0f), m_VelocityIterations(2), m_PositionIterations(6), m_TicksLastFrame(0) 
+GameMatchState::GameMatchState(SDL_Renderer* renderer, ScriptLoader& script_loader)
+ : m_Renderer(renderer), m_ScriptLoader(script_loader), m_EntityManager(EntityManager()), 
+    m_AssetManager(AssetManager{}), m_PhysicsWorld(InitPhysics()), 
+    m_ObjectFactory(ObjectFactory{m_Renderer, m_AssetManager, m_EntityManager, m_PhysicsWorld}), m_PlayerManager(m_ObjectFactory, arena, keybindData),
+    m_TimeStep(1/30.0f), m_VelocityIterations(2), m_PositionIterations(6), m_TicksLastFrame(0)
 {
-    
-
     std::cout << "Loading script\n";
-    m_ScriptLoader->SolLoadArenaData("lHockey.lua", arena);
-    m_ScriptLoader->LoadPlayerSelectorColors("lColors.lua", color);
-    m_ScriptLoader->LoadKeybinds("lKeys.lua", keybindData);
-
-    std::cout << "Initializing Physics.\n";
-    InitPhysics();
+    m_ScriptLoader.SolLoadArenaData("lHockey.lua", arena);
+    m_ScriptLoader.LoadPlayerSelectorColors("lColors.lua", color);
+    m_ScriptLoader.LoadKeybinds("lKeys.lua", keybindData);
     
     std::cout <<"Setup Fonts.\n";
-    m_AssetManager->AddFont("ScoreFont", "arial.ttf", 20);
-
-    //Finish Setting Up Managers that require Data/Libraries to be set up.
-    std::cout << "Initializing ObjectFactory.\n";
-    m_ObjectFactory = std::make_unique<ObjectFactory>(m_Renderer, m_AssetManager, m_EntityManager, m_PhysicsWorld);
+    m_AssetManager.AddFont("ScoreFont", "arial.ttf", 20);
 
     std::cout << "Initializing PlayerManager\n";
-    m_PlayerManager = std::make_shared<PlayerManager>(m_ObjectFactory, arena, keybindData);
+    // m_PlayerManager = PlayerManager{m_ObjectFactory, arena, keybindData};
+    // m_PlayerManager = std::make_shared<PlayerManager>(m_ObjectFactory, arena, keybindData);
 
     //Load Player Colors.
     //Factor this out.
-    m_PlayerManager->SetSelectorColors(color);
-
+    m_PlayerManager.SetSelectorColors(color);
     std::cout << "Setting Up Objects.\n";
-    m_PlayerManager->SetUpPlayers(NumPlayers);
+    m_PlayerManager.SetUpPlayers(NumPlayers);
 
-    m_ObjectFactory->CreatePuck({SCREEN_WIDTH/2, SCREEN_HEIGHT/2});
+    m_ObjectFactory.CreatePuck({SCREEN_WIDTH/2, SCREEN_HEIGHT/2});
 
-    m_ObjectFactory->CreateOuterWalls(arena.WallPositions, arena.WallSizes);
-    m_ObjectFactory->CreateGoalWalls(arena.Goal1WallPositions, arena.GoalWallSizes);
-    m_ObjectFactory->CreateGoalWalls(arena.Goal2WallPositions, arena.GoalWallSizes);
+    m_ObjectFactory.CreateOuterWalls(arena.WallPositions, arena.WallSizes);
+    m_ObjectFactory.CreateGoalWalls(arena.Goal1WallPositions, arena.GoalWallSizes);
+    m_ObjectFactory.CreateGoalWalls(arena.Goal2WallPositions, arena.GoalWallSizes);
 }
 
 GameMatchState::~GameMatchState()
@@ -65,7 +58,7 @@ void GameMatchState::HandleEvents()
                 case SDLK_SPACE:
                     break;
                 default:
-                    m_PlayerManager->HandleKeyPresses(event.key.keysym.sym);
+                    m_PlayerManager.HandleKeyPresses(event.key.keysym.sym);
                     break;
             }
             break;
@@ -73,12 +66,12 @@ void GameMatchState::HandleEvents()
 
         case SDL_KEYUP:
         {
-            m_PlayerManager->HandleKeyReleases(event.key.keysym.sym);
+            m_PlayerManager.HandleKeyReleases(event.key.keysym.sym);
             break;
         }
 
         default:
-            m_EntityManager->HandleInput(event);
+            m_EntityManager.HandleInput(event);
     }
 }
 
@@ -95,7 +88,7 @@ void GameMatchState::Update()
     m_TicksLastFrame = SDL_GetTicks();
     m_PhysicsWorld->Step(m_TimeStep, m_VelocityIterations, m_PositionIterations); 
     //GameEntityManager
-    m_EntityManager->Update();
+    m_EntityManager.Update();
 }
 
 void GameMatchState::Render(SDL_Renderer* renderer)
@@ -105,14 +98,14 @@ void GameMatchState::Render(SDL_Renderer* renderer)
     SDL_RenderClear(renderer);
 
     //Render the images of the Entities    
-    if (!m_EntityManager->HasEntities())
+    if (!m_EntityManager.HasEntities())
     {
         std::cout << "There are no entities!";
         return;
     }
     else
     {
-        m_EntityManager->Render(renderer);
+        m_EntityManager.Render(renderer);
     }
     
     SDL_RenderPresent(renderer);
@@ -120,23 +113,10 @@ void GameMatchState::Render(SDL_Renderer* renderer)
 
 
 //Private Methods
-void GameMatchState::InitPhysics()
+b2World* GameMatchState::InitPhysics()
 {
     b2Vec2 gravity = b2Vec2(0.0f, 0.0f);
-    m_PhysicsWorld = new b2World(gravity);
-    // m_CollisionManager = new CollisionManager();
-    // m_PhysicsWorld->SetContactListener(m_CollisionManager);
+    b2World* PhysicsWorld = new b2World(gravity);
+    return PhysicsWorld;
 }
 
-void GameMatchState::TogglePause()
-{
-    if (paused)
-    {
-
-    }
-    else
-    {
-
-    }
-
-}

@@ -22,6 +22,8 @@ local ORANGE    = { 200, 120,  15, 255 }
     
 local Player_Selector_Colors = { GREEN, ORANGE }
 
+local Default_Text_Color = PURPLE;
+
 local index = ...
 function ColorLoad(index)
     r = Player_Selector_Colors[index][1]

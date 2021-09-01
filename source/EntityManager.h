@@ -33,6 +33,7 @@ public:
 private:
   SDL_Renderer *m_Renderer; 
   std::vector<Entity*> m_Entities;
+
   std::vector<std::shared_ptr<Player>> m_Players;
   b2World *m_PhysWorld;
 };

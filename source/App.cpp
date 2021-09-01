@@ -48,7 +48,7 @@ bool App::Init(const char* title, int width, int height, bool fullscreen)
         isRunning = false;
     }
     
-    m_ScriptLoader = std::make_shared<ScriptLoader>();
+    m_ScriptLoader = ScriptLoader{};
 
     std::unique_ptr<GameMatchState> physState = std::make_unique<GameMatchState>(m_Renderer, m_ScriptLoader);
     PushState(std::move(physState));

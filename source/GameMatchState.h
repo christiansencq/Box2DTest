@@ -1,7 +1,7 @@
 #ifndef GAME_MATCH_STATE_H
 #define GAME_MATCH_STATE_H
 
-#include <cassert>
+#include <cassert> 
 #include <memory>
 #include <vector>
 
@@ -16,8 +16,7 @@
 #include "ObjectFactory.h"
 
 
-#include "ScriptLoader.h"
-//#include "CollisionManager.h"
+#include "ScriptLoader.h" //#include "CollisionManager.h"
 
 class KeyInputComponent;
 class SelectableComponent;
@@ -27,25 +26,24 @@ class SDLCircleComponent;
 class SDLRectComponent;
 class TextComponent;
 
-
+///The state in which the Hockey Match itself is played.
 class GameMatchState : public State
 {
 public:
 
-    explicit GameMatchState(SDL_Renderer* renderer, std::shared_ptr<ScriptLoader> script_loader);
+    explicit GameMatchState(SDL_Renderer* renderer, ScriptLoader& script_loader);
     ~GameMatchState();
 
     virtual void HandleEvents() override;
     virtual void Update() override;
     virtual void Render(SDL_Renderer* renderer) override;
 
-    void TogglePause();
 
 private:
 
     bool paused = false;
+    b2World* InitPhysics();
 
-    void InitPhysics();
 
     std::vector<PlayerColorData> player_colors;
     PlayerColorData color;
@@ -56,14 +54,15 @@ private:
     const int TeamSize = 3;
 
     SDL_Renderer* m_Renderer;
-    std::shared_ptr<ScriptLoader> m_ScriptLoader;
-    std::shared_ptr<EntityManager> m_EntityManager;
-    std::shared_ptr<AssetManager> m_AssetManager;
-    std::shared_ptr<ObjectFactory> m_ObjectFactory;
-    std::shared_ptr<PlayerManager> m_PlayerManager;
+    ScriptLoader& m_ScriptLoader;
 
-    
+    EntityManager m_EntityManager;
+
+    AssetManager m_AssetManager;
     b2World* m_PhysicsWorld;
+    ObjectFactory m_ObjectFactory;
+    PlayerManager m_PlayerManager;
+    
 //    CollisionManager* m_CollisionManager;
     
     const float m_TimeStep;

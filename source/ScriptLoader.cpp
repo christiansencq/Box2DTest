@@ -59,46 +59,6 @@ void ScriptLoader::SolLoadArenaData(std::string arena_data_file, ArenaLayoutData
     CalcArenaData(arena);
 }
 
-void ScriptLoader::CalcArenaData(ArenaLayoutData& arena)
-{
-        std::cout << "Calculating Arena Data from Loaded Script\n";
-
-        arena.TopWallSize = {SCREEN_WIDTH-70, arena.WALL_THICKNESS};
-        arena.BottomWallSize = {SCREEN_WIDTH-70, arena.WALL_THICKNESS};
-        arena.LeftWallSize = {arena.WALL_THICKNESS, SCREEN_HEIGHT-arena.WALL_BUFFER};
-        arena.RightWallSize = {arena.WALL_THICKNESS, SCREEN_HEIGHT-arena.WALL_BUFFER};
-
-        arena.WallSizes = {arena.TopWallSize, arena.BottomWallSize, arena.LeftWallSize, arena.RightWallSize};
-
-        arena.GoalTopWallSize = { arena.GoalSize.x + (2 * arena.WALL_THICKNESS), arena.WALL_THICKNESS };
-        arena.GoalBotWallSize = { arena.GoalSize.x + (2 * arena.WALL_THICKNESS), arena.WALL_THICKNESS };
-        arena.GoalSideWallSize = { arena.WALL_THICKNESS, arena.GoalSize.y };
-        arena.GoalWallSizes = { arena.GoalTopWallSize, arena.GoalBotWallSize, arena.GoalSideWallSize };
-
-        arena.Goal1TopWallPos = { arena.GoalPositions[0].x, arena.GoalPositions[0].y - arena.GoalSize.y/2 };
-        arena.Goal1BotWallPos = { arena.GoalPositions[0].x, arena.GoalPositions[0].y + arena.GoalSize.y/2 };
-        arena.Goal1SideWallPos = { arena.GoalPositions[0].x + arena.GoalSize.x/2, arena.GoalPositions[0].y };
-        arena.Goal1WallPositions = {arena.Goal1TopWallPos, arena.Goal1BotWallPos, arena.Goal1SideWallPos};
-        
-        arena.Goal2TopWallPos = { arena.GoalPositions[1].x, arena.GoalPositions[1].y - arena.GoalSize.y/2 };
-        arena.Goal2BotWallPos = { arena.GoalPositions[1].x, arena.GoalPositions[1].y + arena.GoalSize.y/2 };
-
-        arena.Goal2SideWallPos = { arena.GoalPositions[1].x - arena.GoalSize.x/2, arena.GoalPositions[1].y };
-        arena.Goal2WallPositions = { arena.Goal2TopWallPos, arena.Goal2BotWallPos, arena.Goal2SideWallPos };
-        arena.StartingPositions = {arena.P1StartingPositions, arena.P2StartingPositions};
-}
-
-void ScriptLoader::LoadSingleColor(SDL_Color& color, const std::vector<int>& cvec)
-{
-    std::cout << "[C++] LoadSingleColor Called.\n";
-    
-    color.r = static_cast<int>(cvec[0]);
-    color.g = static_cast<int>(cvec[1]);
-    color.b = static_cast<int>(cvec[2]);
-    color.a = static_cast<int>(cvec[3]);
-
-    std::cout << "[C++] LoadSingleColor Ended.\n";
-}
 
 void ScriptLoader::LoadPlayerSelectorColors(const char* color_data_script, PlayerColorData& color_data)
 {
@@ -187,4 +147,47 @@ void ScriptLoader::LoadKeybinds(const char* keybind_data_file, KeyBindingData& k
     keybind.P2Keys = { keybind.P2SwapKeys, keybind.P2DirectionKeys };
 
     keybind.Keys = { keybind.P1Keys, keybind.P2Keys };
+}
+
+//Private
+
+void ScriptLoader::LoadSingleColor(SDL_Color& color, const std::vector<int>& cvec)
+{
+    std::cout << "[C++] LoadSingleColor Called.\n";
+    
+    color.r = static_cast<int>(cvec[0]);
+    color.g = static_cast<int>(cvec[1]);
+    color.b = static_cast<int>(cvec[2]);
+    color.a = static_cast<int>(cvec[3]);
+
+    std::cout << "[C++] LoadSingleColor Ended.\n";
+}
+
+void ScriptLoader::CalcArenaData(ArenaLayoutData& arena)
+{
+        std::cout << "Calculating Arena Data from Loaded Script\n";
+
+        arena.TopWallSize = {SCREEN_WIDTH-70, arena.WALL_THICKNESS};
+        arena.BottomWallSize = {SCREEN_WIDTH-70, arena.WALL_THICKNESS};
+        arena.LeftWallSize = {arena.WALL_THICKNESS, SCREEN_HEIGHT-arena.WALL_BUFFER};
+        arena.RightWallSize = {arena.WALL_THICKNESS, SCREEN_HEIGHT-arena.WALL_BUFFER};
+
+        arena.WallSizes = {arena.TopWallSize, arena.BottomWallSize, arena.LeftWallSize, arena.RightWallSize};
+
+        arena.GoalTopWallSize = { arena.GoalSize.x + (2 * arena.WALL_THICKNESS), arena.WALL_THICKNESS };
+        arena.GoalBotWallSize = { arena.GoalSize.x + (2 * arena.WALL_THICKNESS), arena.WALL_THICKNESS };
+        arena.GoalSideWallSize = { arena.WALL_THICKNESS, arena.GoalSize.y };
+        arena.GoalWallSizes = { arena.GoalTopWallSize, arena.GoalBotWallSize, arena.GoalSideWallSize };
+
+        arena.Goal1TopWallPos = { arena.GoalPositions[0].x, arena.GoalPositions[0].y - arena.GoalSize.y/2 };
+        arena.Goal1BotWallPos = { arena.GoalPositions[0].x, arena.GoalPositions[0].y + arena.GoalSize.y/2 };
+        arena.Goal1SideWallPos = { arena.GoalPositions[0].x + arena.GoalSize.x/2, arena.GoalPositions[0].y };
+        arena.Goal1WallPositions = {arena.Goal1TopWallPos, arena.Goal1BotWallPos, arena.Goal1SideWallPos};
+        
+        arena.Goal2TopWallPos = { arena.GoalPositions[1].x, arena.GoalPositions[1].y - arena.GoalSize.y/2 };
+        arena.Goal2BotWallPos = { arena.GoalPositions[1].x, arena.GoalPositions[1].y + arena.GoalSize.y/2 };
+
+        arena.Goal2SideWallPos = { arena.GoalPositions[1].x - arena.GoalSize.x/2, arena.GoalPositions[1].y };
+        arena.Goal2WallPositions = { arena.Goal2TopWallPos, arena.Goal2BotWallPos, arena.Goal2SideWallPos };
+        arena.StartingPositions = {arena.P1StartingPositions, arena.P2StartingPositions};
 }

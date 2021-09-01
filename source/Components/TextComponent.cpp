@@ -1,7 +1,7 @@
 #include "TextComponent.h"
 #include "../Entity.h"
 
-TextComponent::TextComponent(std::shared_ptr<AssetManager> asset_manager, SDL_Renderer* renderer, std::string text, std::string font_name) 
+TextComponent::TextComponent(AssetManager& asset_manager, SDL_Renderer* renderer, std::string text, std::string font_name) 
  : m_AssetManager(asset_manager), m_Renderer(renderer), m_FontName(font_name), m_Text(text), m_Color(RED) 
 {
 
@@ -18,7 +18,7 @@ void TextComponent::Initialize()
     m_TextRect.h = owner->GetPixelSize().y;
     m_TextRect.x = owner->GetPixelPos().x;
     m_TextRect.y = owner->GetPixelPos().y;
-    m_Font = m_AssetManager->GetFont(m_FontName);
+    m_Font = m_AssetManager.GetFont(m_FontName);
     SetText(m_Text);
 }
 

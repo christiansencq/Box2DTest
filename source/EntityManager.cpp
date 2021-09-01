@@ -21,6 +21,8 @@ void EntityManager::Update()
         p->UpdateSelector();
     }
 
+    //Update Timer here.
+
     DestroyInactiveEntities();
 }
 
@@ -35,6 +37,8 @@ void EntityManager::Render(SDL_Renderer* renderer)
     {
         p->RenderSelector(renderer);
     }
+
+    //Render a Timer here.
 }
 
 Entity* EntityManager::AddEntity()

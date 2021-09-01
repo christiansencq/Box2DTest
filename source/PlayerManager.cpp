@@ -1,12 +1,12 @@
 #include "PlayerManager.h"
 
-PlayerManager::PlayerManager(std::shared_ptr<ObjectFactory> object_factory, ArenaLayoutData& arena)
+PlayerManager::PlayerManager(ObjectFactory& object_factory, ArenaLayoutData& arena)
     : mObjectFactory(object_factory), arena(arena)
 {
 
 }
 
-PlayerManager::PlayerManager(std::shared_ptr<ObjectFactory> object_factory, ArenaLayoutData& arena, KeyBindingData& keybind_data)
+PlayerManager::PlayerManager(ObjectFactory& object_factory, ArenaLayoutData& arena, KeyBindingData& keybind_data)
     : mObjectFactory(object_factory), arena(arena), mKeybinds(keybind_data.Keys)
 {
     // kbdat = KeyBindingData();
@@ -58,14 +58,14 @@ void PlayerManager::SetUpPlayers(int player_count)
         for (int j = 0; j < team_size; j++)
         {
             std::cout << "Pos x " << mStartingPositions[i][j].x << "  " << mStartingPositions[i][j].y << "\n";
-            mObjectFactory->CreatePlayerBall(player, mStartingPositions[i][j], PlayerSelectorColors[i] );
+            mObjectFactory.CreatePlayerBall(player, mStartingPositions[i][j], PlayerSelectorColors[i] );
         }
 
         std::cout << "Making score display \n";
-        mObjectFactory->CreateScoreDisplay(player, arena.ScoreDisplayPositions[i], arena.GoalSize);
+        mObjectFactory.CreateScoreDisplay(player, arena.ScoreDisplayPositions[i], arena.GoalSize);
 
         std::cout << "Making goal zone\n";
-        mObjectFactory->CreateGoalZone(player, arena.GoalPositions[i], arena.GoalSize);
+        mObjectFactory.CreateGoalZone(player, arena.GoalPositions[i], arena.GoalSize);
 
         player->SwapActiveBall(0);
         

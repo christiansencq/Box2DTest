@@ -14,9 +14,12 @@ struct PlayerColorData
     SDL_Color p2_sel_color;
 };
 
-struct BallColorData
+struct TextColors
 {
-    //Not implemented at this time, just a reminder of the function of this header.
+    SDL_Color timer_color;
+    SDL_Color p1_score_color;
+    SDL_Color p2_score_color;
+
 };
 
 struct ArenaColorData
