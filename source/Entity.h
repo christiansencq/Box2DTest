@@ -8,9 +8,10 @@
 #include "Box2D/Box2D.h"
 #include "SDL2/SDL.h"
 
-#include "Constants.h"
+#include "Data/Constants.h"
 #include "Components/Component.h"
 
+#include "Components/PlayerOwnerComponent.h"
 #include "Components/PhysicsComponent.h"
 #include "Components/GoalZoneComponent.h"
 #include "Components/TextComponent.h"
@@ -79,13 +80,17 @@ public:
     void SetTransform(const b2Vec2 newScreenPos, float angle);
     //void DetermineAngleFromPosition(int x_pos);//Later change this to the pos vector, so we can rotate toward?
 
+    // Player& GetPlayer();
+    
     b2Vec2 GetPixelSize() { return m_PixelSize; }
     b2Vec2 GetPixelPos() { return m_PixelPos; }
     int GetRadius() { return m_PixelRad; }
     float GetAngle() { return m_Angle; }
 
 private:
+
     EntityManager& m_Manager;
+    
 
     std::vector<Component*> m_Components;
     std::map<const std::type_info*, Component*> m_ComponentTypeMap;

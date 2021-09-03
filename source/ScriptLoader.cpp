@@ -1,4 +1,5 @@
 #include "ScriptLoader.h"
+#include "Data/Constants.h"
 
 ScriptLoader::ScriptLoader()
 {
@@ -11,7 +12,13 @@ ScriptLoader::~ScriptLoader()
 void ScriptLoader::SolLoadArenaData(std::string arena_data_file, ArenaLayoutData& arena)
 {
     sol::state lua{};
-    lua.open_libraries(sol::lib::base); lua.script_file(arena_data_file.c_str());
+    lua.open_libraries(sol::lib::base); 
+    
+    lua.set("SCREEN_WIDTH", SMALL_SCREEN_W);
+    lua.set("SCREEN_HEIGHT", SMALL_SCREEN_H);
+
+    lua.script_file(arena_data_file.c_str());
+
     std::cout << "Opened File for Arena Data\n";
 
     std::cout << "Loading Wall Variables\n";
@@ -29,6 +36,8 @@ void ScriptLoader::SolLoadArenaData(std::string arena_data_file, ArenaLayoutData
     std::cout << "Loading GoalDisplay Position\n";
     b2Vec2 p1goalpos = { lua["GoalDisplayPos"]["P1"][1], lua["GoalDisplayPos"]["P1"][2] };
     b2Vec2 p2goalpos = { lua["GoalDisplayPos"]["P2"][1], lua["GoalDisplayPos"]["P2"][2] };
+
+    arena.PuckPosition = { lua["PuckPos"][1], lua["PuckPos"][2] };
 
     std::cout << "Adding Score and Goal Pos to the Arena\n";
     arena.ScoreDisplayPositions.push_back(p1scorepos);
@@ -55,6 +64,12 @@ void ScriptLoader::SolLoadArenaData(std::string arena_data_file, ArenaLayoutData
     arena.P1StartingPositions = { P1b1, P1b2, P1b3 };
     arena.P2StartingPositions = { P2b1, P2b2, P2b3 };
     
+    arena.TopWallPos = { lua["TopWallPos"][1], lua["TopWallPos"][2] };
+    arena.BottomWallPos = { lua["BottomWallPos"][1], lua["BottomWallPos"][2] };
+    arena.LeftWallPos = { lua["LeftWallPos"][1], lua["LeftWallPos"][2] };
+    arena.RightWallPos = { lua["RightWallPos"][1], lua["RightWallPos"][2] };
+
+    arena.WallPositions = {arena.TopWallPos, arena.BottomWallPos, arena.LeftWallPos, arena.RightWallPos };
 
     CalcArenaData(arena);
 }
@@ -177,10 +192,10 @@ void ScriptLoader::CalcArenaData(ArenaLayoutData& arena)
 {
         std::cout << "Calculating Arena Data from Loaded Script\n";
 
-        arena.TopWallSize = {SCREEN_WIDTH-70, arena.WALL_THICKNESS};
-        arena.BottomWallSize = {SCREEN_WIDTH-70, arena.WALL_THICKNESS};
-        arena.LeftWallSize = {arena.WALL_THICKNESS, SCREEN_HEIGHT-arena.WALL_BUFFER};
-        arena.RightWallSize = {arena.WALL_THICKNESS, SCREEN_HEIGHT-arena.WALL_BUFFER};
+        arena.TopWallSize = {SMALL_SCREEN_W-14, arena.WALL_THICKNESS};
+        arena.BottomWallSize = {SMALL_SCREEN_W-14, arena.WALL_THICKNESS};
+        arena.LeftWallSize = {arena.WALL_THICKNESS, SMALL_SCREEN_H-arena.WALL_BUFFER};
+        arena.RightWallSize = {arena.WALL_THICKNESS, SMALL_SCREEN_H-arena.WALL_BUFFER};
 
         arena.WallSizes = {arena.TopWallSize, arena.BottomWallSize, arena.LeftWallSize, arena.RightWallSize};
 

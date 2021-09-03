@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/HockeyExe.dir/source/Components/GoalZoneComponent.cpp.o"
   "CMakeFiles/HockeyExe.dir/source/Components/KeyInputComponent.cpp.o"
   "CMakeFiles/HockeyExe.dir/source/Components/PhysicsComponent.cpp.o"
+  "CMakeFiles/HockeyExe.dir/source/Components/PlayerOwnerComponent.cpp.o"
   "CMakeFiles/HockeyExe.dir/source/Components/SDLCircleComponent.cpp.o"
   "CMakeFiles/HockeyExe.dir/source/Components/SDLRectComponent.cpp.o"
   "CMakeFiles/HockeyExe.dir/source/Components/SelectableComponent.cpp.o"

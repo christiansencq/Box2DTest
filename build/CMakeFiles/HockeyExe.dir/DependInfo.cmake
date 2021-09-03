@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/charles/Cpp/Box2Test/source/Components/GoalZoneComponent.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/source/Components/GoalZoneComponent.cpp.o"
   "/home/charles/Cpp/Box2Test/source/Components/KeyInputComponent.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/source/Components/KeyInputComponent.cpp.o"
   "/home/charles/Cpp/Box2Test/source/Components/PhysicsComponent.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/source/Components/PhysicsComponent.cpp.o"
+  "/home/charles/Cpp/Box2Test/source/Components/PlayerOwnerComponent.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/source/Components/PlayerOwnerComponent.cpp.o"
   "/home/charles/Cpp/Box2Test/source/Components/SDLCircleComponent.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/source/Components/SDLCircleComponent.cpp.o"
   "/home/charles/Cpp/Box2Test/source/Components/SDLRectComponent.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/source/Components/SDLRectComponent.cpp.o"
   "/home/charles/Cpp/Box2Test/source/Components/SelectableComponent.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/source/Components/SelectableComponent.cpp.o"

@@ -2,6 +2,7 @@
 #include "Components/GoalZoneComponent.h"
 #include "Components/PhysicsComponent.h"
 
+
 ObjectFactory::ObjectFactory(SDL_Renderer* renderer, AssetManager& assetManager, EntityManager& entityManager, b2World* physWorld) : m_Renderer(renderer), m_AssetManager(assetManager), m_EntityManager(entityManager), m_PhysicsWorld(physWorld)
 {
 
@@ -40,7 +41,8 @@ void ObjectFactory::CreateGoalWalls(std::vector<b2Vec2> wallPositions, std::vect
 
 Entity* ObjectFactory::CreatePuck(b2Vec2 startPos)
 {
-    Entity* puck = m_EntityManager.AddEntity(startPos, 25.0f);
+    //Pucksize loaded from lHockey
+    Entity* puck = m_EntityManager.AddEntity(startPos, 5.0f);
     puck->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::CIRCLE, b2BodyType::b2_dynamicBody);
     puck->GetComponent<PhysicsComponent>()->SetData(true);
     puck->AddComponent<SDLCircleComponent>(m_Renderer, GREEN);
@@ -48,44 +50,46 @@ Entity* ObjectFactory::CreatePuck(b2Vec2 startPos)
     return puck;
 }
 
-Entity* ObjectFactory::CreatePlayerBall(Player& player, b2Vec2 startPos, SDL_Color sel_color)
+Entity* ObjectFactory::CreatePlayerBall(Player* player, b2Vec2 startPos, SDL_Color sel_color)
+// Entity* ObjectFactory::CreatePlayerBall(Player& player, b2Vec2 startPos, SDL_Color sel_color)
 {
     std::cout << "Creating Player Ball at " << startPos.x << " " << startPos.y << "\n";
 
-    Entity* ball = m_EntityManager.AddEntity(startPos, 50.0f);
+    Entity* ball = m_EntityManager.AddEntity(startPos, 10.0f);
     std::cout << "Entity made; Adding to Team\n";
-    player.AddBallToTeam(ball);
+    player->AddBallToTeam(ball);
     std::cout << "Adding Components\n";
+    ball->AddComponent<PlayerOwnerComponent>(player);
     ball->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::CIRCLE, b2BodyType::b2_dynamicBody);
     ball->GetComponent<PhysicsComponent>()->SetData(false);
     ball->AddComponent<SDLCircleComponent>(m_Renderer);
     ball->AddComponent<SelectableComponent>(m_Renderer, sel_color);
-    ball->AddComponent<KeyInputComponent>(player.GetActionKeys());
+    ball->AddComponent<KeyInputComponent>(player->GetActionKeys());
     ball->GetComponent<KeyInputComponent>()->AddCommand<ForwardThrustCommand>();
     ball->GetComponent<KeyInputComponent>()->AddCommand<BackwardThrustCommand>();
     ball->GetComponent<KeyInputComponent>()->AddCommand<LeftTurnCommand>();
     ball->GetComponent<KeyInputComponent>()->AddCommand<RightTurnCommand>();
-
     std::cout << "Done with Ball.\n";
     return ball;
 }
 
-Entity* ObjectFactory::CreateGoalZone(Player& player, b2Vec2 position, b2Vec2 size)
+Entity* ObjectFactory::CreateGoalZone(Player* player, b2Vec2 position, b2Vec2 size)
 {
     Entity* goal_zone = m_EntityManager.AddEntity(position, size);
     std::cout << "Goal entity made \n";
     goal_zone->AddComponent<GoalZoneComponent>(m_PhysicsWorld, player);
     std::cout << "Goal zone component added \n";
     goal_zone->GetComponent<GoalZoneComponent>()->SetData(false);
+    goal_zone->AddComponent<PlayerOwnerComponent>(player);
 
     return goal_zone;
 }
 
-Entity* ObjectFactory::CreateScoreDisplay(Player& player, b2Vec2 position, b2Vec2 size, SDL_Color text_color)
+Entity* ObjectFactory::CreateScoreDisplay(Player* player, b2Vec2 position, b2Vec2 size, SDL_Color text_color)
 {
     Entity* score_display = m_EntityManager.AddEntity(position, size);
-    score_display->AddComponent<TextComponent>(m_AssetManager, m_Renderer, "Player " + std::to_string(player.GetPlayerID()+1) + " Score : " + std::to_string(0), "ScoreFont", text_color);
-    player.AddScoreDisplay(score_display);
+    score_display->AddComponent<TextComponent>(m_AssetManager, m_Renderer, "Player " + std::to_string(player->GetPlayerID()+1) + " Score : " + std::to_string(0), "ScoreFont", text_color);
+    player->AddScoreDisplay(score_display);
 
     return score_display;
 }

@@ -39,8 +39,10 @@ void TextComponent::Update()
 
 void TextComponent::SetText(std::string text) 
 {
+    std::cout << "Setting Text.\n";
    //Update the text to reflect the new player score.
-    SDL_Surface* surface = TTF_RenderText_Blended(m_Font, text.c_str(), m_Color);
+    const char* txt = text.c_str();
+    SDL_Surface* surface = TTF_RenderText_Blended(m_Font, txt, m_Color);
 
     m_Texture = SDL_CreateTextureFromSurface(m_Renderer, surface);
     SDL_FreeSurface(surface);

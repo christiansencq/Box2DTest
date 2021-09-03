@@ -32,10 +32,12 @@ const SDL_Color CYAN = {0, 0xFF, 0xFF, 0xFF};
 
 //-----FOR ARENA SETUP -------------- 
 
-constexpr float SCREEN_WIDTH = 1600;
-constexpr float SCREEN_HEIGHT = 900;
+constexpr float WINDOW_WIDTH = 1600;
+constexpr float WINDOW_HEIGHT = 900;
+constexpr float SMALL_SCREEN_W = 400;
+constexpr float SMALL_SCREEN_H = 225;
 
-const b2Vec2 puckStart = {SCREEN_WIDTH/2, SCREEN_HEIGHT/2};
+const b2Vec2 puckStart = {SMALL_SCREEN_W/2, SMALL_SCREEN_H/2};
 
 
 //------ FOR BALL SETUP

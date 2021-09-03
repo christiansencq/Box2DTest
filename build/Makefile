@@ -1189,6 +1189,33 @@ source/Components/PhysicsComponent.cpp.s:
 	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Components/PhysicsComponent.cpp.s
 .PHONY : source/Components/PhysicsComponent.cpp.s
 
+source/Components/PlayerOwnerComponent.o: source/Components/PlayerOwnerComponent.cpp.o
+
+.PHONY : source/Components/PlayerOwnerComponent.o
+
+# target to build an object file
+source/Components/PlayerOwnerComponent.cpp.o:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Components/PlayerOwnerComponent.cpp.o
+.PHONY : source/Components/PlayerOwnerComponent.cpp.o
+
+source/Components/PlayerOwnerComponent.i: source/Components/PlayerOwnerComponent.cpp.i
+
+.PHONY : source/Components/PlayerOwnerComponent.i
+
+# target to preprocess a source file
+source/Components/PlayerOwnerComponent.cpp.i:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Components/PlayerOwnerComponent.cpp.i
+.PHONY : source/Components/PlayerOwnerComponent.cpp.i
+
+source/Components/PlayerOwnerComponent.s: source/Components/PlayerOwnerComponent.cpp.s
+
+.PHONY : source/Components/PlayerOwnerComponent.s
+
+# target to generate assembly for a file
+source/Components/PlayerOwnerComponent.cpp.s:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Components/PlayerOwnerComponent.cpp.s
+.PHONY : source/Components/PlayerOwnerComponent.cpp.s
+
 source/Components/SDLCircleComponent.o: source/Components/SDLCircleComponent.cpp.o
 
 .PHONY : source/Components/SDLCircleComponent.o
@@ -1640,6 +1667,9 @@ help:
 	@echo "... source/Components/PhysicsComponent.o"
 	@echo "... source/Components/PhysicsComponent.i"
 	@echo "... source/Components/PhysicsComponent.s"
+	@echo "... source/Components/PlayerOwnerComponent.o"
+	@echo "... source/Components/PlayerOwnerComponent.i"
+	@echo "... source/Components/PlayerOwnerComponent.s"
 	@echo "... source/Components/SDLCircleComponent.o"
 	@echo "... source/Components/SDLCircleComponent.i"
 	@echo "... source/Components/SDLCircleComponent.s"

@@ -16,6 +16,8 @@ struct ArenaLayoutData
     std::vector<b2Vec2> P2StartingPositions;
     std::vector<std::vector<b2Vec2>> StartingPositions;
 
+    b2Vec2 PuckPosition;
+
     std::vector<b2Vec2> GoalPositions;
     std::vector<b2Vec2> ScoreDisplayPositions;
 
@@ -33,11 +35,11 @@ struct ArenaLayoutData
     std::vector<b2Vec2> GoalWallSizes;
     b2Vec2 GoalSize; //Factor this out?
 
-    b2Vec2 TopWallPos = {SCREEN_WIDTH/2, 30};
-    b2Vec2 BottomWallPos = {SCREEN_WIDTH/2, SCREEN_HEIGHT - 30};
-    b2Vec2 LeftWallPos = {30, SCREEN_HEIGHT/2};
-    b2Vec2 RightWallPos = {SCREEN_WIDTH-30, SCREEN_HEIGHT/2};
-    std::vector<b2Vec2> WallPositions = {TopWallPos, BottomWallPos, LeftWallPos, RightWallPos};
+    b2Vec2 TopWallPos;
+    b2Vec2 BottomWallPos;
+    b2Vec2 LeftWallPos;
+    b2Vec2 RightWallPos;
+    std::vector<b2Vec2> WallPositions;
 
     b2Vec2 Goal1TopWallPos;
     b2Vec2 Goal1BotWallPos;

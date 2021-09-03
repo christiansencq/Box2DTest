@@ -1,4 +1,5 @@
 #include "Entity.h"
+#include "Data/Constants.h"
 #include "EntityManager.h"
 #include <cmath>
 
@@ -26,7 +27,7 @@ Entity::Entity(EntityManager &manager, b2Vec2 init_pixel_pos,
       m_PixelRad(init_pixel_rad), isActive(true) 
 {
     std::cout << "Entity constructor\n";
-    if (init_pixel_pos.x > SCREEN_WIDTH/2)
+    if (init_pixel_pos.x > SMALL_SCREEN_W/2)
     {
         m_Angle = 3.14159;
     }
@@ -62,8 +63,7 @@ void Entity::HandleEvents(SDL_Event &event)
   for (auto &component : m_Components) 
   {
     component->HandleEvents(event);
-  }
-}
+  } }
 
 void Entity::Update() 
 {
@@ -110,6 +110,16 @@ void Entity::SetTransform(const b2Vec2 newScreenPos, float angle)
         GetComponent<PhysicsComponent>()->GetPhysBody()->SetLinearVelocity(b2Vec2{0,0});
     }
 }
+
+// Player& Entity::GetPlayer()
+// {
+//     if (HasComponent<PlayerOwnerComponent>())
+//     {
+//         return GetComponent<PlayerOwnerComponent>
+//
+//     }
+//
+// }
 
 void Entity::SignalManagerToReset()
 {

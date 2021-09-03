@@ -7,30 +7,27 @@
 #include <iostream>
 #include <memory>
 
-#include "Constants.h"
+#include "../Data/Constants.h"
 #include "Component.h"
 #include "../Player.h"
 #include "PhysicsComponent.h"
 
 //GoalZone has a RectanglePhysicsObject, and a Player to update when Triggered.
-//TODO: Integrate the Physics portion into PhysicsComponent
 
 class Entity;
-
 class GoalZoneComponent : public Component
 {
 public:
-    GoalZoneComponent(b2World* world, Player& player);
+    GoalZoneComponent(b2World* world, Player* player);
     ~GoalZoneComponent();
 
     virtual void Initialize() override;
-    // virtual void HandleEvents(SDL_Event &event) override {}
     virtual void Update() override;
-    // virtual void Render() override {}
 
     void Score();
     void SetData(bool scorer = false);
 
+    void SetIdPlayer(int id) { mIdPlayer = id; }
     Entity* GetOwner() {return owner;} 
     Entity* owner;
 
@@ -39,11 +36,12 @@ private:
     void CreateBody();
     void CreateRectShape();
 
+    int mIdPlayer;
     int m_Width, m_Height;
-    Player& m_Player;
     b2World* m_PhysWorld;
     b2Body* m_PhysBody;
     CollisionData m_CollisionData;
+    Player* m_Player;
 };
 
 #endif

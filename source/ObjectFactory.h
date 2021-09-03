@@ -5,13 +5,14 @@
 #include <memory>
 #include <vector>
 
-#include "Constants.h"
+#include "Data/Constants.h"
 #include "EntityManager.h"
 #include "Player.h"
 #include "ArenaLayout.h"
 #include "Components/KeyInputComponent.h"
+#include "Components/PlayerOwnerComponent.h"
 
-
+// class PlayerOwnerComponent;
 class KeyInputComponent;
 class SelectableComponent;
 class PhysicsComponent;
@@ -27,15 +28,15 @@ public:
 
     void CreateGoalWalls(std::vector<b2Vec2> wallPositions, std::vector<b2Vec2> wallSizes);
 
-    Entity* CreateGoalZone(Player& player, b2Vec2 position, b2Vec2 size);
-    Entity* CreateScoreDisplay(Player& player, b2Vec2 position, b2Vec2 size, SDL_Color text_color);
+    Entity* CreateGoalZone(Player* player, b2Vec2 position, b2Vec2 size);
+    Entity* CreateScoreDisplay(Player* player, b2Vec2 position, b2Vec2 size, SDL_Color text_color);
 
     // Entity* CreateGameTimerDisplay(b2Vec2 position, b2Vec2 size);
 
     void CreateOuterWalls(std::vector<b2Vec2> positions, std::vector<b2Vec2> sizes);
-    void CreateTeamForPlayer(Player& player, int team_size);
+    void CreateTeamForPlayer(Player* player, int team_size);
 
-    Entity* CreatePlayerBall(Player& player, b2Vec2 startPos, SDL_Color sel_color);
+    Entity* CreatePlayerBall(Player* player, b2Vec2 startPos, SDL_Color sel_color);
     Entity* CreatePuck(b2Vec2 startPos);
 
 

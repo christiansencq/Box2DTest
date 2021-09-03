@@ -13,7 +13,7 @@ GameMatchState::GameMatchState(SDL_Renderer* renderer, ScriptLoader& script_load
     m_ScriptLoader.LoadKeybinds("lKeys.lua", keybindData);
     
     std::cout <<"Setup Fonts.\n";
-    m_AssetManager.AddFont("ScoreFont", "arial.ttf", 20);
+    m_AssetManager.AddFont("ScoreFont", "arial.ttf", 10);
 
     std::cout << "Initializing PlayerManager\n";
 
@@ -23,7 +23,7 @@ GameMatchState::GameMatchState(SDL_Renderer* renderer, ScriptLoader& script_load
     m_PlayerManager.SetUpPlayers(color, NumPlayers);
 
     std::cout << "Creating puck\n";
-    m_ObjectFactory.CreatePuck({SCREEN_WIDTH/2, SCREEN_HEIGHT/2});
+    m_ObjectFactory.CreatePuck(arena.PuckPosition);
 
     std::cout << "Creating walls\n";
     m_ObjectFactory.CreateOuterWalls(arena.WallPositions, arena.WallSizes);

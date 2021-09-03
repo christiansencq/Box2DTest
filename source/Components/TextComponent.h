@@ -1,7 +1,7 @@
 #ifndef TEXT_COMPONENT_H
 #define TEXT_COMPONENT_H
 
-#include "Constants.h"
+#include "../Data/Constants.h"
 #include "Component.h"
 #include "../Player.h"
 #include "../AssetManager.h"

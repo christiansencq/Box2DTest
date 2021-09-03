@@ -1,12 +1,18 @@
 #include "GoalZoneComponent.h"
 #include "../Entity.h"
+#include "PlayerOwnerComponent.h"
 
 //When merging with Physics object (maybe use a TurnIntoGoalMethod() or inheritance)
-GoalZoneComponent::GoalZoneComponent(b2World* world, Player& player)
-    : m_Player(player), m_PhysWorld(world), m_CollisionData(CollisionData{})
+GoalZoneComponent::GoalZoneComponent(b2World* world, Player* player)
+    : m_PhysWorld(world), m_CollisionData(CollisionData{}), m_Player(player)
 {
 
 }
+
+// GoalZoneComponent::GoalZoneComponent(b2World* world)
+//     : m_PhysWorld(world), m_CollisionData(CollisionData{})
+// {
+// }
 
 GoalZoneComponent::~GoalZoneComponent()
 {
@@ -30,7 +36,6 @@ void GoalZoneComponent::Initialize()
 
 void GoalZoneComponent::Update()
 {
-
     //This should go in a ContactListener probably.
     for ( b2ContactEdge* ce = m_PhysBody->GetContactList(); ce; ce = ce->next)
     {
@@ -46,7 +51,17 @@ void GoalZoneComponent::Update()
         {
             std::cout << "Score being made. \n";
             owner->SignalManagerToReset();
-            m_Player.IncrementScore(1);
+            if (owner->HasComponent<PlayerOwnerComponent>())
+            {
+                std::cout << "Found Player owner comp\n";
+                std::cout << "[GZComp] Idnum : " << owner->GetComponent<PlayerOwnerComponent>()->GetPlayer()->GetPlayerID() << "\n\n";
+                std::cout << "[GZComp] Current score " << owner->GetComponent<PlayerOwnerComponent>()->GetPlayer()->GetScore() << "\n\n";
+            }
+
+            std::cout << "[GZComp]Player ID from member " << m_Player->GetPlayerID() << "\n";
+            std::cout << "[GZComp]Player score from member " << m_Player->GetScore() << "\n";
+            // m_Player.IncrementScore();
+            owner->GetComponent<PlayerOwnerComponent>()->GetPlayer()->IncrementScore();
         }
     }
 }

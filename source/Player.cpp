@@ -1,11 +1,12 @@
 #include "Player.h"
 #include "Entity.h"
+#include "Components/TextComponent.h"
 
 Player::Player(int id_num, std::vector<std::vector<SDL_Keycode>> keybind)
- : id_number(id_num), m_SwapKeys(keybind[0]), m_ActionKeys(keybind[1])
+ : id_number(id_num), m_SwapKeys(keybind[0]), m_ActionKeys(keybind[1]), m_Score(0)
 {
+    std::cout << "score for player is : " << m_Score << "\n\n";
     std::cout << "Playerconstructor\n";
-    std::cout << "Player constructor where SwapKeys is " << m_SwapKeys.size() << " and ActionKeys is " << m_ActionKeys.size() << " length\n";
 }
 
 Player::~Player()
@@ -37,6 +38,7 @@ void Player::HandleKeyPress(SDL_Keycode key)
     {
         m_ActiveBall->HandleKeyPress(key);
     }
+
 }
 
 void Player::HandleKeyRelease(SDL_Keycode key)
@@ -65,12 +67,24 @@ void Player::UpdateSelector()
     m_ActiveBall->GetComponent<SelectableComponent>()->Update();
 }
 
-void Player::IncrementScore(int num)
+void Player::IncrementScore()
 {
-    m_Score += num;
-    std::string new_score = "Player " + std::to_string(id_number+1) + " Score : " + std::to_string(m_Score);
+    std::cout << "[Pl]Incrementing Score.\n";
+    this->m_Score += 1;
 
-    m_ScoreDisplay->GetComponent<TextComponent>()->SetText(new_score);
+    int display_id = id_number+1;
+    std::cout << "[Pl]New m_Score : " << m_Score << "\n";
+    std::cout << "[Pl]Display id : " << display_id << "\n";
+    std::string new_score = ("Player " + std::to_string(display_id) + " Score : " + std::to_string(m_Score));
+    std::cout << "To " << new_score << "\n";
+
+    if (m_ScoreDisplay->HasComponent<TextComponent>())
+    {
+        std::cout << "Found TextComponent.\n";
+        m_ScoreDisplay->GetComponent<TextComponent>()->SetText(new_score);
+    }
+
+    std::cout << "[Pl]Updated display.\n";
 }
 
 void Player::ResetPositions()
