@@ -104,101 +104,101 @@ void ScriptLoader::LoadKeybinds(const char* keybind_data_file, KeyBindingData& k
     sol::state lua{};
 
     lua.open_libraries(sol::lib::base);
-    lua.script_file(keybind_data_file);
 
-    //Moving the SDLK enum values to be accessible by Lua.
-    //
-    lua["SDL_Keycode"] = lua.create_table_with (
-            "a", SDLK_a,
-            "b", SDLK_b,
-            "c", SDLK_c,
-            "d", SDLK_d,
-            "e", SDLK_e,
-            "f", SDLK_f,
-            "g", SDLK_g,
-            "h", SDLK_h,
-            "i", SDLK_i,
-            "j", SDLK_j,
-            "k", SDLK_k,
-            "l", SDLK_l,
-            "m", SDLK_m,
-            "n", SDLK_n,
-            "o", SDLK_o,
-            "p", SDLK_p,
-            "q", SDLK_q,
-            "r", SDLK_r,
-            "s", SDLK_s,
-            "t", SDLK_t,
-            "u", SDLK_u,
-            "v", SDLK_v,
-            "w", SDLK_w,
-            "x", SDLK_x,
-            "y", SDLK_y,
-            "z", SDLK_z,
+    lua["SDLK"] = lua.create_table_with (
+            "a", SDLK_a, "b", SDLK_b, "c", SDLK_c,
+            "d", SDLK_d, "e", SDLK_e, "f", SDLK_f,
+            "g", SDLK_g, "h", SDLK_h, "i", SDLK_i,
+            "j", SDLK_j, "k", SDLK_k, "l", SDLK_l,
+            "m", SDLK_m, "n", SDLK_n, "o", SDLK_o,
+            "p", SDLK_p, "q", SDLK_q, "r", SDLK_r,
+            "s", SDLK_s, "t", SDLK_t, "u", SDLK_u,
+            "v", SDLK_v, "w", SDLK_w, "x", SDLK_x,
+            "y", SDLK_y, "z", SDLK_z,
             "0", SDLK_0, "1", SDLK_1, "2", SDLK_2, "3", SDLK_3, "4", SDLK_4, 
             "5", SDLK_5, "6", SDLK_6, "7", SDLK_7, "8", SDLK_8, "9", SDLK_9,
             "UP", SDLK_UP, "DOWN", SDLK_DOWN, "LEFT", SDLK_LEFT, "RIGHT", SDLK_RIGHT
             );
-    //
+
+    lua.script_file(keybind_data_file);
+
     //TODO insert a check to make sure the keys are valid to be assigned to a player.
-    // SDL_Keycode p1swap1 = static_cast<SDL_Keycode>(lua["SwapKeys"]["P1"][1]);
-    // SDL_Keycode p1swap2 = static_cast<SDL_Keycode>(lua["SwapKeys"]["P1"][1]);
-    // SDL_Keycode p1swap3 = static_cast<SDL_Keycode>(lua["SwapKeys"]["P1"][1]);
-    // // keybind.P1SwapKeys = { p1swap1, p1swap2, p1swap3 };
+
+    std::vector<SDL_Keycode> p1tempswap;
+    std::vector<SDL_Keycode> p2tempswap;
+    std::vector<SDL_Keycode> p1tempdir;
+    std::vector<SDL_Keycode> p2tempdir;
+
+    p1tempswap = { static_cast<SDL_Keycode>(lua["SwapKeys"]["P1"][1]), 
+                   static_cast<SDL_Keycode>(lua["SwapKeys"]["P1"][2]),
+                   static_cast<SDL_Keycode>(lua["SwapKeys"]["P1"][3])};
+
+    // keybind.P1SwapKeys = { static_cast<SDL_Keycode>(lua["SwapKeys"]["P1"][1]), 
+    //                        static_cast<SDL_Keycode>(lua["SwapKeys"]["P1"][2]),
+    //                        static_cast<SDL_Keycode>(lua["SwapKeys"]["P1"][3])};
     //
-    // keybind.P1SwapKeys = { lua["SwapKeys"]["P1"][1], 
-    //                        lua["SwapKeys"]["P1"][2],
-    //                        lua["SwapKeys"]["P1"][3]};
-    //
-    // keybind.P2SwapKeys = { lua["SwapKeys"]["P2"][1], 
-    //                        lua["SwapKeys"]["P2"][2],
-    //                        lua["SwapKeys"]["P2"][3]};
-    //
-    // keybind.P1DirectionKeys = { lua["DirectionKeys"]["P1"]["UP"],
-    //                             lua["DirectionKeys"]["P1"]["DOWN"],
-    //                             lua["DirectionKeys"]["P1"]["LEFT"],
-    //                             lua["DirectionKeys"]["P1"]["RIGHT"] };
-    //
-    // keybind.P2DirectionKeys = { lua["DirectionKeys"]["P2"]["UP"],
-    //                             lua["DirectionKeys"]["P2"]["DOWN"],
-    //                             lua["DirectionKeys"]["P2"]["LEFT"],
-    //                             lua["DirectionKeys"]["P2"]["RIGHT"] };
-    //
+
+    p2tempswap = { static_cast<SDL_Keycode>(lua["SwapKeys"]["P2"][1]),
+                   static_cast<SDL_Keycode>(lua["SwapKeys"]["P2"][2]),
+                   static_cast<SDL_Keycode>(lua["SwapKeys"]["P2"][3])};
+
+    // keybind.P2SwapKeys = { static_cast<SDL_Keycode>(lua["SwapKeys"]["P2"][1]),
+    //                        static_cast<SDL_Keycode>(lua["SwapKeys"]["P2"][2]),
+    //                        static_cast<SDL_Keycode>(lua["SwapKeys"]["P2"][3])};
+
+    p1tempdir = { static_cast<SDL_Keycode>(lua["DirectionKeys"]["P1"][1]),
+                  static_cast<SDL_Keycode>(lua["DirectionKeys"]["P1"][2]),
+                  static_cast<SDL_Keycode>(lua["DirectionKeys"]["P1"][3]),
+                  static_cast<SDL_Keycode>(lua["DirectionKeys"]["P1"][4]) };
+
+    // keybind.P1DirectionKeys = { static_cast<SDL_Keycode>(lua["DirectionKeys"]["P1"][1]),
+    //                             static_cast<SDL_Keycode>(lua["DirectionKeys"]["P1"][2]),
+    //                             static_cast<SDL_Keycode>(lua["DirectionKeys"]["P1"][3]),
+    //                             static_cast<SDL_Keycode>(lua["DirectionKeys"]["P1"][4]) };
+
+    p2tempdir = { static_cast<SDL_Keycode>(lua["DirectionKeys"]["P2"][1]),
+                  static_cast<SDL_Keycode>(lua["DirectionKeys"]["P2"][2]),
+                  static_cast<SDL_Keycode>(lua["DirectionKeys"]["P2"][3]),
+                  static_cast<SDL_Keycode>(lua["DirectionKeys"]["P2"][4]) };
+
+    // keybind.P2DirectionKeys = { static_cast<SDL_Keycode>(lua["DirectionKeys"]["P2"][1]),
+    //                             static_cast<SDL_Keycode>(lua["DirectionKeys"]["P2"][2]),
+    //                             static_cast<SDL_Keycode>(lua["DirectionKeys"]["P2"][3]),
+    //                             static_cast<SDL_Keycode>(lua["DirectionKeys"]["P2"][4]) };
+
     // keybind.P1Keys = { keybind.P1SwapKeys, keybind.P1DirectionKeys };
     // keybind.P2Keys = { keybind.P2SwapKeys, keybind.P2DirectionKeys };
-    //
-    // keybind.Keys = { keybind.P1Keys, keybind.P2Keys };
-    //
+    keybind.P1Keys = { p1tempswap, p1tempdir };
+    keybind.P2Keys = { p2tempswap, p2tempdir };
+
+    keybind.Keys = { keybind.P1Keys, keybind.P2Keys };
+
     // std::cout << "keybind P1SwapKeys " << keybind.P1SwapKeys[0] << "  " << keybind.P1SwapKeys[1] << "  " << keybind.P1SwapKeys[2] << " \n\n";
+    // std::cout << "keybind P2SwapKeys " << keybind.P2SwapKeys[0] << "  " << keybind.P2SwapKeys[1] << "  " << keybind.P2SwapKeys[2] << " \n\n";
 
     std::cout << "[C++] Keybinds loaded.\n";
 }
 
 //Private
-
 void ScriptLoader::LoadSingleColor(SDL_Color& color, const std::vector<int>& cvec)
 {
     std::cout << "[C++] LoadSingleColor Called.\n";
-    
     color.r = static_cast<int>(cvec[0]);
     color.g = static_cast<int>(cvec[1]);
     color.b = static_cast<int>(cvec[2]);
     color.a = static_cast<int>(cvec[3]);
-
     std::cout << "[C++] LoadSingleColor Ended.\n";
 }
 
 void ScriptLoader::CalcArenaData(ArenaLayoutData& arena)
 {
         std::cout << "Calculating Arena Data from Loaded Script\n";
-
         arena.TopWallSize = {SMALL_SCREEN_W-14, arena.WALL_THICKNESS};
         arena.BottomWallSize = {SMALL_SCREEN_W-14, arena.WALL_THICKNESS};
         arena.LeftWallSize = {arena.WALL_THICKNESS, SMALL_SCREEN_H-arena.WALL_BUFFER};
         arena.RightWallSize = {arena.WALL_THICKNESS, SMALL_SCREEN_H-arena.WALL_BUFFER};
 
         arena.WallSizes = {arena.TopWallSize, arena.BottomWallSize, arena.LeftWallSize, arena.RightWallSize};
-
         arena.GoalTopWallSize = { arena.GoalSize.x + (2 * arena.WALL_THICKNESS), arena.WALL_THICKNESS };
         arena.GoalBotWallSize = { arena.GoalSize.x + (2 * arena.WALL_THICKNESS), arena.WALL_THICKNESS };
         arena.GoalSideWallSize = { arena.WALL_THICKNESS, arena.GoalSize.y };

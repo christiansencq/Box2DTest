@@ -31,6 +31,7 @@ bool App::Init(const char* title, int width, int height, bool fullscreen)
 
         SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, 0);
         std::cout << "Renderer resolution set ? " << SDL_RenderSetLogicalSize(m_Renderer, SMALL_SCREEN_W, SMALL_SCREEN_H) << "\n";
+
         SDL_RenderSetScale(m_Renderer, 4, 4);
 
         if(m_Renderer)

@@ -5,8 +5,7 @@
 Player::Player(int id_num, std::vector<std::vector<SDL_Keycode>> keybind)
  : id_number(id_num), m_SwapKeys(keybind[0]), m_ActionKeys(keybind[1]), m_Score(0)
 {
-    std::cout << "score for player is : " << m_Score << "\n\n";
-    std::cout << "Playerconstructor\n";
+    std::cout << "[Pl]Player constructor\n";
 }
 
 Player::~Player()
@@ -73,29 +72,23 @@ void Player::IncrementScore()
     this->m_Score += 1;
 
     int display_id = id_number+1;
-    std::cout << "[Pl]New m_Score : " << m_Score << "\n";
-    std::cout << "[Pl]Display id : " << display_id << "\n";
+    std::cout << "[Pl]New m_Score : " << m_Score << " for Player " << display_id << "\n";
     std::string new_score = ("Player " + std::to_string(display_id) + " Score : " + std::to_string(m_Score));
-    std::cout << "To " << new_score << "\n";
 
-    if (m_ScoreDisplay->HasComponent<TextComponent>())
-    {
-        std::cout << "Found TextComponent.\n";
-        m_ScoreDisplay->GetComponent<TextComponent>()->SetText(new_score);
-    }
+    m_ScoreDisplay->GetComponent<TextComponent>()->SetText(new_score);
 
-    std::cout << "[Pl]Updated display.\n";
+    std::cout << "[Pl]Updated Score display.\n";
 }
 
 void Player::ResetPositions()
 {
-    std::cout << "ResetPositions Start." <<std::endl;
+    std::cout << "[Pl]ResetPositions Start." <<std::endl;
     //Assert that starting Positions have been assigned.
     for (size_t i = 0; i < m_TeamsBalls.size(); i++)
     {
         m_TeamsBalls[i]->ResetTransform();
     }    
 
-    std::cout << "Reset End." <<std::endl;
+    std::cout << "[Pl]Reset End." <<std::endl;
 }
 

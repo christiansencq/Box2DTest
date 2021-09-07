@@ -2,9 +2,9 @@
 
 GameMatchState::GameMatchState(SDL_Renderer* renderer, ScriptLoader& script_loader)
  : m_Renderer(renderer), m_ScriptLoader(script_loader), m_EntityManager(EntityManager()), 
-    m_AssetManager(AssetManager{}), m_PhysicsWorld(InitPhysics()), 
+    m_AssetManager(AssetManager{m_Renderer}), m_PhysicsWorld(InitPhysics()), 
     m_ObjectFactory(ObjectFactory{m_Renderer, m_AssetManager, m_EntityManager, m_PhysicsWorld}), 
-    m_PlayerManager(m_ObjectFactory, arena, keybindData),
+    m_PlayerManager{m_ObjectFactory, arena, keybindData},
     m_TimeStep(1/30.0f), m_VelocityIterations(2), m_PositionIterations(6), m_TicksLastFrame(0)
 {
     std::cout << "Loading script\n";
@@ -20,6 +20,7 @@ GameMatchState::GameMatchState(SDL_Renderer* renderer, ScriptLoader& script_load
     //Load Player Colors.
     //Factor this out. I dont like the indirection where PlayerManager is also calling ObjectFactory.
     std::cout << "Setting Up Objects.\n";
+    //Pass in keybindings here instead of in constructor?
     m_PlayerManager.SetUpPlayers(color, NumPlayers);
 
     std::cout << "Creating puck\n";

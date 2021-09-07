@@ -7,8 +7,6 @@
 #include "Box2D/Box2D.h"
 #include "SDL2/SDL.h"
 
-
-
 class Entity;
 class Selector;
 class Command;
@@ -29,23 +27,23 @@ public:
     void AddBallToTeam(Entity* new_entity);
     void AddStartingPositions(const std::vector<b2Vec2>& start_pos) { m_StartingPositions = start_pos; }
 
-    void AddScoreDisplay(Entity* score_disp) { m_ScoreDisplay = score_disp; }
-    bool HasScoreDisplay() { return m_ScoreDisplay; }
-
     void SwapActiveBall(int new_ball);
 
     Entity* GetActive() { return m_ActiveBall; }
     std::vector<Entity*> GetBalls() { return m_TeamsBalls; }
     std::vector<SDL_Keycode> GetActionKeys() { return m_ActionKeys;}
+    
+    //Score
+    void AddScoreDisplay(Entity* score_disp) { m_ScoreDisplay = score_disp; }
     int GetScore() const { return m_Score; }
     void SetScore(int score) { m_Score = score; }
+    void IncrementScore();
 
     //Selector Indicator
     void RenderSelector(SDL_Renderer* renderer);
     void UpdateSelector();
 
     //Scoring:
-    void IncrementScore();
     int GetPlayerID() const { return id_number; }
 
 private:
@@ -56,7 +54,6 @@ private:
 
     Entity* m_ActiveBall;
     Entity* m_ScoreDisplay;
-    // Entity* m_ScoreDisplay;
 
     const std::vector<SDL_Keycode> m_SwapKeys;
     const std::vector<SDL_Keycode> m_ActionKeys;

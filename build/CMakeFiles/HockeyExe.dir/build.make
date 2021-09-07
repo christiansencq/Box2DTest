@@ -350,6 +350,7 @@ HockeyExe: CMakeFiles/HockeyExe.dir/source/ScriptLoader.cpp.o
 HockeyExe: CMakeFiles/HockeyExe.dir/source/main.cpp.o
 HockeyExe: CMakeFiles/HockeyExe.dir/build.make
 HockeyExe: /usr/lib/x86_64-linux-gnu/libSDL2_ttf.so
+HockeyExe: /usr/lib/x86_64-linux-gnu/libSDL2_image.so
 HockeyExe: liblua.a
 HockeyExe: /usr/lib/x86_64-linux-gnu/libSDL2main.a
 HockeyExe: /usr/lib/x86_64-linux-gnu/libSDL2.so

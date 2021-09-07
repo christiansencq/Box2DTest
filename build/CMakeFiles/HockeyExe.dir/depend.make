@@ -151,6 +151,7 @@ CMakeFiles/HockeyExe.dir/source/Commands/Commands.cpp.o: ../source/Components/Co
 CMakeFiles/HockeyExe.dir/source/Commands/Commands.cpp.o: ../source/Components/GoalZoneComponent.h
 CMakeFiles/HockeyExe.dir/source/Commands/Commands.cpp.o: ../source/Components/KeyInputComponent.h
 CMakeFiles/HockeyExe.dir/source/Commands/Commands.cpp.o: ../source/Components/PhysicsComponent.h
+CMakeFiles/HockeyExe.dir/source/Commands/Commands.cpp.o: ../source/Components/PlayerOwnerComponent.h
 CMakeFiles/HockeyExe.dir/source/Commands/Commands.cpp.o: ../source/Components/SDLCircleComponent.h
 CMakeFiles/HockeyExe.dir/source/Commands/Commands.cpp.o: ../source/Components/SDLRectComponent.h
 CMakeFiles/HockeyExe.dir/source/Commands/Commands.cpp.o: ../source/Components/SelectableComponent.h
@@ -191,6 +192,7 @@ CMakeFiles/HockeyExe.dir/source/Components/PhysicsComponent.cpp.o: ../source/Com
 CMakeFiles/HockeyExe.dir/source/Components/PhysicsComponent.cpp.o: ../source/Components/KeyInputComponent.h
 CMakeFiles/HockeyExe.dir/source/Components/PhysicsComponent.cpp.o: ../source/Components/PhysicsComponent.cpp
 CMakeFiles/HockeyExe.dir/source/Components/PhysicsComponent.cpp.o: ../source/Components/PhysicsComponent.h
+CMakeFiles/HockeyExe.dir/source/Components/PhysicsComponent.cpp.o: ../source/Components/PlayerOwnerComponent.h
 CMakeFiles/HockeyExe.dir/source/Components/PhysicsComponent.cpp.o: ../source/Components/SDLCircleComponent.h
 CMakeFiles/HockeyExe.dir/source/Components/PhysicsComponent.cpp.o: ../source/Components/SDLRectComponent.h
 CMakeFiles/HockeyExe.dir/source/Components/PhysicsComponent.cpp.o: ../source/Components/SelectableComponent.h
@@ -211,6 +213,7 @@ CMakeFiles/HockeyExe.dir/source/Components/SDLCircleComponent.cpp.o: ../source/C
 CMakeFiles/HockeyExe.dir/source/Components/SDLCircleComponent.cpp.o: ../source/Components/GoalZoneComponent.h
 CMakeFiles/HockeyExe.dir/source/Components/SDLCircleComponent.cpp.o: ../source/Components/KeyInputComponent.h
 CMakeFiles/HockeyExe.dir/source/Components/SDLCircleComponent.cpp.o: ../source/Components/PhysicsComponent.h
+CMakeFiles/HockeyExe.dir/source/Components/SDLCircleComponent.cpp.o: ../source/Components/PlayerOwnerComponent.h
 CMakeFiles/HockeyExe.dir/source/Components/SDLCircleComponent.cpp.o: ../source/Components/SDLCircleComponent.cpp
 CMakeFiles/HockeyExe.dir/source/Components/SDLCircleComponent.cpp.o: ../source/Components/SDLCircleComponent.h
 CMakeFiles/HockeyExe.dir/source/Components/SDLCircleComponent.cpp.o: ../source/Components/SDLRectComponent.h
@@ -227,6 +230,7 @@ CMakeFiles/HockeyExe.dir/source/Components/SDLRectComponent.cpp.o: ../source/Com
 CMakeFiles/HockeyExe.dir/source/Components/SDLRectComponent.cpp.o: ../source/Components/GoalZoneComponent.h
 CMakeFiles/HockeyExe.dir/source/Components/SDLRectComponent.cpp.o: ../source/Components/KeyInputComponent.h
 CMakeFiles/HockeyExe.dir/source/Components/SDLRectComponent.cpp.o: ../source/Components/PhysicsComponent.h
+CMakeFiles/HockeyExe.dir/source/Components/SDLRectComponent.cpp.o: ../source/Components/PlayerOwnerComponent.h
 CMakeFiles/HockeyExe.dir/source/Components/SDLRectComponent.cpp.o: ../source/Components/SDLCircleComponent.h
 CMakeFiles/HockeyExe.dir/source/Components/SDLRectComponent.cpp.o: ../source/Components/SDLRectComponent.cpp
 CMakeFiles/HockeyExe.dir/source/Components/SDLRectComponent.cpp.o: ../source/Components/SDLRectComponent.h
@@ -243,6 +247,7 @@ CMakeFiles/HockeyExe.dir/source/Components/SelectableComponent.cpp.o: ../source/
 CMakeFiles/HockeyExe.dir/source/Components/SelectableComponent.cpp.o: ../source/Components/GoalZoneComponent.h
 CMakeFiles/HockeyExe.dir/source/Components/SelectableComponent.cpp.o: ../source/Components/KeyInputComponent.h
 CMakeFiles/HockeyExe.dir/source/Components/SelectableComponent.cpp.o: ../source/Components/PhysicsComponent.h
+CMakeFiles/HockeyExe.dir/source/Components/SelectableComponent.cpp.o: ../source/Components/PlayerOwnerComponent.h
 CMakeFiles/HockeyExe.dir/source/Components/SelectableComponent.cpp.o: ../source/Components/SDLCircleComponent.h
 CMakeFiles/HockeyExe.dir/source/Components/SelectableComponent.cpp.o: ../source/Components/SDLRectComponent.h
 CMakeFiles/HockeyExe.dir/source/Components/SelectableComponent.cpp.o: ../source/Components/SelectableComponent.cpp
@@ -259,6 +264,7 @@ CMakeFiles/HockeyExe.dir/source/Components/TextComponent.cpp.o: ../source/Compon
 CMakeFiles/HockeyExe.dir/source/Components/TextComponent.cpp.o: ../source/Components/GoalZoneComponent.h
 CMakeFiles/HockeyExe.dir/source/Components/TextComponent.cpp.o: ../source/Components/KeyInputComponent.h
 CMakeFiles/HockeyExe.dir/source/Components/TextComponent.cpp.o: ../source/Components/PhysicsComponent.h
+CMakeFiles/HockeyExe.dir/source/Components/TextComponent.cpp.o: ../source/Components/PlayerOwnerComponent.h
 CMakeFiles/HockeyExe.dir/source/Components/TextComponent.cpp.o: ../source/Components/SDLCircleComponent.h
 CMakeFiles/HockeyExe.dir/source/Components/TextComponent.cpp.o: ../source/Components/SDLRectComponent.h
 CMakeFiles/HockeyExe.dir/source/Components/TextComponent.cpp.o: ../source/Components/SelectableComponent.h
@@ -275,6 +281,7 @@ CMakeFiles/HockeyExe.dir/source/Entity.cpp.o: ../source/Components/Component.h
 CMakeFiles/HockeyExe.dir/source/Entity.cpp.o: ../source/Components/GoalZoneComponent.h
 CMakeFiles/HockeyExe.dir/source/Entity.cpp.o: ../source/Components/KeyInputComponent.h
 CMakeFiles/HockeyExe.dir/source/Entity.cpp.o: ../source/Components/PhysicsComponent.h
+CMakeFiles/HockeyExe.dir/source/Entity.cpp.o: ../source/Components/PlayerOwnerComponent.h
 CMakeFiles/HockeyExe.dir/source/Entity.cpp.o: ../source/Components/SDLCircleComponent.h
 CMakeFiles/HockeyExe.dir/source/Entity.cpp.o: ../source/Components/SDLRectComponent.h
 CMakeFiles/HockeyExe.dir/source/Entity.cpp.o: ../source/Components/SelectableComponent.h
@@ -292,6 +299,7 @@ CMakeFiles/HockeyExe.dir/source/EntityManager.cpp.o: ../source/Components/Compon
 CMakeFiles/HockeyExe.dir/source/EntityManager.cpp.o: ../source/Components/GoalZoneComponent.h
 CMakeFiles/HockeyExe.dir/source/EntityManager.cpp.o: ../source/Components/KeyInputComponent.h
 CMakeFiles/HockeyExe.dir/source/EntityManager.cpp.o: ../source/Components/PhysicsComponent.h
+CMakeFiles/HockeyExe.dir/source/EntityManager.cpp.o: ../source/Components/PlayerOwnerComponent.h
 CMakeFiles/HockeyExe.dir/source/EntityManager.cpp.o: ../source/Components/SDLCircleComponent.h
 CMakeFiles/HockeyExe.dir/source/EntityManager.cpp.o: ../source/Components/SDLRectComponent.h
 CMakeFiles/HockeyExe.dir/source/EntityManager.cpp.o: ../source/Components/SelectableComponent.h
@@ -468,6 +476,7 @@ CMakeFiles/HockeyExe.dir/source/Player.cpp.o: ../source/Components/Component.h
 CMakeFiles/HockeyExe.dir/source/Player.cpp.o: ../source/Components/GoalZoneComponent.h
 CMakeFiles/HockeyExe.dir/source/Player.cpp.o: ../source/Components/KeyInputComponent.h
 CMakeFiles/HockeyExe.dir/source/Player.cpp.o: ../source/Components/PhysicsComponent.h
+CMakeFiles/HockeyExe.dir/source/Player.cpp.o: ../source/Components/PlayerOwnerComponent.h
 CMakeFiles/HockeyExe.dir/source/Player.cpp.o: ../source/Components/SDLCircleComponent.h
 CMakeFiles/HockeyExe.dir/source/Player.cpp.o: ../source/Components/SDLRectComponent.h
 CMakeFiles/HockeyExe.dir/source/Player.cpp.o: ../source/Components/SelectableComponent.h

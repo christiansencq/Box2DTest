@@ -34,10 +34,7 @@ set(COMMANDS_DIR "${APP_SOURCE_DIR}/Commands")
 find_package(Box2D REQUIRED)
 find_package(SDL2 REQUIRED)
 find_package(SDL2_ttf REQUIRED) 
-
-message("Box2D FOUND?" ${Box2D_FOUND})
-message("SDL2 FOUND?" ${SDL2_FOUND})
-message("SDL2_ttf FOUND?" ${SDL2_ttf_FOUND})
+find_package(SDL2_image REQUIRED)
 
 file(GLOB SOURCES "source/**.cpp" 
                   "source/Components/**.cpp" 
@@ -83,25 +80,20 @@ add_library(
 )
 
 add_executable(HockeyExe ${SOURCES})
-# add_executable(HockeyExe "${APP_SOURCE_DIR}/**.cpp" "${COMPONENTS_DIR}/**.cpp" "${COMMANDS_DIR}/**.cpp" "source/lHockey.lua" "source/lColors.lua")
-# add_executable(HockeyExe "${APP_SOURCE_DIR}/**.cpp" "${COMPONENTS_DIR}/**.cpp" "${COMMANDS_DIR}/**.cpp" ${DATA_DIR} "source/lHockey.lua" "source/lColors.lua")
 
 target_link_libraries( HockeyExe 
                        PRIVATE Box2D 
                                SDL2::Main 
                                SDL2::TTF 
+                               SDL2::Image
                                lua )
 
 target_include_directories( HockeyExe 
-                            PRIVATE ${EXTERNALS_DIR} 
-                            PRIVATE ${LUA_DIR}
-                            PRIVATE ${DATA_DIR} )
+                        PRIVATE ${EXTERNALS_DIR} 
+                                ${LUA_DIR}
+                                ${DATA_DIR} )
  
 target_compile_options( HockeyExe 
                         PRIVATE 
                         "-ggdb" 
                         "-Wall" "-Wpedantic" "-Wextra" "-Wno-unused-parameter" )
-  
-# set_property(
-#     TARGET HockeyExe
-#     PROPERTY VS_DEBUGGER_WORKING_DIRECTORY "${APP_SOURCE_DIR}" )

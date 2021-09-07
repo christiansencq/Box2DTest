@@ -1,2 +1,0 @@
-
-Ensure that the LoadArena is set at the appropriate time.

@@ -33,12 +33,9 @@ private:
     }
     ObjectFactory& mObjectFactory;
     ArenaLayoutData& mArena;
-    std::vector<std::vector<std::vector<SDL_Keycode>>> mKeybinds;
+    std::vector<std::vector<std::vector<SDL_Keycode>>>& mKeybinds;
 
     std::vector<Player*> mPlayers;
-    // std::vector<Player> mPlayers;
-    //TODO score displays
-    std::vector<Entity*> mScoreDisplays;
     std::vector<std::vector<b2Vec2>> mStartingPositions;
     std::vector<SDL_Color> PlayerSelectorColors;
     std::vector<SDL_Color> PlayerScoreColors;

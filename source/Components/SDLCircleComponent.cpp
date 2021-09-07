@@ -25,6 +25,7 @@ void SDLCircleComponent::Render()
 
 void SDLCircleComponent::DrawShape()
 {
+    
     int32_t x = (m_Diameter/2 - 1);
     int32_t y = 0;
     int32_t tx = 1;
@@ -66,14 +67,19 @@ void SDLCircleComponent::DisplayAngleIndicator()
   SDL_SetRenderDrawColor(m_Renderer, 200, 50, 50, 255);
 
   b2Vec2 center {m_PixelX, m_PixelY};
+
   b2Vec2 endpoint {center.x + m_Diameter/2 * cos(owner->GetAngle()), 
                    center.y + m_Diameter/2 * sin(owner->GetAngle())};
+  // SDL_RenderDrawPoints(m_Renderer
   DrawLine(center.x, center.y, endpoint.x, endpoint.y);
-  //ShapeComponent::DrawLine(center.x, center.y, endpoint.x, endpoint.y);
 }
 
 void SDLCircleComponent::DrawLine(int x0, int y0, int x1, int y1)
 {
+    //May need to convert to a line drawn by pixels.
+    //Calculate the points from the center to the edge
+    
+
     SDL_RenderDrawLine(m_Renderer, x0, y0, x1, y1);
 }
 
