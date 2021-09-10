@@ -15,6 +15,8 @@ GameMatchState::GameMatchState(SDL_Renderer* renderer, ScriptLoader& script_load
     std::cout <<"Setup Fonts.\n";
     m_AssetManager.AddFont("ScoreFont", "arial.ttf", 10);
 
+    m_AssetManager.AddTexture("BallSprite", "pixel_ball_20x20.png");
+
     std::cout << "Initializing PlayerManager\n";
 
     //Load Player Colors.

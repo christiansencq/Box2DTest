@@ -4,14 +4,14 @@
 Compiled on Linux(Kubuntu 20.10) with g++.  Built with [Cmake](https://cmake.org).
 
 This is a simple physics Hockey game & built-from-scratch engine which uses (along with the STL)
- - [Box2D](https://box2d.org) for physics simulation. 
+    Dynamically linked dependencies:
+ - [Box2D](https://box2d.org) for physics simulation.  
  - [SDL2](https://www.libsdl.org/) for graphics, keyboard input, and text.
+    Statically linked libraries:
  - [Lua](https://www.lua.org) for Scripting/Variable manipulation.
  - [Sol](https://www.github.com/ThePhD/sol2) for binding Lua to C++.
 
-
 The engine itself utilizes a finite state-machine for game states, a command system for unique and varied abilities, and an Entity-Component system for creating unique, manageable game entities.
-
 
 The Ice Hockey game is implemented within the 'GameMatchState'. 
 
@@ -26,7 +26,9 @@ Battlecon, Unmatched) with different approaches to winning.
 
 ###Controls 
 
-By default are: (Should soon be configurable in the Lua script)
+Controls are specified in the lKeys.lua file in the build directory. They can be modified to any of the letter keys, row of numerals, or arrow keys currently.
+
+Default keys are:
 
     Player 1
 Up key       - Forward
@@ -47,10 +49,8 @@ b key        - Swap to Ball 2
 n key        - Swap to Ball 3
 
 
-
 ###TODO:
     Create additional states for: Main Menu(EntryPoint),
                                   MatchSetUp (Set many of the variables currently "statically" determined in the Initialization of the GameState),
                                   Pause
 
-    Implement control customization through Lua script.

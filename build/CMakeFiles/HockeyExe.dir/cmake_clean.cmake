@@ -9,6 +9,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/HockeyExe.dir/source/Components/SDLCircleComponent.cpp.o"
   "CMakeFiles/HockeyExe.dir/source/Components/SDLRectComponent.cpp.o"
   "CMakeFiles/HockeyExe.dir/source/Components/SelectableComponent.cpp.o"
+  "CMakeFiles/HockeyExe.dir/source/Components/SpriteComponent.cpp.o"
   "CMakeFiles/HockeyExe.dir/source/Components/TextComponent.cpp.o"
   "CMakeFiles/HockeyExe.dir/source/Entity.cpp.o"
   "CMakeFiles/HockeyExe.dir/source/EntityManager.cpp.o"

@@ -14,6 +14,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/charles/Cpp/Box2Test/source/Components/SDLCircleComponent.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/source/Components/SDLCircleComponent.cpp.o"
   "/home/charles/Cpp/Box2Test/source/Components/SDLRectComponent.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/source/Components/SDLRectComponent.cpp.o"
   "/home/charles/Cpp/Box2Test/source/Components/SelectableComponent.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/source/Components/SelectableComponent.cpp.o"
+  "/home/charles/Cpp/Box2Test/source/Components/SpriteComponent.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/source/Components/SpriteComponent.cpp.o"
   "/home/charles/Cpp/Box2Test/source/Components/TextComponent.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/source/Components/TextComponent.cpp.o"
   "/home/charles/Cpp/Box2Test/source/Entity.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/source/Entity.cpp.o"
   "/home/charles/Cpp/Box2Test/source/EntityManager.cpp" "/home/charles/Cpp/Box2Test/build/CMakeFiles/HockeyExe.dir/source/EntityManager.cpp.o"

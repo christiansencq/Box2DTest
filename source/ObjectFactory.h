@@ -11,6 +11,7 @@
 #include "ArenaLayout.h"
 #include "Components/KeyInputComponent.h"
 #include "Components/PlayerOwnerComponent.h"
+#include "Components/SpriteComponent.h"
 
 // class PlayerOwnerComponent;
 class KeyInputComponent;

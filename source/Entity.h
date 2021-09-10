@@ -17,6 +17,7 @@
 #include "Components/TextComponent.h"
 #include "Components/KeyInputComponent.h"
 #include "Components/SDLCircleComponent.h"
+#include "Components/SpriteComponent.h"
 #include "Components/SDLRectComponent.h"
 #include "Components/SelectableComponent.h"
 

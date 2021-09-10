@@ -1297,6 +1297,33 @@ source/Components/SelectableComponent.cpp.s:
 	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Components/SelectableComponent.cpp.s
 .PHONY : source/Components/SelectableComponent.cpp.s
 
+source/Components/SpriteComponent.o: source/Components/SpriteComponent.cpp.o
+
+.PHONY : source/Components/SpriteComponent.o
+
+# target to build an object file
+source/Components/SpriteComponent.cpp.o:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Components/SpriteComponent.cpp.o
+.PHONY : source/Components/SpriteComponent.cpp.o
+
+source/Components/SpriteComponent.i: source/Components/SpriteComponent.cpp.i
+
+.PHONY : source/Components/SpriteComponent.i
+
+# target to preprocess a source file
+source/Components/SpriteComponent.cpp.i:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Components/SpriteComponent.cpp.i
+.PHONY : source/Components/SpriteComponent.cpp.i
+
+source/Components/SpriteComponent.s: source/Components/SpriteComponent.cpp.s
+
+.PHONY : source/Components/SpriteComponent.s
+
+# target to generate assembly for a file
+source/Components/SpriteComponent.cpp.s:
+	$(MAKE) -f CMakeFiles/HockeyExe.dir/build.make CMakeFiles/HockeyExe.dir/source/Components/SpriteComponent.cpp.s
+.PHONY : source/Components/SpriteComponent.cpp.s
+
 source/Components/TextComponent.o: source/Components/TextComponent.cpp.o
 
 .PHONY : source/Components/TextComponent.o
@@ -1679,6 +1706,9 @@ help:
 	@echo "... source/Components/SelectableComponent.o"
 	@echo "... source/Components/SelectableComponent.i"
 	@echo "... source/Components/SelectableComponent.s"
+	@echo "... source/Components/SpriteComponent.o"
+	@echo "... source/Components/SpriteComponent.i"
+	@echo "... source/Components/SpriteComponent.s"
 	@echo "... source/Components/TextComponent.o"
 	@echo "... source/Components/TextComponent.i"
 	@echo "... source/Components/TextComponent.s"

@@ -4,17 +4,14 @@
 #include "SDL2/SDL.h"
 #include "Box2D/Box2D.h"
 
-//#include "../Entity.h"
 class Entity;
 
 /*
 Provide further breakdowns of components to like renderers, input handlers, etc?
-
 Certainly want Entities to only try to call methods of components WITH a relevant method (not an empty one)
 
 These virtual functions should be shared by ALL components!  (Maybe I just need: Initialize, printType)
 */
-
 
 class Component
 {

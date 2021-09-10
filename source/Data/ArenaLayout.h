@@ -9,6 +9,7 @@
 
 struct ArenaLayoutData
 {
+    float DEFAULT_BALL_SIZE;
     //Lua imported variables.
     float WALL_THICKNESS;
     float WALL_BUFFER;
