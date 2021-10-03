@@ -1,0 +1,9 @@
+
+- Update Doxygen
+- Figure out scaling changes for angle indicator.
+    Seems to change resolution when the angle is not vertical or horizontal
+- Finish the timing Component integration.
+    - Entity with A) Text Component, B) Timing Component, ((C) Transform Component))
+
+
+X - Again try to update scriptloader for KeyCodes, see if I can load the table into a function?

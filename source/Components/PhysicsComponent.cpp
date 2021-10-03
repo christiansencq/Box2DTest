@@ -121,11 +121,13 @@ void PhysicsComponent::SetThrustDirection(ThrustDir dir)
     switch (dir)
     {
         case ThrustDir::FORWARD:
-            m_ThrustingVec = { 2*cos(m_PhysBody->GetAngle()), 2*sin(m_PhysBody->GetAngle())};
+            m_ThrustingVec = { cos(m_PhysBody->GetAngle()), sin(m_PhysBody->GetAngle())};
+            // m_ThrustingVec = { 2*cos(m_PhysBody->GetAngle()), 2*sin(m_PhysBody->GetAngle())};
             isThrusting = true;            
             break;
         case ThrustDir::BACKWARD:
-            m_ThrustingVec = { -2*cos(m_PhysBody->GetAngle()), -2*sin(m_PhysBody->GetAngle())};
+            m_ThrustingVec = { cos(m_PhysBody->GetAngle()), sin(m_PhysBody->GetAngle())};
+            // m_ThrustingVec = { -2*cos(m_PhysBody->GetAngle()), -2*sin(m_PhysBody->GetAngle())};
             isThrusting = true;
             break;            
         case ThrustDir::NONE:

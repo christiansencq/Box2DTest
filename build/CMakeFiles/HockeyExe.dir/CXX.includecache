@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+../source/Data/ArenaLayout.h
+vector
+-
+Box2D/Box2D.h
+../source/Data/Box2D/Box2D.h
+Constants.h
+../source/Data/Constants.h
+
 ../source/Data/Constants.h
 Box2D/Box2D.h
 ../source/Data/Box2D/Box2D.h
@@ -128,14 +136,6 @@ Component.h
 ../Player.h
 /home/charles/Cpp/Box2Test/source/Player.h
 
-/home/charles/Cpp/Box2Test/source/Components/SpriteComponent.cpp
-SpriteComponent.h
-/home/charles/Cpp/Box2Test/source/Components/SpriteComponent.h
-../Entity.h
-/home/charles/Cpp/Box2Test/source/Entity.h
-cmath
--
-
 /home/charles/Cpp/Box2Test/source/Components/SpriteComponent.h
 Component.h
 /home/charles/Cpp/Box2Test/source/Components/Component.h
@@ -195,6 +195,46 @@ Components/SDLRectComponent.h
 /home/charles/Cpp/Box2Test/source/Components/SDLRectComponent.h
 Components/SelectableComponent.h
 /home/charles/Cpp/Box2Test/source/Components/SelectableComponent.h
+
+/home/charles/Cpp/Box2Test/source/EntityManager.h
+memory
+-
+vector
+-
+Entity.h
+/home/charles/Cpp/Box2Test/source/Entity.h
+Player.h
+/home/charles/Cpp/Box2Test/source/Player.h
+
+/home/charles/Cpp/Box2Test/source/ObjectFactory.cpp
+ObjectFactory.h
+/home/charles/Cpp/Box2Test/source/ObjectFactory.h
+Components/GoalZoneComponent.h
+/home/charles/Cpp/Box2Test/source/Components/GoalZoneComponent.h
+Components/PhysicsComponent.h
+/home/charles/Cpp/Box2Test/source/Components/PhysicsComponent.h
+
+/home/charles/Cpp/Box2Test/source/ObjectFactory.h
+cassert
+-
+memory
+-
+vector
+-
+Data/Constants.h
+/home/charles/Cpp/Box2Test/source/Data/Constants.h
+EntityManager.h
+/home/charles/Cpp/Box2Test/source/EntityManager.h
+Player.h
+/home/charles/Cpp/Box2Test/source/Player.h
+ArenaLayout.h
+/home/charles/Cpp/Box2Test/source/ArenaLayout.h
+Components/KeyInputComponent.h
+/home/charles/Cpp/Box2Test/source/Components/KeyInputComponent.h
+Components/PlayerOwnerComponent.h
+/home/charles/Cpp/Box2Test/source/Components/PlayerOwnerComponent.h
+Components/SpriteComponent.h
+/home/charles/Cpp/Box2Test/source/Components/SpriteComponent.h
 
 /home/charles/Cpp/Box2Test/source/Player.h
 vector

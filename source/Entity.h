@@ -88,6 +88,7 @@ public:
     int GetRadius() { return m_PixelRad; }
     float GetAngle() { return m_Angle; }
 
+
 private:
 
     EntityManager& m_Manager;

@@ -62,8 +62,8 @@ Entity* ObjectFactory::CreatePlayerBall(Player* player, b2Vec2 startPos, SDL_Col
     ball->AddComponent<PlayerOwnerComponent>(player);
     ball->AddComponent<PhysicsComponent>(m_PhysicsWorld, ShapeType::CIRCLE, b2BodyType::b2_dynamicBody);
     ball->GetComponent<PhysicsComponent>()->SetData(false);
-    // ball->AddComponent<SDLCircleComponent>(m_Renderer);
-    ball->AddComponent<SpriteComponent>(m_AssetManager, m_Renderer, "BallSprite", b2Vec2{20, 20});
+    ball->AddComponent<SDLCircleComponent>(m_Renderer);
+    // ball->AddComponent<SpriteComponent>(m_AssetManager, m_Renderer, "BallSprite", b2Vec2{20, 20});
     ball->AddComponent<SelectableComponent>(m_Renderer, sel_color);
     ball->AddComponent<KeyInputComponent>(player->GetActionKeys());
     ball->GetComponent<KeyInputComponent>()->AddCommand<ForwardThrustCommand>();

@@ -11,7 +11,7 @@ p1BallStartX = (SCREEN_WIDTH/2) - (SCREEN_WIDTH/8)
 p2BallStartX = (SCREEN_WIDTH/2) + (SCREEN_WIDTH/8)
 
 BallStartPos = { P1 = { b1 = {p1BallStartX,  3*SCREEN_HEIGHT/4},  b2 = {p1BallStartX,  2*SCREEN_HEIGHT/4},  b3 = {p1BallStartX,  1*SCREEN_HEIGHT/4} }, 
-                 P2 = { b1 = {p2BallStartX, 3*SCREEN_HEIGHT/4},  b2 = {p2BallStartX, 20*SCREEN_HEIGHT/4},  b3 = {p2BallStartX, 1*SCREEN_HEIGHT/4} } }
+                 P2 = { b1 = {p2BallStartX, 3*SCREEN_HEIGHT/4},  b2 = {p2BallStartX, 2*SCREEN_HEIGHT/4},  b3 = {p2BallStartX, 1*SCREEN_HEIGHT/4} } }
 
 PuckPos = { SCREEN_WIDTH/2, SCREEN_HEIGHT/2 }
 
